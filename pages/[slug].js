@@ -1,8 +1,21 @@
 import { MDXRemote } from "next-mdx-remote";
-import { getFiles, getFileBySlug } from "../lib/mdx";
+import { Heading } from "@chakra-ui/react";
+
+import MDXComponents from "@/components/MDXComponents";
+import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontMatter }) {
-  return <MDXRemote {...source} />;
+  return (
+    <div>
+      <article>
+        <Heading as="h1" size="3xl">
+          {frontMatter.title}
+        </Heading>
+        <MDXRemote {...source} components={MDXComponents} />
+        );
+      </article>
+    </div>
+  );
 }
 
 export async function getStaticPaths() {
