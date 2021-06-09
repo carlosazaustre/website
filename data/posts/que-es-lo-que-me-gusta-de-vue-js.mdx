@@ -1,0 +1,186 @@
+---
+title: "Qué es lo que me gusta de Vue.js"
+date: "2017-08-16"
+tags:
+  - "💻 Desarrollo"
+---
+
+Todos los veranos me gusta aprovechar para aprender algo nuevo. [El año pasado le dí una oportunidad a React](https://carlosazaustre.es/mi-inmersion-en-react/) y me gustó mucho, tanto que opté por dejar Angular (v1.x) a un lado y trabajar con React.js. Este verano le ha tocado a Vue, y en éste post te quiero contar por qué me ha _conVUEncido_ 😉.
+
+<YouTube videoId="3D5aos_rbrw" />
+
+## Framework Progresivo
+
+[Vue.js](//vuejs.org) es un framework progresivo, eso quiere decir que podemos usarlo para algo múy básico, igual que antes se usaba jQuery para cosas sencillas, o para algo más complejo como el desarrollo de una SPA, o para _Server-Rendering._ Siempre con un rendimiento y experiencia de desarrollo muy buena.
+
+![995016_ebf4](/images/que-es-lo-que-me-gusta-de-vue-js/995016_ebf4.jpg)
+
+Si queremos hacer un uso muy básico de Vue y crear una aplicación muy sencilla, no falta que utilicemos Webpack, ni necesitamos instalar _transpilers_ ni nada. Simplemente con importar la librería en el HTML (Desde un CDN como _cdnjs_ o _unkpg_) ya podemos utilizar Vue.
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+```
+
+Si nuestra aplicación crece y queremos orientarla a componentes, podemos hacerlo sin cambiar nuestro _workflow_.
+
+Si vamos manejar muchos ficheros podemos crear archivos con _.vue_ y que Webpack se encarge de gestionarlo y empaquetarlo. Podemos utilizar _vue-router_ si vamos a tener muchas vistas para manejar el routing del cliente, _vuex_ para manejar el estado de la aplicación al estilo de Redux/Flux e incluso _server-rendering_ utilizando librerías como Nuxt.js. Todo ello de una manera muy simple.
+
+En resumen, si necesitamos algo muy básico, Vue es perfecto y no es necesario instalar nada más. Y si necesitamos desarrollar un proyecto más complejo, Vue cubre con creces nuestras necesidades y podemos ir ampliandolo con plugins a medida que nuestra aplicación nos lo pida.
+
+## Similitud con React: Ciclo de vida
+
+Una de las cosas que más me gusta de React son sus métodos de ciclo de vida de los componentes. Gracias a ellos puedes manejar el comportamiento del mismo dependiendo del momento. Puedes acceder a él en el momento de su creación, de su actualización, destrucción, etc... Vue tambien los tiene y de una manera más intuitiva que React, a mi parecer.
+
+![Vue método del lifecycle](/images/que-es-lo-que-me-gusta-de-vue-js/lifecycle.png)
+
+Éste gráfico está sacado de la [documentación oficial](//vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks) (también muy clara y fácil de seguir) dónde se puede ver todos los momentos en los que podemos acceder para añadir o eliminar funcionalidades.
+
+## Methods y Data
+
+También me gusta mucho cómo tienen organizados los diferentes elementos los componentes en Vue. Los datos o modelos del componente están dentro de un objeto `data`, y las funciones o métodos que creamos los colocamos en un objeto `methods`.
+
+Aquí se abandona la idea o sintaxis de clases de ES6 como se venía utilizando en React con `React.Component` por una esctructura de objetos similar al método `createClass` de las primeras versiones de React.
+
+Parece un paso atrás, pero personalmente, tal y cómo funciona Vue, me parece una forma muy correcta de uso. [Aquí](//github.com/vuejs/vue/issues/2371#issuecomment-186238466) y Evan You, al autor de Vue, explica sus razones]
+
+```javascript
+Vue.component("mi-component", {
+  data: {},
+  methods: {},
+});
+```
+
+## Components
+
+Aunque Vue puede utilizarse como una librería muy simple, su potencia viene cuando utlizamos componentes. La orientacion a Componentes en arquitecturas web está muy extendida y podemos estructurar nuestra aplicación de igual manera que se emplea en React, Angular 2/4 o en Polymer.
+
+## Vue templates
+
+Esta es una de las _features_ que más me gusta y que en un primer momento me causó rechazo, viniendo de React dónde todo es JS.
+
+El equipo de Vue y de Webpack han creado una plantilla que con la extensión de fichero `.vue` podemos tener nuestro HTML, CSS y código JavaScript en un único archivo.
+
+Ésto es muy poderoso porque unimos, a mi parecer 2 mundos. En React tenemos todo en un mismo fichero, pero implica que personas del equipo de diseño y/o maquetacion necesitaran saber React y JSX para poder añadir estilos y diseñar el _layout_ de las vistas.
+
+En Vue puedes crear un fichero `.vue` de la siguiente forma
+
+```html
+<template>
+  <!--- Aqui va el HTML, puedes utilizar sintaxis Pug/Jade -->
+</template>
+
+<script>
+  // Aqui el código JavaScript, (puedes usar Babel, TypeScript,...)
+</script>
+
+<style>
+  /* Aqui el CSS, puedes usar stylus, Sass, Less, etc... */
+</style>
+```
+
+El _loader_ de webpack (`vue-loader`) se encarga de extraer cada parte a su correspondiente formato y fichero para producción, permitiéndote tener tus ficheros separado por componentes.
+
+Es una forma muy similar a cómo Polymer define los _WebComponents_ en los ficheros _.html_. Sigue una estructura muy parecida.
+
+Pero como digo, esto es para tu entorno de desarrollo y _workflow_. Tu código final de producción no incluye ficheros `.vue`, si no ficheros JavaScript y CSS y un único fichero `index.html`.
+
+## Similitud con Angular: Directivas
+
+Una de las cosas que me gustaba de Angular eran sus directivas, que extendían el HTML para decidir si un elemento se mostraba o no, utilizar _fors_ para recorrer un listado de elementos, asociar métodos a eventos, enlazar modelos, etc...
+
+Eso mismo lo tenemos en Vue también y de una forma muy similar.
+
+Si queremos que un elemento responda a un evento click, por ejemplo, debemos utilizar la directiva `v-on:click` o de la forma reducida `@click` seguida del metodo manejador asociado:
+
+```html
+<button @click="miMetodo()">Haz Click</button>
+```
+
+Al contrario de React, donde utilizamos el método `render()` del componente, sintaxis JSX para definir la vista y mezclamos cierta lógica al permitirnos utilizar JavaScript. En Vue, al igual que Angular, tenemos separado Vista de Controlador utilizando puro HTML + directivas para la vista y JavaScript para la lógica.
+
+## Vuex
+
+Una de las cosas que más me gustó del ecosistema de React, fue Redux. Manejar el estado de una aplicación compleja con esta librería lo hacía todo más fácil.
+
+Sin embargo hay cosas que no me gustan del todo cuando se integra con React, y es algo parecido a lo que pasa con Polymer.
+
+Existen componentes o WebComponents para todo, hasta para cosas que no tienen una representación visual, como una conexión con Firebase (elemento de `polymer-fire`) o un sistema de routing (`react-router`)
+
+Esto es una opinión personal, pero creo que los componentes/webcomponents fueron creados para representar elementos gráficamente. Como por ejemplo un `<google-maps></google-maps>` para representar un mapa. El resto de cosas deberían ser configuradas mediante JavaScript.
+
+Vue acierta en eso a mi parecer. _Vue-Router_ utiliza un objeto para configurar las rutas que tenemos en la aplicación.
+
+Y lo mismo pasa con _Vuex_, la librería que implementa el patron _Flux_ para Vue, (Es el _Redux de Vue_). En este caso no tenemos un componente `<Provider>` que engloba todos nuestros componentes para pasar la _store_ a todos los elementos.
+
+![vuex](/images/que-es-lo-que-me-gusta-de-vue-js/vuex.png)
+
+[Vuex](//vuex.vuejs.org) se instala como un _plugin_, extendiendo el funcionamiento de Vue y esto nos permite acceder al estado y métodos mutacionales del mismo desde el compoenente que se necesite. No es necesario crear _containers_ como se hace en `react-redux` para tener el estado como propiedades del componente. Por medio de _getters_ podemos acceder a él de una manera, a mi parecer, más sencilla.
+
+Los cambios en el estado se realizan de manera mutacional, es decir, no es como en React dónde siempre debíamos devolver una nueva copia del estado a partir del anterior. En Vuex y Vue en general, debemos modificarlo (mutarlo) para que sea _reactivo_ y la vista refleje los cambios. Es un cambio importante cuando vienes de React.
+
+Y las operaciones asíncronas se manejan de una forma más sencilla que en React/Redux, dónde necesitamos hacer uso de _Thunks_ o _Sagas_ para manejarlo.
+
+En Vuex no es necesario el uso de ninguna otra librería ni _hack_ para poder realizar llamadas asíncronas que manipulen el estado. Se puede hacer algo tan simple cómo:
+
+```javascript
+// Action para traer datos via AJAX de un servidor externo
+fetchBoards ({ commit }, { user }) {
+    commit(types.FETCH_BOARDS_REQUEST)
+
+    API.getBoardsByUser(user)
+      .then(data => commit(types.FETCH_BOARDS_SUCCESS, { boards: data }))
+      .catch(error => commit(types.FETCH_BOARDS_FAILURE, { error }))
+}
+```
+
+Mucho más limpio y claro que con `redux-thunk` por ejemplo.
+
+## Vue-CLI
+
+Todos los frameworks del momento tienen su propio CLI (Herramienta de línea de comandos) para iniciar un proyecto y ahorrarnos crear la estructura de carpetas y ficheros además de la configuración de Webapack u otras herramientas de desarrollo.
+
+En React tenemos `create-react-app` que nos ahorra mucho tiempo, en Polymer tienen su propio CLI para crear componentes y aplicaciones, y también existe en Angular.
+
+El oficial de Vue es Vue-CLI y por medio de un sistema de plantillas creadas por la comunidad y por el propio equipo de Vue, tenemos nuestro _esqueleto de proyecto_ en segundos.
+
+La plantilla o template que más utilizo es la de `webpack` que te genera ya el fichero de configuración y las tareas necesarias para desarrollo y producción sin tener que escribir ni configurar nada.
+
+Y lo mejor es que ni tienes que instalar los templates por separado, el CLI los busca y te los instala.
+
+Para utilizarlo sería aglo tan simple como:
+
+```shell
+# Instala de forma global VUE-CLI para poder llamarlo desde cualquier path
+$ npm install --global vue-cli
+# Genera un proyecto con Webpack configurado y listo para codear
+$ vue init webpack
+```
+
+## Conclusión
+
+Vue me ha parecido una librería/framework muy potente que me permite utilizarlo para algo muy sencillo, como una _landing page_ donde necesite algo de contenido dinámico, sin necesidad de instalar nada más ni configurar ningún _workflow_, simplemente HTML+CSS+JS y en ese sentido sería como utilizar _jQuery_ pero mucho mas potente y versátil.
+
+También me permite utilizarlo en aplicaciones SPA más complejas de una manera muy limpia y sencilla, ya que utilizar `vue-router` y `vuex` es muy intuitivo y no hay que escribir mucho _boilerplate_ para configurarlo. Sus APIs son muy sencillas y puedes enfocarte directamente en el código de tus apps.
+
+La grandes preguntas siempre son ¿Vue o React?, ¿Angular o Vue? o ¿Angular o React? A lo que siempre respondo lo msimo.
+
+Todas son excelentes librerías/frameworks. Son muy potentes y están soportadas por la comunidad. Todas te permiten crear una aplicación y ninguna es peor o mejor que otra.
+
+Peronalmente he probado Angular 1x, React y actualmente Vue y todas me han servido en su momento para desarrollar lo que hacía. Si que es cierto que React me facilitó cosas que con Angular 1x me parecían más complicadas y Vue actualmente me hace más sencillo ciertas cosas que con React son más complejas.
+
+Pero también influye la experiencia. Hace unos años los Componentes ni se planteaban, todo era MVC, y cosas como Redux o Vuex no estaban. Entonces los proyectos crecen y evolucionan y cada vez tenemos nuevas herramientas a nuestro alcence para crearlos.
+
+Para finalizar, comparto este _Tweet_ de [Rafael Casuso](https://twitter.com/Rafael_Casuso), organizador de [VueJS Madrid](https://www.meetup.com/VueJS-Madrid/) que también ha trabajado con muchos proyectos y en todos ha utilizado frameworks y librerías diferentes:
+
+<blockquote class="twitter-tweet" data-lang="en">
+  <p lang="es" dir="ltr">
+    No te ancles ideológicamente a ningún framework o lenguaje. Aprende,
+    evoluciona, prueba, compara. No existe la bala de plata.
+  </p>
+  &mdash; Rafael Casuso (@Rafael_Casuso) <a href="https://twitter.com/Rafael_Casuso/status/886951748170125312">July 17, 2017</a>
+</blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Opinión que comparto 100%.
+
+Y tú ¿Ya has probado Vue?

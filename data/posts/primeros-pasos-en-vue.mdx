@@ -1,0 +1,308 @@
+---
+title: Primeros pasos en Vue
+date: 2018-10-01
+tags:
+  - "💻 Desarrollo"
+---
+
+Con éste artículo quiero enseñarte lo fácil que es empezar a trabajar con Vue para que veas su sencillez.
+
+Para ver como funciona Vue no necesitas _Webpack_, ni _Babel_, ni _transpilers_, ni una estructura compleja de archivos y carpetas, únicamente necesitas un fichero HTML de toda la vida, una hoja de estilos CSS, un fichero JavaScript para el código e importar la librería desde un CDN como puede ser _cdnjs.org_.
+
+¡Empecemos!
+
+> Para seguir este tutorial, puedes utilizar tu editor de texto preferido + navegador o utilizar JSBin si te es más cómodo para probar cosas.
+> Si prefieres ver el contenido en vídeo, dale al play!
+
+<YouTube videoId="L0F4OPPsm0c" />
+
+Vamos a utilizar este fichero `index.html`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  </body>
+</html>
+```
+
+Es un HTML normal, únicamente a destacar que tenemos un elemento `<div>` con el id `app` y el enlace a librería `vue.js` en su versión 2.
+
+Ahora vamos a añadir código JavaScript y puedes escribirlo en el index.html dentro de un elemento `<script>` o utilizar un fichero JavaScript aparte y enlazarlo igual que la librería de Vue.
+
+## Inicialización de Vue
+
+Para poder empezar a trabajar con Vue, tenemos que crear una nueva instancia y pasar ciertas propiedades al objeto de configuración, entre ellas el elemento del DOM dónde vamos a _renderizar_ o hacer uso de Vue. En este caso sería el `<div>` con el ID `app`:
+
+```javascript
+const app = new Vue({
+  el: "#app",
+});
+```
+
+Algo tan simple como eso es lo que se necesita para inicializar Vue en un proyecto web. Ahora vamos a ver más cosas como por ejemplo como se muestran datos utilizando el doble _data-binding_:
+
+## Mostrar datos
+
+Tomando el HTML anterior y colocando lo siguiente entre el `<div id="app">`:
+
+```html
+<div id="app">{{ mensaje }}</div>
+```
+
+Estamos indicando que nuestra instancia de Vue va a tener un tipo de dato llamado `mensaje` y que podemos manipular desde el código.
+
+Para ello simplemente añadimos una nueva propiedad-objeto llamada `data` donde estarán todos las propiedades y/o modelos de datos que queramos utilizar en la vista
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    mensaje: "Hola Vue!",
+  },
+});
+```
+
+Esto mostrará en el navegador el texto: _Hola Vue!_
+
+Si los datos se tienen que utilizar dentro de un elemento del DOM como propiedad, no podemos utilizar la sintaxis de las _dobles llaves_ para mostrar el valor. Necesitamos hacer uso de la directiva `v-bind` para ello.
+
+Veamos un ejemplo con una imagen por ejemplo:
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    mensaje: "Hola Vue!",
+    imagen:
+      "http://laravelacademy.org/wp-content/uploads/2016/08/00-featured-vuejs-logo-simple-256x128.jpg",
+  },
+});
+```
+
+El dato `imagen` contiene la URL de una imagen `jpg`. Para poder mostrarla en la vista utilizando un elemento `<img>` necesitamos pasarle al atributo `src` el nombre de la variable, entre comillas, y utilizar la directiva de Vue `v-bind` para enlazar el modelo:
+
+```html
+<div id="app">
+  {{ mensaje }}
+  <img v-bind:src="imagen" />
+</div>
+```
+
+De esta forma se podrá ver la imagen en el navegador.
+
+También podemos usar la forma abreviada que ofrece Vue, y es que cuando se trate de un atributo, podemos prescindir del texto `v-bind` y utilizar únicamente dos puntos `:`
+
+```html
+<div id="app">
+  {{ mensaje }}
+  <img :src="imagen" />
+</div>
+```
+
+Vale, esto está muy bien, pero ¿Se pueden hacer más cosas? Claro que si, hay un gran número de directivas, por ejemplo si queremos mostrar algo o no dependiendo de un dato, podemos utilizar `v-if` o `v-show` y `v-hide`:
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    mostrar: false,
+    mensaje: "Hola Vue!",
+    imagen:
+      "http://laravelacademy.org/wp-content/uploads/2016/08/00-featured-vuejs-logo-simple-256x128.jpg",
+  },
+});
+```
+
+```html
+<div id="app">
+  <div v-if="mostrar">
+    {{ mensaje }}
+    <img :src="imagen" />
+  </div>
+</div>
+```
+
+Aquí lo que hemos hecho es añadir un nuevo dato `mostrar` con el valor a `false` que hará que no se muestre ni el mensaje ni la imagen en el navegador. Si cambiamos a `true` podemos verlo de nuevo.
+
+## Eventos y Métodos
+
+La "gracia" de desarrollar una SPA es que haya cambios de forma dinámica en nuestro proyecto. Esto lo podemos conseguir utilizando métodos que realizan cambios y eventos que disparen estos métodos.
+
+Los métodos se indican al igual que los datos en un objeto-propiedad llamado `methods`.
+
+Vamos a añadir un elemento `<button>` que escuche un evento de `click` y dispare un metodo `toggleMostrar` que lo único que hará es cambiar el valor del dato `mostrar` al contrario para mostrar los elementos anteriores o no. Sería algo así:
+
+```html
+<div id="app">
+  <div v-if="mostrar">
+    {{ mensaje }}
+    <img :src="imagen" />
+  </div>
+  <button v-on:click="toggleMostrar">Mostrar/Ocultar</button>
+</div>
+```
+
+El evento se añade con la directiva `v-on:click` para el caso de responder ante un click del botón. Hay multitud de eventos: `hover`, `submit`, `change`, etc...
+
+También podemos utilizar la forma abreviada que propone Vue que es `@click`, es decir se sustituye `v-on` por un `@`:
+
+```html
+<div id="app">
+  <div v-if="mostrar">
+    {{ mensaje }}
+    <img :src="imagen" />
+  </div>
+  <button @click="toggleMostrar">Mostrar/Ocultar</button>
+</div>
+```
+
+Ahora el código JavaScript sería el siguiente:
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    mostrar: true,
+    mensaje: "Hola Vue!",
+    imagen:
+      "http://laravelacademy.org/wp-content/uploads/2016/08/00-featured-vuejs-logo-simple-256x128.jpg",
+  },
+  methods: {
+    toggleMostrar: function () {
+      this.mostrar = !this.mostrar;
+    },
+  },
+});
+```
+
+Darse cuenta que para hacer uso del dato `mostrar` dentro de los métodos, tenemos que utilizar el objeto `this` si no no podríamos referenciarlo y utilizarlo.
+
+Ahora, cada vez que hagamos click en el botón, en el navegador se mostrará u ocultará la información.
+
+## Templates
+
+También podemos trabajar con templates, es decir, tener el código HTML en nuestra instancia de Vue. No es la mejor práctica, pero para algo puntual puede ser muy útil. Así, por ejemplo, se trabajaba con Angular v1 en sus inicios.
+
+Podemos reducir el código anterior al siguiente HTML y JavaScript
+
+```html
+<div id="app"></div>
+```
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  template: `
+    <div>
+      <div v-if="mostrar">
+        {{ mensaje }}
+        <img :src="imagen" />
+      </div>
+      <button @click="toggleMostrar">Mostrar/Ocultar</button>
+    </div>
+  `,
+  data: {
+    mostrar: true,
+    mensaje: "Hola Vue!",
+    imagen:
+      "http://laravelacademy.org/wp-content/uploads/2016/08/00-featured-vuejs-logo-simple-256x128.jpg",
+  },
+  methods: {
+    toggleMostrar: function () {
+      this.mostrar = !this.mostrar;
+    },
+  },
+});
+```
+
+Hemos utilizado la propiedad `template` de Vue para añadir el HTML. Ten en cuenta que al igual que en React, debe ir siempre incluido todo en un único elemento del DOM.
+
+Si esto no te convence, puedes utilizar el elemento `<template>` de HTML5 y referenciarlo dentro de la instancia de Vue de la siguiente forma:
+
+```html
+<div id="app"></div>
+
+<template id="ejemplo">
+  <div>
+    <div v-if="mostrar">
+      {{ mensaje }}
+      <img :src="imagen" />
+    </div>
+    <button @click="toggleMostrar">Mostrar/Ocultar</button>
+  </div>
+</template>
+```
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  template: "#ejemplo",
+  data: {
+    mostrar: true,
+    mensaje: "Hola Vue!",
+    imagen:
+      "http://laravelacademy.org/wp-content/uploads/2016/08/00-featured-vuejs-logo-simple-256x128.jpg",
+  },
+  methods: {
+    toggleMostrar: function () {
+      this.mostrar = !this.mostrar;
+    },
+  },
+});
+```
+
+## Recorrer listados de datos
+
+Una de las cosas que más se utilizan en proyectos es recorrer un listado de items para mostrarlos en la pantalla. En Vue es muy sencillo con al directiva `v-for` y se hace de una forma muy similar a cómo se hace en Angular.
+
+Imaginemos que tenemos un dato en nuestro modelo, que es un array de objetos llamado `cursos`:
+
+```javascript
+const app = new Vue({
+  el: "#app",
+  data: {
+    cursos: [
+      {
+        name: "Fundamentos de React",
+        url: "http://cursos.carlosazaustre.es/p/react-js",
+      },
+      {
+        name: "Redux con React",
+        url: "http://cursos.carlosazaustre.es/p/curso-profesional-de-redux-y-react",
+      },
+      {
+        name: "React Native",
+        url: "http://cursos.carlosazaustre.es/p/react-native",
+      },
+    ],
+  },
+});
+```
+
+Para mostrar la información en la vista HTML, con una lista por ejemplo y que cada item `<li>` sea un enlace hacia el curso, tendríamos que hacer lo siguiente. (Date cuenta del `bind` de datos utilizando la sintaxis abreviada de `:` en lugar de `v-bind` en las directivas `key` y `href`):
+
+```html
+<div id="app">
+  <ul>
+    <li v-for="(curso, index) in cursos" :key="index">
+      <a :href="curso.url">{{ curso.name }}</a>
+    </li>
+  </ul>
+</div>
+```
+
+## Resumen
+
+Vue es mucho más, pero tan sólo quería enseñarte los primeros movimientos para que veas que sencillo es de utilizar.
+
+Date cuenta que todo esto lo hemos podido ejecutar en un único fichero HTML sin necesidad de utilizar ningún tipo de herramienta, ni NPM ni transpiler. Es puro HTML y JavaScript (y CSS si lo hubiésemos utilizado) Y te permite tener un primer contacto con la librería y ver que es lo que se puede hacer con ella y cómo funciona.
+
+Espero que te haya gustado y te haya animado a trabajar con ella.

@@ -1,0 +1,244 @@
+---
+title: "Primera aplicación web en RaspberryPi con NodeJS + CylonJS. Controlando LEDs desde el móvil"
+date: "2014-07-16"
+tags:
+  - "💻 Desarrollo"
+---
+
+En este tutorial vamos a implementar una WebApp que controle 3 LEDs de colores conectados a los pines GPIO de la RaspberryPi. Utilizando para ello **JavaScript a _troche_ y _moche_.**
+
+<YouTube videoId="EnBTQTjX4wE" />
+
+[Necesitaremos una RaspberryPi, con Raspbian instalado, la red configurada y con el framework CylonJS y los pines GPIO activados](/programando-en-node-js-con-raspberrypi-primeros-pasos/). Esto lo podéis consultar en la [anterior entrada](/programando-en-node-js-con-raspberrypi-primeros-pasos/). Como materiales adicionales necesitaremos **3 LEDs de colores** (Rojo, amarillo y verde por ejemplo) y **3 resistencias** (por ej. de 470 _ohms_) para protegerlos. También unos cables para conectar los Leds a los pines GPIO.
+
+En mi caso, [adquirí una placa de prototipado](http://www.adafruit.com/products/942) en la tienda [Adafruit](http://www.adafruit.com/), además de un [cable BUS que me conecta los pines GPIO](http://www.adafruit.com/products/914) con esta placa y me hace más facil las instalaciones.
+
+![RaspberryPi con Protoboard](/images/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil/IMG_0446_xsxg6q.jpg)
+
+### Estructura de la aplicación
+
+La estructura que tendrá nuestra webapp con API será esta, ahora explicaremos que hace cada fichero:
+
+```sh
+/raspi-app
+|_ /app
+|    |_ /controllers
+|    |   |_ led.js
+|    |_ /views
+|        |_ index.server.view.html
+|_ /public
+|   |_ /css
+|   |_ /js
+|   |_ /fonts
+|_ package.json
+|_ server.js
+```
+
+**package.json**  
+En este fichero se encuentran las dependencias de Node.js que vamos a utilizar. Serán **Express** y las librerias necesarias para crear llamadas GET a nuestro API (**body-parser** y **method-override**) que desde la versión 4 de Express, se encuentran en proyectos diferentes para hacer más ligero Express y las que nos permiten crean vistas desde el servidor (**consolidate** y **swig**).
+
+Y despues las del framework **CylonJS** que tiene los drivers necesarios para comunicarse con las Raspberry utilizando JavaScript. El fichero sería así:
+
+```javascript
+{
+  "name": "raspi-app",
+  "version": "0.0.0",
+  "description": "API to turn on/off Raspi LEDs",
+  "author": "Carlos Azaustre <cazaustre@gmail.com>",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "consolidate": "^0.10.0",
+    "cylon": "^0.16.0",
+    "cylon-gpio": "^0.16.0",
+    "cylon-raspi": "^0.10.0",
+    "cylon.i2c": "^0.13.0",
+    "express": "^4.4.1",
+    "method-override": "^2.1.1",
+    "swig": "^1.4.1"
+  },
+  "devDependencies": {}
+}
+```
+
+**server.js**  
+Este fichero es el de arranque de nuestro servidor Node/Express. En el vamos a importar las dependencias, configurar la ruta de los ficheros estáticos, el sistema de plantillas para las vistas y el controlador de los LEDs lo separamos en un modulo aparte para hacer más legible la aplicación. El fichero sería así:
+
+```javascript
+var express = require("express");
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+var cons = require("consolidate");
+var swig = require("swig");
+var path = require("path");
+
+var app = express();
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+app.use(methodOverride());
+
+app.engine("server.view.html", cons["swig"]);
+app.set("view engine", "server.view.html");
+app.set("views", "./app/views");
+app.use(express.static(path.resolve("./public")));
+
+app.route("/").get(function (req, res, next) {
+  res.render("index");
+});
+
+require("./app/controllers/leds")(app);
+
+app.listen(3000, function () {
+  console.log("Raspi Express server listening...");
+});
+```
+
+El servidor **correrá en el puerto 3000 de la IP asignada a la Raspberry** en la red local, en mi caso es `192.168.1.13`, por lo tanto si desde el navegador de un dispositivo (PC, Portatil, Tablet o Smartphone) me dirijo a `http://192.168.1.13:3000` verá la página `index` que se renderiza cuando estamos en la ruta raíz. Para ello debemos configurar las vistas, en este caso sólo 1, `index`.
+
+**app/views/index.server.view.html**  
+En server.js, con este código:
+
+```javascript
+app.engine("server.view.html", cons["swig"]);
+app.set("view engine", "server.view.html");
+app.set("views", "./app/views");
+```
+
+hemos configurado el sistema de plantillas con `swig` y le hemos indicado que las vistas se encuentran en la ruta `/app/views` y son los ficheros del tipo `.server.view.html`.
+
+La página que va a renderizar Express cuando estemos en la ruta raíz será la siguiente:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RaspberryPi LEDs</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" href="css/ratchet.min.css" />
+    <link rel="stylesheet" href="css/ratchet-theme-ios.min.css" />
+    <script src="js/ratchet.min.js"></script>
+  </head>
+  <body>
+    <header class="bar bar-nav">
+      <a class="icon icon-refresh pull-right"></a>
+      <h1 class="title">RasPi GPIO LEDs</h1>
+    </header>
+    <div class="content">
+      <ul class="table-view">
+        <li class="table-view-cell">
+          Red LED
+          <div id="red" class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          Yellow LED
+          <div id="yellow" class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+        <li class="table-view-cell">
+          Green LED
+          <div id="green" class="toggle">
+            <div class="toggle-handle"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+```
+
+He utilizado un framework CSS llamado [**Ratchet**](http://goratchet.com/), de los mismos creadores de Bootstrap, que permite hacer webapps con [estilo nativo de iOS o Android.](http://goratchet.com/components) Ya que la intención de este ejemplo y esta webapp es controlar los LEDs desde el móvil a modo de control remoto, y de paso aprendemos un framework nuevo :)
+
+Los archivos de Ratchet están en la carpeta `/public`, en las carpetas CSS, JS y Fonts. Tan solo debemos descargarnos el framework y descomprimir el archivo ZIP en la carpeta `/public` de nuestra aplicación.
+
+Lo único que tiene esta página es un listado con 3 botones `toggle` que encenderán o apagarán los LEDs. Esta función la comunicaremos con el Backend a través de JavaScript, y tendremos esa funcionalidad en el fichero `js/main.js`
+
+**js/main.js**  
+Este fichero comunicará el Frontend de la webapp con el Backend de la aplicación, realizando llamadas AJAX a nuestro API.
+
+```javascript
+function onReady() {
+  var $btn = $(".toggle");
+  var $range = $("input[type=range]");
+  $btn.on("toggle", function (e) {
+    var led = $(this).attr("id");
+    if ($(this).hasClass("active")) {
+      $.get("/api/" + led + "/on", function (data) {
+        console.log(data);
+      });
+    } else {
+      $.get("/api/" + led + "/off", function (data) {
+        console.log(data);
+      });
+    }
+  });
+}
+$(document).ready(onReady);
+```
+
+Lo único que hacemos aquí es escuchar el evento `toggle` de los botones asociados a los LEDs. En ese momento recogemos el valor de ID del botón pulsado, que será _red_, _yellow_ o _green_ dependiendo del botón pulsado y comprobamos si la posición es _active_ o no, mirando la clase.
+
+En caso de que sea _active_, es que queremos encenderlo, entonces hacemos una llamada AJAX vía `GET` a la URL `/api/led/on`, siendo led el color del led pulsado.
+
+En otro caso, es que queremos apagarlo, llamamos pues a la misma ruta pero con `/api/led/off`
+
+Ahora entonces necesitamos nuestro API en el backend, lo vemos a continuación.
+
+**/app/controllers/led.js**  
+En este fichero añadimos la ruta `REST` que nos permite encender/apagar los LEDs, ademÃ¡s de la configuración de los pines GPIO asociados a los LEDs, gracias a CylonJS
+
+```javascript
+var Cylon = require("cylon");
+
+module.exports = function (app) {
+  Cylon.robot({
+    connection: { name: "raspi", adaptor: "raspi" },
+    devices: [
+      { name: "red", driver: "led", pin: 15 },
+      { name: "yellow", driver: "led", pin: 11 },
+      { name: "green", driver: "led", pin: 7 },
+    ],
+    work: function (my) {
+      app.route("/api/:led/:position").get(function (req, res, next) {
+        var led = req.params.led;
+        if (req.params.position == "on") {
+          if (led == "red") my.red.turnOn();
+          if (led == "yellow") my.yellow.turnOn();
+          if (led == "green") my.green.turnOn();
+        } else {
+          if (led == "red") my.red.turnOff();
+          if (led == "yellow") my.yellow.turnOff();
+          if (led == "green") my.green.turnOff();
+        }
+        res.send(200);
+      });
+    },
+  }).start();
+};
+```
+
+Creamos un `robot` cylon, que estará conectado a la Raspberry y utilizará 3 `devices` con el driver `led`, los pines que vamos a utilizar son el `15`, `11` y `7`, que están asociados a los Pines GPIO de la Raspberry: `22`, `17` y `4`. En esta [URL](http://cylonjs.com/documentation/platforms/raspberry-pi/) puedes ver la correlación entre el número lógico y el físico. Es un poco lioso, [pero siguiendo esa tabla no hay pérdida.](http://cylonjs.com/documentation/platforms/raspberry-pi/)
+
+![IMG_0449](/images/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil/2015/02/IMG_0449_xdsn8z.jpg)
+
+la función `work` se iniciará automáticamente debido al ciclo de vida que tiene el framework Cylon. En ella es donde configuraremos que LED se encenderán dependiendo de los parámetros en la ruta.
+
+El parámetro `:led`, indica el dispositivo que queremos manipular, puede ser `red`, `yellow` o `green`. El parámetro `:position` nos indica si queremos encenderlo `on`, o apagarlo `off`.
+
+![webapp raspberryPI Leds](/images/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil/webapp_nw5sov.png)
+
+Con todo esto ya podemos iniciar nuestra aplicación en la raspberry y acceder al navegador a la IP asociada para usar la webapp como control remoto de los LEDs.
+
+Esto es solo una prueba de concepto y una especie de _Hola Mundo_ con CylonJS + Node y Rasperry. Si en lugar de LEDs fueran sensores, o motores, podríamos hacer cosas más interesantes, como por ejemplo, nuestro propio coche teledirigido vía web :), pero eso ya será para otro día.
+
+Espero que os haya resultado interesante. Podéis [acceder al respositorio del proyecto en mi GitHub para tenerlo a mano](https://github.com/carlosazaustre/raspberrypi-api-led).

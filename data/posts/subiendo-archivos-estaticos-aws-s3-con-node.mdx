@@ -1,0 +1,46 @@
+---
+title: "Subir archivos estáticos en AWS S3 con Node.js y Grunt.js"
+date: "2013-09-19"
+tags:
+  - "💻 Desarrollo"
+---
+
+S3 (_Amazon **S**imple **S**torage **S**ervice_) es un Disco Duro en la nube que forma parte los _Amazon Web Services_. Suele ser útil para almacenar los ficheros estáticos de nuestras aplicaciones web si queremos repartir la carga entre los servidores.
+
+En una aplicacion Node.js, típicamente, tenemos los ficheros estáticos en un directorio `/public` o `/static` y podemos subirlo a una plataforma como Heroku con todo el repositorio. Pero si queremos servirlos desde S3 podemos realizarlo facilmente con el [automatizador de tareas Grunt.js](/automatizar-tareas-en-javascript-con-grunt-js/ "Automatizar tareas con Grunt.js"). Veamos como hacerlo.
+
+![Grunt.js](/images/subiendo-archivos-estaticos-aws-s3-con-node/grunt-logo_g3kshp.png)
+
+Primero necesitamos [tener una cuenta en Amazon Web Services](/como-crear-un-servidor-web-con-amazon-web-services/) y activar un _bucket_ de S3. Necesitaremos un _Access Key ID_ y un _Secret Access Key_ para poder identificarnos con el API y acceder a los servicios. En la parte de código necesitamos tener [**Grunt.js** instalado como conté en un anterior pos](/automatizar-tareas-en-javascript-con-grunt-js/)t e instalar esta nueva librería de desarrollo en nuestro proyecto.
+
+```
+npm install grunt-aws --save-dev
+```
+
+Con el flag `--save-dev` salvamos la librería dentro del archivo `package.json` de nuestro proyecto.
+
+Una vez hecho esto, creamos una nueva tarea en nuestro fichero [Gruntfile.js](/automatizar-tareas-en-javascript-con-grunt-js/) donde automatizamos las tareas, que llamaremos **s3** y tendrá esta pinta:
+
+```javascript
+s3: {
+    options: {
+        accessKeyId: "TU_AWS_ACCESS_KEY_ID",
+        secretAccessKey: "TU_AWS_SECRET_ACCESS_KEY",
+        bucket: "NOMBRE_DE_TU_BUCKET_S3"
+    },
+    build: {
+        cwd: "public/",
+        src: "**"
+    }
+}
+```
+
+Con esto le decimos a Grunt que tenemos una tarea llamada `s3` y que cuando se ejecute, se conecte a nuestro servicio S3, recoja todos los ficheros, sin importar la extensión, dentro de la carpeta `/public` de nuestra aplicación y los suba a nuestro _bucket_ en S3.
+
+Para que se ejecute esta tarea simplemente tenemos que llamar desde consola con este comando:
+
+```
+grunt s3
+```
+
+O agregar la tarea dentro de otra como puede ser `deployment` para agilizar nuestro desarrollo y _releases_.
