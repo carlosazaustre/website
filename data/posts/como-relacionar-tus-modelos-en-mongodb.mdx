@@ -1,0 +1,156 @@
+---
+title: "Cómo relacionar tus modelos en MongoDB"
+date: "2015-01-18"
+tags:
+  - "💻 Desarrollo"
+---
+
+MongoDB es una base de datos no relacional, es decir no es como las típicas bases de datos SQL (MySQL, Oracle, PostgreSQL, etc...) donde existen relaciones entre una tabla y otra. Veamos un ejemplo clásico.
+
+Imaginemos una base de datos de libros. Tendríamos una tabla con los títulos de los libros y otra con los datos de los autores. El campo `autor` en la tabla de libros, apuntaría a un ID o clave primaria de un autor de la tabla autores.
+
+En MongoDB podemos hacer algo parecido, por medio de referencias y el [método `populate` de MongoDB](http://mongoosejs.com/docs/populate.html).
+
+Sigamos con el ejemplo anterior. Un modelo `autor` en Node.js usando `mongoose` sería tal que así:
+
+```javascript
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+
+var autorSchema = new Schema({
+  nombre: String,
+  biografia: String,
+  fecha_de_nacimiento: Date,
+  nacionalidad: String,
+});
+
+module.exports = mongoose.model("Autor", autorSchema);
+```
+
+y supongamos un modelo sencillo para `libro` de la siguiente manera:
+
+```javascript
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Autor = mongoose.model('Autor');
+
+var libroSchema = new Schema({
+	titulo: String
+    paginas: Number,
+    isbn: String,
+    autor: { type: Schema.ObjectId, ref: "Autor" }
+});
+
+module.exports = mongoose.model("Libro", libroSchema);
+```
+
+Si nos fijamos, para el campo `autor` en el modelo `libro` hemos usado el tipo `Schema.ObjectId` y la referencia al modelo `Autor`. Esto nos permitirá establecer la relación entre un campo de una tabla y otra.
+
+Pero si no tenemos consultas SQL, y pedimos una lista de todos los libros en la base de datos ¿Qué datos nos llegarán?
+
+Lo primero que programaríamos sería esto (en Express/Node.js):
+
+```javascript
+app.get("/libros", function (req, res) {
+  Libro.find({}, function (err, libros) {
+    res.status(200).send(libros);
+  });
+});
+```
+
+y si tenemos varios libros registrados en la base de datos, nos devolvería un `JSON` parecido a este:
+
+```javascript
+[{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Juego de Tronos",
+    "paginas": 150,
+    "isbn": "0-553-57340-4",
+    "autor": "547db17cbe9958b000001"
+},
+{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Choque de Reyes",
+    "paginas": 340,
+    "isbn": "0-553-57340-5",
+    "autor": "547db17cbe9958b000001"
+},
+{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Tormenta de Espadas",
+    "paginas": 620,
+    "isbn": "0-553-57340-7",
+    "autor": "547db17cbe9958b000001"
+}]
+```
+
+En el campo `autor` obtenemos la referencia en formato `ObjectID` del autor, pero no su ficha completa. ¿Qué pasa si queremos mostrar en un sólo `JSON` toda la información para poder pintarla de una sola llamada en nuestra webapp? Para eso necesitamos hacer uso del método `populate` de MongoDB que también implementa la librería `mongoose`.
+
+En nuestro controlador anterior, debemos ampliarlo con lo siguiente:
+
+```javascript
+app.get("/libros", function (req, res) {
+  Libro.find({}, function (err, libros) {
+    Autor.populate(libros, { path: "autor" }, function (err, libros) {
+      res.status(200).send(libros);
+    });
+  });
+});
+```
+
+La línea `Autor.populate(libros, {path: "autor"},...);` toma el array de objectos `libros` y le indica que en la ruta `autor` lo "popule" con los datos del modelo `Autor`. Quedando una respuesta más completa como este ejemplo:
+
+```javascript
+[{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Juego de Tronos",
+    "paginas": 150,
+    "isbn": "0-553-57340-4",
+    "autor": {
+    	"_id": "547db17cbe9958b000001",
+        "__v": 0,
+        "nombre": "George R. R. Martin",
+        "biografia": "American novelist...",
+        "fecha_de_nacimiento": "1948-09-20T00:00:00.000Z",
+        "nacionalidad": "USA"
+    }
+},
+{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Choque de Reyes",
+    "paginas": 340,
+    "isbn": "0-553-57340-5",
+    "autor": {
+    	"_id": "547db17cbe9958b000001",
+        "__v": 0,
+        "nombre": "George R. R. Martin",
+        "biografia": "American novelist...",
+        "fecha_de_nacimiento": "1948-09-20T00:00:00.000Z",
+        "nacionalidad": "USA"
+    }
+},
+{
+    "_id": "547db17cbe9956a000001",
+    "__v": 0
+    "titulo": "Tormenta de Espadas",
+    "paginas": 620,
+    "isbn": "0-553-57340-7",
+    "autor": {
+    	"_id": "547db17cbe9958b000001",
+        "__v": 0,
+        "nombre": "George R. R. Martin",
+        "biografia": "American novelist...",
+        "fecha_de_nacimiento": "1948-09-20T00:00:00.000Z",
+        "nacionalidad": "USA"
+    }
+}]
+```
+
+Podemos ver que el objeto `_id` del campo `autor` ha sido sustituido por el modelo `autor` completo al que hace referencia.
+
+De esta manera conseguimos un comportamiento parecido al típico relacional en las bases de datos SQL en MongoDB.

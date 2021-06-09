@@ -1,0 +1,276 @@
+---
+title: "Cómo crear un WebComponent de forma nativa"
+date: "2017-02-01"
+tags:
+  - "💻 Desarrollo"
+---
+
+Gracias a los `custom elements` cualquier desarrollador web puede crear sus propios componentes HTML. Es decir, un nuevo `tag` HTML que "esconde" dentro su propia funcionalidad, diseño y layout.
+
+En este artículo te voy a contar como puedes crear tu propio **Web Component desde cero, sin necesidad de utilizar librerías adicionales**, únicamente utilizando JavaScript, HTML y CSS.
+
+- [Demo en JSBin](http://jsbin.com/zitenoromo/edit?html,js,output)
+- [Código en Github](https://github.com/carlosazaustre/webcomponents-example)
+- También puedes ver el videotutorial en [mi canal de YouTube](https://youtube.com/carlosazaustre?sub_confirmation=1)
+
+<YouTube videoId="8bcfgXePHnk" />
+
+## Definiendo el Custom Element
+
+Con la **[Custom Elements v1 Spec](https://html.spec.whatwg.org/multipage/scripting.html#custom-elements)** el navegador ahora tiene el objeto o clase **HTMLElement** del cual podemos "extender" y crear nuestros _web components_.
+No está aún soportado por todos, pero poco a poco los fabricantes lo están incorporando. [En _Can I Use_ puedes ver las versiones que lo soportan en este momento](http://caniuse.com/#feat=custom-elementsv1)
+
+Con el objeto global **customElement** le indicamos al navegador que nueva _tag_ estamos creando y a que clase heredada de `HTMLElement` hacemos referencia.
+
+Dejamos la teoría por ahora y nos ponemos manos a la obra. Vamos a crear un _Web Component_ reutilizable que represente un botón de compra. Empezamos por el código JavaScript:
+
+```javascript
+class SellButton extends HTMLElement {
+  // Aquí iría el código del elemento
+  // Eventos, funciones, etc...
+}
+
+window.customElement.define("sell-button", SellButton);
+```
+
+De esta manera podríamos usar en nuestro HTML el siguiente tag:
+
+```html
+<sell-button></sell-button>
+```
+
+Pero de momento no veríamos nada. Así que vamos a empezar a añadir cosas.
+
+`HTMLElement` posee métodos de ciclo de vida, como también tienen librerías como React. Son los siguientes:
+
+- **connectedCallback**: Se llama cada vez que el elemento se inserta en el DOM. Aquí podemos hacer llamadas AJAX para pedir datos, configurar cosas, etc.. Funcionaría similar al _componentWillMount_ de React.js
+
+- **disconnectedCallback**: Este método se llamaría cuando el componente es eliminado del DOM. Su comparación con React sería el método _componentWillUnmount_
+
+- **attributeChangedCallback**: Este otro método se llamaría cuando se añadiera un nuevo atributo, se actualizase o se eliminara. Algo similar a _componentWillReceiveProps_, _shouldComponentUpdate_, _componentDidUpdate_ en React.
+
+Entonces en `connectedCallback` vamos a añadir un poco de HTML con la función `innerHTML`:
+
+```javascript
+class SellButton extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+      <div>
+        <button>Comprar Ahora</button>
+      </div>
+    `;
+  }
+}
+
+window.customElements.define("sell-button", SellButton);
+```
+
+Y esto es lo que veríamos ahora en el navegador:
+
+![Custom Element](/images/como-crear-webcomponent-de-forma-nativa/customElement.png)
+
+## Encapsulando el Markup en el Shadow DOM
+
+Pero esto no es todo lo elegante que nos gustaría. Entre las propiedades que nos ofrecen los _Web Components_ está el llamado **Shadow DOM** que nos es más que una forma de encapsular el DOM del componente (con su funcionalidad y estilos) y que por ejemplo, estos estilos no se "pisen" con otros estilos del documento.
+
+Veamos como implementarlo en nuestro _Web Component_:
+
+```javascript
+class SellButton extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    let shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.innerHTML = `
+      <style>
+        :host {
+          --orange: #e67e22;
+          --space: 1.5em;
+        }
+        .btn-container {
+          border: 2px dashed var(--orange);
+          padding: var(--space);
+          text-align: center;
+        }
+        .btn {
+          background-color: var(--orange);
+          border: 0;
+          border-radius: 5px;
+          color: white;
+          padding: var(--space);
+          text-transform: uppercase;
+        }
+      </style>
+      <div class="btn-container">
+        <button class="btn">Comprar Ahora</button>
+      </div>
+    `;
+  }
+}
+
+window.customElements.define("sell-button", SellButton);
+```
+
+Como puedes ver, usamos la función `attachShadow` para poder adjuntar el DOM que vamos a crear como Shadow DOM al WebComponent, y a continuación insertamos el HTML, dónde podemos añadir una tag de `<styles>` ya que estos estilos solo funcionarán en este Shadow DOM y no entrarán en conflicto con otros estilos. Además podemos usar la propiedad `:host` y definir variables para utilizar dentro del estilo del componente, haciendo uso de nuevas propiedades de CSS.
+
+Ahora el componente tiene esta pinta en el HTML:
+
+![Custom Element y Shadow DOM](/images/como-crear-webcomponent-de-forma-nativa/customElement-shadow-dom.png)
+
+## Usando Template
+
+Si no te gusta escribir el HTML como string, puedes utilizar **template** en tu HTML, llamarlo y "popularlo" dentro del objeto _HTMLElement_ que estamos definiendo.
+
+Sería así:
+
+```html
+<!-- Documento HTML con la plantilla -->
+<template id="sellBtn">
+  <style>
+    :host {
+      --orange: #e67e22;
+      --space: 1.5em;
+    }
+    .btn-container {
+      border: 2px dashed var(--orange);
+      padding: var(--space);
+      text-align: center;
+    }
+    .btn {
+      background-color: var(--orange);
+      border: 0;
+      border-radius: 5px;
+      color: white;
+      padding: var(--space);
+      text-transform: uppercase;
+    }
+  </style>
+  <div class="btn-container">
+    <button class="btn">Comprar Ahora</button>
+  </div>
+</template>
+```
+
+Y el código JavaScript:
+
+```javascript
+class SellButton extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    let shadowRoot = this.attachShadow({ mode: "open" });
+    const t = document.querySelector("#sellBtn");
+    const instance = t.content.cloneNode(true);
+    shadowRoot.appendChild(instance);
+  }
+}
+
+window.customElements.define("sell-button", SellButton);
+```
+
+## Modularizar el WebComponent e importarlo desde otro archivo
+
+Incluso podrías incluir todo el código de tu _WebComponent_ (Template y Script) en un mismo fichero HTML.
+
+En este caso, tienes que encapsular el `<template>` y el `<script>` dentro de un tag `<html>`.
+
+También tendremos que modificar un poco el código JavaScript si queremos importar este documento como un **[HTMLImport](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports)** ya que si usamos `document.querySelector('#sellBtn')` `document` va a hacer referencia al documento HTML desde el que se importa y no va encontrar nuestro _template_.
+
+Como queremos hacer referencia al documento importado, no al que lo importa, necesitamos añadir esta línea:
+
+```javascript
+let importDocument = document.currentScript.ownerDocument;
+```
+
+Con esto ya podemos tener un fichero `components/sell-button.html` por ejemplo, con la siguiente estructura:
+
+```html
+<html>
+  <template id="sellBtn">
+    <style>
+      :host {
+        --orange: #e67e22;
+        --space: 1.5em;
+      }
+      .btn-container {
+        border: 2px dashed var(--orange);
+        padding: var(--space);
+        text-align: center;
+      }
+      .btn {
+        background-color: var(--orange);
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        padding: var(--space);
+        text-transform: uppercase;
+      }
+    </style>
+
+    <div class="btn-container">
+      <button class="btn">Comprar Ahora</button>
+    </div>
+  </template>
+
+  <script>
+    class SellButton extends HTMLElement {
+      constructor() {
+        super();
+        this.importDocument = document.currentScript.ownerDocument;
+      }
+
+      connectedCallback() {
+        let shadowRoot = this.attachShadow({ mode: "open" });
+        const t = this.importDocument.querySelector("#sellBtn");
+        const instance = t.content.cloneNode(true);
+        shadowRoot.appendChild(instance);
+      }
+    }
+
+    window.customElements.define("sell-button", SellButton);
+  </script>
+</html>
+```
+
+y en tu `index.html` solo tendías que importar este document con HTMLImports y usar el nuevo tag:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Mi primer Vanilla Webcomponent</title>
+    <link rel="import" href="components/sell-button.html" />
+  </head>
+  <body>
+    <sell-button></sell-button>
+  </body>
+</html>
+```
+
+> **¡OJO!** los [`HTMLImports` solo funcionan en Chrome y Opera](http://caniuse.com/#feat=imports). En Firefox, Safari e Internet Explorer/Edge no. Te recomiendo que pruebes esto en un navegador Chrome actualizado
+
+> Si quieres usar `customElements` sin problema puedes hacer uso de un [polyfill](https://github.com/webcomponents/custom-elements)
+
+## Resumen
+
+¿Qué hemos hecho? Hemos usado la plataforma web (HTML, CSS y JavaScript) para crear un _WebComponent_ reutilizable. No confundir con un _Component_ de React o Angular. Eso es una forma de construir aplicaciones web modularizadas. El propósito de un _WebComponent_ es que sea reutilizable en cualquier proyecto web. De igual manera que usamos elementos HTML como `<select>`, `<input>`, `<video>`, `<a>`, etc... que tienen un determinado estilo y comportamiento, con los _WebComponents_ se trata de extender ese ecosistema.
+
+Unos buenos ejemplos son componentes web como `<google-map>` o `<youtube-video>` que podríamos usar en cualquier proyecto que hagamos.
+
+## Enlaces útiles
+
+Puedes encontrar más _WebComponents_ creados por la comunidad, ya sea con VanillaJS o utilizando librerías como _Polymer_ en la web [WebComponents.org](https://www.webcomponents.org/)
+
+En éste [enlace te dejo un JSBin](http://jsbin.com/zitenoromo/edit?html,js,output) para que puedas "jugar" con ello, y en [éste repositorio de GitHub]() te dejo el código de éste ejemplo.
+
+Y ampliar tu información sobre **[customElements](https://developers.google.com/web/fundamentals/getting-started/primers/customelements)** y **[Shadow DOM](https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom)** en la web de **Google Developers**.

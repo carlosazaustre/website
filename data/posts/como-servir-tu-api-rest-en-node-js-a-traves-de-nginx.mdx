@@ -1,0 +1,78 @@
+---
+title: "Cómo servir tu API REST en Node.js a través de Nginx"
+date: "2015-03-10"
+tags:
+  - "💻 Desarrollo"
+---
+
+Si seguimos los pasos del [desarrollo web moderno](http://www.slideshare.net/CarlosAzaustre/curso-de-desarrollo-web-de-platzi), separando nuestro Frontend de nuestro Backend, realizando [autenticación basada en token](/que-es-la-autenticacion-con-token/), utilizando un [API RESTFul que sirva JSON](/como-crear-una-api-rest-usando-node-js), etc... llega un momento en que tenemos que servir nuestro API desde nuestro dominio. ¿Cómo podemos hacerlo?
+
+Una opción es [usar Nginx](/como-configurar-nginx-con-node-js-en-produccion/), no solo como servidor web o balanceador de carga, si no también como Proxy inverso para redirigir las peticiones según la URL.
+
+Imaginemos que nuestra aplicación frontend está almacenada en el directorio de nuestro servidor `/var/www/` y que tenemos nuestra API en Node.js corriendo en `localhost:3000`
+
+Ahora lo que queremos que la parte cliente y todas las rutas del frontend (que pueden ser servidas con AngularJS) se sirvan a través de la ruta `/`. Y que nuestra API en Node.js se sirva a través de la ruta `/api`, en plan que si escribimos `http://midominio.com/` sirva el frontend y `http://midominio.com/api` sirva el API y podamos hacer las peticiones AJAX a esa URL.
+
+Esto lo conseguimos con el siguiente fichero de configuración de Nginx:
+
+```shell
+# HTTP proxy
+server {
+	listen 80;
+	server_name midominio.com;
+
+	access_log /var/log/nginx/nginx.access.log;
+	error_log /var/log/nginx/nginx.error.log;
+
+	client_max_body_size 5M;
+
+	location / {
+		add_header Cache-Control "no-store, no-cache, must-revalidate, post-check=0, pre-check=0";
+
+		# Ruta de los ficheros estáticos
+		root /var/www;
+		try_files $uri $uri/ /index.html =404;
+	}
+
+	location /api {
+		proxy_set_header 'Access-Control-Allow-Origin' 'http://midominio.com';
+		proxy_set_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE';
+		proxy_set_header 'Access-Control-Allow-Headers' 'X-Requested-With,Accept,Content-Type, Origin';
+
+		proxy_pass http://127.0.0.1:3000;
+		proxy_redirect off;
+		proxy_buffering on;
+
+		proxy_set_header	Host		$host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header	origin		'http://midominio.com';
+	}
+}
+```
+
+Es importante, además de indicar para cada URL, que ruta tomar, los siguientes campos:
+
+```shell
+try_files $uri $uri/ /index.html =404;
+```
+
+Esto nos permite que el HTML5Pushstate que en ocasiones usamos en AngularJS, nos funcione. De otra manera es posible que tengamos fallos y errores cuando sirvamos las vistas del Frontend en Angular.js
+
+```shell
+proxy_set_header 'Access-Control-Allow-Origin' 'http://midominio.com';
+proxy_set_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE';
+proxy_set_header 'Access-Control-Allow-Headers' 'X-Requested-With,Accept,Content-Type, Origin';
+```
+
+Esto habilita CORS para nuestro API. Aunque lo tengamos habilitado en nuestra configuración de Express dentro de Node, es conveniente configurarlo en NGINX, ya que es la primera barrera que pasan nuestras peticiones HTTP y así no entramos en conflicto
+
+```shell
+proxy_redirect off;
+proxy_buffering on;
+proxy_set_header	origin	'http://midominio.com';
+```
+
+También es importante declarar estos campos, ya que si no nuestro API puede no funcionar correctamente, con `redirect` a `off` y `buffering` a `on` nos evitamos sustos.
+
+Por último indicar la cabecera `origin` con la URL de nuestro dominio, para que el Cross-Origin no se vea afectado.
