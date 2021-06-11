@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
 import { Heading } from "@chakra-ui/react";
 
-import MDXComponents from "@/components/MDXComponents";
+import MDXComponents from "@/MDXComponents";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontMatter }) {

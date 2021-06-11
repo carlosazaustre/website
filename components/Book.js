@@ -1,28 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
+import styled from "@emotion/styled";
 
-export const Book = ({ imageSrc, url }) => {
+const StyledBookLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  top: 10px;
+  transition: top var(--chakra-transition-duration-slow)
+    var(--chakra-transition-easing-ease-in);
+
+  &:hover {
+    top: 0;
+  }
+`;
+
+export const Book = ({ imageSrc }) => {
   return (
-    <>
-      <style jsx>{`
-        .book {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          height: 100%;
-          position: relative;
-          top: 10px;
-          transition: var(--animation);
-        }
-        .book:hover {
-          top: 0px;
-        }
-      `}</style>
-      <Link href={url}>
-        <a className="book">
-          <Image width={480} height={620} layout="fixed" src={imageSrc} />
-        </a>
-      </Link>
-    </>
+    <StyledBookLink>
+      <Image width={480} height={620} layout="fixed" src={imageSrc} />
+    </StyledBookLink>
   );
 };

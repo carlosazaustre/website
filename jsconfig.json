@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
+      "@/components": ["components/"],
+      "@/MDXComponents/*": ["MDXComponents/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/lib/*": ["lib/*"],

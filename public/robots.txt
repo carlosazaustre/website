@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /subscripcion
+Disallow: /subscripcion-confirmada
+Disallow: /clase-gratis
+Disallow: /clase-gratis-video
+Disallow: /clase-gratis-registro
+Disallow: /clase-gratis-formulario
+
+sitemap: https://carlosazaustre.es/sitemap.xml
