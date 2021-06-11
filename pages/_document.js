@@ -11,10 +11,6 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
-            name="description"
-            content="Tutoriales JavaScript, formación en desarrollo web fullstack con React y Node.js"
-          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"

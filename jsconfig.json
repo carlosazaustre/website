@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components": ["components/"],
-      "@/MDXComponents/*": ["MDXComponents/*"],
+      "@/MDXComponents": ["MDXComponents/"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/lib/*": ["lib/*"],

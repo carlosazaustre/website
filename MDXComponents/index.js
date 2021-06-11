@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
+  Divider,
   Link,
   Heading,
   Table,
@@ -42,6 +43,7 @@ const MDXComponents = {
   h4: (props) => <Heading as="h4" size="lg" {...props} />,
   h5: (props) => <Heading as="h5" size="md" {...props} />,
   h6: (props) => <Heading as="h6" size="sm" {...props} />,
+  hr: Divider,
   table: (props) => <Table variant="striped" colorScheme="orange" {...props} />,
   thead: (props) => <Thead {...props} />,
   tbody: (props) => <Tbody {...props} />,
