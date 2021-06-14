@@ -10,6 +10,7 @@ import {
 import {
   Container,
   Flex,
+  Text,
   Spacer,
   Link,
   UnorderedList,
@@ -36,8 +37,14 @@ export const Footer = () => {
           justify="space-between"
           textAlign={["center", "center", "center", "left"]}
         >
-          <Flex justify="center">
+          <Flex
+            justify="flex-start"
+            direction="column"
+            textAlign={["center", "center", "center", "left"]}
+          >
             <Logo type="full" />
+            <Text>&copy; {new Date().getFullYear()} Carlos Azaustre.</Text>
+            <Text>Todos los derechos reservados.</Text>
           </Flex>
 
           <Flex

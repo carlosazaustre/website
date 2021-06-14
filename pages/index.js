@@ -9,7 +9,8 @@ const StyledMain = styled.main`
   flex-direction: column;
 
   @media screen and (min-width: 1024px) {
-    height: 82vh;
+    height: auto;
+    max-height: 700px;
     flex-direction: row;
     background-image: url("/assets/carlosazaustre-profile-image-large.png");
     background-repeat: no-repeat;
@@ -27,7 +28,7 @@ export default function Home() {
           <StyledMain role="main">
             <Flex
               direction="column"
-              justify="space-between"
+              justify="flex-start"
               w={["100%", "100%", "100%", "35%"]}
               pt="0"
               pr="0"

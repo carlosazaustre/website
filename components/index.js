@@ -7,3 +7,4 @@ export { IconTikTok } from "./IconTikTok";
 export { Intro } from "./Intro";
 export { Logo } from "./Logo";
 export { Navigation } from "./Navigation";
+export { NewsletterForm } from "./NewsletterForm";

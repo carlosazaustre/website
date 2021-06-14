@@ -1,20 +1,14 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Heading } from "@chakra-ui/react";
 
 import MDXComponents from "@/MDXComponents";
+import { PostLayout } from "@/layouts";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontMatter }) {
   return (
-    <div>
-      <article>
-        <Heading as="h1" size="3xl">
-          {frontMatter.title}
-        </Heading>
-        <MDXRemote {...source} components={MDXComponents} />
-        );
-      </article>
-    </div>
+    <PostLayout metadata={frontMatter}>
+      <MDXRemote {...source} components={MDXComponents} />
+    </PostLayout>
   );
 }
 
