@@ -8,6 +8,7 @@ const StyledBookLink = styled.a`
   height: 100%;
   position: relative;
   top: 10px;
+  cursor: pointer;
   transition: top var(--chakra-transition-duration-slow)
     var(--chakra-transition-easing-ease-in);
 

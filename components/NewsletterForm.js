@@ -13,11 +13,11 @@ import {
 
 export const NewsletterForm = () => {
   return (
-    <Box bg="brand.900" borderRadius="lg" p="4">
-      <Heading as="h3" p={4}>
-        📬 Únete y ponte al día en desarrollo web
+    <Box bg="brand.900" borderRadius="lg" p={8}>
+      <Heading as="h4" py={2}>
+        Únete y ponte al día en desarrollo web
       </Heading>
-      <Text p={4}>
+      <Text py={2}>
         Recibe puntualmente información sobre las últimas novedades en
         tecnologías web y desarrollo web moderno para que estés siempre estés a
         la última
@@ -29,8 +29,8 @@ export const NewsletterForm = () => {
         name="revue-form"
         target="_blank"
       >
-        <Stack spacing="24px" p={4}>
-          <InputGroup>
+        <Stack spacing="24px" py={2}>
+          <InputGroup size="lg">
             <InputLeftElement
               pointerEvents="none"
               color="gray.300"
@@ -45,7 +45,7 @@ export const NewsletterForm = () => {
             />
           </InputGroup>
 
-          <InputGroup>
+          <InputGroup size="lg">
             <InputLeftElement
               pointerEvents="none"
               color="gray.300"
@@ -62,18 +62,24 @@ export const NewsletterForm = () => {
 
           <Button
             colorScheme="secondary"
+            fontFamily="heading"
             w="100%"
             type="submit"
             name="member[subscribe]"
             id="member_submit"
+            size="lg"
           >
             Suscríbirme
           </Button>
 
           <Text px={2}>
-            By subscribing, you agree with Revue’s{" "}
-            <Link href="https://www.getrevue.co/terms">Terms</Link> and{" "}
-            <Link href="https://www.getrevue.co/privacy">Privacy Policy</Link>.
+            Subscribiéndote, estás de acuerdo con los{" "}
+            <Link href="https://www.getrevue.co/terms">Términos de uso</Link> de
+            Revue y su{" "}
+            <Link href="https://www.getrevue.co/privacy">
+              Política de Privacidad
+            </Link>
+            .
           </Text>
 
           <Text px={2}>🔒 Libre de Spam. Sólo contenido que te interesa.</Text>
