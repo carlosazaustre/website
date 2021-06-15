@@ -55,7 +55,9 @@ export const PostLayout = ({ children, metadata }) => {
               <FcComments />
               <Text p={2}>¡Deja tu comentario!</Text>
               <FcClock />
-              <Text p={2}>X minutos de lectura</Text>
+              <Text p={2}>
+                {metadata.readingTime?.minutes} minutos de lectura
+              </Text>
             </Flex>
             <section>{children}</section>
           </Box>

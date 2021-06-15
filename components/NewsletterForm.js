@@ -38,7 +38,7 @@ export const NewsletterForm = () => {
             />
             <Input
               bg="white"
-              placeholder="Tu nombre)"
+              placeholder="Tu nombre"
               type="text"
               name="member[first_name]"
               id="member_first_name"
