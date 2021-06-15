@@ -58,7 +58,7 @@ const MDXComponents = {
   ul: (props) => <UnorderedList {...props} />,
   ol: (props) => <OrderedList {...props} />,
   li: (props) => <ListItem {...props} />,
-  p: (props) => <Text lineHeight={6} my={8} mx={4} {...props} />,
+  p: (props) => <Text fontSize="lg" lineHeight={6} my={8} mx={4} {...props} />,
   table: (props) => <Table variant="striped" colorScheme="orange" {...props} />,
   thead: (props) => <Thead {...props} />,
   tbody: (props) => <Tbody {...props} />,

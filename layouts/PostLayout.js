@@ -1,32 +1,17 @@
 import { Container, Flex, Text, Box, Heading, Stack } from "@chakra-ui/react";
 import { FcCalendar, FcComments, FcClock } from "react-icons/fc";
 import {
-  NavigationLinks,
-  SocialLinks,
   Footer,
-  NewsletterForm,
+  NewsletterFormCard,
   AboutCard,
-  Logo,
+  PageHeader,
 } from "@/components";
 
 export const PostLayout = ({ children, metadata }) => {
   return (
     <Box bg="gray.100">
       <Container maxW="container.2xl">
-        <Flex
-          justify="space-between"
-          direction={["column", "column", "row"]}
-          align="center"
-          fontFamily="heading"
-          fontSize="2xl"
-          fontWeight="bold"
-        >
-          <Flex align="center" p="4">
-            <Logo size="40px" />
-            <Text px="2">Carlos Azaustre</Text>
-          </Flex>
-          <NavigationLinks />
-        </Flex>
+        <PageHeader />
         <Flex
           d="flex"
           direction={["column", "column", "column", "column", "row"]}
@@ -68,7 +53,7 @@ export const PostLayout = ({ children, metadata }) => {
             m="2"
             my="4"
           >
-            <NewsletterForm />
+            <NewsletterFormCard />
             <AboutCard />
           </Stack>
         </Flex>

@@ -1,13 +1,22 @@
 export { Book } from "./Book";
-export { ButtonCTA } from "./ButtonCTA";
+export { Card } from "./Card";
+export { CardHome } from "./CardHome";
+export { NewsletterFormCard } from "./NewsletterFormCard";
+export { AboutCard } from "./AboutCard";
+export { AboutCardHome } from "./AboutCardHome";
+export { BlogCardHome } from "./BlogCardHome";
+export { ContactCardHome } from "./ContactCardHome";
+
 export { CompanyLogos } from "./CompanyLogos";
-export { Footer } from "./Footer";
-export { Header } from "./Header";
 export { IconTikTok } from "./IconTikTok";
-export { Intro } from "./Intro";
+
 export { Logo } from "./Logo";
+export { PageHeader } from "./PageHeader";
+export { Header } from "./Header";
+export { Intro } from "./Intro";
+export { Footer } from "./Footer";
+
+export { ButtonCTA } from "./ButtonCTA";
 export { Navigation } from "./Navigation";
 export { NavigationLinks } from "./NavigationLinks";
 export { SocialLinks } from "./SocialLinks";
-export { NewsletterForm } from "./NewsletterForm";
-export { AboutCard } from "./AboutCard";
