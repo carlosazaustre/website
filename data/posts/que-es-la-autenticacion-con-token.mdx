@@ -31,7 +31,7 @@ El estándar para este tipo de autenticación es utilizar [JSON Web Tokens (JWT)
 
 El formato de un **JWT** está compuesto por 3 `strings` separados por un punto `.` algo así como:
 
-```
+```shell
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NGE4Y2U2MThlOTFiMGIxMzY2NWUyZjkiLCJpYXQiOiIxNDI0MTgwNDg0IiwiZXhwIjoiMTQyNTM5MDE0MiJ9.yk4nouUteW54F1HbWtgg1wJxeDjqDA_8AhUPyjE5K0U
 ```
 
@@ -40,7 +40,7 @@ Cada `string` significa una cosa:
 - **Header**
   La primera parte es la cabecera del token, que a su vez tiene otras dos partes, el tipo, en este caso un JWT y la codificación utilizada. Comunmente es el algoritmo _HMAC SHA256_, El contenido sin codificar es el siguiente:
 
-```language-javascript
+```js
 {
 	"typ": "JWT",
     "alg": "HS256
@@ -54,7 +54,7 @@ Codificado sería: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`
   _ `sub`: Identifica el sujeto del token, por ejemplo un identificador de usuario.
   _ `iat`: Identifica la fecha de creación del token, válido para si queremos ponerle una fecha de caducidad. En formato de tiempo UNIX \* `exp`: Identifica a la fecha de expiración del token. Podemos calcularla a partir del `iat`. También en formato de tiempo UNIX.
 
-```language-javascript
+```js
 {
 	"sub": "54a8ce618e91b0b13665e2f9",
     "iat": "1424180484",
@@ -64,7 +64,7 @@ Codificado sería: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`
 
 También podemos añadirle más campos, incluso personalizados, como pueden ser el rol del usuario, etc.
 
-```language-javascript
+```js
 {
 	"sub": "54a8ce618e91b0b13665e2f9",
     "iat": "1424180484",
@@ -79,18 +79,15 @@ Codificado sería: `eyJzdWIiOiI1NGE4Y2U2MThlOTFiMGIxMzY2NWUyZjkiLCJpYXQiOiIxNDI0
 - **Signature**
   La firma es la tercera y última parte del JSON Web Token. Está formada por los anteriores componentes (Header y Payload) cifrados en _Base64_ con una clave secreta (almacenada en nuestro backend). Así sirve de _Hash_ para comprobar que todo está bien.
 
-```language-javascript
-HMACSHA256(
-	base64UrlEncode(header) + "." +
-    base64UrlEncode(payload), secret
-);
+```js
+HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret);
 ```
 
 Codificado sería: `yk4nouUteW54F1HbWtgg1wJxeDjqDA_8AhUPyjE5K0U`
 
 Por tanto, todo nuestro JSON Web Token, una vez codificado tendrá esta pinta:
 
-```
+```shell
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NGE4Y2U2MThlOTFiMGIxMzY2NWUyZjkiLCJpYXQiOiIxNDI0MTgwNDg0IiwiZXhwIjoiMTQyNTM5MDE0MiJ9.yk4nouUteW54F1HbWtgg1wJxeDjqDA_8AhUPyjE5K0U
 ```
 

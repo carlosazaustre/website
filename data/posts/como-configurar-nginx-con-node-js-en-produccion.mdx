@@ -104,13 +104,13 @@ Ahora queremos que una aplicación Node, que está corriendo en nuestro servidor
 
 Creamos un archivo de configuración para nuestro subdominio:
 
-```sh
+```shell
 $ sudo nano /etc/nginx/sites-available/subdominio.tu_dominio.com
 ```
 
 Y añadimos la siguiente configuración, de modo que **Nginx actúe como un Proxy** que redirija al puerto 3000 del servidor cuando el tráfico provenga de `subdominio.tu_dominio.com`
 
-```sh
+```shell
 upstream subdominio.tu_dominio.com {
   server 127.0.0.1:3000;
 }
@@ -135,28 +135,28 @@ server {
 
 Creamos un symlink para este archivo en `sites-enabled` como hicimos con el fichero `default`.
 
-```sh
-$ sudo ln -s /etc/nginx/sites-available/subdominio.tu_dominio.com /etc/nginx/sites-enabled/subdominio.tu_dominio.com
+```shell
+$ sudo en -s /etc/nginx/sites-available/subdominio.tu_dominio.com /etc/nginx/sites-enabled/subdominio.tu_dominio.com
 ```
 
 Si accedemos a `subdominio.tu_dominio.com` nos aparecerá el mensaje `Error 502 – Bad Gateway`, esto es porque aún no tenemos nada corriendo en el puerto 3000 y no tiene nade que mostrar.
 
 Por tanto es hora de poner en marcha nuestra app node, desde cualquier directorio del servidor que queramos y ejecutarla preferiblemente con `forever`
 
-```sh
+```shell
 $ sudo npm install -g forever
 $ forever start nuestra_app.js
 ```
 
 Si el servidor se reiniciara por alguna razón, tendríamos que ejecutar estos comandos de node de nuevo, para evitar y esto y conseguir que las aplicaciones se nos ejecuten automáticamente con el inicio de la máquina, creamos un `job`
 
-```sh
+```shell
 $ sudo nano /etc/init/subdominio.tu_dominio.com.conf
 ```
 
 con el siguiente contenido:
 
-```sh
+```shell
 description "subdominio.tu_dominio.com"
 env APP_PATH="ruta_donde_esta_la_app_node"
 

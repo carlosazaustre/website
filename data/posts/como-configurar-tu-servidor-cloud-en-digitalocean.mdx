@@ -33,7 +33,7 @@ Podemos instalar aplicaciones adicionales, como Ruby, Django, PHP, etc… En mi 
 
 Ya tenemos todo, lo único que nos queda es poder acceder via SSH por terminal para poder configurar nuestro servidor, realizar despliegues, etc… Para ello primero necesitamos importar nuestra clave RSA pública o crear una nueva. En Mac OS se realiza así:
 
-```sh
+```shell
 ssh-keygen -t rsa -C "your_email@example.com"
 # Creates a new ssh key, using the provided email as a label
 # Generating public/private rsa key pair.
@@ -55,7 +55,7 @@ Ejecutamos `cat ~./.ssh/id_rsa.pub` para ver el contenido de nuestra clave públ
 
 Con esos datos podemos acceder asi en nuestra máquina local
 
-```sh
+```shell
 $ ssh root@178.140.2.2
 root@178.140.2.2's password:
 Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.13.0-24-generic x86_64)

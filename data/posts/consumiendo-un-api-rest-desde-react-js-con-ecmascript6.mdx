@@ -11,36 +11,36 @@ En el ejemplo de hoy vamos a llamar un API REST que nos devuelve la información
 
 En ES5 si queríamos hacer una petición AJAX de manera nativa (Sin utilizar jQuery o un framework tipo AngularJS) usábamos el objeto `XMLHttpRequest`, de esta manera:
 
-```language-javascript
+```js
 var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'http://miservidor.com/recurso', true);
+xhr.open("GET", "http://miservidor.com/recurso", true);
 xhr.send();
 
-xhr.onReadyStateChange = function() {
-	if (xhr.readyState == 4 && xhr.status == 200) {
-    	document.getElementById('myApp').innnerHTML = xhr.responseText
-    }
-}
+xhr.onReadyStateChange = function () {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    document.getElementById("myApp").innnerHTML = xhr.responseText;
+  }
+};
 ```
 
 Con ECMAScript6 tenemos acceso a una nueva función llamada `fetch` que a través de _Promesas_ nos simplifica y facilita el realizar una petición AJAX de forma nativa. Sería algo así:
 
-```language-javascript
-fecth('http://miservidor.com/recurso')
-	.then((response) => {
-    	return response.json()
-    })
-    .then((recurso) => {
-    	console.log(recurso)
-    })
+```js
+fecth("http://miservidor.com/recurso")
+  .then((response) => {
+    return response.json();
+  })
+  .then((recurso) => {
+    console.log(recurso);
+  });
 ```
 
 En la primera promesa tendríamos la respuesta completa del servidor, con cabeceras, meta-datos, datos, etc.., lo que hacemos es devolver en formato JSON la respuesta para acceder a los datos, de esa manera en la segunda promesa, tendríamos nuestro recurso y y podríamos tratarlo como queramos. Si quieres profundizar más sobre `fetch` te recomiendo [este artículo de **Carlos Villuendas**](http://carlosvillu.com/introduccion-a-la-nueva-api-fetch/) o en inglés, [éste otro de Matt Gaunt en HTML5Rocks](http://updates.html5rocks.com/2015/03/introduction-to-fetch).
 
 Estoy usando _Arrow functions_, una novedad de ES6 que sustituye a las funciones anónimas que pasamos como callbacks. Esto:
 
-```language-javascript
+```js
 .then((response) => {
 	...
 })
@@ -48,7 +48,7 @@ Estoy usando _Arrow functions_, una novedad de ES6 que sustituye a las funciones
 
 es lo mismo que esto:
 
-```language-javascript
+```js
 .then(function(response) {
 	...
 })
@@ -62,16 +62,16 @@ En este componente vamos a utilizar los `states` de React. Los `props` se define
 
 Empezamos a definir el componente con un constructor de la clase.
 
-```language-javascript
+```js
 // empleado-app/index.jsx
-import React from 'react'
-import EmpleadoList from '../empleado-list'
+import React from "react";
+import EmpleadoList from "../empleado-list";
 
 class EmpleadoApp extends React.Component {
-	constructor(props) {
-    	super(props)
-        this.state = { empleados: [] }
-    }
+  constructor(props) {
+    super(props);
+    this.state = { empleados: [] };
+  }
 }
 ```
 
@@ -86,7 +86,7 @@ Además de los `states`, cada componente tiene una serie de funciones o métodos
 
 En este caso vamos a usar `componentWillMount()` para realizar la llamada AJAX y obtener el listado de empleados, antes de que se renderice el componente. Añadimos pues el siguiente método a nuestra clase `EmpleadoApp`:
 
-```language-javascript
+```js
 componentWillMount() {
     fetch('http://taller-angular.carlosazaustre.es/empleados')
       .then((response) => {
@@ -102,7 +102,7 @@ En la respuesta con los datos, la segunda promesa, _seteamos_ el `state` emplead
 
 Como la llamada AJAX es asíncrona, tendremos un pequeño retardo hasta recibir los datos, y por tanto podemos mostrar un mensaje de _Cargando empleados..._ mientras se produce. Esto lo podemos realizar en la función `render()` con una sencilla comprobación del `state`:
 
-```language-javascript
+```js
 render() {
     if (this.state.empleados.length > 0) {
       return (
@@ -120,26 +120,25 @@ Si el array `empleados` tiene elementos, podemos renderizar el componente `Emple
 
 Con todos los métodos implementados, nuestro componente `EmpleadoApp` al completo sería así:
 
-```language-javascript
+```js
 // empleado-app/index.jsx
-import React from 'react'
-import EmpleadoList from '../empleado-list'
+import React from "react";
+import EmpleadoList from "../empleado-list";
 
 class EmpleadoApp extends React.Component {
-
   constructor(props) {
-    super(props)
-    this.state = { empleados: [] }
+    super(props);
+    this.state = { empleados: [] };
   }
 
   componentWillMount() {
-    fetch('http://taller-angular.carlosazaustre.es/empleados')
+    fetch("http://taller-angular.carlosazaustre.es/empleados")
       .then((response) => {
-        return response.json()
+        return response.json();
       })
       .then((empleados) => {
-        this.setState({ empleados: empleados })
-      })
+        this.setState({ empleados: empleados });
+      });
   }
 
   render() {
@@ -148,25 +147,24 @@ class EmpleadoApp extends React.Component {
         <div className="container-fluid">
           <EmpleadoList listado={this.state.empleados} />
         </div>
-      )
+      );
     } else {
-      return <p className="text-center">Cargando empleados...</p>
+      return <p className="text-center">Cargando empleados...</p>;
     }
   }
-
 }
 
-export default EmpleadoApp
+export default EmpleadoApp;
 ```
 
 Ya sólo tenemos que modificar el `index.jsx`, el fichero principal de la aplicación donde antes renderizábamos el listado pasándole como atributo el array _a mano_:
 
-```language-javascript
+```js
 // index.jsx
-import React from 'react'
-import EmpleadoApp from './empleado-app'
+import React from "react";
+import EmpleadoApp from "./empleado-app";
 
-React.render(<EmpleadoApp />, document.getElementById('application'))
+React.render(<EmpleadoApp />, document.getElementById("application"));
 ```
 
 Y listo, ya tenemos una aplicación web con React que consume datos desde un servicio REST.

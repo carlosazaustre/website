@@ -5,7 +5,8 @@ tags:
   - "💻 Desarrollo"
 ---
 
-###¿Qué es Docker?
+### ¿Qué es Docker?
+
 Docker es una aplicación que nos permite ejecutar entornos completos dentro de contenedores Linux. Pudiendo crear esos entornos a través de `Dockerfiles` o utilizando imágenes ya creadas por terceros desde el [Hub](https://registry.hub.docker.com/search?q=library) (Una especie de GitHub de imágenes). Yo lo considero [la evolución a Vagrant](/como-configurar-un-entorno-de-desarrollo-virtual-con-vagrant/) y un buen punto de partida si queremos empezar a separar nuestras aplicaciones en trozos más pequeños (microservicios).
 
 Como Docker utiliza como base el sistema operativo Linux, en OS X no podemos utilizarlo tal cual, necesitamos una ayuda de una máquina virtual y algunos ajustes para que funcione como si nuestra máquina fuera Linux.
@@ -20,14 +21,15 @@ Y en el caso de un equipo Mac con OS X, es ésta:
 
 La diferencia es que en Linux, nuestro Host es el mismo sistema operativo. Y en OSX, el Host es la máquina virtual que tiene Linux. Lo complicado aquí es el acceso, las IPs y el mapeo de los puertos, pero en este post vamos a explicar como solucionar esto y utilizarlo de manera que la máquin virtual no _de guerra_ ;)
 
-###Instalar Docker en OS X (Yosemite).
+### Instalar Docker en OS X (Yosemite).
+
 Primero de todo necesitas instalar VirtualBox. Lo puedes descargar desde su página oficial.
 
 ![Descargar VirtualBox](/images/manejando-docker-desde-os-x-creando-nuestro-primer-contenedor/url-1.jpg)
 
 Después necesitas instalar **boot2docker** que es una _mini-máquina-virtual_ de Linux para poder utilizar esta tecnología en Mac. Y por supuesto, **Docker**. Recomiendo hacer esto a través de `homebrew` que funciona muy bien y así evitamos líos con las variables de entorno y después es más sencillo de desinstalar que si se hace manual:
 
-```sh
+```shell
 $ brew update
 $ brew install docker
 $ brew install boot2docker
@@ -35,14 +37,14 @@ $ brew install boot2docker
 
 **Iniciamos boot2docker**. Esto únicamente debemos hacerlo la primera vez, después ya quedará configurado en nuestro equipo.
 
-```sh
+```shell
 $ boot2docker init
 Downloading boot2docker ISO image...
 ...
 Done. Type `boot2docker up` to start the VM.
 ```
 
-```sh
+```shell
 $ boot2docker up
 Waiting for VM and Docker daemon to start...
 ...........ooo
@@ -59,7 +61,7 @@ Your environment variables are already set correctly.
 
 Cómo boot2docker es una máquina virtual de Linux, ya que nuestro equipo no lo es y para ejecutar Docker necesitamos que se haga sobre Linux, esta máquina virtual tendrá una IP y un puerto con el que podeamos interactuar. Para poder hacer esto de un forma más ágil vamos exportar las siguientes variables de entorno dentro de nuestro fichero `~/.bash_profile`
 
-```sh
+```shell
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/carlosazaustre/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
@@ -67,7 +69,7 @@ export DOCKER_TLS_VERIFY=1
 
 Para probar que vamos bien, ejecutaremos los siguientes comandos en nuestra terminal:
 
-```sh
+```shell
 $ docker version
 Client version: 1.6.0
 Client API version: 1.18
@@ -81,7 +83,7 @@ Git commit (server): 4749651
 OS/Arch (server): linux/amd64
 ```
 
-```sh
+```shell
 $ docker info
 Containers: 0
 Images: 0
@@ -110,10 +112,11 @@ Si sale algo parecido a lo anterior, vamos bien encaminados. **¿Qué hemos hech
 
 Ya tenemos _boot2docker_ instalado y configurado en nuestro equipo Mac, pero tenemos que hacer un par de cambios previos si queremos dejarlo perfecto.
 
-###Mapeo de puertos
+### Mapeo de puertos
+
 Docker mapea los puertos que usa desde el container al host. En una máquina Linux, el host seríamos nosotros mismos, pero en Mac el host es la Máquina Virtual (boot2docker). Por tanto si corremos una aplicación dentro de contenedor que escuche en el puerto 3000 y este puerto lo mapeamos con el puerto 3000 del host, al poner [http://localhost:3000](http://localhost:3000) no veremos nada. ¿Cuál es el truco? Usar la IP que nos da la máquina virtual:
 
-```
+```shell
 $ boot2docker ip
 192.168.59.103
 ```
@@ -124,7 +127,7 @@ Pero nosotros no queremos estar recordando esa IP siempre que queramos probar al
 
 Entonces podemos hacer estas **triquiñuelas**:
 
-```
+```shell
 # Añadimos la IP de la máquina virtual al archivo de hosts,
 # llamándola "Dockerhost"
 $ echo $(boot2docker ip) dockerhost > sudo tee -a /etc/hosts
@@ -132,7 +135,7 @@ $ echo $(boot2docker ip) dockerhost > sudo tee -a /etc/hosts
 
 Y ejecutando el siguiente script (se demora un tiempo) hacemos el mapeo de puertos contenedor > Máquina Virtual > Localhost de nuestro equipo:
 
-```
+```shell
 #!/bin/bash
 for i in {49000..49900}; do
     VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
@@ -146,7 +149,7 @@ Ya tenemos todo configurado y listo. Despues podremos acceder a nuestro navegado
 
 El sistema de archivos de nuestra Mini-App será el siguiente
 
-```sh
+```shell
 proyecto/
     - Dockerfile
     - code/
@@ -180,7 +183,7 @@ Dentro de `public` tan sólo tendremos un fichero `index.html` que contendrá lo
 
 que serviremos desde nuestra aplicación Node, usando el módulo `st` que permite crear un servidor de estáticos rápidamente, Éste sería el contenido de nuestro fichero `index.js`:
 
-```javascript
+```js
 var http = require("http");
 var path = require("path");
 var st = require("st");
@@ -223,7 +226,7 @@ Como puedes ver es un servidor muy sencillo, no usamos siquiera `Express, con el
 
 Ahora es el momento de probar la aplicación corriendo desde Docker. Para ello editamos el fichero `Dockerfile` con lo siguiente:
 
-```sh
+```shell
 FROM node:0.12.2
 MAINTAINER carlosazaustre@gmail.com
 
@@ -255,14 +258,14 @@ Llegó el momento. Ya tenemos todo configurado y nuestra aplicación desarrollad
 
 Podemos ver que imágenes tenemos descargadas en nuestro sistema y que contenedores están en ejecución con los comandos:
 
-```sh
+```shell
 $ docker images
 $ docker ps
 ```
 
 En este momento no tenemos niguna. Vamos a crear la primera con nuestro Dockerfile y apliación Node.js:
 
-```sh
+```shell
 $ docker build -t carlosazaustre/docker-node .
 ```
 
@@ -272,7 +275,7 @@ Al ejecutarte el comando se descargará la imagen de node que indicamos en el `F
 
 Cuando finalice, si ejecutamos `docker images` veremos algo como:
 
-```sh
+```shell
 $ docker images
 REPOSITORY                   TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 carlosazaustre/docker-node   latest              9faf683feb75        14 seconds ago      720.8 MB
@@ -283,7 +286,7 @@ Donde vemos la imagen de node que ha descargado y la que acabamos de crear con m
 
 Para poner en marcha el contenedor ejecutamos el siguiente comando:
 
-```sh
+```shell
 $ docker run -p 3000:3000 -d carlosazaustre/docker-node
 ```
 
@@ -291,7 +294,7 @@ Indicamos con `-p` que puerto del contenedor asociamos con nuestro host y con `-
 
 Podemos ver que contenedores tenemos funcionando con:
 
-```sh
+```shell
 $  docker ps
 CONTAINER ID        IMAGE                               COMMAND                CREATED             STATUS              PORTS                    NAMES
 41da388e4a39        carlosazaustre/docker-node:latest   "node /code/index.js   11 seconds ago      Up 10 seconds       0.0.0.0:3000->3000/tcp   elated_rosalind
@@ -299,7 +302,7 @@ CONTAINER ID        IMAGE                               COMMAND                C
 
 Vemos que le asocia un ID a cada contenedor, en este caso `docker-node` tiene el ID `41da388e4a39`. Si queremos ver el `log` que lanza nuestra aplicación dentro del contenedor lo podemos hacer con el comando `docker logs` y pasándole las 4 primeras cifras del ID, por ejemplo:
 
-```sh
+```shell
 $ docker logs 41da
 [PM2] Spawning PM2 daemon
 [PM2] PM2 Successfully daemonized

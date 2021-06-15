@@ -11,7 +11,7 @@ No se trata de un framework JS de cliente como pueden ser Angular, Backbone o Em
 
 Una de las primeras cosas que vi y no me gustaban mucho de React era que parecía que mezclaba el HTML con código JavaScript, pero cuando lo pruebas ves que no es así, si no que usa un transformador de código JSX (Creado por Facebook) a JavaScript para facilitarnos la vida a la hora de programar, por ejemplo este código de React usando JSX:
 
-```javascript
+```js
 var Item = React.createClass({
   render: function () {
     return <div>Hello Item</div>;
@@ -21,7 +21,7 @@ var Item = React.createClass({
 
 Y sin usar la transformación JSX sería así:
 
-```javascript
+```js
 var Item = React.createClass({
   render: function () {
     return React.createElement("div", {}, "Hello Item");
@@ -51,7 +51,7 @@ Con React podemos usar el nuevo estándar [ECMAScript 6 (o ECMAScript 2015)](/ec
 
 Si en nuestro `index.html` tenemos añadidos los enlaces a los scripts de React.js y JSX tranformer, un componente como el anterior en ES5 es así:
 
-```javascript
+```js
 var ItemRow = React.createClass({
   render: function () {
     return <li className="Item-row">Elemento de una lista</li>;
@@ -61,7 +61,7 @@ var ItemRow = React.createClass({
 
 Usando ES6 e instalando las dependencias de React por npm, sería algo así:
 
-```javascript
+```js
 import React from "react";
 
 class ItemRow extends React.Component {
@@ -77,7 +77,7 @@ A mi me parece más claro lo que estamos haciendo utilizando ES6. Un componente 
 
 Para que esto funcione en un navegador moderno, podemos usar `Gulp` junto con unos plugins y tareas para crear la versión de producción. Primero necesitamos tener instaladas las siguientes dependencias:
 
-```sh
+```shell
 $ npm install --save-dev browserify
 $ npm install --save-dev babelify
 $ npm install --save-dev vinyl-source-stream
@@ -85,7 +85,7 @@ $ npm install --save-dev vinyl-source-stream
 
 Y el fichero `Gulpfile.js` con una tarea para hacer el `build` de la parte JavaScript/JSX sería:
 
-```javascript
+```js
 // gulpfile.js
 
 var gulp = require('gulp');

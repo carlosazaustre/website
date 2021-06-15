@@ -35,26 +35,26 @@ La aplicación de ejemplo tendrá los siguientes componentes:
 
 Primero de todo creamos un proyecto con NPM en una carpeta e instalamos las **dependencias** que utilizaremos vía NPM
 
-```sh
+```shell
 $ npm init -y
 $ npm i -S angular angular-ui-router@1.0.0-alpha.5
 ```
 
 Las siguientes **dependencias** no son de Angular, si no de la **parte Backend** desde la que voy a servir el API. También las instalamos con NPM a través de la terminal.
 
-```sh
+```shell
 $ npm i -S express body-parser
 ```
 
 Y por último las siguientes **dependencias para desarrollo** que nos servirán para usar babel en conjunto con browserify y el conjunto de plugins para que entienda ES2015.
 
-```sh
+```shell
 $ npm i -S babel-runtime babel-preset-es2015 browserify watchify nodemon parallelshell
 ```
 
 A continuación vamos a escribir una serie de **NPM scripts** en el fichero `package.json` para ayudarnos con la ejecución de ciertas tareas:
 
-```javascript
+```js
 "scripts": {
     "create": "touch ./server/public/app.js",
     "build": "browserify -t babelify -t uglifyify ./app/app.js -o ./server/public/app.js",
@@ -78,7 +78,7 @@ A continuación vamos a escribir una serie de **NPM scripts** en el fichero `pac
 
 Y por último, sólo nos queda que Babel ejecute los plugins que queremos, para ello creamos un fichero `.babelrc` en el directorio raíz del proyecto con el siguiente contenido:
 
-```javascript
+```js
 {
   "presets": ["es2015"]
 }
@@ -92,7 +92,7 @@ Creamos un servidor web muy sencillo con **Node.js y Express** que tendrá una p
 
 También tendrá 3 rutas, 2 de ellas de nuestro _pseudo-API_ y una para servir el index.html. Aquí va el código:
 
-```javascript
+```js
 // server/index.js
 "use strict";
 
@@ -166,7 +166,7 @@ El componente principal de nuestra aplicación, o componente raíz será el **Ap
 
 La nueva función `component()` de Angular 1.5 sigue la siguiente sintaxis:
 
-```javascript
+```js
 angular.component("nombreComponente", {
   bindings: {},
   controller: function MiControlador() {},
@@ -184,7 +184,7 @@ Si quieres ampliar la información, [Todd Motto tiene un artículo](https://todd
 
 Por tanto, nuestro **AppComponent** lo vamos a tener en el fichero `/app/app.component.js` y después lo importaremos vía módulos de ES6/ES2015
 
-```javascript
+```js
 // /app/app.component.js
 export const AppComponent = {
   template: `
@@ -199,7 +199,7 @@ Simplemente es un template con un `div` que contiene el `ui-view` donde se inser
 
 Este objeto lo importamos en `app.js` donde definimos el inicio de nuestra aplicación AngularJS:
 
-```javascript
+```js
 // /app/app.js
 import angular from "angular";
 import uiRouter from "angular-ui-router";
@@ -227,7 +227,7 @@ Iniciamos la aplicación por medio de `bootstrap` (No confundir con el framework
 
 Siguiendo la [guía de estilo de Todd Motto](https://github.com/toddmotto/angular-styleguide#common-module) es una buena práctica separar los componentes que podrían ser reutilizables de los componentes propios de la aplicación. Por tanto en `commons` vamos a tener el header y el footer, que siguen una estructura similar al _AppComponent_:
 
-```javascript
+```js
 // /app/common/footer/footer.component.js
 export const FooterComponent = {
   template: `
@@ -242,7 +242,7 @@ export const FooterComponent = {
 };
 ```
 
-```javascript
+```js
 // /app/common/header/header.component.js
 export const HeaderComponent = {
   template: `
@@ -255,7 +255,7 @@ export const HeaderComponent = {
 };
 ```
 
-```javascript
+```js
 // /app/common/common.js
 import angular from "angular";
 
@@ -278,7 +278,7 @@ A continuación vamos a crear un servicio que se encargará de realizar las peti
 
 En el constructor inyectaremos la dependencia de la directiva `$http` y tendremos dos métodos o funciones: `getSpeakers` que devuelve todos y `getSpeaker(id)` que devuelve uno sólo:
 
-```javascript
+```js
 // /app/components/speaker/speaker.service.js
 class SpeakerService {
   constructor($http) {
@@ -305,7 +305,7 @@ export default SpeakerService;
 
 El primer componente específico de nuestra aplicación será el **SpeakerList** cuya función será representar en forma de lista los speakers que recibe del API. Veamos como:
 
-```javascript
+```js
 // /app/components/speaker/speaker-list/speaker-list.component.js
 import controller from "./speaker-list.controller";
 
@@ -331,7 +331,7 @@ Por último el `template` no es más que una lista donde por medio de la directi
 
 Para el **controlador** tendremos el siguiente fichero, que definimos como una clase de ES6:
 
-```javascript
+```js
 // /app/components/speaker/speaker-list/speaker-list.controller.js
 class SpeakerListController {
   constructor(SpeakerService) {
@@ -357,7 +357,7 @@ export default SpeakerListController;
 
 Este componente representa cada uno de los speakers en la lista. Tiene una propiedad `data` por donde recibe el objeto con la info del speaker que le envía el componente padre, _SpeakerList_. Este es su código:
 
-```javascript
+```js
 // /app/components/speaker/speaker-item/speaker-item.component.js
 import controller from "./speaker-item.controller";
 
@@ -381,7 +381,7 @@ En este caso no nos hace falta controlador, ya que los datos le llegan del compo
 
 El siguiente y último componente que tendremos para esta sencilla app, será el que representan la vista detalle del speaker.
 
-```javascript
+```js
 // /app/components/speaker/speaker-detail/speaker-detail.component.js
 
 export const SpeakerDetailComponent = {
@@ -416,7 +416,7 @@ Lo vemos en el siguiente fichero
 
 Vamos a crear un módulo que defina todos los componentes vistos: `speaker-list`, `speaker-item` y `speaker-detail` además enlazaremos el servicio `speaker-service` y realizaremos la configuración de rutas:
 
-```javascript
+```js
 // /app/components/speaker/index.js
 import angular from "angular";
 
@@ -457,7 +457,7 @@ De esta manera podemos hacer lo mismo para el otro estado y ahorrarnos el contro
 
 Vamos a refactorizar. Modificamos el estado `speakers` añadiendo el `resolve`:
 
-```javascript
+```js
 $stateProvider.state("speakers", {
   url: "/",
   component: "speakerList",
@@ -469,7 +469,7 @@ $stateProvider.state("speakers", {
 
 Como puedes ver gracias a las _arrow functions_ de ES6 el código se simplifica mucho, con ES5 sería así:
 
-```javascript
+```js
 $stateProvider
       .state('speakers', {
         url: '/',
@@ -483,7 +483,7 @@ $stateProvider
 
 De esta forma podemos eliminar el controlador `speaker-list.controller.js` ya que su contenido sería este:
 
-```javascript
+```js
 class SpeakerController {
   constructor() {}
 }
@@ -494,7 +494,7 @@ export default SpeakerController;
 
 Como ya tenemos nuestros componentes implementados, procedemos a crear un módulo de angular que recoja todos ellos:
 
-```javascript
+```js
 // /app/components/components.js
 import angular from "angular";
 
@@ -511,7 +511,7 @@ En este caso sólo tenemos un módulo: `speaker`, pero si tuvieramos más u otro
 
 Ya no nos queda más que ejecutar y probar la aplicación. Si has tenido la tarea `npm run serve` corriendo habrás visto que los cambios se han ido ejecutando. Para prevenir cualquier error, paramos la tarea y corremos las siguientes en la terminal:
 
-```
+```shell
 $ npm run build
 $ npm run serve
 ```

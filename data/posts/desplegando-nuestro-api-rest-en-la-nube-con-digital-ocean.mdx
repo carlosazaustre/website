@@ -46,13 +46,13 @@ No se te olvide crear una clave SSH para poder acceder al servidor desde la term
 Una vez esté creado el droplet podemos acceder desde la terminal vía SSH, donde `45.55.66.47` es la IP de nuestro servidor
 ![](/images/desplegando-nuestro-api-rest-en-la-nube-con-digital-ocean/Screen-Shot-2015-06-28-at-00-17-42.png)
 
-```
+```shell
 $ ssh root@45.55.66.47
 ```
 
 Una vez dentro podemos actualizar los paquetes del sistema operativo e instalar nuestro entorno. [En este post explico como se instala node](/como-instalar-node-js-en-ubuntu/), pero IO.js sería de manera similar eligiendo la versión `iojs-v.2.3.1` ya que nuestro API lo hemos programado bajo ese entorno en local.
 
-```
+```shell
 root@iojs-api:~# nvm install iojs-v2.3.1
 ```
 
@@ -66,19 +66,19 @@ Por último no nos olvidemos de instalar **git** ya que es nuestro sistema de ac
 
 Con el entorno instalado (Node/IO, MongoDB y Git) ya podemos instalar las dependencias de nuestro proyecto. Necesitaremos `babel` para traducir el código ES6 que IO.js todavía no entiende. Lo instalamos de forma global
 
-```sh
+```shell
 root@iojs-api:~# npm install -g babel
 ```
 
 También vamos a instalar [**PM2**. Es un gestor de procesos](https://github.com/Unitech/PM2) que nos sirve para correr Node de una forma muy robusta frente a errores y actualizaciones.
 
-```sh
+```shell
 root@iojs-api:~# npm install -g pm2
 ```
 
 Por útimo creamos una clave privada en el servidor para poder comunicarnos con el repositorio de GitHub y poder hacer así el despliegue.
 
-```sh
+```shell
 root@iojs-api:~# cd .ssh
 root@iojs-api:~# ssh-keygen -t rsa
 root@iojs-api:~# cat id_rsa.pub
@@ -91,7 +91,7 @@ la copiamos en GitHub, en las preferencias del repositorio. Ya entonces podremos
 Clonamos el proyecto. En mi caso lo tengo en la url: `git@github.com:carlosazaustre/iojs-api-example.git`
 Y posteriormente hacemos `npm install` para instalar las dependencias definidas en el `package.json` del proyecto
 
-```sh
+```shell
 root@iojs-api:~# git clone git@github.com:carlosazaustre/iojs-api-example.git
 root@iojs-api:~# cd iojs-api-example
 root@iojs-api:~# npm install
@@ -103,7 +103,7 @@ root@iojs-api:~# npm install
 
 Ya solo tenemos que correr el API en el servidor con PM2, para que una vez salgamos de la terminal, el proceso siga funcionando. El comando sería el siguiente:
 
-```sh
+```shell
 root@iojs-api:~# cd iojs-api-example
 root@iojs-api:~# pm2 start index.js -i 0 ---next-gen-js --interpreter iojs --watch
 ```

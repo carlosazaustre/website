@@ -39,7 +39,7 @@ Una vez realizados los pasos anteriores ya tendremos nuestra instancia corriendo
 
 Ahora para poder acceder via terminal a nuestra máquina virtual tenemos la clave privada `.pem` que hemos descargado y una URL del tipo `ec2-50-19-140-229.compute-1.amazonaws.com` que apunta a la IP de nuestra instancia. Para poder acceder vía SSH de una manera más comoda haremos lo siguiente.
 
-```sh
+```shell
 # Copiamos el fichero .pem a nuestro
 # directorio ~/.ssh y le damos permisos
 # de sólo lectura por nosotros
@@ -60,20 +60,20 @@ IdentityFile "~/.ssh/miclave.pem"
 
 De esta manera siempre que queramos acceder a nuestra máquina vía SSH sólo tenemos que escribir en el terminal
 
-```sh
+```shell
 $ ssh awshost1
 ```
 
 Ya estamos dentro de la instacia Linux de AWS, para tenerla actualizada es una buena opción hacer lo siguiente
 
-```sh
+```shell
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
 Y para poder instalar un entorno LAMP, ejecutamos lo siguiente:
 
-```sh
+```shell
 $ sudo apt-get install tasksel
 ```
 

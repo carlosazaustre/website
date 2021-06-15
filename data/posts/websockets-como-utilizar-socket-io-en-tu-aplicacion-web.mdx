@@ -6,7 +6,7 @@ tags:
   - "💻 Desarrollo"
 ---
 
-import YouTube from "../../../src/components/youtube";
+<YouTube videoId="ppiAvvkvAz0" />
 
 Los [websockets](http://www.html5rocks.com/en/tutorials/websockets/basics/) son una tecnología que permite una comunicación bidireccional entre cliente y servidor sobre un único socket TCP. En cierta manera es un buen sustituto de AJAX como tecnología para obtener datos del servidor, ya que no tenemos que pedirlos, el servidor nos los enviará cuando haya nuevos.
 
@@ -14,15 +14,13 @@ Uno de los ejemplos más comunes para aprender a utilizar websockets, es desarro
 
 > En mi [canal de Youtube](https://www.youtube.com/user/azaman1984) puedes verlo en formato **videotutorial**
 
-<YouTube videoId="ppiAvvkvAz0" />
-
 Lo único que necesitaremos para que funcione es un servidor de websockets, que construiremos en Node.js con la librería [Socket.io](http://socket.io/) que nos facilita el desarrollo de aplicaciones utilizando Websockets en el cliente y en el servidor.
 
 ### Iniciando la aplicación
 
 Empezamos creando un paquete de Node con `npm init -y` para generar un `package.json` con las opciones por defecto:
 
-```javascript
+```js
 {
   "name": "sockets",
   "version": "1.0.0",
@@ -36,14 +34,14 @@ Empezamos creando un paquete de Node con `npm init -y` para generar un `package.
 
 Ahora crearemos un fichero `server/main.js` que será nuestro servidor web. Para ello necesitaremos las librerías `express` y `socket.io` que instalamos vía `npm`:
 
-```javascript
+```js
 $ npm install --save express
 $ npm install --save socket.io
 ```
 
 En `server/main.js` creamos una aplicación con **express**, que pasaremos a un servidor http y todo esto irá ligado al servidor de websockets que creamos con **socket.io**
 
-```javascript
+```js
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
@@ -52,7 +50,7 @@ var io = require("socket.io")(server);
 
 Pondremos el servidor a escuchar en `localhost` con el puerto `8080`:
 
-```javascript
+```js
 server.listen(8080, function () {
   console.log("Servidor corriendo en http://localhost:8080");
 });
@@ -60,7 +58,7 @@ server.listen(8080, function () {
 
 Para probar nuestro chat vamos a tener un array de mensajes de prueba que enviaremos cuando se conecte un cliente web.
 
-```javascript
+```js
 var messages = [
   {
     author: "Carlos",
@@ -79,7 +77,7 @@ var messages = [
 
 Ahora necesitamos que el servidor de websockets, que lo tenemos en la variable `io`, esté atento a que se realice una conexión. Eso lo logramos con `io.on()` y pasándole el mensaje `connection`. Dentro de éste método enviaremos el array de objetos mensaje con el evento `'messages'`:
 
-```javascript
+```js
 io.on("connection", function (socket) {
   console.log("Un cliente se ha conectado");
   socket.emit("messages", messages);
@@ -88,18 +86,18 @@ io.on("connection", function (socket) {
 
 El evento `messages` lo recogeremos en el cliente, en el fichero JavaScript de la parte cliente. Así que ahora es momento de crear la parte pública de la aplicación con un `index.html` y un `main.js`:
 
-```javascript
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Aplicación con Sockets</title>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="main.js"></script>
-</head>
-<body>
-  <h1>My App</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Aplicación con Sockets</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>My App</h1>
+  </body>
 </html>
 ```
 
@@ -110,7 +108,7 @@ Socket.io es una librería que funciona tanto en cliente como servidor precisame
 
 En `main.js` (de la parte cliente) conectamos el cliente con el servidor de websockets que tenemos en `http://localhost:8080` y escuchamos el evento `messages`.
 
-```javascript
+```js
 var socket = io.connect("http://localhost:8080", { forceNew: true });
 
 socket.on("messages", function (data) {
@@ -122,13 +120,13 @@ socket.on("messages", function (data) {
 
 Primero añadimos un `div` con el id `messages` donde pondremos todos los mensajes que lleguen.
 
-```javascript
+```html
 <div id="messages"></div>
 ```
 
 Después en nuestro `server/main.js` tenemos que indicar cual es la ruta que tendrán los ficheros estáticos, lo hacemos con el middleware `express.static`.
 
-```javascript
+```js
 app.use(express.static("public"));
 ```
 
@@ -136,7 +134,7 @@ Siendo `public` la carpeta donde tenemos el `index.html` y el `main.js`.
 
 En `main.js` del cliente, vamos a crear una función que llamaremos `render()` que se encargará de pintar en el HTML los mensajes:
 
-```javascript
+```js
 function render(data) {
   var html = data
     .map(function (elem, index) {
@@ -169,11 +167,11 @@ Ya recibimos mensajes y los pintamos en el HTML, pero ahora para tener un chat m
 
 Para poder enviar mensajes, lo primero que necesitamos es un formulario en nuestro HTML:
 
-```javascript
+```html
 <form onsubmit="return addMessage(this)">
-	<input type="text" id="username" placeholder="Tu Nombre" >
-    <input type="text" id="texto" placeholder="Cuéntanos algo...">
-    <input type="submit" value="Enviar!">
+  <input type="text" id="username" placeholder="Tu Nombre" />
+  <input type="text" id="texto" placeholder="Cuéntanos algo..." />
+  <input type="submit" value="Enviar!" />
 </form>
 ```
 
@@ -181,7 +179,7 @@ El formulario tendrá dos campos, para el nombre del autor y para el texto del m
 
 Definamos la función en el fichero `public/main.js`
 
-```javascript
+```js
 function addMessage(e) {
   var mensaje = {
     author: document.getElementById("username").value,
@@ -195,11 +193,11 @@ function addMessage(e) {
 
 La función simplemente recoge el valor de los inputs del autor y el texto y los envía por el socket con el mensaje `new-mensaje` para que lo escuche el servidor. Por tanto ahora es el momento de escuchar ese evento en el servidor. Volvemos a `server/main.js`
 
-```language-javascript
-socket.on('new-message', function(data) {
-	messages.push(data);
+```js
+socket.on("new-message", function (data) {
+  messages.push(data);
 
-	io.sockets.emit('messages', messages);
+  io.sockets.emit("messages", messages);
 });
 ```
 
@@ -219,92 +217,96 @@ Este es el código completo utilizado en este tutorial, como puedes ver es muy s
 
 - public/index.html
 
-```javascript
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Aplicación con Sockets</title>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="main.js"></script>
-</head>
-<body>
-  <h1>My App</h1>
-  <div id="messages"></div>
-  <br/>
-  <form onsubmit="return addMessage(this)">
-    <input type="text" id="username" placeholder="Tu Nombre" >
-    <input type="text" id="texto" placeholder="Cuéntanos algo...">
-    <input type="submit" value="Enviar!">
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Aplicación con Sockets</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>My App</h1>
+    <div id="messages"></div>
+    <br />
+    <form onsubmit="return addMessage(this)">
+      <input type="text" id="username" placeholder="Tu Nombre" />
+      <input type="text" id="texto" placeholder="Cuéntanos algo..." />
+      <input type="submit" value="Enviar!" />
+    </form>
+  </body>
 </html>
 ```
 
 - public/main.js
 
-```language-javascript
-var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+```js
+var socket = io.connect("http://localhost:8080", { forceNew: true });
 
-socket.on('messages', function(data) {
+socket.on("messages", function (data) {
   console.log(data);
   render(data);
-})
+});
 
-function render (data) {
-  var html = data.map(function(elem, index) {
-    return(`<div>
+function render(data) {
+  var html = data
+    .map(function (elem, index) {
+      return `<div>
               <strong>${elem.author}</strong>:
               <em>${elem.text}</em>
-            </div>`);
-  }).join(" ");
+            </div>`;
+    })
+    .join(" ");
 
-  document.getElementById('messages').innerHTML = html;
+  document.getElementById("messages").innerHTML = html;
 }
 
 function addMessage(e) {
   var message = {
-    author: document.getElementById('username').value,
-    text: document.getElementById('texto').value
+    author: document.getElementById("username").value,
+    text: document.getElementById("texto").value,
   };
 
-  socket.emit('new-message', message);
+  socket.emit("new-message", message);
   return false;
 }
 ```
 
 - server/main.js
 
-```language-javascript
-var express = require('express');
+```js
+var express = require("express");
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
 
-var messages = [{
-  id: 1,
-  text: "Hola soy un mensaje",
-  author: "Carlos Azaustre"
-}];
+var messages = [
+  {
+    id: 1,
+    text: "Hola soy un mensaje",
+    author: "Carlos Azaustre",
+  },
+];
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.get('/hello', function(req, res) {
+app.get("/hello", function (req, res) {
   res.status(200).send("Hello World!");
 });
 
-io.on('connection', function(socket) {
-  console.log('Alguien se ha conectado con Sockets');
-  socket.emit('messages', messages);
+io.on("connection", function (socket) {
+  console.log("Alguien se ha conectado con Sockets");
+  socket.emit("messages", messages);
 
-  socket.on('new-message', function(data) {
+  socket.on("new-message", function (data) {
     messages.push(data);
 
-    io.sockets.emit('messages', messages);
+    io.sockets.emit("messages", messages);
   });
 });
 
-server.listen(8080, function() {
+server.listen(8080, function () {
   console.log("Servidor corriendo en http://localhost:8080");
 });
 ```

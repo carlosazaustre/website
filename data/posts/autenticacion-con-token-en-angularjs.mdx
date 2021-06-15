@@ -23,7 +23,7 @@ $ bower install --save satellizer
 
 De seguido, en nuestro fichero principal de Angular, supongamos el `app.js`, importamos el módulo y configuramos la librería. El nombre de la directiva que utiliza _Satellizer_ es `$auth` y `$authProvider`.
 
-```javascript
+```js
 angular
 	.module("myApp", ["satellizer"])
     .config(function($authProvider) {
@@ -43,7 +43,7 @@ En `$authProvider.tokenName` le indicamos un nombre al token y `$authProvider.to
 
 Lo siguiente a implementar son los controladores. Tendremos dos principalmente, el de login y el de registro, además del de logout.
 
-```javascript
+```js
 angular
 	.module("myApp.controllers")
     .controller("SignUpController", SignUpController)
@@ -107,7 +107,7 @@ Entre todos los módulos que están programados en _Satellizer_, vemos uno llama
 
 `shared.getToken()` busca en nuestro LocalStorage la clave que hemos definido para almacenar nuestro Token y nos lo devuelve
 
-```javascript
+```js
 shared.getToken = function () {
   var tokenName = config.tokenPrefix
     ? config.tokenPrefix + "_" + config.tokenName
@@ -118,7 +118,7 @@ shared.getToken = function () {
 
 `shared.getPayload()` toman el token y devuelve el `payload` que es la 2a parte del token
 
-```javascript
+```js
 shared.getPayload = function () {
   var tokenName = config.tokenPrefix
     ? config.tokenPrefix + "_" + config.tokenName
@@ -135,7 +135,7 @@ shared.getPayload = function () {
 
 Y por último la función `shared.setToken()`, almacena el token recibido en el LocalStorage:
 
-```javascript
+```js
 shared.setToken = function (response, isLinking) {
   var token =
     response.access_token ||
@@ -170,7 +170,7 @@ shared.setToken = function (response, isLinking) {
 
 De eso se encarga la directiva `$httpProvider` que funciona como interceptor o middleware y se activa en cada petición HTTP.
 
-```javascript
+```js
 //...
 .config(['$httpProvider', 'satellizer.config', function($httpProvider, config) {
       $httpProvider.interceptors.push(['$q', function($q) {
@@ -198,13 +198,13 @@ De esta manera, en cada petición HTTP, se inserta en las cabeceras el token si 
 
 Volvemos al módulo principal de nuestra aplicación y añadimos las rutas del frontend a continuación de la configuración del `$authProvider` podemos usar `ngRoute` o `ui.route` si queremos tener estados en lugar de rutas y poder tener vistas anidadas (_nested views_). Yo suelo utilizar `ui.router` me parece más cómodo. Para ello primero instalamos la librería correspondiente:
 
-```sh
+```shell
 $ bower install --save angular-ui-router
 ```
 
 Y lo configuramos en `app.js`
 
-```javascript
+```js
 angular
 	.module("myApp", ["satellizer", "ui.router"])
     .config(function($authProvider, $stateProvider) {

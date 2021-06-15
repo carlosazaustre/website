@@ -14,19 +14,19 @@ Lo primero es tener un sitio, o blog, con Gatsby. En futuros posts hablaré sobr
 
 Para ello, primero necesitamos tener instalado `node.js` en nuestro equipo para poder instalar el CLI de gatsby de forma global con:
 
-```
+```shell
 $ npm install -g gatsby-cli
 ```
 
 Una vez instalado podemos usar el siguiente comando para iniciar un nuevo proyecto en Gatsby empleando el starter. Esto nos ahorrará tener que crear los ficheros y carpetas.
 
-```
+```shell
 $ gatsby new TU_BLOG https://github.com/gatsbyjs/gatsby-starter-blog
 ```
 
 Sustituyendo `TU_BLOG` por el nombre que tu quieras. Una vez instalado si ejecutamos lo siguiente tendremos el blog corriendo en local en nuestro equipo en http://localhost:8000
 
-```
+```shell
 $ yarn develop
 ```
 
@@ -42,20 +42,20 @@ Para ello nos dirigimos a la [consola de Firebase](https://console.firebase.goog
 
 Ahora ve a tu terminal de tu equipo instala las Firebase Tools:
 
-```
+```shell
 $ npm install -g firebase-tools
 ```
 
 Dirígete a la carpeta de tu proyecto creado con Gatsby e inicia Firebase en él después de loguearte:
 
-```
+```shell
 $ firebase login
 $ firebase init
 ```
 
 El comando `init` empezará a preguntarte cosas:
 
-```sh
+```shell
 ? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices. (Press <sp
 ace> to select, <a> to toggle all, <i> to invert selection)
 ❯◯ Database: Deploy Firebase Realtime Database Rules
@@ -70,7 +70,7 @@ Con la tecla espacio de tu teclado elige únicamente la opción `Hosting`
 
 Después elige la opcíon de un proyecto ya existente `Use an existing project`
 
-```sh
+```shell
 ? Please select an option: (Use arrow keys)
 ❯ Use an existing project
   Create a new project
@@ -82,7 +82,7 @@ Y en la lista de proyectos, elige el que acabas de crear en la consola de Fireba
 
 En la siguiente pregunta, pulsa enter para elegir `public` que es donde Gatsby deposita los ficheros estáticos creados por el builder.
 
-```sh
+```shell
 === Hosting Setup
 
 Your public directory is the folder (relative to your project directory) that
@@ -94,14 +94,14 @@ have a build process for your assets, use your build's output directory.
 
 Y en las siguientes preguntas escribe `N` para que firebase no te sobrescriba nada:
 
-```sh
+```shell
 ? Configure as a single-page app (rewrite all urls to /index.html)? (y/N)
 ? File public/index.html already exists. Overwrite? (y/N)
 ```
 
 ya tienes iniciado tu proyecto con Firebase:
 
-```sh
+```shell
 i  Skipping write of public/index.html
 
 i  Writing configuration info to firebase.json...
@@ -110,7 +110,7 @@ i  Writing project information to .firebaserc...
 
 Esto nos ha creado dos ficheros en nuestro proyecto:
 
-```javascript:title=.firebaserc
+```js
 {
   "projects": {
     "default": "TU_PROYECTO_EN_FIREBASE"
@@ -118,7 +118,7 @@ Esto nos ha creado dos ficheros en nuestro proyecto:
 }
 ```
 
-```javascript:title=firebase.json
+```js
 {
   "hosting": {
     "public": "public",
@@ -157,7 +157,7 @@ Aquí vamos a configurar las variables de entorno que usemos en nuestro código,
 
 Para conseguir el token de Firebase podemos hacerlo por línea de comandos con la siguiente instrucción.
 
-```sh
+```shell
 $ firebase login:ci
 
 Visit this URL on this device to log in:
@@ -184,7 +184,7 @@ Vamos a crear un fichero llamado `.travis.yml` que le sirve a Travis que ejecuta
 
 Ésta es la configuración que tengo yo:
 
-```yaml:title=.travis.yml
+```yaml
 language: node_js
 node_js:
   - "10"

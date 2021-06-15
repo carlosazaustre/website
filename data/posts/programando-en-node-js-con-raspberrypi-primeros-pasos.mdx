@@ -35,7 +35,7 @@ Introducimos la tarjeta SD en la Raspberry y le damos alimentación a través d
 
 Conectamos un cable Ethernet a la Raspberry y a un puerto que tengamos libre en nuestro Router. Desde la interfaz de administración de nuestro router podemos ver que IP de la red local está usando la Raspberry, cuando la sepamos podemos acceder a través de SSH de la siguiente manera:
 
-```sh
+```shell
 $ ssh 192.168.1.13 -l pi
 ```
 
@@ -47,7 +47,7 @@ Ya estamos dentro!. Lo ideal sería podernos conectar inalámbricamente. Si disp
 
 Ahora si editamos el fichero `/etc/network/interfaces` con lo siguiente:
 
-```sh
+```shell
 auto lo
 
 iface lo inet loopback
@@ -67,14 +67,14 @@ Sustituyendo `ssid` por el nombre de nuestra red y `password` por la contraseña
 
 Despues del primer reinicio ya podemos actualizar el SO con los siguientes comandos
 
-```
+```shell
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
 [Instalamos Node](http://joshondesign.com/2013/10/23/noderpi)
 
-```
+```shell
 wget http://nodejs.org/dist/v0.10.2/node-v0.10.2-linux-arm-pi.tar.gz
 tar -xvzf node-v0.10.2-linux-arm-pi.tar.gz
 node-v0.10.2-linux-arm-pi/bin/node --version
@@ -82,7 +82,7 @@ node-v0.10.2-linux-arm-pi/bin/node --version
 
 Añadimos al PATH las rutas de node en un fichero, por ejemplo `.bash_profile`
 
-```
+```shell
 export NODE_JS_HOME=/home/pi/node-v0.10.2-linux-arm-pi
 export PATH=$PATH:$NODE_JS_HOME/bin
 ```
@@ -93,7 +93,7 @@ Y ya podemos instalar por NPM las dependencias que necesitamos
 
 Para instalar la librería Cylon podemos hacerlo por NPM, también necesitaremos [la específica de Raspberry](http://cylonjs.com/documentation/platforms/raspberry-pi/) y es recomendable instalar 3 más, la firmdata, `GPIO` e `I2C`.
 
-```
+```shell
 $ npm install cylon
 $ npm install cylon-raspi
 $ npm install cylon-firmata
@@ -103,21 +103,21 @@ $ npm install cylon-i2c
 
 Para que funcionen correctamente los pines GPIO e I2C en Raspbian necesitamos hacer lo siguiente. Añadimos lo siguiente al fichero `/etc/modules`
 
-```
+```shell
 i2c-bcm2708
 i2c-dev
 ```
 
 Nos aseguramos que las siguientes entradas están comentadas en el fichero `/etc/modprobe.d/raspi-blacklist.conf`
 
-```
+```shell
 #blacklist spi-bcm2708
 #blacklist i2c-bcm2708
 ```
 
 Y por último los activamos para usarlos como pines de salida con la libreria [Pi-Blaster](https://github.com/hybridgroup/pi-blaster), con los siguientes pasos:
 
-```sh
+```shell
 $ git clone https://github.com/hybridgroup/pi-blaster.git
 $ cd pi-blaster
 $ make

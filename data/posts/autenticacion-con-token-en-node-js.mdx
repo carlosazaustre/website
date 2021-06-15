@@ -17,7 +17,7 @@ Si te pierdes un poco, en [éste post anterior expliqué como crear un API REST 
 
 Configuración básica de un servidor en Node.js utilizando Express v4.
 
-```javascript
+```js
 // server.js
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -67,7 +67,7 @@ De igual manera, en las funciones controladores de `/auth/signup` y `/auth/login
 
 En el fichero `auth.js` voy a definir las dos funciones controladoras para el registro y autenticación de usuarios.
 
-```javascript
+```js
 // auth.js
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
@@ -107,7 +107,7 @@ Para codificar el token utilizamos una clave secreta. Es importante que esta cla
 
 Sería algo así:
 
-```javascript
+```js
 // config.js
 module.exports = {
   TOKEN_SECRET: process.env.TOKEN_SECRET || "tokenultrasecreto",
@@ -118,7 +118,7 @@ Cuando importemos el fichero `config.js` en la variable `TOKEN_SECRET` tendremos
 
 Creamos el servicio que utilizaremos para codificar el token. Para ello vamos utilizar la librería [jwt-simple](https://www.npmjs.com/package/jwt-simple) que nos facilita la vida a la hora de codificar el _payload_ y hace todo el trabajo que expliqué en el [post anterior](/que-es-la-autenticacion-con-token/).
 
-```javascript
+```js
 // services.js
 var jwt = require("jwt-simple");
 var moment = require("moment");
@@ -144,31 +144,29 @@ Por úlitmo devolvemos el JSON Web Token, codificando el payload con nuestra cla
 
 Cada vez que accedamos a una ruta privada, sólo accesible si estamos autenticados, como por ejemplo `/private`, le pasamos el middleware `ensureAuthenticated` que a continuación programaremos:
 
-```language-javascript
+```js
 // middleware.js
-var jwt = require('jwt-simple');
-var moment = require('moment');
-var config = require('./config');
+var jwt = require("jwt-simple");
+var moment = require("moment");
+var config = require("./config");
 
-exports.ensureAuthenticated = function(req, res, next) {
-  if(!req.headers.authorization) {
+exports.ensureAuthenticated = function (req, res, next) {
+  if (!req.headers.authorization) {
     return res
       .status(403)
-      .send({message: "Tu petición no tiene cabecera de autorización"});
+      .send({ message: "Tu petición no tiene cabecera de autorización" });
   }
 
   var token = req.headers.authorization.split(" ")[1];
   var payload = jwt.decode(token, config.TOKEN_SECRET);
 
-  if(payload.exp <= moment().unix()) {
-     return res
-     	.status(401)
-        .send({message: "El token ha expirado"});
+  if (payload.exp <= moment().unix()) {
+    return res.status(401).send({ message: "El token ha expirado" });
   }
 
   req.user = payload.sub;
   next();
-}
+};
 ```
 
 Lo primero que hacemos en la función es comprobar que la petición, `req` lleva la cabecera de autorización `req.headers.authorization`. Ésto lo envía el Frontend y lo veremos en un próximo post, con Angular.js

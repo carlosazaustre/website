@@ -19,7 +19,7 @@ En mi caso, [adquirí una placa de prototipado](http://www.adafruit.com/products
 
 La estructura que tendrá nuestra webapp con API será esta, ahora explicaremos que hace cada fichero:
 
-```sh
+```shell
 /raspi-app
 |_ /app
 |    |_ /controllers
@@ -39,7 +39,7 @@ En este fichero se encuentran las dependencias de Node.js que vamos a utilizar. 
 
 Y despues las del framework **CylonJS** que tiene los drivers necesarios para comunicarse con las Raspberry utilizando JavaScript. El fichero sería así:
 
-```javascript
+```js
 {
   "name": "raspi-app",
   "version": "0.0.0",
@@ -63,7 +63,7 @@ Y despues las del framework **CylonJS** que tiene los drivers necesarios para co
 **server.js**  
 Este fichero es el de arranque de nuestro servidor Node/Express. En el vamos a importar las dependencias, configurar la ruta de los ficheros estáticos, el sistema de plantillas para las vistas y el controlador de los LEDs lo separamos en un modulo aparte para hacer más legible la aplicación. El fichero sería así:
 
-```javascript
+```js
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
@@ -98,7 +98,7 @@ El servidor **correrá en el puerto 3000 de la IP asignada a la Raspberry** en l
 **app/views/index.server.view.html**  
 En server.js, con este código:
 
-```javascript
+```js
 app.engine("server.view.html", cons["swig"]);
 app.set("view engine", "server.view.html");
 app.set("views", "./app/views");
@@ -166,7 +166,7 @@ Lo único que tiene esta página es un listado con 3 botones `toggle` que encend
 **js/main.js**  
 Este fichero comunicará el Frontend de la webapp con el Backend de la aplicación, realizando llamadas AJAX a nuestro API.
 
-```javascript
+```js
 function onReady() {
   var $btn = $(".toggle");
   var $range = $("input[type=range]");
@@ -197,7 +197,7 @@ Ahora entonces necesitamos nuestro API en el backend, lo vemos a continuación.
 **/app/controllers/led.js**  
 En este fichero añadimos la ruta `REST` que nos permite encender/apagar los LEDs, ademÃ¡s de la configuración de los pines GPIO asociados a los LEDs, gracias a CylonJS
 
-```javascript
+```js
 var Cylon = require("cylon");
 
 module.exports = function (app) {

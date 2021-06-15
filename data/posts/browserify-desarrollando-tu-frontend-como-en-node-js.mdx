@@ -23,7 +23,7 @@ En este artículo vamos a ver como sería un ejemplo sencillo utilizando una lib
 
 Instalamos los siguientes módulos y plugins para automatizar algunas tareas.
 
-```sh
+```shell
 $ npm install --save-dev gulp
 $ npm install --save-dev gulp-uglify
 $ npm install --save-dev browserify
@@ -33,7 +33,7 @@ $ npm install --save-dev vinyl-buffer
 
 Esta será la tarea que crea el fichero `bundle.js` donde está el codigo fuente completo de la parte cliente, ya traducido para que funcione en el navegador, ya que los navegadores no entienden los `require` ni los `module.exports`.
 
-```javascript
+```js
 gulp.task("browserify", function () {
   return browserify("./source/scripts/app.main.js")
     .bundle()
@@ -54,7 +54,7 @@ Ahora vamos a Instalar librerías cliente desde NPM, Node Package Manager, el re
 
 Para instalar por ejemplo, la librería de jQuery, lo hacemos de la siguiente manera:
 
-```sh
+```shell
 $ npm install jquery
 ```
 
@@ -79,7 +79,7 @@ Ahora pasamos a nuestro código fuente JavaScript, el fichero `app.main.js` llam
 
 Este script únicamente buscará el elemento `h1` y cambiará su texto por _Hello Browserify_
 
-```javascript
+```js
 // source/scripts/app.main.js
 var $ = require("jquery");
 $("h1").html("Hola Browserify");
@@ -90,7 +90,7 @@ El resultado que veremos en el navegador será el siguiente:
 
 Para conseguir este resultado, hay que correr las tareas que hemos configurado en el `Gulpfile.js`
 
-```sh
+```shell
 $ gulp build
 $ gulp
 ```
@@ -99,7 +99,7 @@ $ gulp
 
 Voy a crear un fichero `app.persona.js` como módulo para ver como se exportaría e importaría en nuestra aplicación con _browserify_
 
-```javascript
+```js
 // source/scripts/app.persona.js
 
 var Persona = function (nombre, edad) {
@@ -123,7 +123,7 @@ module.exports = Persona;
 
 Exportamos la variable `Persona` como módulo, y que devuelve 2 funciones, `saludar` y `presentar`, que son las únicas que podremos utilizar cuando las llamemos desde `app.main.js`
 
-```javascript
+```js
 var $ = require("jquery");
 var persona = require("./app.persona");
 

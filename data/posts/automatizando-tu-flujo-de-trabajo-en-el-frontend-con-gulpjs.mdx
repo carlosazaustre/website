@@ -11,13 +11,13 @@ En este artículo mostraré un _Gulpfile_ básico en el que declararemos varias 
 
 El fichero de configuración de tareas debe llamarse `Gulpfile.js` y estar situado en el directorio raíz de nuestro proyecto. Para poder ejecutrar gulp en nuestro equipo, debemos tener instalado [Node.js](http://nodejs.org/) y las siguientes dependencias de manera global
 
-```sh
+```shell
 $ npm install -g gulp
 ```
 
 Pensemos que tareas solemos hacer normalmente en nuestros desarrollos frontend. Lo más habitual es que usemos un preprocesador de CSS (Sass, Less, Stylus,…) para realizar el diseño de la web. Esto nos lleva a tener varios archivos y necesitamos que se conviertan en uno solo y con formato CSS. Esto lo podemos hacer con la siguiente tarea configurada en nuestro _Gulpfile_
 
-```javascript
+```js
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 
@@ -33,7 +33,7 @@ Esta tarea recoge los ficheros `.styl` (de Stylus) que se encuentren en la carpe
 
 Imaginemos ahora que tenemos varios ficheros JS, y los vamos añadiendo en nuestro HTML con las etiquetas `script`. Sería genial que un programa nos leyera esas referencias y se encargara de concatenarlas en un único fichero JS e incluso minificarlo. ¿Es posible? Si lo es:
 
-```javascript
+```js
 var gulp = require("gulp");
 var useref = require("gulp-useref");
 var gulpif = require("gulp-if");
@@ -65,7 +65,7 @@ Gulp recoge el contenido entre las etiquetas de comentario en HTML, y concatena 
 
 También podemos trabajar con imágenes. Aunque con Photoshop o cualquier otro programa las hayamos optimizado para la web, siempre pueden ser comprimidas mucho más con un optimizador de imágenes. También podemos hacer esto con Gulp:
 
-```javascript
+```js
 var gulp = require("gulp");
 var imagemin = require("gulp-imagemin");
 var pngcrush = require("imagemin-pngcrush");
@@ -88,7 +88,7 @@ Esta tarea toma las imágenes en formato `PNG`, `JPG`, `GIF` y `SVG` que se encu
 
 Estas tareas son geniales, pero ¿No sería aún mejor que se ejecutaran cada vez que hiciesemos un cambio en los ficheros CSS y JS? Eso lo conseguimos con la tarea `watch`
 
-```javascript
+```js
 gulp.task('watch', function() {
   gulp.watch('./styles/**/*.styl', ['css']),
   gulp.watch('./**/*.html, ['compress'])
@@ -97,7 +97,7 @@ gulp.task('watch', function() {
 
 Y para terminar, si pudiesemos ver los cambios que hacemos en el CSS y JS según guardamos sin tener que recargar el navegador, ahorraríamos una cantidad importante de tiempo. Gulp también nos facilita esto con el plugin `livereload`;
 
-```javascript
+```js
 var gulp = require("gulp");
 var connect = require("gulp-connect");
 var historyApiFallback = require("connect-history-api-fallback");
@@ -117,7 +117,7 @@ gulp.task("webserver", function () {
 
 Esto nos crea un servidor web de desarrollo que se ejecuta en localhost en el puerto 9000 y se recargará cada vez que se ejecute un cambio. Solo es necesario registrar la tarea y lo tenemos listo:
 
-```javascript
+```js
 gulp.task("default", ["webserver", "watch"]);
 ```
 

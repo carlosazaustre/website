@@ -15,14 +15,14 @@ En nuestro caso, nuestro servidor es una instancia **EC2 en Amazon Web Services*
 
 Lo primero que necesitamos es **crear una clave privada** en nuestro servidor:
 
-```
+```shell
 $ cd /etc/ssl/
 $ sudo openssl genrsa -des3 -out server.key 2048
 ```
 
 Con nuestra clave privada generada, creamos un **Certificate Signing Request (CSR)** para solicitar nuestro certificado SSL a una entidad de autorización reconocida, en nuestro caso optamos por [RapidSSL](http://www.rapidssl.com/).
 
-```
+```shell
 $ sudo openssl req -new -key server.key -out server.csr
 ```
 
@@ -38,7 +38,7 @@ Esto nos generará un archivo `CSR` que debemos subir a RapidSSL cuando solicite
 
 Desde la página de RapidSSL necesitamos también descargarnos un [certificado intermedio](https://knowledge.rapidssl.com/support/ssl-certificate-support/index?page=content&id=AR1549), lo guardamos como `intermediate.crt` y debemos concatenar al anterior
 
-```sh
+```shell
 $ sudo cat SSL.crt intermediate.crt >> SSL.crt
 ```
 
@@ -50,7 +50,7 @@ Editamos el fichero default de configuración con lo siguiente:
 $ sudo nano /etc/nginx/sites-available/default
 ```
 
-```sh
+```shell
 server {
   listen 443;
   server_name tudominio.com;
@@ -68,7 +68,7 @@ server {
 
 Reiniciamos nginx y nos aseguramos que en nuestro DNS, `tudominio.com` apunta a la IP o alias de nuestro servidor
 
-```sh
+```shell
 sudo service nginx restart
 ```
 

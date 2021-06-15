@@ -6,6 +6,8 @@ tags:
   - "💻 Desarrollo"
 ---
 
+<YouTube playlist="PLUdlARNXMVkk7E88zOrphPyGdS50Tadlr" />
+
 El primer paso para implementar un <a href="/desarrollo-full-stack-javascript-tambien-conocido-como-mean/">sitio web moderno</a> es la construcción de un API REST que podemos consumir desde una aplicación web, mobile o nativa.
 
 En éste tutorial explicaré como desarrollar servidor web que sirva una <a href="http://en.wikipedia.org/wiki/REST_API">API RESTful</a> usando para ello la tecnología de <a href="http://nodejs.org/">Node.js</a> y <a href="http://www.mongodb.org/">MongoDB</a> como base de datos. Es el llamado <b>MEAN Stack</b> También es una buena opción para empezar y aprender Node.js desde cero.
@@ -28,7 +30,7 @@ Ya no se encuentran dentro del paquete *Express* y hay que importarlos como un
 
 El primer paso es crear un directorio en tu entorno local para la aplicación, e iniciar un repositorio para guardar los cambios y que luego podamos desplegarlo por ejemplo en Heroku. Yo personalmente uso [Git](http://git-scm.com/) porque es una maravilla de la creación y porque a Heroku es lo que le mola ;)
 
-```javascript
+```js
 $ mkdir node-api-rest-example
 $ cd node-api-rest-example
 $ git init
@@ -36,7 +38,7 @@ $ git init
 
 Antes de empezar, necesitas tener Node instalado en tu ordenador, para que funcione en tu entorno local de desarrollo. Para ello si tienes Mac te recomiendo que lo hagas de la siguiente manera:
 
-```javascript
+```js
 $ brew update
 $ brew install node
 ```
@@ -47,7 +49,7 @@ El primer código que necesitamos escribir en una aplicación basada en Node es 
 
 Por lo tanto `package.json` tendrá:
 
-```language-javascript
+```js
 {
  "name": "node-api-rest-example",
  "version": "2.0.0",
@@ -62,7 +64,7 @@ Por lo tanto `package.json` tendrá:
 
 Y ahora para descargar las dependencias escribimos lo siguiente en la consola y NPM (el gestor de paquetes de Node) se encargará de instalarlas.
 
-```
+```shell
 $ npm install
 ```
 
@@ -70,12 +72,12 @@ $ npm install
 
 Con todo listo, podemos comenzar a _codear_ de verdad. Creamos un fichero llamado `app.js` en el directorio raíz que será el que ejecute nuestra aplicación y arranque nuestro server. Crearemos en primer lugar un sencillo servidor web para comprobar que tenemos todo lo necesario instalado, y a continuación iremos escribiendo más código.
 
-```language-javascript
+```js
 var express = require("express"),
-    app = express(),
-    bodyParser  = require("body-parser"),
-    methodOverride = require("method-override");
-    mongoose = require('mongoose');
+  app = express(),
+  bodyParser = require("body-parser"),
+  methodOverride = require("method-override");
+mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -83,13 +85,13 @@ app.use(methodOverride());
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
-   res.send("Hello World!");
+router.get("/", function (req, res) {
+  res.send("Hello World!");
 });
 
 app.use(router);
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Node server running on http://localhost:3000");
 });
 ```
@@ -102,7 +104,7 @@ Podemos declarar las rutas con `app.route(nombre_de_la_ruta)` seguido de los ver
 
 Para ejecutar este pequeño código sólo tienes que escribir en consola lo siguiente y abrir un navegador con la url [http://localhost:3000](http://localhost:3000)
 
-```javascript
+```js
 $ node app.js
 Node server running on http://localhost:3000
 ```
@@ -113,7 +115,7 @@ Si todo va bien, esto es lo que se verá:
 
 Y como usamos GIT, no hay que olvidarse de hacer _commit_ de nuestro código. Puedes descargar el código fuente de este proyecto en el [repositorio que tengo en GitHub](https://github.com/carlosazaustre/node-api-rest-example/tree/feature-express4)
 
-```javascript
+```js
 $ git add .
 $ git commit -m 'Initial commit'
 ```
@@ -124,40 +126,41 @@ En esta parte vamos a crear un modelo usando [Mongoose](http://mongoosejs.com/) 
 
 Para este ejemplo vamos a crear una base de datos de series de TV, por tanto vamos a crear un modelo (Archivo: `models/tvshow.js`) que incluya la información de una serie de TV, como pueden ser su título, el año de inicio, país de producción, una imagen promocional, número de temporadas, género y resumen del argumento:
 
-```language-javascript
-var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
+```js
+var mongoose = require("mongoose"),
+  Schema = mongoose.Schema;
 
 var tvshowSchema = new Schema({
-  title:    { type: String },
-  year:     { type: Number },
-  country:  { type: String },
-  poster:   { type: String },
-  seasons:  { type: Number },
-  genre:    { type: String, enum:
-  ['Drama', 'Fantasy', 'Sci-Fi', 'Thriller', 'Comedy']
-	    },
-  summary:  { type: String }
+  title: { type: String },
+  year: { type: Number },
+  country: { type: String },
+  poster: { type: String },
+  seasons: { type: Number },
+  genre: {
+    type: String,
+    enum: ["Drama", "Fantasy", "Sci-Fi", "Thriller", "Comedy"],
+  },
+  summary: { type: String },
 });
 
-module.exports = mongoose.model('TVShow', tvshowSchema);
+module.exports = mongoose.model("TVShow", tvshowSchema);
 ```
 
 Con esto ya podemos implementar la conexión a la base de datos en el archivo `app.j`\* añadiendo las siguientes líneas:
 
-```language-javascript
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tvshows');
+```js
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/tvshows");
 ```
 
 Quedando así el código de _app.js_:
 
-```language-javascript
-var express  = require("express"),
-    app      = express(),
-    http     = require("http"),
-    server   = http.createServer(app),
-    mongoose = require('mongoose');
+```js
+var express = require("express"),
+  app = express(),
+  http = require("http"),
+  server = http.createServer(app),
+  mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -165,17 +168,17 @@ app.use(methodOverride());
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
-   res.send("Hello World!");
+router.get("/", function (req, res) {
+  res.send("Hello World!");
 });
 
 app.use(router);
 
-mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
-  if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
+mongoose.connect("mongodb://localhost/tvshows", function (err, res) {
+  if (err) {
+    console.log("ERROR: connecting to Database. " + err);
   }
-  app.listen(3000, function() {
+  app.listen(3000, function () {
     console.log("Node server running on http://localhost:3000");
   });
 });
@@ -183,21 +186,21 @@ mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
 
 Para que esto funcione en nuestro entorno local, necesitamos tener instalado MongoDB. Dependiendo de vuestro sistema operativo de hace de una forma u otra. [Aquí tenéis la documentación oficial](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/). Si tienes Mac, se instala de la misma manera que Node.js:
 
-```javascript
+```shell
 $ brew update
 $ brew install mongodb
 ```
 
 Una vez hecho esto, para poder iniciar MongoDB debes ejecutar en otra terminal:
 
-```javascript
+```js
 $ mongod
 all output going to: /usr/local/var/log/mongodb/mongo.log
 ```
 
 Con Mongo arrancado ya podemos ejecutar la aplicación como en la parte anterior con `node app.js` desde la terminal, si todo va bien tendremos algo en la pantalla como esto:
 
-```javascript
+```js
 $ node app.js
 Node server running on http://localhost:3000
 Connected to Database
@@ -205,7 +208,7 @@ Connected to Database
 
 Ahora desde otra terminal, podemos entrar al shell de MongoDB y comprobar que la base de datos se ha creado correctamente. Para ello ejecutamos el comando `mongo`
 
-```javascript
+```js
 $ mongo
 MongoDB shell version: 2.4.1
 connecting to: test
@@ -223,25 +226,25 @@ Ya tenemos todo configurado y listo para albergar los datos, sólo nos queda cre
 
 los controladores de las rutas de nuestro API los vamos a crear en un archivo separad que llamaremos `controllers/tvshows.js`. Gracias a `exports` conseguimos modularizarlo y que pueda ser llamado desde el archivo principal de la aplicación. El código de a continuación es el comienzo del archivo con la primera función que será la que devuelva todos los registros almacenados:
 
-```language-javascript
+```js
 //File: controllers/tvshows.js
-var mongoose = require('mongoose');
-var TVShow  = mongoose.model('TVShow');
+var mongoose = require("mongoose");
+var TVShow = mongoose.model("TVShow");
 
 //GET - Return all tvshows in the DB
-exports.findAllTVShows = function(req, res) {
-	TVShow.find(function(err, tvshows) {
-    if(err) res.send(500, err.message);
+exports.findAllTVShows = function (req, res) {
+  TVShow.find(function (err, tvshows) {
+    if (err) res.send(500, err.message);
 
-    console.log('GET /tvshows')
-		res.status(200).jsonp(tvshows);
-	});
+    console.log("GET /tvshows");
+    res.status(200).jsonp(tvshows);
+  });
 };
 ```
 
 De esta manera tan sencilla, al llamar a la función `findAllTVShows` se envia como respuesta toda la colección de `tvshows` almacenada y en formato [JSON](http://www.json.org/). Si queremos que sólo nos devuelva un registro con un identificador único, tenemos que crear una función tal que la siguiente:
 
-```language-javascript
+```js
 //GET - Return a TVShow with specified ID
 exports.findById = function(req, res) {
 	TVShow.findById(req.params.id, function(err, tvshow) {
@@ -255,26 +258,26 @@ exports.findById = function(req, res) {
 
 Con las funciones `find()` y `findById()` podemos buscar en la base de datos a partir de un modelo. Ahora desarrollaré el resto de funciones que permiten insertar, actualizar y borrar registros de la base de datos. La función de a continuación sería la correspondiente al método POST y lo que hace es añadir un nuevo objeto a la base de datos:
 
-```language-javascript
+```js
 //POST - Insert a new TVShow in the DB
-exports.addTVShow = function(req, res) {
-	console.log('POST');
-	console.log(req.body);
+exports.addTVShow = function (req, res) {
+  console.log("POST");
+  console.log(req.body);
 
-	var tvshow = new TVShow({
-		title:    req.body.title,
-		year: 	  req.body.year,
-		country:  req.body.country,
-		poster:   req.body.poster,
-		seasons:  req.body.seasons,
-		genre:    req.body.genre,
-		summary:  req.body.summary
-	});
+  var tvshow = new TVShow({
+    title: req.body.title,
+    year: req.body.year,
+    country: req.body.country,
+    poster: req.body.poster,
+    seasons: req.body.seasons,
+    genre: req.body.genre,
+    summary: req.body.summary,
+  });
 
-	tvshow.save(function(err, tvshow) {
-		if(err) return res.status(500).send( err.message);
+  tvshow.save(function (err, tvshow) {
+    if (err) return res.status(500).send(err.message);
     res.status(200).jsonp(tvshow);
-	});
+  });
 };
 ```
 
@@ -282,37 +285,37 @@ Primero creamos un nuevo objeto `tvshow` siguiendo el patrón del modelo, recogi
 
 La siguiente función nos permitirá actualizar un registro a partir de un ID. Primero buscamos en la base de datos el registro dado el ID, y actualizamos sus campos con los valores que devuelve el cuerpo de la petición:
 
-```language-javascript
+```js
 //PUT - Update a register already exists
-exports.updateTVShow = function(req, res) {
-	TVShow.findById(req.params.id, function(err, tvshow) {
-		tvshow.title   = req.body.petId;
-		tvshow.year    = req.body.year;
-		tvshow.country = req.body.country;
-		tvshow.poster  = req.body.poster;
-		tvshow.seasons = req.body.seasons;
-		tvshow.genre   = req.body.genre;
-		tvshow.summary = req.body.summary;
+exports.updateTVShow = function (req, res) {
+  TVShow.findById(req.params.id, function (err, tvshow) {
+    tvshow.title = req.body.petId;
+    tvshow.year = req.body.year;
+    tvshow.country = req.body.country;
+    tvshow.poster = req.body.poster;
+    tvshow.seasons = req.body.seasons;
+    tvshow.genre = req.body.genre;
+    tvshow.summary = req.body.summary;
 
-		tvshow.save(function(err) {
-			if(err) return res.status(500).send(err.message);
+    tvshow.save(function (err) {
+      if (err) return res.status(500).send(err.message);
       res.status(200).jsonp(tvshow);
-		});
-	});
+    });
+  });
 };
 ```
 
 Y por último para completar la funcionalidad CRUD de nuestra API, necesitamos la función que nos permita elminar registros de la base de datos y eso lo podemos hacer con el código de a continuación:
 
-```language-javascript
+```js
 //DELETE - Delete a TVShow with specified ID
-exports.deleteTVShow = function(req, res) {
-	TVShow.findById(req.params.id, function(err, tvshow) {
-		tvshow.remove(function(err) {
-			if(err) return res.status(500).send(err.message);
+exports.deleteTVShow = function (req, res) {
+  TVShow.findById(req.params.id, function (err, tvshow) {
+    tvshow.remove(function (err) {
+      if (err) return res.status(500).send(err.message);
       res.status(200).send();
-		})
-	});
+    });
+  });
 };
 ```
 
@@ -320,22 +323,24 @@ Como puedes ver, usamos de nuevo el método `.findById()` para buscar en la base
 
 Ahora tenemos que unir estas funciones a las peticiones que serán nuestras llamadas al API. Volvemos a nuestro archivo principal, `app.js` y declaramos las rutas, siguiendo las pautas de Express v.4
 
-```language-javascript
-var TVShowCtrl = require('./controllers/tvshows');
+```js
+var TVShowCtrl = require("./controllers/tvshows");
 
 // API routes
 var tvshows = express.Router();
 
-tvshows.route('/tvshows')
+tvshows
+  .route("/tvshows")
   .get(TVShowCtrl.findAllTVShows)
   .post(TVShowCtrl.addTVShow);
 
-tvshows.route('/tvshows/:id')
+tvshows
+  .route("/tvshows/:id")
   .get(TVShowCtrl.findById)
   .put(TVShowCtrl.updateTVShow)
   .delete(TVShowCtrl.deleteTVShow);
 
-app.use('/api', tvshows);
+app.use("/api", tvshows);
 ```
 
 El archivo completo [**controllers/tvshows.js**](https://github.com/carlosazaustre/node-api-rest-example/blob/feature-express4/controllers/tvshows.js) lo puedes ver y descargar [desde el repositorio en GitHub](https://github.com/carlosazaustre/node-api-rest-example/blob/feature-express4/controllers/tvshows.js).
@@ -354,7 +359,7 @@ Antes de probarlo, debemos tener mongo y el servidor node de nuestra app corrien
 - **Content-Type**: application/json (en los dos input que nos dan)
 - **Request-Payload**: Aquí va el cuerpo de nuestra petición, con el objeto JSON siguiente (por ejemplo):
 
-```language-javascript
+```js
 {
   "title": "LOST",
   "year": 2004,
@@ -374,7 +379,7 @@ Pulsamos `SEND` y si todo va bien, la petición se realizará y abajo de la apli
 
 ¿Cómo comprobamos si se ha guardado en nuestra base de datos? Muy sencillo, en nuestro terminal ejecutamos el Shell de mongo con el comando `mongod` e introducimos los siguiente comandos:
 
-```javascript
+```shell
 $ mongo
 MongoDB shell version: 2.4.1
 connecting to: test
@@ -404,5 +409,3 @@ Con esto tendríamos el funcionamiento básico y programación de lo que sería 
 A continuación te dejo una serie de video tutoriales de [mi canal de YouTube](https://www.youtube.com/user/azaman1984) sobre éste tema
 
 > Todo el código utilizado está subido en el[ repositorio que he creado en GitHub](https://github.com/carlosazaustre/node-api-rest-example/tree/feature-express4), te animo a descargarlo, probarlo y modificarlo para aprender :)
-
-<YouTube playlist="PLUdlARNXMVkk7E88zOrphPyGdS50Tadlr" />
