@@ -35,6 +35,7 @@ export default function Home({ posts }) {
       <Box bg="brand.900">
         <Container maxW="container.2xl">
           <Header />
+
           <StyledMain role="main">
             <Flex
               direction="column"
@@ -43,7 +44,7 @@ export default function Home({ posts }) {
               pt="0"
               pr="0"
               pb="2"
-              pl="6"
+              pl={[4, 4, 8, 16]}
             >
               <Intro />
             </Flex>

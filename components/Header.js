@@ -5,7 +5,7 @@ import { Navigation } from "./Navigation";
 
 export const Header = () => {
   return (
-    <Box as="header" py="10" px="4">
+    <Box as="header" py="10" px={[4, 4, 8, 16]}>
       <Flex
         as="header"
         fontWeight="bold"

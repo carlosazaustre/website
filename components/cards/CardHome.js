@@ -10,7 +10,7 @@ export const CardHome = ({
     <Box
       bg={bgColor}
       borderRadius="lg"
-      p={8}
+      p={[4, 4, 8, 16]}
       my={4}
       mx={1}
       width={["100%", "100%", "455px"]}

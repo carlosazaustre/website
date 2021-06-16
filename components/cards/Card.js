@@ -7,7 +7,7 @@ export const Card = ({
   headerTitle,
 }) => {
   return (
-    <Box bg={bgColor} borderRadius="lg" p={8}>
+    <Box bg={bgColor} borderRadius="lg" p={[4, 4, 8, 16]}>
       <Heading as="h4" color={headerColor}>
         {headerTitle}
       </Heading>

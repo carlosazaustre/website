@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { Text } from "@chakra-ui/react";
 
@@ -6,7 +7,7 @@ import { ButtonCTA } from "./ButtonCTA";
 
 export const Intro = () => {
   return (
-    <>
+    <Fragment>
       <Text fontFamily="heading" fontSize="4xl">
         Hola 👋🏼, soy
       </Text>{" "}
@@ -26,6 +27,6 @@ export const Intro = () => {
         <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
       </Link>
       <CompanyLogos />
-    </>
+    </Fragment>
   );
 };
