@@ -15,6 +15,7 @@ export { PageHeader } from "./PageHeader";
 export { Header } from "./Header";
 export { Intro } from "./Intro";
 export { Footer } from "./Footer";
+export { PostMetadata } from "./PostMetadata";
 
 export { ButtonCTA } from "./ButtonCTA";
 export { Navigation } from "./Navigation";

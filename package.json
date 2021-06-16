@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.6.3",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "date-fns": "^2.22.1",
     "framer-motion": "^4.1.17",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.3",
