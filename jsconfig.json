@@ -4,7 +4,7 @@
     "paths": {
       "@/layouts": ["layouts/"],
       "@/components": ["components/"],
-      "@/MDXComponents": ["MDXComponents/"],
+      "@/MDXComponents": ["components/MDX/"],
       "@/data/*": ["data/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"]
