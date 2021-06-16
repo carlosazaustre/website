@@ -18,8 +18,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-import { IconTikTok } from "./IconTikTok";
-import { Logo } from "./Logo";
+import { IconTikTok } from "./icons/IconTikTok";
+import { Logo } from "./icons/Logo";
 
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);

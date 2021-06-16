@@ -1,7 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 
-import { Logo } from "./Logo";
-import { NavigationLinks } from "./NavigationLinks";
+import { Logo } from "../icons/Logo";
+import { NavigationLinks } from "../NavigationLinks";
 
 export const PageHeader = () => {
   return (
@@ -14,8 +15,14 @@ export const PageHeader = () => {
       fontWeight="bold"
     >
       <Flex align="center" p="4">
-        <Logo size="40px" />
-        <Text px="2">Carlos Azaustre</Text>
+        <NextLink href="/">
+          <a>
+            <Flex align="center">
+              <Logo size="40px" />
+              <Text px="2">Carlos Azaustre</Text>
+            </Flex>
+          </a>
+        </NextLink>
       </Flex>
       <NavigationLinks />
     </Flex>

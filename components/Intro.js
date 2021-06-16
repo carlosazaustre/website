@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Text } from "@chakra-ui/react";
 
-import { CompanyLogos } from "./CompanyLogos";
+import { CompanyLogos } from "./icons/CompanyLogos";
 import { ButtonCTA } from "./ButtonCTA";
 
 export const Intro = () => {

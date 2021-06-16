@@ -1,22 +1,24 @@
+export { Card } from "./cards/Card";
+export { CardHome } from "./cards/CardHome";
+export { NewsletterFormCard } from "./cards/NewsletterFormCard";
+export { AboutCard } from "./cards/AboutCard";
+export { AboutCardHome } from "./cards/AboutCardHome";
+export { BlogCardHome } from "./cards/BlogCardHome";
+export { ContactCardHome } from "./cards/ContactCardHome";
+
+export { CompanyLogos } from "./icons/CompanyLogos";
+export { IconTikTok } from "./icons/IconTikTok";
+export { Logo } from "./icons/Logo";
+
+export { PageContainer } from "./page/PageContainer";
+export { PageHeader } from "./page/PageHeader";
+export { PageAside } from "./page/PageAside";
+export { PostMetadata } from "./post/PostMetadata";
+
 export { Book } from "./Book";
-export { Card } from "./Card";
-export { CardHome } from "./CardHome";
-export { NewsletterFormCard } from "./NewsletterFormCard";
-export { AboutCard } from "./AboutCard";
-export { AboutCardHome } from "./AboutCardHome";
-export { BlogCardHome } from "./BlogCardHome";
-export { ContactCardHome } from "./ContactCardHome";
-
-export { CompanyLogos } from "./CompanyLogos";
-export { IconTikTok } from "./IconTikTok";
-
-export { Logo } from "./Logo";
-export { PageHeader } from "./PageHeader";
 export { Header } from "./Header";
 export { Intro } from "./Intro";
 export { Footer } from "./Footer";
-export { PostMetadata } from "./PostMetadata";
-
 export { ButtonCTA } from "./ButtonCTA";
 export { Navigation } from "./Navigation";
 export { NavigationLinks } from "./NavigationLinks";
