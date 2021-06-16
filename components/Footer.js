@@ -42,40 +42,46 @@ export const Footer = () => {
             direction="column"
             textAlign={["center", "center", "center", "left"]}
           >
-            <Logo type="full" />
-            <Text>&copy; {new Date().getFullYear()} Carlos Azaustre.</Text>
-            <Text>Todos los derechos reservados.</Text>
-          </Flex>
-
-          <Flex
-            direction={["row", "row", "row", "column"]}
-            p={["10", "4"]}
-            w={["100%", "80%", "50%", "auto"]}
-            m={["auto", "auto", "auto", "0"]}
-          >
-            <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
-              <ImYoutube size="20px" />
-            </Link>
-            <Spacer />
-            <Link href="https://twitch.tv/carlosazaustre">
-              <ImTwitch size="20px" />
-            </Link>
-            <Spacer />
-            <Link href="https://instagram.com/carlosazaustre">
-              <ImInstagram size="20px" />
-            </Link>
-            <Spacer />
-            <Link href="https://twitter.com/carlosazaustre">
-              <ImTwitter size="20px" />
-            </Link>
-            <Spacer />
-            <Link href="https://github.com/carlosazaustre">
-              <ImGithub size="20px" />
-            </Link>
-            <Spacer />
-            <Link href="https://tiktok.com/@carlosazaustre">
-              <IconTikTok size="20px" />
-            </Link>
+            <NextLink href="/">
+              <a>
+                <Flex align="center" my={4}>
+                  <Logo size="40px" />
+                  <Text
+                    fontFamily="heading"
+                    fontSize="xl"
+                    fontWeight="bold"
+                    px="2"
+                  >
+                    Carlos Azaustre
+                  </Text>
+                </Flex>
+              </a>
+            </NextLink>
+            <Flex>
+              <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
+                <ImYoutube size="20px" />
+              </Link>
+              <Spacer />
+              <Link href="https://twitch.tv/carlosazaustre">
+                <ImTwitch size="20px" />
+              </Link>
+              <Spacer />
+              <Link href="https://instagram.com/carlosazaustre">
+                <ImInstagram size="20px" />
+              </Link>
+              <Spacer />
+              <Link href="https://twitter.com/carlosazaustre">
+                <ImTwitter size="20px" />
+              </Link>
+              <Spacer />
+              <Link href="https://github.com/carlosazaustre">
+                <ImGithub size="20px" />
+              </Link>
+              <Spacer />
+              <Link href="https://tiktok.com/@carlosazaustre">
+                <IconTikTok size="20px" />
+              </Link>
+            </Flex>
           </Flex>
 
           <section>
@@ -94,10 +100,23 @@ export const Footer = () => {
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/aprendiendo-javascript">
-                  <Link>Aprendiendo JavaScript</Link>
+                <NextLink href="/sobre-mi">
+                  <Link>Sobre mi</Link>
                 </NextLink>
               </ListItem>
+              <ListItem>
+                <NextLink href="/blog">
+                  <Link>Blog</Link>
+                </NextLink>
+              </ListItem>
+            </UnorderedList>
+          </section>
+
+          <section>
+            <Heading as="h4" size="sm" p="4">
+              Recursos Gratis
+            </Heading>
+            <UnorderedList styleType="none">
               <ListItem>
                 <NextLink href="/curso-nodejs-gratis">
                   <Link>Curso Node.js Gratis</Link>
@@ -109,13 +128,8 @@ export const Footer = () => {
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/sobre-mi">
-                  <Link>Sobre mi</Link>
-                </NextLink>
-              </ListItem>
-              <ListItem>
-                <NextLink href="/blog">
-                  <Link>Blog</Link>
+                <NextLink href="/curso-vue-gratis">
+                  <Link>Curso de Vue y Firebase Gratis</Link>
                 </NextLink>
               </ListItem>
             </UnorderedList>

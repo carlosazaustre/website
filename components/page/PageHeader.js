@@ -13,17 +13,17 @@ export const PageHeader = () => {
       fontFamily="heading"
       fontSize="2xl"
       fontWeight="bold"
+      px={4}
+      py={2}
     >
-      <Flex align="center" p="4">
-        <NextLink href="/">
-          <a>
-            <Flex align="center">
-              <Logo size="40px" />
-              <Text px="2">Carlos Azaustre</Text>
-            </Flex>
-          </a>
-        </NextLink>
-      </Flex>
+      <NextLink href="/">
+        <a>
+          <Flex align="center">
+            <Logo size="40px" />
+            <Text px="2">Carlos Azaustre</Text>
+          </Flex>
+        </a>
+      </NextLink>
       <NavigationLinks />
     </Flex>
   );
