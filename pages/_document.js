@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GoogleFonts } from "nextjs-google-fonts/GoogleFonts";
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -10,7 +9,14 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          {GoogleFonts()}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+            rel="stylesheet"
+          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"
