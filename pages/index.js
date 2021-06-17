@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import NextLink from "next/link";
 import styled from "@emotion/styled";
 import { Container, Flex, Box, Link } from "@chakra-ui/react";
 
@@ -18,8 +17,8 @@ const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 1024px) {
-    height: auto;
+  @media screen and (min-width: 1025px) {
+    height: 82vh;
     max-height: 700px;
     flex-direction: row;
     background-image: url("/assets/carlosazaustre-profile-image-large.png");
@@ -40,18 +39,18 @@ export default function Home({ posts }) {
             <Flex
               direction="column"
               justify="flex-start"
-              w={["100%", "100%", "100%", "35%"]}
+              w={["100%", "100%", "100%", "100%", "35%"]}
               pt="0"
               pr="0"
               pb="2"
-              pl={[4, 4, 8, 16]}
+              pl={[0, 0, 0, 0, 8]}
             >
               <Intro />
             </Flex>
             <Flex
               direction="row"
-              w={["100%", "100%", "100%", "65%"]}
-              justify={["center", "flex-start"]}
+              w={["100%", "100%", "100%", "100%", "65%"]}
+              justify={["center", "center", "center", "center", "flex-start"]}
             >
               <Link href="https://www.amazon.com/-/es/Carlos-Azaustre/dp/B08TZ3HSYZ/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1619807979&sr=8-1">
                 <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
@@ -63,7 +62,10 @@ export default function Home({ posts }) {
 
       <Box bg="gray.100">
         <Container maxW="container.2xl">
-          <Flex direction={["column", "column", "row"]} justify="space-between">
+          <Flex
+            direction={["column", "column", "column", "row"]}
+            justify="space-between"
+          >
             <AboutCardHome />
             <BlogCardHome posts={posts} />
             <ContactCardHome />

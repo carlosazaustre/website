@@ -5,7 +5,7 @@ import { Navigation } from "./Navigation";
 
 export const Header = () => {
   return (
-    <Box as="header" py="10" px={[4, 4, 8, 16]}>
+    <Box as="header" py="10" px={[0, 0, 0, 4]}>
       <Flex
         as="header"
         fontWeight="bold"
@@ -13,7 +13,7 @@ export const Header = () => {
         justify="space-between"
         align="center"
       >
-        <h1 title="Formador y Desarrollador Web JavaScript Fullstack - Carlos Azaustre">
+        <h1 title="Desarrollo avaScript Fullstack - Carlos Azaustre">
           <Logo />
         </h1>
         <Navigation />

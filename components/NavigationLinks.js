@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { HStack } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const NavigationLink = styled.a`
@@ -32,7 +32,7 @@ const NavigationLink = styled.a`
 export const NavigationLinks = () => {
   return (
     <nav>
-      <HStack spacing="24px">
+      <Flex direction="row">
         <NextLink href="/blog" passHref>
           <NavigationLink>Blog</NavigationLink>
         </NextLink>
@@ -48,7 +48,7 @@ export const NavigationLinks = () => {
         <NextLink href="//fullstackjs.academy" passHref>
           <NavigationLink>Cursos</NavigationLink>
         </NextLink>
-      </HStack>
+      </Flex>
     </nav>
   );
 };

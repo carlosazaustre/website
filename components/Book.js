@@ -20,7 +20,7 @@ const StyledBookLink = styled.a`
 export const Book = ({ imageSrc }) => {
   return (
     <StyledBookLink>
-      <Image width={480} height={620} layout="fixed" src={imageSrc} />
+      <Image width={480} height={620} layout="intrinsic" src={imageSrc} />
     </StyledBookLink>
   );
 };

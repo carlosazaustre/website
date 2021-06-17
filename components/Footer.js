@@ -36,15 +36,22 @@ export const Footer = () => {
           direction={["column", "column", "column", "row"]}
           justify="space-between"
           textAlign={["center", "center", "center", "left"]}
+          align={["center", "center", "center", "flex-start"]}
         >
           <Flex
-            justify="flex-start"
+            w={["60%", "60%", "60%", "25%"]}
+            justify={["center", "center", "center", "flex-start"]}
+            align={["center", "center", "center", "flex-start"]}
             direction="column"
             textAlign={["center", "center", "center", "left"]}
           >
             <NextLink href="/">
               <a>
-                <Flex align="center" my={4}>
+                <Flex
+                  align="center"
+                  justify={["center", "center", "center", "flex-start"]}
+                  my={4}
+                >
                   <Logo size="40px" />
                   <Text
                     fontFamily="heading"
@@ -57,7 +64,7 @@ export const Footer = () => {
                 </Flex>
               </a>
             </NextLink>
-            <Flex>
+            <Flex justify="space-around" direction="row" w="100%">
               <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
                 <ImYoutube size="20px" />
               </Link>
@@ -89,6 +96,11 @@ export const Footer = () => {
               Páginas
             </Heading>
             <UnorderedList styleType="none">
+              <ListItem>
+                <NextLink href="/rss.xml">
+                  <Link>RSS</Link>
+                </NextLink>
+              </ListItem>
               <ListItem>
                 <NextLink href="/">
                   <Link>Home</Link>

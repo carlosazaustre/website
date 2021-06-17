@@ -8,13 +8,18 @@ import { ButtonCTA } from "./ButtonCTA";
 export const Intro = () => {
   return (
     <Fragment>
-      <Text fontFamily="heading" fontSize="4xl">
+      <Text fontFamily="heading" fontSize={["3xl", "4xl"]}>
         Hola 👋🏼, soy
       </Text>{" "}
-      <Text as="h2" fontFamily="heading" fontSize="4xl" fontWeight="bold">
+      <Text
+        as="h2"
+        fontFamily="heading"
+        fontSize={["3xl", "4xl"]}
+        fontWeight="bold"
+      >
         Carlos Azaustre
       </Text>
-      <Text as="h3" fontSize="xl">
+      <Text as="h3" fontSize={["lg", "xl"]}>
         Desarrollador <strong>JavaScript</strong> con 10+ años de experiencia.
         Actualmente formador y divulgador en tecnologías web a través de{" "}
         <strong>YouTube</strong>, dónde ya somos más de 50,000!

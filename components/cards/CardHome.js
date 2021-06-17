@@ -12,8 +12,8 @@ export const CardHome = ({
       borderRadius="lg"
       p={[4, 4, 8, 16]}
       my={4}
-      mx={1}
-      width={["100%", "100%", "455px"]}
+      mx={[0, 0, 0, 0]}
+      width={["100%", "100%", "100%", "32%"]}
     >
       <Heading as="h4" color={headerColor}>
         {headerTitle}
