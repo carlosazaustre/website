@@ -13,7 +13,6 @@ export const PageContainer = ({ header, main, aside }) => {
         <Box
           as="article"
           bg="white"
-          w={["auto", "auto", "auto", "auto", "1000px"]}
           p={[4, 4, 8, 16]}
           m={2}
           my={4}

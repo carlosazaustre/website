@@ -1,7 +1,14 @@
 import NextLink from "next/link";
 import Image from "next/image";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { MdLabel } from "react-icons/md";
 import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
   Divider,
   Link,
   Heading,
@@ -12,15 +19,20 @@ import {
   UnorderedList,
   OrderedList,
   ListItem,
+  ListIcon,
   Th,
   Tr,
   Td,
-  Code,
 } from "@chakra-ui/react";
 
+import { Dropdown, DropdownItem } from "../Dropdown";
 import { BlogImage } from "./BlogImage";
 import { YouTube } from "./YouTube";
 import { YouTubeBtn } from "./YouTubeBtn";
+import { TidycalEmbed } from "../TidycalEmbed";
+import { CompanyLogos } from "../icons/CompanyLogos";
+import { AboutCard } from "../cards/AboutCard";
+import { PageSummary } from "../page/PageSummary";
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -55,9 +67,14 @@ const MDXComponents = {
   h5: (props) => <Heading as="h5" m={2} size="md" {...props} />,
   h6: (props) => <Heading as="h6" m={2} size="sm" {...props} />,
   hr: Divider,
-  ul: (props) => <UnorderedList {...props} />,
-  ol: (props) => <OrderedList {...props} />,
-  li: (props) => <ListItem {...props} />,
+  ul: (props) => <UnorderedList styleType="none" {...props} />,
+  ol: (props) => <OrderedList styleType="none" {...props} />,
+  li: (props) => (
+    <ListItem>
+      <ListIcon as={MdLabel} color="brand.900" />
+      {props.children}
+    </ListItem>
+  ),
   p: (props) => <Text fontSize="lg" lineHeight={6} my={8} mx={4} {...props} />,
   table: (props) => <Table variant="striped" colorScheme="orange" {...props} />,
   thead: (props) => <Thead {...props} />,
@@ -68,8 +85,15 @@ const MDXComponents = {
   Image,
   img: (props) => <BlogImage {...props} />,
   a: CustomLink,
+  PageSummary,
+  Heading,
   YouTube,
   YouTubeBtn,
+  TidycalEmbed,
+  CompanyLogos,
+  AboutCard,
+  Dropdown,
+  DropdownItem,
 };
 
 export default MDXComponents;

@@ -11,6 +11,7 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
+          {GoogleFonts()}
           <link
             rel="apple-touch-icon"
             sizes="57x57"
@@ -84,7 +85,6 @@ export default class CustomDocument extends Document {
           <meta name="msapplication-TileColor" content="#FEC101" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#FEC101" />
-          {GoogleFonts()}
         </Head>
         <body>
           <Main />

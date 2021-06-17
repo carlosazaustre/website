@@ -1,22 +1,22 @@
 import { MDXRemote } from "next-mdx-remote";
 
 import MDXComponents from "@/MDXComponents";
-import { PostLayout } from "@/layouts";
+import { PageLayout } from "@/layouts";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
-export default function Post({ source, frontmatter }) {
+export default function Page({ source, frontmatter }) {
   return (
-    <PostLayout metadata={frontmatter}>
+    <PageLayout metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
-    </PostLayout>
+    </PageLayout>
   );
 }
 
 export async function getStaticPaths() {
-  const posts = await getFiles("posts");
-  const paths = posts.map((post) => ({
+  const pages = await getFiles("pages");
+  const paths = pages.map((page) => ({
     params: {
-      slug: post.replace(/\.mdx/, ""),
+      slug: page.replace(/\.mdx/, ""),
     },
   }));
 
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { source, frontmatter } = await getFileBySlug("posts", params.slug);
+  const { source, frontmatter } = await getFileBySlug("pages", params.slug);
 
   return {
     props: {

@@ -37,15 +37,15 @@ export const NavigationLinks = () => {
           <NavigationLink>Blog</NavigationLink>
         </NextLink>
 
-        <NextLink href="/sobre-mi" passHref>
+        <NextLink href="/p/sobre-mi" passHref>
           <NavigationLink>About</NavigationLink>
         </NextLink>
 
-        <NextLink href="/mentoria" passHref>
+        <NextLink href="/p/mentoria" passHref>
           <NavigationLink>Mentoría</NavigationLink>
         </NextLink>
 
-        <NextLink href="/cursos" passHref>
+        <NextLink href="//fullstackjs.academy" passHref>
           <NavigationLink>Cursos</NavigationLink>
         </NextLink>
       </HStack>

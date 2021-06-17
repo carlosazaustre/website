@@ -14,7 +14,9 @@ export { PageContainer } from "./page/PageContainer";
 export { PageHeader } from "./page/PageHeader";
 export { PageAside } from "./page/PageAside";
 export { PostMetadata } from "./post/PostMetadata";
+export { PageSummary } from "./page/PageSummary";
 
+export { Dropdown, DropdownItem } from "./Dropdown";
 export { Book } from "./Book";
 export { Header } from "./Header";
 export { Intro } from "./Intro";
@@ -23,3 +25,5 @@ export { ButtonCTA } from "./ButtonCTA";
 export { Navigation } from "./Navigation";
 export { NavigationLinks } from "./NavigationLinks";
 export { SocialLinks } from "./SocialLinks";
+
+export { TidycalEmbed } from "./TidycalEmbed";
