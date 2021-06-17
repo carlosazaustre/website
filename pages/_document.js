@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { GoogleFonts } from "nextjs-google-fonts/GoogleFonts";
+import { googleFonts as fontStyles } from "../public/fonts/data.json";
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -85,6 +86,7 @@ export default class CustomDocument extends Document {
           <meta name="msapplication-TileColor" content="#FEC101" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#FEC101" />
+          <style>{fontStyles.style}</style>
         </Head>
         <body>
           <Main />
