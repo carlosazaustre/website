@@ -95,12 +95,12 @@ export const Footer = () => {
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/mentoria">
+                <NextLink href="p//mentoria">
                   <Link>Mentoría</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/sobre-mi">
+                <NextLink href="/p/sobre-mi">
                   <Link>Sobre mi</Link>
                 </NextLink>
               </ListItem>
@@ -118,17 +118,17 @@ export const Footer = () => {
             </Heading>
             <UnorderedList styleType="none">
               <ListItem>
-                <NextLink href="/curso-nodejs-gratis">
+                <NextLink href="/p/curso-nodejs-gratis">
                   <Link>Curso Node.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/curso-programacion">
+                <NextLink href="/p/curso-programacion">
                   <Link>Curso de Programación Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/curso-vue-gratis">
+                <NextLink href="/p/curso-vue-gratis">
                   <Link>Curso de Vue y Firebase Gratis</Link>
                 </NextLink>
               </ListItem>
