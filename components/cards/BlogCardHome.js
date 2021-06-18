@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { Text, Link } from "@chakra-ui/react";
+
 import { CardHome } from "./CardHome";
 
 export const BlogCardHome = ({ posts }) => {

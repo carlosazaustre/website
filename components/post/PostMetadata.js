@@ -1,17 +1,13 @@
 import { MdDateRange, MdComment, MdAccessTime } from "react-icons/md";
 import { Flex, Text } from "@chakra-ui/react";
-import { parseISO, format } from "date-fns";
-import { es } from "date-fns/locale";
+
+import { formatDate } from "@/lib/format-date";
 
 export const PostMetadata = ({ metadata }) => {
   return (
     <Flex px="4" direction="row" align="center" justify="flex-start">
       <MdDateRange />
-      <Text p={2}>
-        {format(parseISO(metadata.date), "dd MMMM, yyyy", {
-          locale: es,
-        })}
-      </Text>
+      <Text p={2}>{formatDate(metadata.date)}</Text>
       <MdComment />
       <Text p={2}>¡Deja tu comentario!</Text>
       <MdAccessTime />
