@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Heading } from "@chakra-ui/react";
 
-import { PostMetadata } from "@/components";
+import { PostMetadata, Disqus } from "@/components";
 import { Layout } from "./_Layout";
 
 export const PostLayout = ({ children, metadata, slug }) => {
@@ -16,6 +16,7 @@ export const PostLayout = ({ children, metadata, slug }) => {
         </Fragment>
       )}
       <section>{children}</section>
+      <Disqus title={metadata.title} slug={slug} />
     </Layout>
   );
 };
