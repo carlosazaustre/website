@@ -16,10 +16,15 @@ export const PostLayout = ({ children, metadata }) => {
         header={<PageHeader />}
         main={
           <Fragment>
-            <Heading as="h1" m={8} size="3xl">
-              {metadata.title}
-            </Heading>
-            <PostMetadata metadata={metadata} />
+            {metadata && (
+              <Fragment>
+                <Heading as="h1" m={8} size="3xl">
+                  {metadata.title}
+                </Heading>
+                <PostMetadata metadata={metadata} />
+              </Fragment>
+            )}
+
             <section>{children}</section>
           </Fragment>
         }

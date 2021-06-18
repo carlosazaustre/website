@@ -17,6 +17,7 @@ export const PageContainer = ({ header, main, aside }) => {
           m={2}
           my={4}
           borderRadius="lg"
+          width={["100%", "100%", "100%", "100%", "75%"]}
         >
           {main}
         </Box>

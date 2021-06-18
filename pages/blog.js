@@ -1,28 +1,34 @@
-import Head from "next/head";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { format, parseISO } from "date-fns";
+import { es } from "date-fns/locale";
 
+import { PostLayout } from "@/layouts";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Blog({ posts }) {
   return (
-    <div>
-      <Head>
-        <title>Aprende JavaScript con Carlos Azaustre</title>
-      </Head>
-
-      <main>
-        <h1>carlosazaustre.es</h1>
-
-        {posts.map((post) => (
-          <Link href={post.slug} key={post.slug}>
-            <a>
-              <h2>{post.title} &rarr;</h2>
-              <p>{post.date}</p>
-            </a>
-          </Link>
-        ))}
-      </main>
-    </div>
+    <PostLayout>
+      <Heading as="h2" mb={8}>
+        Últimos Artículos
+      </Heading>
+      {posts.map((post) => (
+        <NextLink href={post.slug} key={post.slug}>
+          <a>
+            <Box borderBottom="1px" borderColor="brand.900" p="6">
+              <Heading as="h3" size="md">
+                {post.title}
+              </Heading>
+              <Text fontSize="sm" color="gray.500">
+                {format(parseISO(post.date), "d MMMM, yyyy", {
+                  locale: es,
+                })}
+              </Text>
+            </Box>
+          </a>
+        </NextLink>
+      ))}
+    </PostLayout>
   );
 }
 
