@@ -82,7 +82,7 @@ export async function getStaticProps() {
   const allPosts = await getAllFilesFrontMatter("posts");
   const posts = allPosts
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
+    .slice(0, 5);
 
   return {
     props: { posts },
