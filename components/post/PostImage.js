@@ -1,6 +1,6 @@
 import { Box, Image } from "@chakra-ui/react";
 
-export const BlogImage = (props) => {
+export const PostImage = (props) => {
   return (
     <Box boxShadow="md" borderWidth="1px" p="6" rounded="md" bg="white">
       <Image {...props} />

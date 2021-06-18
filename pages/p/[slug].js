@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import MDXComponents from "@/MDXComponents";
+import MDXComponents from "components/MDXComponents";
 import { PageLayout } from "@/layouts";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 

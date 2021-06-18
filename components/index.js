@@ -26,3 +26,5 @@ export { NavigationLinks } from "./NavigationLinks";
 export { SocialLinks } from "./SocialLinks";
 
 export { TidycalEmbed } from "./TidycalEmbed";
+
+export { MDXComponents } from "./MDXComponents";
