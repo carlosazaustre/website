@@ -1,10 +1,11 @@
 import NextLink from "next/link";
 import { Text, Link } from "@chakra-ui/react";
-import { CardHome } from "./CardHome";
+
+import { Card } from "./_Card";
 
 export const AboutCardHome = () => {
   return (
-    <CardHome headerTitle="About">
+    <Card type="home" headerTitle="About">
       <Text py="2">
         ¡Hola! Soy Carlos Azaustre. Llevo desarrollando web desde hace{" "}
         {new Date().getFullYear() - 2011} años.
@@ -22,6 +23,6 @@ export const AboutCardHome = () => {
           Más sobre mi →
         </Link>
       </NextLink>
-    </CardHome>
+    </Card>
   );
 };

@@ -1,33 +1,34 @@
-import Head from "next/head";
-import Link from "next/link";
+import NextLink from "next/link";
 
+import { PageLayout } from "@/layouts";
+import { PostListItem } from "@/components";
+import { formatDate } from "@/lib/format-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Blog({ posts }) {
+  const metadata = {
+    title: "Últimos Artículos",
+  };
+
   return (
-    <div>
-      <Head>
-        <title>Aprende JavaScript con Carlos Azaustre</title>
-      </Head>
-
-      <main>
-        <h1>carlosazaustre.es</h1>
-
-        {posts.map((post) => (
-          <Link href={post.slug} key={post.slug}>
-            <a>
-              <h2>{post.title} &rarr;</h2>
-              <p>{post.date}</p>
-            </a>
-          </Link>
-        ))}
-      </main>
-    </div>
+    <PageLayout metadata={metadata} aside>
+      {posts.map((post) => (
+        <NextLink href={post.slug} key={post.slug}>
+          <a>
+            <PostListItem title={post.title} date={formatDate(post.date)} />
+          </a>
+        </NextLink>
+      ))}
+    </PageLayout>
   );
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter("posts");
+  const unorderedPosts = await getAllFilesFrontMatter("posts");
+  const posts = unorderedPosts.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
   return {
     props: { posts },
   };

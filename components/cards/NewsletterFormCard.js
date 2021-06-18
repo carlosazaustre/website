@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { FaEnvelope, FaUser } from "react-icons/fa";
 import {
   Text,
@@ -9,15 +10,16 @@ import {
   Link,
 } from "@chakra-ui/react";
 
-import { Card } from "./Card";
+import { Card } from "./_Card";
 
 export const NewsletterFormCard = () => {
   return (
     <Card
+      type="aside"
       bgColor="brand.900"
       headerTitle="Únete y ponte al día en desarrollo web"
     >
-      <>
+      <Fragment>
         <Text py={2}>
           Recibe puntualmente información sobre las últimas novedades en
           tecnologías web y desarrollo web moderno para que estés siempre estés
@@ -88,7 +90,7 @@ export const NewsletterFormCard = () => {
             </Text>
           </Stack>
         </form>
-      </>
+      </Fragment>
     </Card>
   );
 };
