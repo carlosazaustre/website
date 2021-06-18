@@ -4,7 +4,7 @@ export const CompanyLogos = () => {
   return (
     <Image
       layout="responsive"
-      width={400}
+      width={460}
       height={150}
       src="/assets/company-logos.png"
       alt="Google, IBM, Eventbrite. Chefly"
