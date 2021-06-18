@@ -8,6 +8,7 @@ const NavigationLink = styled.a`
   text-decoration: none;
   color: var(--chakra-colors-black);
   padding: var(--chakra-space-4);
+  margin: 0 var(--chakra-space-2);
   border-radius: var(--chakra-radii-2xl);
   transition: background var(--chakra-transition-duration-slow)
     var(--chakra-transition-easing-ease-in);
@@ -22,6 +23,7 @@ const NavigationLink = styled.a`
 
   @media screen and (min-width: 700px) {
     font-size: var(--chakra-fontSizes-xl);
+    margin: 0 var(--chakra-space-4);
   }
 
   @media screen and (min-width: 1024px) {

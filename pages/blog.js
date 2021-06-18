@@ -1,25 +1,25 @@
 import NextLink from "next/link";
-import { Heading } from "@chakra-ui/react";
 
-import { PostLayout } from "@/layouts";
-import { PostItem } from "@/components";
+import { PageLayout } from "@/layouts";
+import { PostListItem } from "@/components";
 import { formatDate } from "@/lib/format-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Blog({ posts }) {
+  const metadata = {
+    title: "Últimos Artículos",
+  };
+
   return (
-    <PostLayout>
-      <Heading as="h2" mb={8}>
-        Últimos Artículos
-      </Heading>
+    <PageLayout metadata={metadata} aside>
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
-            <PostItem title={post.title} date={formatDate(post.date)} />
+            <PostListItem title={post.title} date={formatDate(post.date)} />
           </a>
         </NextLink>
       ))}
-    </PostLayout>
+    </PageLayout>
   );
 }
 

@@ -1,23 +1,14 @@
-import { Fragment } from "react";
-import { Box, Heading } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 
-import { Footer, PageContainer, PageHeader } from "@/components";
+import { Layout } from "./_Layout";
 
-export const PageLayout = ({ children, metadata }) => {
+export const PageLayout = ({ children, metadata, aside }) => {
   return (
-    <Box bg="gray.100">
-      <PageContainer
-        header={<PageHeader />}
-        main={
-          <Fragment>
-            <Heading as="h1" m={8} size="3xl">
-              {metadata.title}
-            </Heading>
-            <section>{children}</section>
-          </Fragment>
-        }
-      />
-      <Footer />
-    </Box>
+    <Layout aside={aside}>
+      <Heading as="h2" m={8} size="2xl">
+        {metadata.title}
+      </Heading>
+      <section>{children}</section>
+    </Layout>
   );
 };

@@ -26,7 +26,7 @@ import { YouTubeBtn } from "./YouTubeBtn";
 import { TidycalEmbed } from "./TidycalEmbed";
 import { CompanyLogos } from "./icons/CompanyLogos";
 import { AboutCard } from "./cards/AboutCard";
-import { PageSummary } from "./page/PageSummary";
+import { Summary } from "./Summary";
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -79,7 +79,7 @@ export const MDXComponents = {
   hr: Divider,
   a: CustomLink,
   Image,
-  PageSummary,
+  Summary,
   Heading,
   YouTube,
   YouTubeBtn,
