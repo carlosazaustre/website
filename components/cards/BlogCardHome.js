@@ -1,11 +1,11 @@
 import NextLink from "next/link";
 import { Text, Link } from "@chakra-ui/react";
 
-import { CardHome } from "./CardHome";
+import { Card } from "./_Card";
 
 export const BlogCardHome = ({ posts }) => {
   return (
-    <CardHome headerTitle="Blog">
+    <Card type="home" headerTitle="Blog">
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
@@ -21,6 +21,6 @@ export const BlogCardHome = ({ posts }) => {
           Ir al Blog →
         </Link>
       </NextLink>
-    </CardHome>
+    </Card>
   );
 };

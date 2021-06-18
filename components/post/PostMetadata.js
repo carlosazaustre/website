@@ -1,23 +1,32 @@
 import { MdDateRange, MdComment, MdAccessTime } from "react-icons/md";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, Tag } from "@chakra-ui/react";
 
 import { formatDate } from "@/lib/format-date";
 
 export const PostMetadata = ({ metadata }) => {
   return (
-    <Flex px="4" direction="row" align="center" justify="flex-start">
+    <Flex
+      px={4}
+      py={2}
+      direction="row"
+      align="center"
+      justify="flex-start"
+      color="gray.500"
+      fontSize="sm"
+    >
       <MdDateRange />
-      <Text p={2}>{formatDate(metadata.date)}</Text>
+      <Text mx={2}>{formatDate(metadata.date)}</Text>
       <MdComment />
-      <Text p={2}>¡Deja tu comentario!</Text>
+      <Text mx={2}>¡Deja tu comentario!</Text>
       <MdAccessTime />
-      <Text p={2}>
+      <Text mx={2}>
         {Math.round(metadata.readingTime.minutes)} minutos de lectura
       </Text>
-      |
       <Flex direction="row">
         {metadata.tags.map((tag) => (
-          <Text p={2}>{tag}</Text>
+          <Tag size="sm" mx={2} colorScheme="brand">
+            {tag}
+          </Tag>
         ))}
       </Flex>
     </Flex>

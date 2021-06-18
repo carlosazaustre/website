@@ -8,11 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { FaEnvelope, FaUser } from "react-icons/fa";
 
-import { CardHome } from "./CardHome";
+import { Card } from "./_Card";
 
 export const ContactCardHome = () => {
   return (
-    <CardHome headerTitle="Contacto">
+    <Card type="home" headerTitle="Contacto">
       <Stack spacing="24px" py={2}>
         <InputGroup size="lg">
           <InputLeftElement
@@ -44,6 +44,6 @@ export const ContactCardHome = () => {
           Enviar
         </Button>
       </Stack>
-    </CardHome>
+    </Card>
   );
 };

@@ -1,14 +1,17 @@
+import { Fragment } from "react";
 import { Box, Flex, Text, Img } from "@chakra-ui/react";
-import { Card } from "./Card";
+
+import { Card } from "./_Card";
 
 export const AboutCard = () => {
   return (
     <Card
+      type="aside"
       bgColor="secondary.900"
       headerColor="brand.900"
       headerTitle="Sobre Mi"
     >
-      <>
+      <Fragment>
         <Flex justify="center" py="4">
           <Img
             boxSize="96px"
@@ -32,7 +35,7 @@ export const AboutCard = () => {
             comunidad.
           </Text>
         </Box>
-      </>
+      </Fragment>
     </Card>
   );
 };

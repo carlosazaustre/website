@@ -1,5 +1,3 @@
-export { Card } from "./cards/Card";
-export { CardHome } from "./cards/CardHome";
 export { NewsletterFormCard } from "./cards/NewsletterFormCard";
 export { AboutCard } from "./cards/AboutCard";
 export { AboutCardHome } from "./cards/AboutCardHome";

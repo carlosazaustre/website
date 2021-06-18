@@ -17,7 +17,6 @@ export const PageLayout = ({ children, metadata }) => {
           </Fragment>
         }
       />
-
       <Footer />
     </Box>
   );
