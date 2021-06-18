@@ -21,7 +21,7 @@ export { ButtonCTA } from "./ButtonCTA";
 export { Navigation } from "./Navigation";
 export { NavigationLinks } from "./NavigationLinks";
 export { SocialLinks } from "./SocialLinks";
-
 export { TidycalEmbed } from "./TidycalEmbed";
+export { EditPR } from "./EditPR";
 
 export { MDXComponents } from "./MDXComponents";
