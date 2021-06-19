@@ -1,10 +1,11 @@
 import { MdDateRange, MdComment, MdAccessTime } from "react-icons/md";
-import { Flex, Text, Tag } from "@chakra-ui/react";
+import { Flex, Text, Tag, Link } from "@chakra-ui/react";
 
-import { EditPR } from "../EditPR";
 import { formatDate } from "@/lib/format-date";
+import { OpenPR } from "../OpenPR";
+import { Disqus } from "../Disqus";
 
-export const PostMetadata = ({ metadata, slug }) => {
+export const PostMetadata = ({ metadata }) => {
   return (
     <Flex direction="column" px={4} py={2}>
       <Flex
@@ -17,7 +18,9 @@ export const PostMetadata = ({ metadata, slug }) => {
         <MdDateRange />
         <Text mx={2}>{formatDate(metadata.date)}</Text>
         <MdComment />
-        <Text mx={2}>¡Deja tu comentario!</Text>
+        <Link mx={2} href="#comments">
+          <Disqus type="count" title={metadata.title} slug={metadata.slug} />
+        </Link>
         <MdAccessTime />
         <Text mx={2}>
           {Math.round(metadata.readingTime.minutes)} minutos de lectura
@@ -30,7 +33,7 @@ export const PostMetadata = ({ metadata, slug }) => {
           ))}
         </Flex>
       </Flex>
-      <EditPR slug={slug} />
+      <OpenPR slug={metadata.slug} />
     </Flex>
   );
 };

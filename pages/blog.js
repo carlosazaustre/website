@@ -15,7 +15,11 @@ export default function Blog({ posts }) {
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
-            <PostListItem title={post.title} date={formatDate(post.date)} />
+            <PostListItem
+              title={post.title}
+              date={formatDate(post.date)}
+              tags={post.tags}
+            />
           </a>
         </NextLink>
       ))}

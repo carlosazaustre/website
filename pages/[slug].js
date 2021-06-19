@@ -4,9 +4,9 @@ import { MDXComponents } from "@/components";
 import { PostLayout } from "@/layouts";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
-export default function Post({ slug, source, frontmatter }) {
+export default function Post({ source, frontmatter }) {
   return (
-    <PostLayout metadata={frontmatter} slug={slug}>
+    <PostLayout metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
     </PostLayout>
   );
@@ -31,9 +31,11 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      slug: params.slug,
       source,
-      frontmatter,
+      frontmatter: {
+        slug: params.slug,
+        ...frontmatter,
+      },
     },
   };
 }

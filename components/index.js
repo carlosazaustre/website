@@ -22,7 +22,7 @@ export { Navigation } from "./Navigation";
 export { NavigationLinks } from "./NavigationLinks";
 export { SocialLinks } from "./SocialLinks";
 export { TidycalEmbed } from "./TidycalEmbed";
-export { EditPR } from "./EditPR";
+export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";
 
 export { MDXComponents } from "./MDXComponents";

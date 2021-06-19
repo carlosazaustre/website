@@ -4,7 +4,7 @@ import { Heading } from "@chakra-ui/react";
 import { PostMetadata, Disqus } from "@/components";
 import { Layout } from "./_Layout";
 
-export const PostLayout = ({ children, metadata, slug }) => {
+export const PostLayout = ({ children, metadata }) => {
   return (
     <Layout aside>
       {metadata && (
@@ -12,11 +12,13 @@ export const PostLayout = ({ children, metadata, slug }) => {
           <Heading as="h1" m={8} size="2xl">
             {metadata.title}
           </Heading>
-          <PostMetadata metadata={metadata} slug={slug} />
+          <PostMetadata metadata={metadata} />
         </Fragment>
       )}
       <section>{children}</section>
-      <Disqus title={metadata.title} slug={slug} />
+      <section id="comments">
+        <Disqus title={metadata.title} slug={metadata.slug} />
+      </section>
     </Layout>
   );
 };
