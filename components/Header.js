@@ -1,6 +1,6 @@
-import { Box, Flex, Container } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
-import { Logo } from "./icons/Logo";
+import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 
 export const Header = () => {

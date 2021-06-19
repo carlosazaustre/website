@@ -1,7 +1,7 @@
-import { MdDateRange, MdComment, MdAccessTime } from "react-icons/md";
 import { Flex, Text, Tag, Link } from "@chakra-ui/react";
 
 import { formatDate } from "@/lib/format-date";
+import { IconCalendar, IconComment, IconClock } from "../icons";
 import { OpenPR } from "../OpenPR";
 import { Disqus } from "../Disqus";
 
@@ -15,13 +15,13 @@ export const PostMetadata = ({ metadata }) => {
         color="gray.500"
         fontSize="sm"
       >
-        <MdDateRange />
+        <IconCalendar />
         <Text mx={2}>{formatDate(metadata.date)}</Text>
-        <MdComment />
+        <IconComment />
         <Link mx={2} href="#comments">
           <Disqus type="count" title={metadata.title} slug={metadata.slug} />
         </Link>
-        <MdAccessTime />
+        <IconClock />
         <Text mx={2}>
           {Math.round(metadata.readingTime.minutes)} minutos de lectura
         </Text>

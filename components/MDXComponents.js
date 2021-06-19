@@ -16,7 +16,7 @@ import {
   Td,
 } from "@chakra-ui/react";
 
-import { CompanyLogos } from "./icons/CompanyLogos";
+import { CompanyLogos } from "./CompanyLogos";
 import { AboutCard } from "./cards/AboutCard";
 import { Dropdown, DropdownItem } from "./Dropdown";
 import { PostImage } from "./post/PostImage";

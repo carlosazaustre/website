@@ -4,9 +4,8 @@ export { AboutCardHome } from "./cards/AboutCardHome";
 export { BlogCardHome } from "./cards/BlogCardHome";
 export { ContactCardHome } from "./cards/ContactCardHome";
 
-export { CompanyLogos } from "./icons/CompanyLogos";
-export { IconTikTok } from "./icons/IconTikTok";
-export { Logo } from "./icons/Logo";
+export { CompanyLogos } from "./CompanyLogos";
+export { Logo } from "./Logo";
 
 export { PostMetadata } from "./post/PostMetadata";
 export { PostListItem } from "./post/PostListItem";

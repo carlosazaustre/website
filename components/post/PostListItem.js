@@ -1,5 +1,5 @@
 import { Box, Heading, Flex, Text, Tag } from "@chakra-ui/react";
-import { MdDateRange } from "react-icons/md";
+import { IconCalendar } from "../icons";
 
 export const PostListItem = ({ title, date, tags }) => {
   return (
@@ -8,7 +8,7 @@ export const PostListItem = ({ title, date, tags }) => {
         {title}
       </Heading>
       <Flex align="center" fontSize="sm" color="gray.500">
-        <MdDateRange />
+        <IconCalendar />
         <Text ml={1}>
           {date}{" "}
           {tags.map((tag) => (
