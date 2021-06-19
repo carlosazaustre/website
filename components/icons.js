@@ -2,6 +2,8 @@ export { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export { SiTiktok as IconTiktok } from "react-icons/si";
 
+export { FaEnvelope as IconMail, FaUser as IconUser } from "react-icons/fa";
+
 export {
   ImTwitch as IconTwitch,
   ImYoutube as IconYoutube,

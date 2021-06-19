@@ -6,8 +6,8 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaUser } from "react-icons/fa";
 
+import { IconMail, IconUser } from "../icons";
 import { Card } from "./_Card";
 
 export const ContactCardHome = () => {
@@ -18,7 +18,7 @@ export const ContactCardHome = () => {
           <InputLeftElement
             pointerEvents="none"
             color="gray.300"
-            children={<FaUser />}
+            children={<IconUser />}
           />
           <Input bg="white" placeholder="Tu nombre" type="text" />
         </InputGroup>
@@ -27,7 +27,7 @@ export const ContactCardHome = () => {
           <InputLeftElement
             pointerEvents="none"
             color="gray.300"
-            children={<FaEnvelope />}
+            children={<IconMail />}
           />
           <Input bg="white" placeholder="Tu email" type="email" />
         </InputGroup>

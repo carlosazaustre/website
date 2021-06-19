@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { FaEnvelope, FaUser } from "react-icons/fa";
 import {
   Text,
   InputGroup,
@@ -10,6 +9,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 
+import { IconMail, IconUser } from "../icons";
 import { Card } from "./_Card";
 
 export const NewsletterFormCard = () => {
@@ -37,7 +37,7 @@ export const NewsletterFormCard = () => {
               <InputLeftElement
                 pointerEvents="none"
                 color="gray.300"
-                children={<FaUser />}
+                children={<IconUser />}
               />
               <Input
                 bg="white"
@@ -52,7 +52,7 @@ export const NewsletterFormCard = () => {
               <InputLeftElement
                 pointerEvents="none"
                 color="gray.300"
-                children={<FaEnvelope />}
+                children={<IconMail />}
               />
               <Input
                 bg="white"
