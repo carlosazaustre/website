@@ -1,5 +1,7 @@
 import NextLink from "next/link";
 import styled from "@emotion/styled";
+
+import { Logo } from "./Logo";
 import {
   IconTwitch,
   IconYoutube,
@@ -17,9 +19,7 @@ import {
   UnorderedList,
   ListItem,
   Heading,
-} from "@chakra-ui/react";
-
-import { Logo } from "./Logo";
+} from "./elements";
 
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);

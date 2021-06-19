@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AspectRatio, Box, Flex, Spacer, Text, Link } from "@chakra-ui/react";
 
+import { AspectRatio, Box, Flex, Spacer, Text, Link } from "./elements";
 import { YouTubeBtn } from "./YouTubeBtn";
 
 export const YouTube = ({ videoId = "5ct-3tDiRUY" }) => {

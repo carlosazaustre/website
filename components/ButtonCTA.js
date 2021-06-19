@@ -15,8 +15,6 @@ const StyledButton = styled.a`
   transition: background var(--chakra-transition-duration-slow)
     var(--chakra-transition-easing-ease-in);
   width: 100%;
-  /* max-width: var(--chakra-space-96); */
-  /* margin: var(--chakra-space-4) auto; */
   cursor: pointer;
 
   &:hover {

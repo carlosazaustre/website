@@ -11,8 +11,6 @@ import {
 
 export const Layout = ({ children, aside }) => {
   const width = aside ? "75%" : "100%";
-  console.log(aside);
-  console.log(width);
 
   return (
     <Box bg="gray.100">

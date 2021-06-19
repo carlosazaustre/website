@@ -1,7 +1,7 @@
-import { Box, Flex } from "@chakra-ui/react";
-
+import { Box, Flex, HStack, Link } from "./elements";
+import { IconTwitch, IconYoutube } from "./icons";
 import { Logo } from "./Logo";
-import { Navigation } from "./Navigation";
+import { NavigationLinks } from "./NavigationLinks";
 
 export const Header = () => {
   return (
@@ -16,7 +16,18 @@ export const Header = () => {
         <h1 title="Desarrollo avaScript Fullstack - Carlos Azaustre">
           <Logo />
         </h1>
-        <Navigation />
+        <NavigationLinks />
+        <HStack spacing="40px">
+          <Link
+            href="//youtube.com/c/CarlosAzaustre?sub_confirmation=1"
+            isExternal
+          >
+            <IconYoutube size="40px" />
+          </Link>
+          <Link href="//twitch.tv/carlosazaustre" isExternal>
+            <IconTwitch size="40px" />
+          </Link>
+        </HStack>
       </Flex>
     </Box>
   );

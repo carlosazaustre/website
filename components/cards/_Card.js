@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Heading, Box } from "@chakra-ui/react";
+import { Heading, Box } from "../elements";
 
 export const Card = ({
   children,

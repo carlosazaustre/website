@@ -1,6 +1,5 @@
-import { Flex, Text, Tag, Link } from "@chakra-ui/react";
-
 import { formatDate } from "@/lib/format-date";
+import { Flex, Text, Tag, Link } from "../elements";
 import { IconCalendar, IconComment, IconClock } from "../icons";
 import { OpenPR } from "../OpenPR";
 import { Disqus } from "../Disqus";

@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { Text } from "@chakra-ui/react";
 
+import { Text } from "./elements";
 import { CompanyLogos } from "./CompanyLogos";
 import { ButtonCTA } from "./ButtonCTA";
 
-export const Intro = () => {
+export const Hero = () => {
   return (
     <Fragment>
       <Text fontFamily="heading" fontSize={["3xl", "4xl"]}>

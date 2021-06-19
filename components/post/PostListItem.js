@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Text, Tag } from "@chakra-ui/react";
+import { Box, Heading, Flex, Text, Tag } from "../elements";
 import { IconCalendar } from "../icons";
 
 export const PostListItem = ({ title, date, tags }) => {

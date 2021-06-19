@@ -16,4 +16,5 @@ export {
   MdDateRange as IconCalendar,
   MdComment as IconComment,
   MdAccessTime as IconClock,
+  MdLabel as IconLabel,
 } from "react-icons/md";

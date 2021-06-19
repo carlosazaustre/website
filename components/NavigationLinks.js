@@ -1,6 +1,8 @@
-import styled from "@emotion/styled";
-import { Flex } from "@chakra-ui/react";
 import NextLink from "next/link";
+import styled from "@emotion/styled";
+
+import sections from "@/data/sections";
+import { Flex } from "./elements";
 
 const NavigationLink = styled.a`
   font-family: var(--chakra-fonts-heading);
@@ -35,21 +37,11 @@ export const NavigationLinks = () => {
   return (
     <nav>
       <Flex direction="row">
-        <NextLink href="/blog" passHref>
-          <NavigationLink>Blog</NavigationLink>
-        </NextLink>
-
-        <NextLink href="/p/sobre-mi" passHref>
-          <NavigationLink>About</NavigationLink>
-        </NextLink>
-
-        <NextLink href="/p/mentoria" passHref>
-          <NavigationLink>Mentoría</NavigationLink>
-        </NextLink>
-
-        <NextLink href="//fullstackjs.academy" passHref>
-          <NavigationLink>Cursos</NavigationLink>
-        </NextLink>
+        {sections.map(({ name, url }) => (
+          <NextLink key={name} href={url} passHref>
+            <NavigationLink>{name}</NavigationLink>
+          </NextLink>
+        ))}
       </Flex>
     </nav>
   );

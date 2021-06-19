@@ -1,5 +1,5 @@
-import { Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
+import { Text } from "./elements";
 
 const StyledBox = styled.div`
   border-left: var(--chakra-borders-8px) var(--chakra-colors-brand-900);

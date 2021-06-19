@@ -1,3 +1,5 @@
+import { Card } from "./_Card";
+import { IconMail, IconUser } from "../icons";
 import {
   Stack,
   InputGroup,
@@ -5,10 +7,7 @@ import {
   Input,
   Textarea,
   Button,
-} from "@chakra-ui/react";
-
-import { IconMail, IconUser } from "../icons";
-import { Card } from "./_Card";
+} from "../elements";
 
 export const ContactCardHome = () => {
   return (
