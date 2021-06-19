@@ -2,6 +2,7 @@ import NextLink from "next/link";
 
 import { Layout, PostListItem } from "@/components";
 import { formatDate } from "@/lib/format-date";
+import { orderByDate } from "@/lib/order-by-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Blog({ posts }) {
@@ -28,9 +29,7 @@ export default function Blog({ posts }) {
 
 export async function getStaticProps() {
   const unorderedPosts = await getAllFilesFrontMatter("posts");
-  const posts = unorderedPosts.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  const posts = unorderedPosts.sort(orderByDate);
 
   return {
     props: { posts },

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import styled from "@emotion/styled";
 
 import { getAllFilesFrontMatter } from "@/lib/mdx";
+import { orderByDate } from "@/lib/order-by-date";
 import {
   Header,
   Hero,
@@ -82,9 +83,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = await getAllFilesFrontMatter("posts");
-  const posts = allPosts
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5);
+  const posts = allPosts.sort(orderByDate).slice(0, 5);
 
   return {
     props: { posts },
