@@ -8,7 +8,7 @@ import { YouTubeBtn } from "./YouTubeBtn";
 import { Tidycal } from "./Tidycal";
 import { Summary } from "./Summary";
 import { CustomLink } from "./CustomLink";
-import { PostImage } from "./post/PostImage";
+import { CustomImage } from "./CustomImage";
 import { AboutCard } from "./cards/AboutCard";
 import {
   Divider,
@@ -42,7 +42,7 @@ export const MDXComponents = {
   th: (props) => <Th {...props} />,
   tr: (props) => <Tr {...props} />,
   td: (props) => <Td {...props} />,
-  img: (props) => <PostImage {...props} />,
+  img: (props) => <CustomImage {...props} />,
   ul: (props) => <UnorderedList styleType="none" {...props} />,
   ol: (props) => <OrderedList styleType="none" {...props} />,
   li: (props) => (

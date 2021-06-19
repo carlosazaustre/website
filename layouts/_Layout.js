@@ -3,14 +3,14 @@ import { Container, Flex, Box, Text, Stack } from "@chakra-ui/react";
 
 import {
   Logo,
-  NavigationLinks,
+  SectionLinks,
   NewsletterFormCard,
   AboutCard,
   Footer,
 } from "@/components";
 
 export const Layout = ({ children, aside }) => {
-  const width = aside ? "75%" : "100%";
+  const width = aside ? "65%" : "100%";
 
   return (
     <Box bg="gray.100">
@@ -29,11 +29,13 @@ export const Layout = ({ children, aside }) => {
             <a>
               <Flex align="center">
                 <Logo size="40px" />
-                <Text px="2">Carlos Azaustre</Text>
+                <Text fontSize={["sm", "sm", "lg", "xl"]} px="2">
+                  Carlos Azaustre
+                </Text>
               </Flex>
             </a>
           </NextLink>
-          <NavigationLinks />
+          <SectionLinks />
         </Flex>
 
         <Flex
@@ -45,7 +47,7 @@ export const Layout = ({ children, aside }) => {
             as="article"
             bg="white"
             p={[4, 4, 8, 16]}
-            m={2}
+            mx={[0, 0, 0, 0, 4]}
             my={4}
             borderRadius="lg"
             width={["100%", "100%", "100%", "100%", width]}
@@ -56,10 +58,8 @@ export const Layout = ({ children, aside }) => {
             <Stack
               as="aside"
               spacing="24px"
-              minW="400px"
-              m="2"
               my="4"
-              width={["100%", "100%", "100%", "100%", "25%"]}
+              width={["100%", "100%", "100%", "100%", "30%"]}
             >
               <NewsletterFormCard />
               <AboutCard />

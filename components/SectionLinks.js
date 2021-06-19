@@ -4,13 +4,13 @@ import styled from "@emotion/styled";
 import sections from "@/data/sections";
 import { Flex } from "./elements";
 
-const NavigationLink = styled.a`
+const SeectionLinkItem = styled.a`
   font-family: var(--chakra-fonts-heading);
-  font-size: var(--chakra-fontSizes-sm);
+  font-size: var(--chakra-fontSizes-xs);
   text-decoration: none;
   color: var(--chakra-colors-black);
   padding: var(--chakra-space-4);
-  margin: 0 var(--chakra-space-2);
+  margin: 0 auto;
   border-radius: var(--chakra-radii-2xl);
   transition: background var(--chakra-transition-duration-slow)
     var(--chakra-transition-easing-ease-in);
@@ -19,12 +19,12 @@ const NavigationLink = styled.a`
     background-color: var(--chakra-colors-white);
   }
 
-  @media screen and (min-width: 360) {
-    font-size: var(--chakra-fontSizes-lg);
+  @media screen and (min-width: 360px) {
+    font-size: var(--chakra-fontSizes-sm);
   }
 
   @media screen and (min-width: 700px) {
-    font-size: var(--chakra-fontSizes-xl);
+    font-size: var(--chakra-fontSizes-lg);
     margin: 0 var(--chakra-space-4);
   }
 
@@ -33,13 +33,13 @@ const NavigationLink = styled.a`
   }
 `;
 
-export const NavigationLinks = () => {
+export const SectionLinks = () => {
   return (
     <nav>
       <Flex direction="row">
         {sections.map(({ name, url }) => (
           <NextLink key={name} href={url} passHref>
-            <NavigationLink>{name}</NavigationLink>
+            <SeectionLinkItem>{name}</SeectionLinkItem>
           </NextLink>
         ))}
       </Flex>

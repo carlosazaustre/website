@@ -1,5 +1,5 @@
-import { Box, Heading, Flex, Text, Tag } from "../elements";
-import { IconCalendar } from "../icons";
+import { Box, Heading, Flex, Text, Tag } from "./elements";
+import { IconCalendar } from "./icons";
 
 export const PostListItem = ({ title, date, tags }) => {
   return (

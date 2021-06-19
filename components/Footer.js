@@ -55,7 +55,7 @@ export const Footer = () => {
                   <Logo size="40px" />
                   <Text
                     fontFamily="heading"
-                    fontSize="xl"
+                    fontSize={["sm", "sm", "lg", "xl"]}
                     fontWeight="bold"
                     px="2"
                   >
