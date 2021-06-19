@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 
-import { PageLayout } from "@/layouts";
-import { PostListItem } from "@/components";
+import { Layout, PostListItem } from "@/components";
 import { formatDate } from "@/lib/format-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
@@ -11,7 +10,7 @@ export default function Blog({ posts }) {
   };
 
   return (
-    <PageLayout metadata={metadata} aside>
+    <Layout type="post" metadata={metadata}>
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
@@ -23,7 +22,7 @@ export default function Blog({ posts }) {
           </a>
         </NextLink>
       ))}
-    </PageLayout>
+    </Layout>
   );
 }
 

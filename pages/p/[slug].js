@@ -1,14 +1,13 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { MDXComponents } from "@/components";
-import { PageLayout } from "@/layouts";
+import { MDXComponents, Layout } from "@/components";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Page({ source, frontmatter }) {
   return (
-    <PageLayout metadata={frontmatter} aside={false}>
+    <Layout type="page" metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
-    </PageLayout>
+    </Layout>
   );
 }
 

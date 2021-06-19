@@ -15,11 +15,12 @@ export { Hero } from "./Hero";
 export { Footer } from "./Footer";
 export { ButtonCTA } from "./ButtonCTA";
 export { SectionLinks } from "./SectionLinks";
+export { PostMetadata } from "./PostMetadata";
+export { PostListItem } from "./PostListItem";
 export { Tidycal } from "./Tidycal";
 export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";
-export { PostMetadata } from "./PostMetadata";
-export { PostListItem } from "./PostListItem";
 
-export * as elements from "./elements";
+export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
+export * as elements from "./elements";

@@ -1,14 +1,13 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { MDXComponents } from "@/components";
-import { PostLayout } from "@/layouts";
+import { MDXComponents, Layout } from "@/components";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontmatter }) {
   return (
-    <PostLayout metadata={frontmatter}>
+    <Layout type="post" metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
-    </PostLayout>
+    </Layout>
   );
 }
 
@@ -32,10 +31,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       source,
-      frontmatter: {
-        slug: params.slug,
-        ...frontmatter,
-      },
+      frontmatter,
     },
   };
 }

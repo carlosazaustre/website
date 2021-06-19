@@ -1,16 +1,18 @@
+import { Fragment } from "react";
 import NextLink from "next/link";
-import { Container, Flex, Box, Text, Stack } from "@chakra-ui/react";
 
-import {
-  Logo,
-  SectionLinks,
-  NewsletterFormCard,
-  AboutCard,
-  Footer,
-} from "@/components";
+import { Heading, Container, Flex, Box, Text, Stack } from "./elements";
+import { Logo } from "./Logo";
+import { SectionLinks } from "./SectionLinks";
+import { Footer } from "./Footer";
+import { PostMetadata } from "./PostMetadata";
+import { Disqus } from "./Disqus";
+import { NewsletterFormCard } from "./cards/NewsletterFormCard";
+import { AboutCard } from "./cards/AboutCard";
 
-export const Layout = ({ children, aside }) => {
-  const width = aside ? "65%" : "100%";
+export const Layout = ({ children, metadata = {}, type = "post" }) => {
+  const width = type === "post" ? "65%" : "100%";
+  const isBlogTemplate = type === "post" && metadata.date;
 
   return (
     <Box bg="gray.100">
@@ -52,9 +54,26 @@ export const Layout = ({ children, aside }) => {
             borderRadius="lg"
             width={["100%", "100%", "100%", "100%", width]}
           >
-            {children}
+            {isBlogTemplate ? (
+              <Fragment>
+                <Heading as="h1" m={8} size="2xl">
+                  {metadata.title}
+                </Heading>
+                <PostMetadata metadata={metadata} />
+              </Fragment>
+            ) : (
+              <Heading as="h2" m={8} size="2xl">
+                {metadata.title}
+              </Heading>
+            )}
+            <section>{children}</section>
+            {isBlogTemplate && (
+              <section id="comments">
+                <Disqus title={metadata.title} slug={metadata.slug} />
+              </section>
+            )}
           </Box>
-          {aside && (
+          {type === "post" && (
             <Stack
               as="aside"
               spacing="24px"
