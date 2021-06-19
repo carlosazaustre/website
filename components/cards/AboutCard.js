@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import { Box, Flex, Text, Img } from "@chakra-ui/react";
 
 import { Card } from "./_Card";
+import { Box, Flex, Text, Img } from "../elements";
 
 export const AboutCard = () => {
   return (

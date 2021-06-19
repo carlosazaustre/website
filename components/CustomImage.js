@@ -1,6 +1,6 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image } from "./elements";
 
-export const PostImage = (props) => {
+export const CustomImage = (props) => {
   return (
     <Box boxShadow="md" borderWidth="1px" p="6" rounded="md" bg="white">
       <Image {...props} />

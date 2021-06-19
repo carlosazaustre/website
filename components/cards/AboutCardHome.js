@@ -1,7 +1,7 @@
 import NextLink from "next/link";
-import { Text, Link } from "@chakra-ui/react";
 
 import { Card } from "./_Card";
+import { Text, Link } from "../elements";
 
 export const AboutCardHome = () => {
   return (

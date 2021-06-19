@@ -1,6 +1,7 @@
 import NextLink from "next/link";
-import { Link } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+
+import { Link } from "./elements";
+import { ExternalLinkIcon } from "./icons";
 
 export const CustomLink = (props) => {
   const href = props.href;

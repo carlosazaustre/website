@@ -1,12 +1,15 @@
 import NextLink from "next/link";
 import styled from "@emotion/styled";
+
+import { Logo } from "./Logo";
 import {
-  ImTwitch,
-  ImYoutube,
-  ImInstagram,
-  ImTwitter,
-  ImGithub,
-} from "react-icons/im";
+  IconTwitch,
+  IconYoutube,
+  IconInstagram,
+  IconTwitter,
+  IconGithub,
+  IconTiktok,
+} from "./icons";
 import {
   Container,
   Flex,
@@ -16,10 +19,7 @@ import {
   UnorderedList,
   ListItem,
   Heading,
-} from "@chakra-ui/react";
-
-import { IconTikTok } from "./icons/IconTikTok";
-import { Logo } from "./icons/Logo";
+} from "./elements";
 
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
@@ -51,11 +51,12 @@ export const Footer = () => {
                   align="center"
                   justify={["center", "center", "center", "flex-start"]}
                   my={4}
+                  minWidth="300px"
                 >
                   <Logo size="40px" />
                   <Text
                     fontFamily="heading"
-                    fontSize="xl"
+                    fontSize={["sm", "sm", "lg", "xl"]}
                     fontWeight="bold"
                     px="2"
                   >
@@ -64,29 +65,33 @@ export const Footer = () => {
                 </Flex>
               </a>
             </NextLink>
-            <Flex justify="space-around" direction="row" w="100%">
+            <Flex
+              justify="space-around"
+              direction="row"
+              w={["100%", "80%", "60%", "100%"]}
+            >
               <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
-                <ImYoutube size="20px" />
+                <IconYoutube size="20px" />
               </Link>
               <Spacer />
               <Link href="https://twitch.tv/carlosazaustre">
-                <ImTwitch size="20px" />
+                <IconTwitch size="20px" />
               </Link>
               <Spacer />
               <Link href="https://instagram.com/carlosazaustre">
-                <ImInstagram size="20px" />
+                <IconInstagram size="20px" />
               </Link>
               <Spacer />
               <Link href="https://twitter.com/carlosazaustre">
-                <ImTwitter size="20px" />
+                <IconTwitter size="20px" />
               </Link>
               <Spacer />
               <Link href="https://github.com/carlosazaustre">
-                <ImGithub size="20px" />
+                <IconGithub size="20px" />
               </Link>
               <Spacer />
               <Link href="https://tiktok.com/@carlosazaustre">
-                <IconTikTok size="20px" />
+                <IconTiktok size="20px" />
               </Link>
             </Flex>
           </Flex>

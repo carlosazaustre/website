@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Heading, Box } from "@chakra-ui/react";
+import { Heading, Box } from "../elements";
 
 export const Card = ({
   children,
@@ -18,7 +18,7 @@ export const Card = ({
   );
 
   const AsideCard = ({ children }) => (
-    <Box bg={bgColor} borderRadius="lg" p={[4, 4, 8, 16]}>
+    <Box bg={bgColor} borderRadius={["none", "lg"]} p={[4, 4, 8, 16]}>
       {children}
       <CardContent />
     </Box>
@@ -27,7 +27,7 @@ export const Card = ({
   const HomeCard = ({ children }) => (
     <Box
       bg={bgColor}
-      borderRadius="lg"
+      borderRadius={["none", "lg"]}
       p={[4, 4, 8, 16]}
       my={4}
       mx={[0, 0, 0, 0]}

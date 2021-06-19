@@ -4,25 +4,22 @@ export { AboutCardHome } from "./cards/AboutCardHome";
 export { BlogCardHome } from "./cards/BlogCardHome";
 export { ContactCardHome } from "./cards/ContactCardHome";
 
-export { CompanyLogos } from "./icons/CompanyLogos";
-export { IconTikTok } from "./icons/IconTikTok";
-export { Logo } from "./icons/Logo";
-
-export { PostMetadata } from "./post/PostMetadata";
-export { PostListItem } from "./post/PostListItem";
-
+export { Logo } from "./Logo";
+export { CustomImage } from "./CustomImage";
 export { Summary } from "./Summary";
 export { Dropdown, DropdownItem } from "./Dropdown";
 export { Book } from "./Book";
 export { Header } from "./Header";
-export { Intro } from "./Intro";
+export { Hero } from "./Hero";
 export { Footer } from "./Footer";
 export { ButtonCTA } from "./ButtonCTA";
-export { Navigation } from "./Navigation";
-export { NavigationLinks } from "./NavigationLinks";
-export { SocialLinks } from "./SocialLinks";
-export { TidycalEmbed } from "./TidycalEmbed";
+export { SectionLinks } from "./SectionLinks";
+export { PostMetadata } from "./PostMetadata";
+export { PostListItem } from "./PostListItem";
+export { Tidycal } from "./Tidycal";
 export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";
 
+export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
+export * as elements from "./elements";

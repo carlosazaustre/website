@@ -6,7 +6,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-} from "@chakra-ui/react";
+} from "./elements";
 
 export const DropdownItem = ({ title, description }) => {
   return (

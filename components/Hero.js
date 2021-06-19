@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { Text } from "@chakra-ui/react";
+import Image from "next/image";
 
-import { CompanyLogos } from "./icons/CompanyLogos";
+import { Text } from "./elements";
 import { ButtonCTA } from "./ButtonCTA";
 
-export const Intro = () => {
+export const Hero = () => {
   return (
     <Fragment>
       <Text fontFamily="heading" fontSize={["3xl", "4xl"]}>
@@ -31,7 +31,13 @@ export const Intro = () => {
       <Link href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1">
         <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
       </Link>
-      <CompanyLogos />
+      <Image
+        layout="responsive"
+        width={460}
+        height={150}
+        src="/assets/company-logos.png"
+        alt="Google, IBM, Eventbrite. Chefly"
+      />
     </Fragment>
   );
 };

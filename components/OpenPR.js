@@ -1,5 +1,5 @@
-import { Flex, Text } from "@chakra-ui/react";
-import { FaGithub } from "react-icons/fa";
+import { Flex, Text } from "./elements";
+import { IconGithub } from "./icons";
 import { CustomLink } from "./CustomLink";
 
 const github = {
@@ -9,9 +9,9 @@ const github = {
 
 export const OpenPR = ({ slug }) => {
   return (
-    <Flex align="center" my={2} color="gray.500">
-      <FaGithub />
-      <Text fontSize="sm" ml={2}>
+    <Flex fontSize={["xs", "sm"]} align="center" my={2} color="gray.500">
+      <IconGithub />
+      <Text ml={2}>
         ¿Ves alguna errata o quieres modificar algo?{" "}
         <CustomLink
           href={`https://github.com/${github.user}/${github.repo}/edit/main/data/posts/${slug}.mdx`}
