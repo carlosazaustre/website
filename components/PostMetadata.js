@@ -6,24 +6,30 @@ import { Disqus } from "./Disqus";
 
 export const PostMetadata = ({ metadata }) => {
   return (
-    <Flex direction="column" px={4} py={2}>
+    <Flex direction="column" px={[0, 2, 4]} py={2}>
       <Flex
-        direction="row"
-        align="center"
+        direction={["column", "column", "row"]}
+        align={["left", "left", "center"]}
         justify="flex-start"
         color="gray.500"
-        fontSize="sm"
+        fontSize={["xs", "sm"]}
       >
-        <IconCalendar />
-        <Text mx={2}>{formatDate(metadata.date)}</Text>
-        <IconComment />
-        <Link mx={2} href="#comments">
-          <Disqus type="count" title={metadata.title} slug={metadata.slug} />
-        </Link>
-        <IconClock />
-        <Text mx={2}>
-          {Math.round(metadata.readingTime.minutes)} minutos de lectura
-        </Text>
+        <Flex align="center">
+          <IconCalendar />
+          <Text mx={2}>{formatDate(metadata.date)}</Text>
+        </Flex>
+        <Flex align="center">
+          <IconComment />
+          <Link mx={2} href="#comments">
+            <Disqus type="count" title={metadata.title} slug={metadata.slug} />
+          </Link>
+        </Flex>
+        <Flex align="center">
+          <IconClock />
+          <Text mx={2}>
+            {Math.round(metadata.readingTime.minutes)} minutos de lectura
+          </Text>
+        </Flex>
         <Flex direction="row">
           {metadata.tags.map((tag) => (
             <Tag size="sm" mx={2} colorScheme="brand">

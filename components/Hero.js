@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { Text } from "./elements";
-import { CompanyLogos } from "./CompanyLogos";
 import { ButtonCTA } from "./ButtonCTA";
 
 export const Hero = () => {
@@ -31,7 +31,13 @@ export const Hero = () => {
       <Link href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1">
         <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
       </Link>
-      <CompanyLogos />
+      <Image
+        layout="responsive"
+        width={460}
+        height={150}
+        src="/assets/company-logos.png"
+        alt="Google, IBM, Eventbrite. Chefly"
+      />
     </Fragment>
   );
 };

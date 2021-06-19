@@ -51,6 +51,7 @@ export const Footer = () => {
                   align="center"
                   justify={["center", "center", "center", "flex-start"]}
                   my={4}
+                  minWidth="300px"
                 >
                   <Logo size="40px" />
                   <Text
@@ -64,7 +65,11 @@ export const Footer = () => {
                 </Flex>
               </a>
             </NextLink>
-            <Flex justify="space-around" direction="row" w="100%">
+            <Flex
+              justify="space-around"
+              direction="row"
+              w={["100%", "80%", "60%", "100%"]}
+            >
               <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
                 <IconYoutube size="20px" />
               </Link>

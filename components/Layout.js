@@ -16,7 +16,7 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
 
   return (
     <Box bg="gray.100">
-      <Container maxW="container.2xl">
+      <Container maxW="container.2xl" px={[0, 4]}>
         <Flex
           justify="space-between"
           direction={["column", "column", "row"]}

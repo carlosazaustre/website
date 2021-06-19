@@ -64,7 +64,7 @@ export default function Home({ posts }) {
       </Box>
 
       <Box bg="gray.100">
-        <Container maxW="container.2xl">
+        <Container maxW="container.2xl" px={[0, 4]}>
           <Flex
             direction={["column", "column", "column", "row"]}
             justify="space-between"

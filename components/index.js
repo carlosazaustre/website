@@ -4,7 +4,6 @@ export { AboutCardHome } from "./cards/AboutCardHome";
 export { BlogCardHome } from "./cards/BlogCardHome";
 export { ContactCardHome } from "./cards/ContactCardHome";
 
-export { CompanyLogos } from "./CompanyLogos";
 export { Logo } from "./Logo";
 export { CustomImage } from "./CustomImage";
 export { Summary } from "./Summary";

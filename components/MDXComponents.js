@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { IconLabel } from "./icons";
-import { CompanyLogos } from "./CompanyLogos";
 import { Dropdown, DropdownItem } from "./Dropdown";
 import { YouTube } from "./YouTube";
 import { YouTubeBtn } from "./YouTubeBtn";
@@ -57,7 +56,6 @@ export const MDXComponents = {
   YouTube,
   YouTubeBtn,
   Tidycal,
-  CompanyLogos,
   AboutCard,
   Dropdown,
   DropdownItem,
