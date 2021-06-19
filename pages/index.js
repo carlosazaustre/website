@@ -1,17 +1,18 @@
 import { Fragment } from "react";
 import styled from "@emotion/styled";
-import { Container, Flex, Box, Link } from "@chakra-ui/react";
 
+import { getAllFilesFrontMatter } from "@/lib/mdx";
+import { orderByDate } from "@/lib/order-by-date";
 import {
   Header,
-  Intro,
+  Hero,
   Book,
   Footer,
   AboutCardHome,
   BlogCardHome,
   ContactCardHome,
+  elements,
 } from "@/components";
-import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 const StyledMain = styled.main`
   display: flex;
@@ -27,6 +28,8 @@ const StyledMain = styled.main`
     background-size: contain;
   }
 `;
+
+const { Container, Flex, Box, Link } = elements;
 
 export default function Home({ posts }) {
   return (
@@ -45,7 +48,7 @@ export default function Home({ posts }) {
               pb="2"
               pl={[0, 0, 0, 0, 8]}
             >
-              <Intro />
+              <Hero />
             </Flex>
             <Flex
               direction="row"
@@ -61,7 +64,7 @@ export default function Home({ posts }) {
       </Box>
 
       <Box bg="gray.100">
-        <Container maxW="container.2xl">
+        <Container maxW="container.2xl" px={[0, 4]}>
           <Flex
             direction={["column", "column", "column", "row"]}
             justify="space-between"
@@ -80,9 +83,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = await getAllFilesFrontMatter("posts");
-  const posts = allPosts
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5);
+  const posts = allPosts.sort(orderByDate).slice(0, 5);
 
   return {
     props: { posts },

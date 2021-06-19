@@ -1,5 +1,14 @@
 import Image from "next/image";
-import { MdLabel } from "react-icons/md";
+
+import { IconLabel } from "./icons";
+import { Dropdown, DropdownItem } from "./Dropdown";
+import { YouTube } from "./YouTube";
+import { YouTubeBtn } from "./YouTubeBtn";
+import { Tidycal } from "./Tidycal";
+import { Summary } from "./Summary";
+import { CustomLink } from "./CustomLink";
+import { CustomImage } from "./CustomImage";
+import { AboutCard } from "./cards/AboutCard";
 import {
   Divider,
   Heading,
@@ -14,17 +23,7 @@ import {
   Th,
   Tr,
   Td,
-} from "@chakra-ui/react";
-
-import { CompanyLogos } from "./icons/CompanyLogos";
-import { AboutCard } from "./cards/AboutCard";
-import { Dropdown, DropdownItem } from "./Dropdown";
-import { PostImage } from "./post/PostImage";
-import { YouTube } from "./YouTube";
-import { YouTubeBtn } from "./YouTubeBtn";
-import { TidycalEmbed } from "./TidycalEmbed";
-import { Summary } from "./Summary";
-import { CustomLink } from "./CustomLink";
+} from "./elements";
 
 export const MDXComponents = {
   a: CustomLink,
@@ -42,12 +41,12 @@ export const MDXComponents = {
   th: (props) => <Th {...props} />,
   tr: (props) => <Tr {...props} />,
   td: (props) => <Td {...props} />,
-  img: (props) => <PostImage {...props} />,
+  img: (props) => <CustomImage {...props} />,
   ul: (props) => <UnorderedList styleType="none" {...props} />,
   ol: (props) => <OrderedList styleType="none" {...props} />,
   li: (props) => (
     <ListItem>
-      <ListIcon as={MdLabel} color="brand.900" />
+      <ListIcon as={IconLabel} color="brand.900" />
       {props.children}
     </ListItem>
   ),
@@ -56,8 +55,7 @@ export const MDXComponents = {
   Heading,
   YouTube,
   YouTubeBtn,
-  TidycalEmbed,
-  CompanyLogos,
+  Tidycal,
   AboutCard,
   Dropdown,
   DropdownItem,

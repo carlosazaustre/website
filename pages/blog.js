@@ -1,8 +1,8 @@
 import NextLink from "next/link";
 
-import { PageLayout } from "@/layouts";
-import { PostListItem } from "@/components";
+import { Layout, PostListItem } from "@/components";
 import { formatDate } from "@/lib/format-date";
+import { orderByDate } from "@/lib/order-by-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Blog({ posts }) {
@@ -11,23 +11,25 @@ export default function Blog({ posts }) {
   };
 
   return (
-    <PageLayout metadata={metadata} aside>
+    <Layout type="post" metadata={metadata}>
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
-            <PostListItem title={post.title} date={formatDate(post.date)} />
+            <PostListItem
+              title={post.title}
+              date={formatDate(post.date)}
+              tags={post.tags}
+            />
           </a>
         </NextLink>
       ))}
-    </PageLayout>
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
   const unorderedPosts = await getAllFilesFrontMatter("posts");
-  const posts = unorderedPosts.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  const posts = unorderedPosts.sort(orderByDate);
 
   return {
     props: { posts },

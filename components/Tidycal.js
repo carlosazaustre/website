@@ -13,8 +13,8 @@ const StyledIframe = styled.iframe`
   }
 `;
 
-export const TidycalEmbed = () => {
-  const tidycalUrl = "https://tidycal.com/carlosazaustre";
+export const Tidycal = ({ account, appointment }) => {
+  const tidycalUrl = `https://tidycal.com/${account}`;
 
   useEffect(() => {
     const head = document.querySelector("head");
@@ -30,7 +30,7 @@ export const TidycalEmbed = () => {
   return (
     <StyledIframe
       scrolling="no"
-      src={`${tidycalUrl}/videollamada-30-minutos`}
+      src={`${tidycalUrl}/${appointment}`}
     ></StyledIframe>
   );
 };

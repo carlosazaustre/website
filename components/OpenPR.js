@@ -1,5 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { MdModeEdit } from "react-icons/md";
+import { IconGithub } from "./icons";
 import { CustomLink } from "./CustomLink";
 
 const github = {
@@ -7,12 +7,12 @@ const github = {
   repo: "website",
 };
 
-export const EditPR = ({ slug }) => {
+export const OpenPR = ({ slug }) => {
   return (
-    <Flex align="center" my={2} color="gray.500">
-      <MdModeEdit />
-      <Text fontSize="sm">
-        ¿Ves alguna errata? ¿Quieres modificar algo?{" "}
+    <Flex fontSize={["xs", "sm"]} align="center" my={2} color="gray.500">
+      <IconGithub />
+      <Text ml={2}>
+        ¿Ves alguna errata o quieres modificar algo?{" "}
         <CustomLink
           href={`https://github.com/${github.user}/${github.repo}/edit/main/data/posts/${slug}.mdx`}
         >
