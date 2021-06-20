@@ -135,17 +135,17 @@ export const Footer = () => {
             </Heading>
             <UnorderedList styleType="none">
               <ListItem>
-                <NextLink href="/p/curso-nodejs-gratis">
+                <NextLink href="/cursos/nodejs-gratis">
                   <Link>Curso Node.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/p/curso-programacion">
-                  <Link>Curso de Programación Gratis</Link>
+                <NextLink href="/cursos/programacion-javascript">
+                  <Link>Curso de Programación con JavaScript Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/p/curso-vue-gratis">
+                <NextLink href="/cursos/vue-gratis">
                   <Link>Curso de Vue y Firebase Gratis</Link>
                 </NextLink>
               </ListItem>

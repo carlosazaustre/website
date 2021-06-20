@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 import { Text } from "./elements";
@@ -28,9 +27,9 @@ export const Hero = () => {
         Reconocido por Google como <strong>Developer Expert (GDE)</strong> en
         Web, y <strong>Auth0 Ambassador</strong>.
       </Text>
-      <Link href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1">
+      <a href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1">
         <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
-      </Link>
+      </a>
       <Image
         layout="responsive"
         width={460}

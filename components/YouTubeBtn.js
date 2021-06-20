@@ -1,7 +1,31 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+import { Box } from "./elements";
 
-export const YouTubeBtn = ({ channelId = "UCJgGc8pQO1lv04VXrBxA_Hg" }) => {
+const WrapperButton = ({ children }) => {
+  return (
+    <Box bg="secondary.100" color="white" p={6} rounded="lg" textAlign="center">
+      {children}
+    </Box>
+  );
+};
+
+const InnerButton = ({ channelId }) => {
+  return (
+    <div
+      className="g-ytsubscribe"
+      data-channelid={channelId}
+      data-layout="full"
+      data-theme="dark"
+      data-count="default"
+    />
+  );
+};
+
+export const YouTubeBtn = ({
+  type = "center",
+  channelId = "UCJgGc8pQO1lv04VXrBxA_Hg",
+}) => {
   useEffect(() => {
     const head = document.querySelector("head");
     const script = document.createElement("script");
@@ -13,14 +37,15 @@ export const YouTubeBtn = ({ channelId = "UCJgGc8pQO1lv04VXrBxA_Hg" }) => {
     };
   }, []);
 
-  return (
-    <div
-      className="g-ytsubscribe"
-      data-channelid={channelId}
-      data-layout="default"
-      data-count="default"
-    />
-  );
+  if (type === "center") {
+    return (
+      <WrapperButton>
+        <InnerButton channelId={channelId} />
+      </WrapperButton>
+    );
+  }
+
+  return <InnerButton />;
 };
 
 YouTubeBtn.propTypes = { channelId: PropTypes.string.isRequired };

@@ -1,15 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { AspectRatio, Box, Flex, Spacer, Text, Link } from "./elements";
+import {
+  AspectRatio,
+  Box,
+  Heading,
+  Flex,
+  Spacer,
+  Text,
+  Link,
+} from "./elements";
+import { IconVideo } from "./icons";
 import { YouTubeBtn } from "./YouTubeBtn";
 
-export const YouTube = ({ videoId = "5ct-3tDiRUY" }) => {
+export const YouTube = ({ title, videoId = "5ct-3tDiRUY" }) => {
   const channelId = "UCJgGc8pQO1lv04VXrBxA_Hg";
 
   return (
-    <Box maxW="560px" boxShadow="base" p="6" rounded="md" bg="white">
-      <AspectRatio maxW="560px" ratio={16 / 9}>
+    <Box
+      maxW="1080px"
+      boxShadow="lg"
+      rounded="lg"
+      bg="secondary.100"
+      mx="auto"
+      my={[2, 8]}
+      color="white"
+    >
+      {title && (
+        <Heading as="h3" p={6} fontSize={["md", "lg", "xl"]}>
+          <Flex align="center">
+            <IconVideo />
+            <Text ml={2}>{title}</Text>
+          </Flex>
+        </Heading>
+      )}
+      <AspectRatio maxW="1080px" ratio={16 / 9}>
         <iframe
           title={videoId}
           src={`https://www.youtube.com/embed/${videoId}`}
@@ -19,16 +44,20 @@ export const YouTube = ({ videoId = "5ct-3tDiRUY" }) => {
           loading="lazy"
         />
       </AspectRatio>
-      <Flex align="center" pt="2">
-        <Text>
+      <Flex
+        direction={["column", "column", "row"]}
+        align="center"
+        p={[2, 4, 6]}
+      >
+        <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
           <Link
             href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
           >
-            <strong>Suscríbete al Canal</strong>
+            <strong>🔴 Suscríbete al Canal</strong>
           </Link>
         </Text>
         <Spacer />
-        <YouTubeBtn channelId={channelId} />
+        <YouTubeBtn type="embedded" channelId={channelId} />
       </Flex>
     </Box>
   );

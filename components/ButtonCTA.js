@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledButton = styled.a`
+const StyledButton = styled.div`
   display: inline-block;
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 
-const StyledBookLink = styled.a`
+const StyledBookLink = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
