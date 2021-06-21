@@ -1,4 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
+import { toast, useToast } from "@chakra-ui/react";
 
 import { Card } from "./_Card";
 import { IconMail, IconUser } from "../icons";
@@ -14,6 +15,7 @@ import {
 } from "../elements";
 
 export const ContactCardHome = () => {
+  const toast = useToast();
   const {
     handleSubmit,
     control,
@@ -21,13 +23,33 @@ export const ContactCardHome = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const response = await fetch("/api/sendMail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    const res = await response.json();
-    console.log(res);
+    try {
+      const response = await fetch("/api/sendMail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      await response.json();
+      toast({
+        title: "Mensaje enviado",
+        position: "top-right",
+        description: "Tu mensaje se ha enviado correctamente",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        position: "top-right",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        variant: "left-accent",
+      });
+    }
   };
 
   return (
