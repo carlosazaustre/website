@@ -26,6 +26,8 @@ export {
   Input,
   InputGroup,
   InputLeftElement,
+  FormControl,
+  FormErrorMessage,
   Textarea,
   Button,
   Accordion,
