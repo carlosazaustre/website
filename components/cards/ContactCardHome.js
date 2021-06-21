@@ -4,6 +4,8 @@ import { Card } from "./_Card";
 import { IconMail, IconUser } from "../icons";
 import {
   Stack,
+  FormControl,
+  FormErrorMessage,
   InputGroup,
   InputLeftElement,
   Input,
@@ -13,10 +15,9 @@ import {
 
 export const ContactCardHome = () => {
   const {
-    register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    control,
+    formState: { isSubmitting, isValid },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -33,38 +34,83 @@ export const ContactCardHome = () => {
     <Card type="home" headerTitle="Contacto">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing="24px" py={2}>
-          <InputGroup size="lg">
-            <InputLeftElement
-              pointerEvents="none"
-              color="gray.300"
-              children={<IconUser />}
-            />
-            <Input
-              bg="white"
-              placeholder="Tu nombre"
-              type="text"
-              {...register("name", { required: true })}
-            />
-          </InputGroup>
+          <Controller
+            name="name"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
+              <FormControl as="fieldset" isInvalid={fieldState.invalid}>
+                <InputGroup size="lg">
+                  <InputLeftElement
+                    pointerEvents="none"
+                    color="gray.300"
+                    children={<IconUser />}
+                  />
+                  <Input
+                    bg="white"
+                    placeholder="Tu nombre"
+                    type="text"
+                    {...field}
+                  />
+                </InputGroup>
+                {fieldState.error?.type === "required" && (
+                  <FormErrorMessage>
+                    Debes introducir tu nombre
+                  </FormErrorMessage>
+                )}
+              </FormControl>
+            )}
+          />
 
-          <InputGroup size="lg">
-            <InputLeftElement
-              pointerEvents="none"
-              color="gray.300"
-              children={<IconMail />}
-            />
-            <Input
-              bg="white"
-              placeholder="Tu email"
-              type="email"
-              {...register("email", { required: true })}
-            />
-          </InputGroup>
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
+              <FormControl as="fieldset" isInvalid={fieldState.invalid}>
+                <InputGroup size="lg">
+                  <InputLeftElement
+                    pointerEvents="none"
+                    color="gray.300"
+                    children={<IconMail />}
+                  />
+                  <Input
+                    bg="white"
+                    placeholder="Tu email"
+                    type="email"
+                    {...field}
+                  />
+                </InputGroup>
+                {fieldState.error?.type === "required" && (
+                  <FormErrorMessage>
+                    Debes introducir un mensaje
+                  </FormErrorMessage>
+                )}
+              </FormControl>
+            )}
+          />
 
-          <Textarea
-            size="lg"
-            placeholder="Deja tu mensaje..."
-            {...register("text", { required: true })}
+          <Controller
+            name="text"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
+              <FormControl as="fieldset" isInvalid={fieldState.invalid}>
+                <Textarea
+                  size="lg"
+                  placeholder="Deja tu mensaje..."
+                  {...field}
+                />
+                {fieldState.error?.type === "required" && (
+                  <FormErrorMessage>
+                    Debes introducir un mensaje
+                  </FormErrorMessage>
+                )}
+              </FormControl>
+            )}
           />
 
           <Button
@@ -73,6 +119,9 @@ export const ContactCardHome = () => {
             fontFamily="heading"
             w="100%"
             size="lg"
+            loadingText="Enviando"
+            isLoading={isSubmitting}
+            isDisabled={!isValid}
           >
             Enviar
           </Button>

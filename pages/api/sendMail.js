@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   let response;
   try {
     response = await mailgun.messages().send(data);
-  } catch (err) {
+  } catch (error) {
     return res.status(error.statusCode || 500).json({ error: error.message });
   }
 
