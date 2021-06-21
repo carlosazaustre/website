@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { toast, useToast } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 
 import { Card } from "./_Card";
 import { IconMail, IconUser } from "../icons";
