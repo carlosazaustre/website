@@ -17,4 +17,5 @@ export {
   MdComment as IconComment,
   MdAccessTime as IconClock,
   MdLabel as IconLabel,
+  MdVideoLibrary as IconVideo,
 } from "react-icons/md";

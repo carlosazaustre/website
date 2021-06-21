@@ -12,7 +12,7 @@ export const PostListItem = ({ title, date, tags }) => {
         <Text ml={1}>
           {date}{" "}
           {tags.map((tag) => (
-            <Tag size="sm" mx={2} colorScheme="brand">
+            <Tag key={tag} size="sm" mx={2} colorScheme="brand">
               {tag}
             </Tag>
           ))}

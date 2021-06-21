@@ -29,7 +29,7 @@ const StyledMain = styled.main`
   }
 `;
 
-const { Container, Flex, Box, Link } = elements;
+const { Container, Flex, Box } = elements;
 
 export default function Home({ posts }) {
   return (
@@ -55,9 +55,9 @@ export default function Home({ posts }) {
               w={["100%", "100%", "100%", "100%", "65%"]}
               justify={["center", "center", "center", "center", "flex-start"]}
             >
-              <Link href="https://www.amazon.com/-/es/Carlos-Azaustre/dp/B08TZ3HSYZ/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1619807979&sr=8-1">
+              <a href="https://www.amazon.com/-/es/Carlos-Azaustre/dp/B08TZ3HSYZ/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1619807979&sr=8-1">
                 <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
-              </Link>
+              </a>
             </Flex>
           </StyledMain>
         </Container>

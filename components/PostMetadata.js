@@ -32,7 +32,7 @@ export const PostMetadata = ({ metadata }) => {
         </Flex>
         <Flex direction="row">
           {metadata.tags.map((tag) => (
-            <Tag size="sm" mx={2} colorScheme="brand">
+            <Tag key={tag} size="sm" mx={2} colorScheme="brand">
               {tag}
             </Tag>
           ))}

@@ -10,14 +10,6 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
             rel="apple-touch-icon"
             sizes="57x57"
             href="/apple-icon-57x57.png"
@@ -90,6 +82,11 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#FEC101" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#FEC101" />
+          <script
+            defer
+            type="text/javascript"
+            src="https://apis.google.com/js/platform.js"
+          />
         </Head>
         <body>
           <Main />

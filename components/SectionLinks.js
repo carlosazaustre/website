@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import sections from "@/data/sections";
 import { Flex } from "./elements";
 
-const SeectionLinkItem = styled.a`
+const SectionLinkItem = styled.a`
   font-family: var(--chakra-fonts-heading);
   font-size: var(--chakra-fontSizes-xs);
   text-decoration: none;
@@ -39,7 +39,7 @@ export const SectionLinks = () => {
       <Flex direction="row">
         {sections.map(({ name, url }) => (
           <NextLink key={name} href={url} passHref>
-            <SeectionLinkItem>{name}</SeectionLinkItem>
+            <SectionLinkItem>{name}</SectionLinkItem>
           </NextLink>
         ))}
       </Flex>
