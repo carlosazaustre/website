@@ -38,6 +38,21 @@ export const Card = ({
     </Box>
   );
 
+  const LandingCard = ({ children }) => (
+    <Box
+      bg={bgColor}
+      borderRadius={["none", "lg"]}
+      p={[4, 4, 8, 16]}
+      my={4}
+      mx={[0, 0, "auto"]}
+      width={["100%", "100%", "600px"]}
+    >
+      {children}
+      <CardContent />
+    </Box>
+  );
+
   if (type === "aside") return <AsideCard />;
   if (type === "home") return <HomeCard />;
+  if (type === "landing") return <LandingCard />;
 };

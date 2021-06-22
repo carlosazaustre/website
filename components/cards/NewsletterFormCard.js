@@ -10,10 +10,10 @@ import {
   Link,
 } from "../elements";
 
-export const NewsletterFormCard = () => {
+export const NewsletterFormCard = ({ size }) => {
   return (
     <Card
-      type="aside"
+      type={size}
       bgColor="brand.900"
       headerTitle="Únete y ponte al día en desarrollo web"
     >
