@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import NextLink from "next/link";
-import Head from "next/head";
 
 import { Heading, Container, Flex, Box, Text, Stack } from "./elements";
 import { Logo } from "./Logo";
@@ -10,46 +9,15 @@ import { PostMetadata } from "./PostMetadata";
 import { Disqus } from "./Disqus";
 import { NewsletterFormCard } from "./cards/NewsletterFormCard";
 import { AboutCard } from "./cards/AboutCard";
+import { OpenGraph } from "./OpenGraph";
 
 export const Layout = ({ children, metadata = {}, type = "post" }) => {
   const width = type === "post" ? "65%" : "100%";
   const isBlogTemplate = type === "post" && metadata.date;
 
-  const SEO = {
-    title: metadata.title || "Aprende JavaScript - Carlos Azaustre",
-    description:
-      metadata.description ||
-      "Formación y Desarrollo Fullstack en JavaScript. Tutoriales y Cursos sobre Programación Web con React, Node, Firebase, etc...",
-    slug: metadata.slug || "",
-    image:
-      metadata.image ||
-      "https://website-carlosazaustre.vercel.app/assets/default-image.png",
-    date: metadata.date || new Date().toISOString(),
-  };
-
   return (
     <Box bg="gray.100">
-      <Head>
-        <title>{SEO.title}</title>
-        <meta name="robots" content="follow, index" />
-        <meta content={SEO.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://carlosazaustre.es/${SEO.slug}`}
-        />
-        <link rel="canonical" href={`https://carlosazaustre.es/${SEO.slug}`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Carlos Azaustre" />
-        <meta property="og:description" content={SEO.description} />
-        <meta property="og:title" content={SEO.title} />
-        <meta property="og:image" content={SEO.image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@carlosazaustre" />
-        <meta name="twitter:title" content={SEO.title} />
-        <meta name="twitter:description" content={SEO.description} />
-        <meta name="twitter:image" content={SEO.image} />
-        <meta property="article:published_time" content={SEO.date} />
-      </Head>
+      <OpenGraph metadata={metadata} />
       <Container maxW="container.2xl" px={[0, 4]}>
         <Flex
           justify="space-between"

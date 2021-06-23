@@ -12,6 +12,7 @@ import {
   BlogCardHome,
   ContactCardHome,
   elements,
+  OpenGraph,
 } from "@/components";
 
 const StyledMain = styled.main`
@@ -34,6 +35,7 @@ const { Container, Flex, Box } = elements;
 export default function Home({ posts }) {
   return (
     <Fragment>
+      <OpenGraph />
       <Box bg="brand.900">
         <Container maxW="container.2xl">
           <Header />
