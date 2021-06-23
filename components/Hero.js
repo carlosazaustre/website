@@ -27,7 +27,10 @@ export const Hero = () => {
         Reconocido por Google como <strong>Developer Expert (GDE)</strong> en
         Web, y <strong>Auth0 Ambassador</strong>.
       </Text>
-      <a href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1">
+      <a
+        href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1"
+        target="_blank"
+      >
         <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
       </a>
       <Image

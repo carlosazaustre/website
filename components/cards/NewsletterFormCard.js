@@ -76,6 +76,7 @@ export const NewsletterFormCard = ({ size }) => {
             name="member[subscribe]"
             id="member_submit"
             size="lg"
+            onClick={() => generateLead()}
           >
             Suscríbirme
           </Button>
