@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import styled from "@emotion/styled";
 
+import * as ga from "@/lib/ga";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
 import {

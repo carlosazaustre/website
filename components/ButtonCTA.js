@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import * as ga from "@/lib/ga";
+
 const StyledButton = styled.div`
   display: inline-block;
   background-color: var(--chakra-colors-secondary-900);
@@ -24,5 +26,16 @@ const StyledButton = styled.div`
 `;
 
 export const ButtonCTA = ({ children }) => {
-  return <StyledButton className="btnCTA">{children}</StyledButton>;
+  const clickCTA = () => {
+    ga.event({
+      action: "view_item",
+      params: { event_label: "Click to YouTube Channel", value: 1 },
+    });
+  };
+
+  return (
+    <StyledButton className="btnCTA" onClick={() => clickCTA()}>
+      {children}
+    </StyledButton>
+  );
 };

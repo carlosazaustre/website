@@ -1,3 +1,4 @@
+import * as ga from "@/lib/ga";
 import { Card } from "./_Card";
 import { IconMail, IconUser } from "../icons";
 import {
@@ -11,6 +12,13 @@ import {
 } from "../elements";
 
 export const NewsletterFormCard = ({ size }) => {
+  const generateLead = () => {
+    ga.event({
+      action: "generate_lead",
+      params: { event_label: "Newsletter Sign up", value: 1 },
+    });
+  };
+
   return (
     <Card
       type={size}
@@ -68,6 +76,7 @@ export const NewsletterFormCard = ({ size }) => {
             name="member[subscribe]"
             id="member_submit"
             size="lg"
+            onClick={() => generateLead()}
           >
             Suscríbirme
           </Button>
