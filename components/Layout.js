@@ -20,8 +20,10 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
     description:
       metadata.description ||
       "Formación y Desarrollo Fullstack en JavaScript. Tutoriales y Cursos sobre Programación Web con React, Node, Firebase, etc...",
-    slug: metadata.slug,
-    image: metadata.image || "/assets/default-image.png",
+    slug: metadata.slug || "",
+    image:
+      metadata.image ||
+      "https://website-carlosazaustre.vercel.app/assets/default-image.png",
     date: metadata.date || new Date().toISOString(),
   };
 
@@ -33,9 +35,9 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
         <meta content={SEO.description} name="description" />
         <meta
           property="og:url"
-          content={`https://carlosazaustre.es${SEO.slug}`}
+          content={`https://carlosazaustre.es/${SEO.slug}`}
         />
-        <link rel="canonical" href={`https://carlosazaustre.es${SEO.slug}`} />
+        <link rel="canonical" href={`https://carlosazaustre.es/${SEO.slug}`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Carlos Azaustre" />
         <meta property="og:description" content={SEO.description} />
