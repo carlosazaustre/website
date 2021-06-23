@@ -82,6 +82,18 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#FEC101" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#FEC101" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7491075-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-7491075-8');
+</script>
+
+
         </Head>
         <body>
           <Main />
