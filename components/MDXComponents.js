@@ -9,6 +9,7 @@ import { Summary } from "./Summary";
 import { CustomLink } from "./CustomLink";
 import { CustomImage } from "./CustomImage";
 import { AboutCard } from "./cards/AboutCard";
+import { NewsletterFormCard } from "./cards/NewsletterFormCard";
 import {
   Divider,
   Heading,
@@ -57,6 +58,7 @@ export const MDXComponents = {
   YouTubeBtn,
   Tidycal,
   AboutCard,
+  NewsletterFormCard,
   Dropdown,
   DropdownItem,
 };
