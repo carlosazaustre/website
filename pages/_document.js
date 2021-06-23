@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -9,6 +10,21 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <scrip
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+            `,
+            }}
+          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"

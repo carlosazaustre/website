@@ -3,6 +3,7 @@ import "@/styles/fonts";
 import theme, { ThemeProvider } from "@/styles/theme";
 
 function MyApp({ Component, pageProps }) {
+  GoogleAnalytics.useAppInit();
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
