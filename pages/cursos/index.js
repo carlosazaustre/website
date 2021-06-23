@@ -11,7 +11,7 @@ export default function Courses({ courses }) {
   return (
     <Layout type="post" metadata={metadata}>
       {courses.map((course) => (
-        <NextLink href={course.slug} key={course.slug}>
+        <NextLink href={`/cursos/${course.slug}`} key={course.slug}>
           <a>
             <CourseListItem title={course.title} />
           </a>
