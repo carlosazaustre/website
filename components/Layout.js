@@ -9,6 +9,7 @@ import { PostMetadata } from "./PostMetadata";
 import { Disqus } from "./Disqus";
 import { NewsletterFormCard } from "./cards/NewsletterFormCard";
 import { AboutCard } from "./cards/AboutCard";
+import { OpenGraph } from "./OpenGraph";
 
 export const Layout = ({ children, metadata = {}, type = "post" }) => {
   const width = type === "post" ? "65%" : "100%";
@@ -16,6 +17,7 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
 
   return (
     <Box bg="gray.100">
+      <OpenGraph metadata={metadata} />
       <Container maxW="container.2xl" px={[0, 4]}>
         <Flex
           justify="space-between"
