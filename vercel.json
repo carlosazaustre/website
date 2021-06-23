@@ -1,0 +1,94 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/curso-programacion",
+      "destination": "/cursos/programacion-javascript"
+    },
+    {
+      "source": "/curso-nodejs-gratis",
+      "destination": "/cursos/nodejs-gratis"
+    },
+    {
+      "source": "/videollamada",
+      "destination": "/mentoria"
+    },
+    {
+      "source": "/about",
+      "destination": "/p/sobre-mi"
+    },
+    {
+      "source": "/legal",
+      "destination": "/p/legal"
+    },
+    {
+      "source": "/youtube",
+      "destination": "https://youtube.com/carlosazaustre?sub_confirmation=1"
+    },
+    {
+      "source": "/videos",
+      "destination": "https://youtube.com/carlosazaustre?sub_confirmation=1"
+    },
+    {
+      "source": "/twitch",
+      "destination": "https://twitch.tv/carlosazaustre"
+    },
+    {
+      "source": "/live",
+      "destination": "https://twitch.tv/carlosazaustre"
+    },
+    {
+      "source": "/twitter",
+      "destination": "https://twitter.com/carlosazaustre"
+    },
+    {
+      "source": "/ig",
+      "destination": "https://instagram.com/carlosazaustre"
+    },
+    {
+      "source": "/instagram",
+      "destination": "https://instagram.com/carlosazaustre"
+    },
+    {
+      "source": "/cv",
+      "destination": "https://linkedin.com/in/carlosazaustre"
+    },
+    {
+      "source": "/tienda",
+      "destination": "https://carlosazaustre.creator-spring.com/"
+    },
+    {
+      "source": "/merch",
+      "destination": "https://carlosazaustre.creator-spring.com/"
+    },
+    {
+      "source": "/links",
+      "destination": "https://shor.by/jLqS"
+    },
+    {
+      "source": "/redes",
+      "destination": "https://shor.by/jLqS"
+    },
+    {
+      "source": "/start",
+      "destination": "https://shor.by/jLqS"
+    },
+    {
+      "source": "/empieza",
+      "destination": "https://shor.by/jLqS"
+    },
+    {
+      "source": "/go",
+      "destination": "https://shor.by/jLqS"
+    },
+    {
+      "source": "/feed",
+      "destination": "/rss.xml"
+    },
+    {
+      "source": "/rss",
+      "destination": "/rss.xml"
+    }
+  ]
+}
