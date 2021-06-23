@@ -16,6 +16,7 @@ export { ButtonCTA } from "./ButtonCTA";
 export { SectionLinks } from "./SectionLinks";
 export { PostMetadata } from "./PostMetadata";
 export { PostListItem } from "./PostListItem";
+export { CourseListItem } from "./CourseListItem";
 export { Tidycal } from "./Tidycal";
 export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";

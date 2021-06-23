@@ -11,7 +11,7 @@ const sections = [
     name: "Mentoría",
     url: "/p/mentoria",
   },
-  { name: "Cursos", url: "//fullstackjs.academy" },
+  { name: "Cursos", url: "/cursos" },
 ];
 
 export default sections;
