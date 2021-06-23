@@ -4,7 +4,16 @@ import { Box } from "./elements";
 
 const WrapperButton = ({ children }) => {
   return (
-    <Box bg="secondary.100" color="white" p={6} rounded="lg" textAlign="center">
+    <Box
+      bg="secondary.100"
+      color="white"
+      p={6}
+      mb={16}
+      mx={(0, 0, "auto")}
+      rounded="lg"
+      textAlign="center"
+      width={["100%", "100%", "50%"]}
+    >
       {children}
     </Box>
   );

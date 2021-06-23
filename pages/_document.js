@@ -82,11 +82,6 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#FEC101" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#FEC101" />
-          <script
-            defer
-            type="text/javascript"
-            src="https://apis.google.com/js/platform.js"
-          />
         </Head>
         <body>
           <Main />

@@ -13,7 +13,22 @@ import {
 import { IconVideo } from "./icons";
 import { YouTubeBtn } from "./YouTubeBtn";
 
-export const YouTube = ({ title, videoId = "5ct-3tDiRUY" }) => {
+const YouTubeVideo = ({ videoId }) => {
+  return (
+    <AspectRatio maxW="1080px" width="100%" ratio={16 / 9}>
+      <iframe
+        title={videoId}
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        loading="lazy"
+      />
+    </AspectRatio>
+  );
+};
+
+export const YouTube = ({ title, videoId = "5ct-3tDiRUY", description }) => {
   const channelId = "UCJgGc8pQO1lv04VXrBxA_Hg";
 
   return (
@@ -21,44 +36,71 @@ export const YouTube = ({ title, videoId = "5ct-3tDiRUY" }) => {
       maxW="1080px"
       boxShadow="lg"
       rounded="lg"
-      bg="secondary.100"
+      borderWidth="1px"
+      bg={description ? "white" : "secondary.100"}
       mx="auto"
       my={[2, 8]}
       color="white"
     >
-      {title && (
-        <Heading as="h3" p={6} fontSize={["md", "lg", "xl"]}>
+      {title && !description && (
+        <Heading
+          as="h3"
+          p={6}
+          fontSize={["md", "lg", "xl"]}
+          color={description ? "black" : "white"}
+        >
           <Flex align="center">
             <IconVideo />
             <Text ml={2}>{title}</Text>
           </Flex>
         </Heading>
       )}
-      <AspectRatio maxW="1080px" ratio={16 / 9}>
-        <iframe
-          title={videoId}
-          src={`https://www.youtube.com/embed/${videoId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-        />
-      </AspectRatio>
-      <Flex
-        direction={["column", "column", "row"]}
-        align="center"
-        p={[2, 4, 6]}
-      >
-        <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
-          <Link
-            href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
-          >
-            <strong>🔴 Suscríbete al Canal</strong>
-          </Link>
-        </Text>
-        <Spacer />
-        <YouTubeBtn type="embedded" channelId={channelId} />
-      </Flex>
+      {description ? (
+        <Flex direction={["column", "column", "column", "row"]}>
+          <YouTubeVideo videoId={videoId} />
+          <Box p={[2, 4]} width={["100%", "100%", "100%", "95%"]} color="black">
+            <Heading
+              as="h3"
+              p={4}
+              fontSize={["md", "lg", "xl"]}
+              color={description ? "black" : "white"}
+            >
+              <Flex align="center">
+                <IconVideo />
+                <Text ml={2}>{title}</Text>
+              </Flex>
+            </Heading>
+            <Text p={4}>{description}</Text>
+            <Link
+              px={4}
+              color="brand.900"
+              href="https://youtube.com/carlosazaustre?sub_confirmation=1"
+            >
+              Suscríbete al canal para ver más videos →
+            </Link>
+          </Box>
+        </Flex>
+      ) : (
+        <YouTubeVideo videoId={videoId} />
+      )}
+
+      {!description && (
+        <Flex
+          direction={["column", "column", "row"]}
+          align="center"
+          p={[2, 4, 6]}
+        >
+          <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
+            <Link
+              href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
+            >
+              <strong>🔴 Suscríbete al Canal</strong>
+            </Link>
+          </Text>
+          <Spacer />
+          <YouTubeBtn type="embedded" channelId={channelId} />
+        </Flex>
+      )}
     </Box>
   );
 };

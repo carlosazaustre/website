@@ -45,6 +45,7 @@ export const Card = ({
       p={[4, 4, 8, 16]}
       my={4}
       mx={[0, 0, "auto"]}
+      mb={16}
       width={["100%", "100%", "600px"]}
     >
       {children}
