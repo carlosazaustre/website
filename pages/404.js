@@ -1,6 +1,5 @@
 import NextLink from "next/link";
 import NextImage from "next/image";
-import Error from "next/error";
 
 import { Layout, PostListItem, elements } from "@/components";
 import { formatDate } from "@/lib/format-date";
@@ -27,7 +26,6 @@ export default function NotFound({ posts }) {
         La página que buscas no se encuentra. Pero tienes aquí unos cuantos
         posts para que te entretengas 👇
       </Heading>
-      <Error statusCode={404} />
       {posts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
