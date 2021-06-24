@@ -18,7 +18,7 @@ export const AboutCardHome = () => {
         además de divulgador de contenido a través de YouTube (¡Dónde ya somos
         más de 60,000 subs!)
       </Text>
-      <NextLink href="/sobre-mi">
+      <NextLink href="/p/sobre-mi">
         <Link py={4} color="brand.900">
           Más sobre mi →
         </Link>

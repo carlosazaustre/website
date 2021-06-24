@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Box } from "./elements";
 
@@ -19,7 +19,9 @@ const WrapperButton = ({ children }) => {
   );
 };
 
-const InnerButton = ({ channelId }) => {
+const InnerButton = ({ isScriptLoaded, channelId }) => {
+  if(!isScriptLoaded) return null;
+
   return (
     <div
       className="g-ytsubscribe"
@@ -35,11 +37,15 @@ export const YouTubeBtn = ({
   type = "center",
   channelId = "UCJgGc8pQO1lv04VXrBxA_Hg",
 }) => {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
   useEffect(() => {
+    setScriptLoaded(false);
     const head = document.querySelector("head");
     const script = document.createElement("script");
     script.setAttribute("src", "https://apis.google.com/js/platform.js");
     head.appendChild(script);
+    setScriptLoaded(true);
 
     return () => {
       head.removeChild(script);
@@ -54,7 +60,7 @@ export const YouTubeBtn = ({
     );
   }
 
-  return <InnerButton />;
+  return <InnerButton isScriptLoaded={scriptLoaded} channelId={channelId} />;
 };
 
 YouTubeBtn.propTypes = { channelId: PropTypes.string.isRequired };
