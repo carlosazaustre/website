@@ -112,7 +112,7 @@ export const Footer = () => {
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="p//mentoria">
+                <NextLink href="/p/mentoria">
                   <Link>Mentoría</Link>
                 </NextLink>
               </ListItem>
@@ -170,11 +170,6 @@ export const Footer = () => {
               <ListItem>
                 <Link href="/cookies">
                   <a>Política de Cookies</a>
-                </Link>
-              </ListItem>
-              <ListItem>
-                <Link href="/legal">
-                  <a>Aviso Legal</a>
                 </Link>
               </ListItem>
             </UnorderedList>

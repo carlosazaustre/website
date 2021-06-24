@@ -19,8 +19,20 @@
       "destination": "/p/sobre-mi"
     },
     {
+      "source": "/sobre-mi",
+      "destination": "/p/sobre-mi"
+    },
+    {
       "source": "/legal",
-      "destination": "/p/legal"
+      "destination": "/p/privacidad"
+    },
+    {
+      "source": "/privacidad",
+      "destination": "/p/privacidad"
+    },
+    {
+      "source": "/cookies",
+      "destination": "/p/privacidad"
     },
     {
       "source": "/youtube",
