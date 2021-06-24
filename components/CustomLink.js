@@ -23,7 +23,7 @@ export const CustomLink = (props) => {
       rel="noopener noreferrer"
       {...props}
     >
-      {props.children} <ExternalLinkIcon mx="2px" />
+      {props.children} {typeof props.children !== "object" && <ExternalLinkIcon mx="2px" />}
     </Link>
   );
 };
