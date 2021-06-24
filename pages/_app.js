@@ -6,7 +6,7 @@ import "@/styles/prism-night-owl.css";
 import "@/styles/fonts";
 import theme, { ThemeProvider } from "@/styles/theme";
 
-function MyApp({ Component, pageProps, err }) {
+function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps, err }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} err={err} />
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
