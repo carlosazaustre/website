@@ -1,10 +1,11 @@
 const mailgunSdk = require("mailgun-js");
+import { withSentry } from "@sentry/nextjs";
 
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
 const mailgun = mailgunSdk({ apiKey, domain });
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { name, email, text } = req.body;
   const data = {
     from: `${name} <${email}>`,
@@ -22,3 +23,5 @@ export default async function handler(req, res) {
 
   return res.status(200).json({ result: response.message });
 }
+
+export default withSentry(handler);
