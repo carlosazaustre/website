@@ -35,8 +35,20 @@
       "destination": "/p/privacidad"
     },
     {
+      "source": "/discord",
+      "destination": "https://discord.gg/hFB74kD7n7"
+    },
+    {
+      "source": "/comunidad",
+      "destination": "https://discord.gg/hFB74kD7n7"
+    },
+    {
       "source": "/youtube",
       "destination": "https://youtube.com/carlosazaustre?sub_confirmation=1"
+    },
+    {
+      "source": "/miembros",
+      "destination": "https://youtube.com/carlosazaustre/join"
     },
     {
       "source": "/videos",
