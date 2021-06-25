@@ -25,3 +25,4 @@ export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
 export { OpenGraph } from "./OpenGraph";
 export * as elements from "./elements";
+export * as icons from "./icons";
