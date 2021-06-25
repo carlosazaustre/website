@@ -5,6 +5,7 @@ import * as ga from "@/lib/ga";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
 import {
+  elements as UI,
   Header,
   Hero,
   Book,
@@ -12,7 +13,6 @@ import {
   AboutCardHome,
   BlogCardHome,
   ContactCardHome,
-  elements,
   OpenGraph,
 } from "@/components";
 
@@ -31,18 +31,16 @@ const StyledMain = styled.main`
   }
 `;
 
-const { Container, Flex, Box } = elements;
-
 export default function Home({ posts }) {
   return (
     <Fragment>
       <OpenGraph />
-      <Box bg="brand.900">
-        <Container maxW="container.2xl">
+      <UI.Box bg="brand.900">
+        <UI.Container maxW="container.2xl">
           <Header />
 
           <StyledMain role="main">
-            <Flex
+            <UI.Flex
               direction="column"
               justify="flex-start"
               w={["100%", "100%", "100%", "100%", "35%"]}
@@ -52,8 +50,8 @@ export default function Home({ posts }) {
               pl={[0, 0, 0, 0, 8]}
             >
               <Hero />
-            </Flex>
-            <Flex
+            </UI.Flex>
+            <UI.Flex
               direction="row"
               w={["100%", "100%", "100%", "100%", "65%"]}
               justify={["center", "center", "center", "center", "flex-start"]}
@@ -61,23 +59,23 @@ export default function Home({ posts }) {
               <a href="https://www.amazon.com/-/es/Carlos-Azaustre/dp/B08TZ3HSYZ/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1619807979&sr=8-1">
                 <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
               </a>
-            </Flex>
+            </UI.Flex>
           </StyledMain>
-        </Container>
-      </Box>
+        </UI.Container>
+      </UI.Box>
 
-      <Box bg="gray.100">
-        <Container maxW="container.2xl" px={[0, 4]}>
-          <Flex
+      <UI.Box bg="gray.100">
+        <UI.Container maxW="container.2xl" px={[0, 4]}>
+          <UI.Flex
             direction={["column", "column", "column", "row"]}
             justify="space-between"
           >
             <AboutCardHome />
             <BlogCardHome posts={posts} />
             <ContactCardHome />
-          </Flex>
-        </Container>
-      </Box>
+          </UI.Flex>
+        </UI.Container>
+      </UI.Box>
 
       <Footer />
     </Fragment>
