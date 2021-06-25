@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import NextLink from "next/link";
 
 import { Layout, PostListItem, elements as UI } from "@/components";
+import {ScrollToTop} from 'components/ScrollToTop';
 import { formatDate } from "@/lib/format-date";
 import { orderByDate } from "@/lib/order-by-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
@@ -51,6 +52,7 @@ export default function Blog({ posts }) {
 
   return (
     <Layout type="post" metadata={metadata}>
+      <ScrollToTop />
       {currentPosts && currentPosts.map((post) => (
         <NextLink href={post.slug} key={post.slug}>
           <a>
