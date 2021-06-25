@@ -35,6 +35,10 @@
       "destination": "/p/privacidad"
     },
     {
+      "source": "/newsletter",
+      "destination": "https://www.getrevue.co/profile/carlosazaustre"
+    },
+    {
       "source": "/discord",
       "destination": "https://discord.gg/hFB74kD7n7"
     },
