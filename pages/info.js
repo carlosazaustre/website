@@ -13,7 +13,7 @@ const Item = ({ children, href }) => {
         borderRadius="lg"
         py={4}
         px={2}
-        my={2}
+        my={4}
         fontSize="lg"
         fontWeight="bold"
         fontFamily="heading"
@@ -32,7 +32,7 @@ const MediaItem = ({ children, imageSrc, size, href, title }) => {
         borderWidth="1px"
         boxShadow="lg"
         borderRadius="lg"
-        my={2}
+        my={8}
         fontSize="md"
         fontWeight="bold"
         fontFamily="heading"
@@ -79,12 +79,7 @@ export default function Info() {
             Carlos Azaustre
           </UI.Heading>
           <UI.Text fontSize="lg" mt={2}>
-            Ingeniero de Software y Formador. Creo y comparto contenido, para
-            que aprendas Programación y domines JavaScript.
-          </UI.Text>
-          <UI.Text fontSize="lg" mt={2}>
-            Reconocido como Google Developer Expert (GDE) en Tecnologías Web y
-            Auth0 Ambassador.
+            Aprende Programación y domina JavaScript.
           </UI.Text>
         </UI.Box>
         <UI.Box
@@ -95,8 +90,8 @@ export default function Info() {
           align="center"
           p={2}
         >
-          <UI.Heading as="h3" size="lg" m={4} mt={8}>
-            Último video en YouTube
+          <UI.Heading as="h3" size="lg" m={4} mt={2}>
+            Mira el último video
           </UI.Heading>
           <UI.Text fontSize="sm" fontFamily="heading">
             {titleVideo}
