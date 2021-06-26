@@ -7,7 +7,7 @@ const Item = ({ children, href }) => {
   return (
     <UI.Link href={href}>
       <UI.Box
-        bg="white"
+        bg="brand.900"
         borderWidth="1px"
         boxShadow="lg"
         borderRadius="lg"
