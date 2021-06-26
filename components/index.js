@@ -24,5 +24,6 @@ export { Disqus } from "./Disqus";
 export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
 export { OpenGraph } from "./OpenGraph";
+export { YouTube } from "./YouTube";
 export * as elements from "./elements";
 export * as icons from "./icons";

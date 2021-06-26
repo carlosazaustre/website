@@ -1,5 +1,7 @@
 import NextImage from "next/image";
-import { elements as UI, icons as Icons } from "@/components";
+
+import { YouTube, elements as UI, icons as Icons } from "@/components";
+import latestVideos from "@/data/latestVideos.json";
 
 const Item = ({ children, href }) => {
   return (
@@ -51,6 +53,9 @@ const MediaItem = ({ children, imageSrc, size, href, title }) => {
 };
 
 export default function Info() {
+  const lastVideoId = latestVideos[0]?.snippet?.resourceId?.videoId;
+  const titleVideo = latestVideos[0]?.snippet?.title;
+
   return (
     <UI.Box bg="gray.200" borderTopWidth="5px" borderColor="brand.900">
       <UI.Container size="sm">
@@ -93,20 +98,23 @@ export default function Info() {
           <UI.Heading as="h3" size="md" m={4} mt={8}>
             Último video en YouTube
           </UI.Heading>
+          <UI.Text fontSize="sm" fontFamily="heading">
+            {titleVideo}
+          </UI.Text>
+          <YouTube videoId={lastVideoId} size="minimal" />
 
           <UI.Heading as="h3" size="md" m={4} mt={8}>
             Recursos
           </UI.Heading>
           <Item href="/mentoría">Reserva una mentoría 1:1 personalizada</Item>
           <Item href="/discord">Únete a la comunidad en Discord (+1.4K)</Item>
-          <Item href="/youtube">Aprende JavaScript en el canal de Youtube</Item>
           <Item href="/newsletter">
             Mantente al día apuntándote a la Newsletter
           </Item>
 
           <MediaItem
             title="Aprende JavaScript desde cero con mi Libro. Consíguelo desde Amazon"
-            href="https://amazon.com/"
+            href="https://www.amazon.com/gp/product/B08TZ3HSYZ"
             imageSrc="/assets/foto-libro-javascript.jpeg"
             size="230px"
           />

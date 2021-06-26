@@ -28,7 +28,12 @@ const YouTubeVideo = ({ videoId }) => {
   );
 };
 
-export const YouTube = ({ title, videoId = "5ct-3tDiRUY", description }) => {
+export const YouTube = ({
+  size,
+  title,
+  videoId = "5ct-3tDiRUY",
+  description,
+}) => {
   const channelId = "UCJgGc8pQO1lv04VXrBxA_Hg";
 
   return (
@@ -90,15 +95,27 @@ export const YouTube = ({ title, videoId = "5ct-3tDiRUY", description }) => {
           align="center"
           p={[2, 4, 6]}
         >
-          <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
-            <Link
-              href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
-            >
-              <strong>🔴 Suscríbete al Canal</strong>
-            </Link>
-          </Text>
-          <Spacer />
-          <YouTubeBtn type="embedded" channelId={channelId} />
+          {size === "minimal" ? (
+            <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
+              <Link
+                href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
+              >
+                <strong>🔴 Suscríbete al Canal</strong>
+              </Link>
+            </Text>
+          ) : (
+            <Fragment>
+              <Text fontSize="sm" fontFamily="heading">
+                <Link
+                  href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
+                >
+                  🔴 Suscríbete al Canal
+                </Link>
+              </Text>
+              <Spacer />
+              <YouTubeBtn type="embedded" channelId={channelId} />
+            </Fragment>
+          )}
         </Flex>
       )}
     </Box>
