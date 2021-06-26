@@ -1,11 +1,11 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from "react";
 import NextLink from "next/link";
 
 import { Layout, PostListItem, elements as UI } from "@/components";
 import { formatDate } from "@/lib/format-date";
 import { orderByDate } from "@/lib/order-by-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
-import { usePagination } from '@/lib/use-pagination';
+import { usePagination } from "@/lib/use-pagination";
 
 export default function Blog({ posts }) {
   const { next, currentPage, currentData, maxPage } = usePagination(posts, 10);
@@ -44,25 +44,30 @@ export default function Blog({ posts }) {
       }
     };
   }, [element]);
-  
+
   const metadata = {
     title: "Últimos Artículos",
   };
 
   return (
     <Layout type="post" metadata={metadata}>
-      {currentPosts && currentPosts.map((post) => (
-        <NextLink href={post.slug} key={post.slug}>
-          <a>
-            <PostListItem
-              title={post.title}
-              date={formatDate(post.date)}
-              tags={post.tags}
-            />
-          </a>
-        </NextLink>
-      ))}
-      {currentPage !== maxPage && (<UI.Text fontSize="xl" fontWeight="bold" p={6} ref={setElement}>Cargando...</UI.Text>)}
+      {currentPosts &&
+        currentPosts.map((post) => (
+          <NextLink href={post.slug} key={post.slug}>
+            <a>
+              <PostListItem
+                title={post.title}
+                date={formatDate(post.date)}
+                tags={post.tags}
+              />
+            </a>
+          </NextLink>
+        ))}
+      {currentPage !== maxPage && (
+        <UI.Text fontSize="xl" fontWeight="bold" p={6} ref={setElement}>
+          Cargando...
+        </UI.Text>
+      )}
     </Layout>
   );
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "generate:rss": "node ./scripts/generate-rss.js",
+    "generate:videos": "node ./scripts/generate-video-data.js",
     "prebuild": "npm run generate:rss",
     "build": "next build",
     "postbuild": "next-sitemap",
@@ -28,6 +29,7 @@
     "next": "10.2.3",
     "next-mdx-remote": "^3.0.2",
     "next-sitemap": "^1.6.116",
+    "node-fetch": "^2.6.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.9.0",

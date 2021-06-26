@@ -30,6 +30,7 @@ export {
   FormErrorMessage,
   Textarea,
   Button,
+  IconButton,
   Accordion,
   AccordionItem,
   AccordionButton,
