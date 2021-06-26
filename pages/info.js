@@ -14,7 +14,7 @@ const Item = ({ children, href }) => {
         py={4}
         px={2}
         my={2}
-        fontSize="md"
+        fontSize="lg"
         fontWeight="bold"
         fontFamily="heading"
       >
@@ -33,7 +33,7 @@ const MediaItem = ({ children, imageSrc, size, href, title }) => {
         boxShadow="lg"
         borderRadius="lg"
         my={2}
-        fontSize="xs"
+        fontSize="md"
         fontWeight="bold"
         fontFamily="heading"
         overflow="hidden"
@@ -78,11 +78,11 @@ export default function Info() {
           <UI.Heading as="h1" size="xl">
             Carlos Azaustre
           </UI.Heading>
-          <UI.Text fontSize="md" mt={2}>
+          <UI.Text fontSize="lg" mt={2}>
             Ingeniero de Software y Formador. Creo y comparto contenido, para
             que aprendas Programación y domines JavaScript.
           </UI.Text>
-          <UI.Text fontSize="md" mt={2}>
+          <UI.Text fontSize="lg" mt={2}>
             Reconocido como Google Developer Expert (GDE) en Tecnologías Web y
             Auth0 Ambassador.
           </UI.Text>
