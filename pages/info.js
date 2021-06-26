@@ -108,9 +108,15 @@ export default function Info() {
           </Item>
 
           <MediaItem
-            title="Aprende JavaScript desde cero con mi Libro. Consíguelo desde Amazon"
+            title="Aprende JavaScript desde cero con mi libro. Consíguelo desde Amazon"
             href="https://www.amazon.com/gp/product/B08TZ3HSYZ"
             imageSrc="/assets/foto-libro-javascript.jpeg"
+            size="230px"
+          />
+          <MediaItem
+            title="Mi Setup"
+            href="/workspace"
+            imageSrc="/assets/setup-image.jpeg"
             size="230px"
           />
 
