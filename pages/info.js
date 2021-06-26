@@ -14,7 +14,7 @@ const Item = ({ children, href }) => {
         py={4}
         px={2}
         my={2}
-        fontSize="xs"
+        fontSize="sm"
         fontWeight="bold"
         fontFamily="heading"
       >
@@ -75,14 +75,14 @@ export default function Info() {
             src="/assets/carlos-azaustre-gde-web.png"
             alt="Carlos Azaustre - Google Developer Expert en Tecnologías Web"
           />
-          <UI.Heading as="h1" size="lg">
+          <UI.Heading as="h1" size="xl">
             Carlos Azaustre
           </UI.Heading>
-          <UI.Text fontSize="sm" mt={2}>
+          <UI.Text fontSize="md" mt={2}>
             Ingeniero de Software y Formador. Creo y comparto contenido, para
             que aprendas Programación y domines JavaScript.
           </UI.Text>
-          <UI.Text fontSize="sm" mt={2}>
+          <UI.Text fontSize="md" mt={2}>
             Reconocido como Google Developer Expert (GDE) en Tecnologías Web y
             Auth0 Ambassador.
           </UI.Text>
@@ -95,7 +95,7 @@ export default function Info() {
           align="center"
           p={2}
         >
-          <UI.Heading as="h3" size="md" m={4} mt={8}>
+          <UI.Heading as="h3" size="lg" m={4} mt={8}>
             Último video en YouTube
           </UI.Heading>
           <UI.Text fontSize="sm" fontFamily="heading">
@@ -103,7 +103,7 @@ export default function Info() {
           </UI.Text>
           <YouTube videoId={lastVideoId} size="minimal" />
 
-          <UI.Heading as="h3" size="md" m={4} mt={8}>
+          <UI.Heading as="h3" size="lg" m={4} mt={8}>
             Recursos
           </UI.Heading>
           <Item href="/mentoría">Reserva una mentoría 1:1 personalizada</Item>
@@ -119,7 +119,7 @@ export default function Info() {
             size="230px"
           />
 
-          <UI.Heading as="h3" size="md" m={4} mt={8}>
+          <UI.Heading as="h3" size="lg" m={4} mt={8}>
             Cursos Gratis
           </UI.Heading>
           <MediaItem
