@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import NextImage from "next/image";
 
 import { YouTube, elements as UI, icons as Icons } from "@/components";
