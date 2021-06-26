@@ -101,7 +101,7 @@ export default function Info() {
           <UI.Heading as="h3" size="lg" m={4} mt={8}>
             Recursos
           </UI.Heading>
-          <Item href="/mentoría">Reserva una mentoría 1:1 personalizada</Item>
+          <Item href="/p/mentoria">Reserva una mentoría 1:1 personalizada</Item>
           <Item href="/discord">Únete a la comunidad en Discord (+1.4K)</Item>
           <Item href="/newsletter">
             Mantente al día apuntándote a la Newsletter
@@ -109,7 +109,7 @@ export default function Info() {
 
           <MediaItem
             title="Aprende JavaScript desde cero con mi libro. Consíguelo desde Amazon"
-            href="https://www.amazon.com/gp/product/B08TZ3HSYZ"
+            href="//www.amazon.com/gp/product/B08TZ3HSYZ"
             imageSrc="/assets/foto-libro-javascript.jpeg"
             size="230px"
           />
@@ -124,10 +124,12 @@ export default function Info() {
             Cursos Gratis
           </UI.Heading>
           <MediaItem
+            href="/cursos/programacion-javascript"
             title="JavaScript desde Cero"
             imageSrc="/assets/curso-programacion-image.png"
           />
           <MediaItem
+            href="/cursos/nodejs-gratis"
             title="Node.js / Express y MongoDB"
             imageSrc="/assets/curso-nodejs-image.png"
             size="230px"
