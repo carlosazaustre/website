@@ -14,7 +14,7 @@ const Item = ({ children, href }) => {
         py={4}
         px={2}
         my={2}
-        fontSize="sm"
+        fontSize="md"
         fontWeight="bold"
         fontFamily="heading"
       >
