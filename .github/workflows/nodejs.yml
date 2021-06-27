@@ -1,12 +1,6 @@
 name: Get Lastest Youtube Videos
 
 on:
-  push:
-    branches:
-      - main
-
-  workflow_dispatch:
-
   schedule:
     - cron: "30 17 * * *" # every day at 7:30pm GMT+2
 
