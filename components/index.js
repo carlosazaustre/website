@@ -26,6 +26,7 @@ export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
 export { OpenGraph } from "./OpenGraph";
 export { YouTube } from "./YouTube";
+export { SpotifyPodcast } from "./SpotifyPodcast";
 export * as elements from "./elements";
 export * as icons from "./icons";
 export * as socialBtns from "./SocialButtons";
