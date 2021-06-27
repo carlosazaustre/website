@@ -1,12 +1,13 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { MDXComponents, Layout } from "@/components";
+import { MDXComponents, Layout, ScrollToTop } from "@/components";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontmatter }) {
   return (
     <Layout type="post" metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
+      <ScrollToTop />
     </Layout>
   );
 }

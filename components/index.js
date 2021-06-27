@@ -20,6 +20,7 @@ export { CourseListItem } from "./CourseListItem";
 export { Tidycal } from "./Tidycal";
 export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";
+export { ScrollToTop } from "./ScrollToTop";
 
 export { Layout } from "./Layout";
 export { MDXComponents } from "./MDXComponents";
