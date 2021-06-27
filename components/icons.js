@@ -2,7 +2,13 @@ export { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export { SiTiktok as IconTiktok } from "react-icons/si";
 
-export { FaEnvelope as IconMail, FaUser as IconUser } from "react-icons/fa";
+export {
+  FaEnvelope as IconMail,
+  FaUser as IconUser,
+  FaBook as IconBook,
+  FaDiscord as IconDiscord,
+  FaLinkedinIn as IconLinkedin,
+} from "react-icons/fa";
 
 export {
   ImTwitch as IconTwitch,
@@ -18,4 +24,5 @@ export {
   MdAccessTime as IconClock,
   MdLabel as IconLabel,
   MdVideoLibrary as IconVideo,
+  MdSchool as IconStudy,
 } from "react-icons/md";

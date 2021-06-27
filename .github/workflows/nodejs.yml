@@ -1,0 +1,31 @@
+name: Get Lastest Youtube Videos
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: "30 17 * * *" # every day at 7:30pm GMT+2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm install
+      - run: npm run generate:videos
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      - run: |
+          git config user.name carlosazaustre
+          git config user.email cazaustre@gmail.com
+          git add data/latestVideos.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "[bot] Update latestVideos.json"
+          git push origin main

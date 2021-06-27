@@ -35,6 +35,10 @@
       "destination": "/p/privacidad"
     },
     {
+      "source": "/newsletter",
+      "destination": "https://www.getrevue.co/profile/carlosazaustre"
+    },
+    {
       "source": "/discord",
       "destination": "https://discord.gg/hFB74kD7n7"
     },
@@ -88,23 +92,23 @@
     },
     {
       "source": "/links",
-      "destination": "https://shor.by/jLqS"
+      "destination": "/info"
     },
     {
       "source": "/redes",
-      "destination": "https://shor.by/jLqS"
+      "destination": "/info"
     },
     {
       "source": "/start",
-      "destination": "https://shor.by/jLqS"
+      "destination": "/info"
     },
     {
       "source": "/empieza",
-      "destination": "https://shor.by/jLqS"
+      "destination": "/info"
     },
     {
       "source": "/go",
-      "destination": "https://shor.by/jLqS"
+      "destination": "/info"
     },
     {
       "source": "/feed",
