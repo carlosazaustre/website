@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { IconLabel } from "./icons";
 import { Dropdown, DropdownItem } from "./Dropdown";
+import { SpotifyPodcast } from "./SpotifyPodcast";
 import { YouTube } from "./YouTube";
 import { YouTubeBtn } from "./YouTubeBtn";
 import { Tidycal } from "./Tidycal";
@@ -54,6 +55,7 @@ export const MDXComponents = {
   Image,
   Summary,
   Heading,
+  SpotifyPodcast,
   YouTube,
   YouTubeBtn,
   Tidycal,

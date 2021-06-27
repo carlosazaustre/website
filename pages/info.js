@@ -1,6 +1,11 @@
 import NextImage from "next/image";
 
-import { YouTube, elements as UI, socialBtns as Social } from "@/components";
+import {
+  YouTube,
+  SpotifyPodcast,
+  elements as UI,
+  socialBtns as Social,
+} from "@/components";
 import latestVideos from "@/data/latestVideos.json";
 
 const Item = ({ children, href }) => {
@@ -116,6 +121,12 @@ export default function Info() {
         description="Aprende Programación y domina JavaScript."
       />
       <InnerContainer>
+        <SectionTitle>Escucha el podcast</SectionTitle>
+        <SpotifyPodcast
+          size="compact"
+          theme="dark"
+          episode="52KMznI6l9x4MoZrO4uIy0"
+        />
         <SectionTitle>Mira el último video</SectionTitle>
         <UI.Text fontSize="sm" fontFamily="heading">
           {titleVideo}
