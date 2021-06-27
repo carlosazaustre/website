@@ -93,11 +93,13 @@ export const YouTube = ({
         <Flex
           direction={["column", "column", "row"]}
           align="center"
-          p={[2, 4, 6]}
+          p={size === "minimal" ? 2 : [2, 4, 6]}
+          pl={size === "minimal" && 4}
         >
           {size === "minimal" ? (
             <Text fontSize={["md", "lg", "xl"]} fontFamily="heading">
               <Link
+                fontSize={size === "minimal" ? "sm" : "md"}
                 href={`https://youtube.com/channel/${channelId}?sub_confirmation=1`}
               >
                 <strong>🔴 Suscríbete al Canal</strong>
