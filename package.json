@@ -39,5 +39,11 @@
     "remark-code-titles": "^0.1.2",
     "remark-parse": "^8.0.3",
     "rss": "^1.2.2"
-  }
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "arch": "any"
 }
