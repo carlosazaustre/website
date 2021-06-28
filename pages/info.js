@@ -95,7 +95,7 @@ const Header = ({ avatar, username, description }) => {
 
 const Container = ({ children }) => {
   return (
-    <UI.Box bg="gray.200" borderTopWidth="5px" borderColor="brand.900">
+    <UI.Box bg="grayblue.900" borderTopWidth="5px" borderColor="brand.900">
       <UI.Container size="sm">{children}</UI.Container>
     </UI.Box>
   );

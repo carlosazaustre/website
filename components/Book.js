@@ -5,22 +5,22 @@ const StyledBookLink = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
+  /* height: 100%; */
   position: relative;
-  top: 10px;
+  bottom: 40px;
   cursor: pointer;
-  transition: top var(--chakra-transition-duration-slow)
+  transition: bottom var(--chakra-transition-duration-slow)
     var(--chakra-transition-easing-ease-in);
 
   &:hover {
-    top: 0;
+    bottom: 50px;
   }
 `;
 
 export const Book = ({ imageSrc }) => {
   return (
     <StyledBookLink>
-      <Image width={480} height={570} layout="intrinsic" src={imageSrc} />
+      <Image width={480} height={620} layout="fixed" src={imageSrc} />
     </StyledBookLink>
   );
 };

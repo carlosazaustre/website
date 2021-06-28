@@ -16,7 +16,7 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
   const isBlogTemplate = type === "post" && metadata.date;
 
   return (
-    <Box bg="gray.100">
+    <Box bg="grayblue.900">
       <OpenGraph metadata={metadata} />
       <Container maxW="container.2xl" px={[0, 4]}>
         <Flex
@@ -28,6 +28,7 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
           fontWeight="bold"
           px={4}
           py={2}
+          mb={8}
         >
           <NextLink href="/">
             <a>

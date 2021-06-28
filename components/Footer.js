@@ -29,9 +29,10 @@ const StyledFooter = styled.footer`
 export const Footer = () => {
   return (
     <StyledFooter>
-      <Container maxW="container.xl">
+      <Container maxW="container.2xl">
         <Flex
-          p="4"
+          px={16}
+          py={8}
           w="100%"
           direction={["column", "column", "column", "row"]}
           justify="space-between"
@@ -51,6 +52,7 @@ export const Footer = () => {
                   align="center"
                   justify={["center", "center", "center", "flex-start"]}
                   my={4}
+                  ml={8}
                   minWidth="300px"
                 >
                   <Logo size="40px" />
@@ -137,7 +139,7 @@ export const Footer = () => {
               <ListItem>
                 <ListItem>
                   <NextLink href="/cursos/programacion-javascript">
-                    <Link>Curso de PROGRAMACIÓN con JavaScript Gratis</Link>
+                    <Link>Curso de JavaScript Gratis</Link>
                   </NextLink>
                 </ListItem>
                 <NextLink href="/cursos/nodejs-gratis">
