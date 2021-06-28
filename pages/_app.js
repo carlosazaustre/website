@@ -9,6 +9,13 @@ import theme, { ThemeProvider } from "@/styles/theme";
 function MyApp({ Component, pageProps, err }) {
   const router = useRouter();
 
+  // Temporary solution to delecte old cached site
+  if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    window.navigator.serviceWorker.getRegistrations().then((registrations) => {
+      registrations.forEach((r) => r.unregister());
+    });
+  }
+
   useEffect(() => {
     // Temporary solution to delecte old cached site
     const DBDeleteRequest = window.indexedDB.deleteDatabase(
@@ -40,6 +47,8 @@ function MyApp({ Component, pageProps, err }) {
       console.log(event.result); // should be undefined
     };
   }, []);
+
+  useEffect;
 
   useEffect(() => {
     const handleRouteChange = (url) => {
