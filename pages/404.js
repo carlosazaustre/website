@@ -1,12 +1,9 @@
 import NextLink from "next/link";
 import NextImage from "next/image";
 
-import { Layout, PostListItem, elements as UI } from "@/components";
-import { formatDate } from "@/lib/format-date";
-import { orderByDate } from "@/lib/order-by-date";
-import { getAllFilesFrontMatter } from "@/lib/mdx";
+import { Layout, elements as UI } from "@/components";
 
-export default function NotFound({ posts }) {
+export default function NotFound() {
   const metadata = {
     title: "404",
   };
@@ -21,29 +18,14 @@ export default function NotFound({ posts }) {
         alt="404 Not Found"
       />
       <UI.Heading as="h4" p={4}>
-        La página que buscas no se encuentra. Pero tienes aquí unos cuantos
-        posts para que te entretengas 👇
-      </UI.Heading>
-      {posts.map((post) => (
-        <NextLink href={post.slug} key={post.slug}>
-          <a>
-            <PostListItem
-              title={post.title}
-              date={formatDate(post.date)}
-              tags={post.tags}
-            />
-          </a>
+        La página que buscas no se encuentra.
+        <br />
+        <br />
+        Pero tienes aquí tienes el blog 👉
+        <NextLink href="/blog">
+          <UI.Link>Leer artículos y tutoriales</UI.Link>
         </NextLink>
-      ))}
+      </UI.Heading>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-  const unorderedPosts = await getAllFilesFrontMatter("posts");
-  const posts = unorderedPosts.sort(orderByDate);
-
-  return {
-    props: { posts },
-  };
 }
