@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import styled from "@emotion/styled";
 
-import * as ga from "@/lib/ga";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
 import {
@@ -39,7 +38,7 @@ export default function Home({ posts }) {
   return (
     <Fragment>
       <OpenGraph />
-      <UI.Box bg="brand.900">
+      <UI.Box bg="brand.900" height="780px">
         <UI.Container maxW="container.2xl">
           <Header />
 

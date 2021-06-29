@@ -10,6 +10,7 @@ export { Summary } from "./Summary";
 export { Dropdown, DropdownItem } from "./Dropdown";
 export { Book } from "./Book";
 export { Header } from "./Header";
+export { PageHeader } from "./PageHeader";
 export { Hero } from "./Hero";
 export { Footer } from "./Footer";
 export { ButtonCTA } from "./ButtonCTA";
@@ -23,6 +24,7 @@ export { Disqus } from "./Disqus";
 export { ScrollToTop } from "./ScrollToTop";
 
 export { Layout } from "./Layout";
+export { LayoutLanding } from "./LayoutLanding";
 export { MDXComponents } from "./MDXComponents";
 export { OpenGraph } from "./OpenGraph";
 export { YouTube } from "./YouTube";
