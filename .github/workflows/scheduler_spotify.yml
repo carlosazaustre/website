@@ -16,10 +16,10 @@ jobs:
       - run: npm install
       - run: npm run generate:podcasts
         env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SPOTIFY_TOKEN: ${{ secrets.SPOTIFY_TOKEN }}
       - run: |
           git config user.name $GIT_USER_NAME
           git config user.email $GIT_USER_EMAIL
-          git add data/latestVideos.json
+          git add data/latestPodcasts.json
           git diff --quiet && git diff --staged --quiet || git commit -m "[:robot: BOT] Update latestPodcasts.json"
           git push origin main
