@@ -23,4 +23,5 @@ const getLatestYoutubeVideos = async () => {
   const videos = await getLatestYoutubeVideos();
   const data = JSON.stringify(videos);
   await fs.writeFile(DATA_FILE, data);
+  console.log("💾 Latest videos data stored");
 })();

@@ -14,8 +14,8 @@ const theme = extendTheme({
     },
     grayblue: {
       900: "#E2E8F0",
-      500: "#B3CDF0",
-      100: "#8CB7F0",
+      500: "#A1A6AB",
+      100: "#797C81",
     },
   },
   fonts: {

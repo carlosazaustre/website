@@ -24,6 +24,9 @@ import {
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);
+  position: relative;
+  overflow: visible;
+  z-index: 2;
 `;
 
 export const Footer = () => {
