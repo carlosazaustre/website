@@ -2,7 +2,7 @@ name: Get Lastest Podcast Episodes
 
 on:
   schedule:
-    - cron: "0 19 * * 7" # At 10:00 PM (GMT+2), only on Sunday
+    - cron: "30 20 * * SUN" # At 10:30pm GMT+2, only on Sundays
 
 jobs:
   build:
