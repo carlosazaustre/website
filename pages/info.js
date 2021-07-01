@@ -7,6 +7,7 @@ import {
   socialBtns as Social,
 } from "@/components";
 import latestVideos from "@/data/latestVideos.json";
+import latestPodcasts from "@/data/latestPodcasts.json";
 
 const Item = ({ children, href }) => {
   return (
@@ -125,7 +126,7 @@ export default function Info() {
         <SpotifyPodcast
           size="compact"
           theme="dark"
-          episode="52KMznI6l9x4MoZrO4uIy0"
+          episode={latestPodcasts[0].id}
         />
         <SectionTitle>Mira el último video</SectionTitle>
         <UI.Text fontSize="sm" fontFamily="heading">

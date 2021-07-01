@@ -1,0 +1,46 @@
+[
+  {
+    "audio_preview_url": "https://p.scdn.co/mp3-preview/aed7503cebfc28e437ee48339c2f27a093d928d6",
+    "description": "Episodio piloto (como en las series de televisión) de este proyecto de podcast, donde hablaremos no sólo de programación y desarrollo web, sino también de la parte humana y personal, con experiencias, entrevistas y lo que vaya surgiendo. Mi nombre es Carlos Azaustre, y tras varios años trabajando como desarrollador web, ahora me dedico a crear y divulgar contenido relacionado con la programación. Gracias por escucharme ✌️ Además de en este podcast, me encuentras en todas las redes sociales como @carlosazaustre. Expecialmente en YouTube donde ya somos más de 60,000 amantes de JavaScript  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "duration_ms": 803665,
+    "explicit": false,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/episode/52KMznI6l9x4MoZrO4uIy0"
+    },
+    "href": "https://api.spotify.com/v1/episodes/52KMznI6l9x4MoZrO4uIy0",
+    "html_description": "<p>Episodio piloto (como en las series de televisión) de este proyecto de podcast, donde hablaremos no sólo de programación y desarrollo web, sino también de la parte humana y personal, con experiencias, entrevistas y lo que vaya surgiendo.</p>\n<p>Mi nombre es <a href=\"https://carlosazaustre.es\">Carlos Azaustre</a>, y tras varios años trabajando como desarrollador web, ahora me dedico a crear y divulgar contenido relacionado con la programación.</p>\n<p>Gracias por escucharme ✌️</p>\n<p>Además de en este podcast, me encuentras en todas las redes sociales como @carlosazaustre. Expecialmente en <a href=\"http://carlosazaustre.es/youtube\">YouTube</a> donde ya somos <strong>más de 60,000 amantes de JavaScript</strong></p>\n\n--- \n\nSend in a voice message: https://anchor.fm/carlosazaustre/message",
+    "id": "52KMznI6l9x4MoZrO4uIy0",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/ab6765630000ba8a7dbd4a60a6e03a4a51b6d838",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/ab67656300005f1f7dbd4a60a6e03a4a51b6d838",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/ab6765630000f68d7dbd4a60a6e03a4a51b6d838",
+        "width": 64
+      }
+    ],
+    "is_externally_hosted": false,
+    "is_playable": true,
+    "language": "es",
+    "languages": [
+      "es"
+    ],
+    "name": "Episodio 00 - Piloto",
+    "release_date": "2021-06-27",
+    "release_date_precision": "day",
+    "resume_point": {
+      "fully_played": false,
+      "resume_position_ms": 0
+    },
+    "type": "episode",
+    "uri": "spotify:episode:52KMznI6l9x4MoZrO4uIy0"
+  }
+]
