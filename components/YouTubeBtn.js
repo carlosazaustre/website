@@ -8,6 +8,7 @@ const WrapperButton = ({ children }) => {
       bg="secondary.100"
       color="white"
       p={6}
+      height="100px"
       mb={16}
       mx={(0, 0, "auto")}
       rounded="lg"
@@ -20,7 +21,7 @@ const WrapperButton = ({ children }) => {
 };
 
 const InnerButton = ({ isScriptLoaded, channelId }) => {
-  if(!isScriptLoaded) return null;
+  if (!isScriptLoaded) return null;
 
   return (
     <div
@@ -47,6 +48,8 @@ export const YouTubeBtn = ({
     head.appendChild(script);
     setScriptLoaded(true);
 
+    console.log("script loaded");
+
     return () => {
       head.removeChild(script);
     };
@@ -55,12 +58,12 @@ export const YouTubeBtn = ({
   if (type === "center") {
     return (
       <WrapperButton>
-        <InnerButton channelId={channelId} />
+        <InnerButton isScriptLoaded={scriptLoaded} channelId={channelId} />
       </WrapperButton>
     );
   }
 
-  return <InnerButton isScriptLoaded={scriptLoaded} channelId={channelId} />;
+  return <InnerButton channelId={channelId} />;
 };
 
 YouTubeBtn.propTypes = { channelId: PropTypes.string.isRequired };

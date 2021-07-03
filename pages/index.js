@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Link from "next/link";
 import styled from "@emotion/styled";
 
 import { getAllFilesFrontMatter } from "@/lib/mdx";
@@ -59,9 +60,11 @@ export default function Home({ posts }) {
               w={["100%", "100%", "100%", "39%", "60%"]}
               justify={["center", "center", "center", "center", "flex-start"]}
             >
-              <a href="https://www.amazon.com/-/es/Carlos-Azaustre/dp/B08TZ3HSYZ/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1619807979&sr=8-1">
-                <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
-              </a>
+              <Link href="/libros/aprendiendo-javascript">
+                <a>
+                  <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
+                </a>
+              </Link>
             </UI.Flex>
           </StyledMain>
         </UI.Container>
