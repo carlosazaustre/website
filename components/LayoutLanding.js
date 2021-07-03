@@ -51,13 +51,17 @@ const StyledBox = styled(Container)`
 const StyledContent = styled.div`
   position: relative;
   z-index: 3;
-  margin-left: var(--chakra-sizes-16);
-  margin-right: var(--chakra-sizes-16);
+  margin-left: var(--chakra-sizes-4);
+  margin-right: var(--chakra-sizes-4);
+  @media screen and (min-width: 1024px) {
+    margin-left: var(--chakra-sizes-16);
+    margin-right: var(--chakra-sizes-16);
+  }
 `;
 
 export const LayoutLanding = ({ children, metadata = {} }) => {
   return (
-    <Box bg="grayblue.900">
+    <Box bg="grayblue.900" mx="auto">
       <OpenGraph metadata={metadata} />
 
       <StyledBox maxW="container.2xl" px={[0, 4]}>
