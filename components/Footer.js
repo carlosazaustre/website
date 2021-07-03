@@ -135,9 +135,14 @@ export const Footer = () => {
 
           <section>
             <Heading as="h4" size="sm" p="4">
-              Recursos Gratis
+              Recursos
             </Heading>
             <UnorderedList styleType="none">
+              <ListItem>
+                <NextLink href="/libros/aprendiendojavascript">
+                  <Link>Aprende JavaScript desde cero</Link>
+                </NextLink>
+              </ListItem>
               <ListItem>
                 <ListItem>
                   <NextLink href="/cursos/programacion-javascript">
@@ -145,17 +150,17 @@ export const Footer = () => {
                   </NextLink>
                 </ListItem>
                 <NextLink href="/cursos/nodejs-gratis">
-                  <Link>Curso NODE.js Gratis</Link>
+                  <Link>Curso Node.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
                 <NextLink href="/cursos/vue-gratis">
-                  <Link>Curso de VUE y Firebase Gratis</Link>
+                  <Link>Curso de Vue.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/cursos/vue-gratis">
-                  <Link>Aprende RUST desde cero</Link>
+                <NextLink href="/cursos/rust-primeros-pasos">
+                  <Link>Aprende Rust desde cero</Link>
                 </NextLink>
               </ListItem>
             </UnorderedList>
