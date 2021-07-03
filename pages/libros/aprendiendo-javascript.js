@@ -89,7 +89,7 @@ export default function BookJavaScriptPage() {
   };
 
   return (
-    <LayoutLanding>
+    <LayoutLanding metadata={metadata}>
       {/* Aside Section */}
       <UI.Flex as="aside" direction={["column", "column", "column", "row"]}>
         <UI.Box w={["100%", "100%", "100%", "35%"]} order={[1, 1, 1, 0]}>
