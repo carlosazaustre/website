@@ -15,7 +15,7 @@ const Circle = styled.div`
     width: 300px;
     height: 300px;
     position: absolute;
-    right: ${(props) => props.right && "-15%"};
+    right: ${(props) => props.right && "-20%"};
     bottom: ${(props) => props.left && "-10rem"};
     top: ${(props) => props.right && "10rem"};
     left: ${(props) => props.left && "-15%"};
@@ -27,9 +27,16 @@ const Circle = styled.div`
   }
 
   @media screen and (min-width: 1248px) {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     bottom: ${(props) => props.left && "-14rem"};
+  }
+
+  @media screen and (min-width: 1441px) {
+    left: ${(props) => props.left && 0};
+    right: ${(props) => props.right && 0};
+    width: 300px;
+    height: 300px;
   }
 `;
 
@@ -39,15 +46,13 @@ const StyledBox = styled(Container)`
   margin-right: auto;
   z-index: 0;
   overflow: hidden;
-
-  @media screen and (min-width: 1440px) {
-    overflow: visible;
-  }
 `;
 
-// FIXME: delete this after create pages
 const StyledContent = styled.div`
-  height: 700px;
+  position: relative;
+  z-index: 3;
+  margin-left: var(--chakra-sizes-16);
+  margin-right: var(--chakra-sizes-16);
 `;
 
 export const LayoutLanding = ({ children, metadata = {} }) => {

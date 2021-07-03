@@ -8,6 +8,8 @@ export {
   FaBook as IconBook,
   FaDiscord as IconDiscord,
   FaLinkedinIn as IconLinkedin,
+  FaStar as IconStar,
+  FaRegStar as IconStarEmpty,
 } from "react-icons/fa";
 
 export {
