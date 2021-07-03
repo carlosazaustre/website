@@ -81,6 +81,13 @@ export const ReviewCard = ({ children, photo, name, role }) => {
 };
 
 export default function BookJavaScriptPage() {
+  const metadata = {
+    title: "Aprendiendo JavaScript",
+    description:
+      "Libro en español para comprender el lenguaje de programación web",
+    image: "/assets/cards/book-javascript.png",
+  };
+
   return (
     <LayoutLanding>
       {/* Aside Section */}
