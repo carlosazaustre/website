@@ -30,7 +30,7 @@ export const Card = ({
       borderRadius={["none", "lg"]}
       p={[4, 4, 8, 16]}
       my={4}
-      mx={[0, 0, 0, 0]}
+      mx={[0, 0, 0, 6, 8]}
       width={["100%", "100%", "100%", "32%"]}
     >
       {children}

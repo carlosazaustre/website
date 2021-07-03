@@ -24,14 +24,17 @@ import {
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);
+  position: relative;
+  z-index: 2;
 `;
 
 export const Footer = () => {
   return (
     <StyledFooter>
-      <Container maxW="container.xl">
+      <Container maxW="container.2xl">
         <Flex
-          p="4"
+          px={16}
+          py={8}
           w="100%"
           direction={["column", "column", "column", "row"]}
           justify="space-between"
@@ -51,6 +54,7 @@ export const Footer = () => {
                   align="center"
                   justify={["center", "center", "center", "flex-start"]}
                   my={4}
+                  ml={8}
                   minWidth="300px"
                 >
                   <Logo size="40px" />
@@ -131,27 +135,32 @@ export const Footer = () => {
 
           <section>
             <Heading as="h4" size="sm" p="4">
-              Recursos Gratis
+              Recursos
             </Heading>
             <UnorderedList styleType="none">
               <ListItem>
+                <NextLink href="/libros/aprendiendo-javascript">
+                  <Link>Aprende JavaScript desde cero</Link>
+                </NextLink>
+              </ListItem>
+              <ListItem>
                 <ListItem>
                   <NextLink href="/cursos/programacion-javascript">
-                    <Link>Curso de PROGRAMACIÓN con JavaScript Gratis</Link>
+                    <Link>Curso de JavaScript Gratis</Link>
                   </NextLink>
                 </ListItem>
                 <NextLink href="/cursos/nodejs-gratis">
-                  <Link>Curso NODE.js Gratis</Link>
+                  <Link>Curso Node.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
                 <NextLink href="/cursos/vue-gratis">
-                  <Link>Curso de VUE y Firebase Gratis</Link>
+                  <Link>Curso de Vue.js Gratis</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
-                <NextLink href="/cursos/vue-gratis">
-                  <Link>Aprende RUST desde cero</Link>
+                <NextLink href="/cursos/rust-primeros-pasos">
+                  <Link>Aprende Rust desde cero</Link>
                 </NextLink>
               </ListItem>
             </UnorderedList>

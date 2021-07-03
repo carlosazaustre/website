@@ -9,7 +9,7 @@ const github = {
 
 export const OpenPR = ({ slug }) => {
   return (
-    <Flex fontSize={["xs", "sm"]} align="center" my={2} color="gray.500">
+    <Flex fontSize={["xs", "sm"]} align="center" my={2} color="grayblue.500">
       <IconGithub />
       <Text ml={2}>
         ¿Ves alguna errata o quieres modificar algo?{" "}

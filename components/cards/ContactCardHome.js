@@ -66,7 +66,7 @@ export const ContactCardHome = () => {
                 <InputGroup size="lg">
                   <InputLeftElement
                     pointerEvents="none"
-                    color="gray.300"
+                    color="grayblue.900"
                     children={<IconUser />}
                   />
                   <Input
@@ -95,7 +95,7 @@ export const ContactCardHome = () => {
                 <InputGroup size="lg">
                   <InputLeftElement
                     pointerEvents="none"
-                    color="gray.300"
+                    color="grayblue.900"
                     children={<IconMail />}
                   />
                   <Input

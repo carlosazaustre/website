@@ -1,9 +1,7 @@
 import { Fragment } from "react";
-import NextLink from "next/link";
 
 import { Heading, Container, Flex, Box, Text, Stack } from "./elements";
-import { Logo } from "./Logo";
-import { SectionLinks } from "./SectionLinks";
+import { PageHeader } from "./PageHeader";
 import { Footer } from "./Footer";
 import { PostMetadata } from "./PostMetadata";
 import { Disqus } from "./Disqus";
@@ -16,31 +14,10 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
   const isBlogTemplate = type === "post" && metadata.date;
 
   return (
-    <Box bg="gray.100">
+    <Box bg="grayblue.900">
       <OpenGraph metadata={metadata} />
       <Container maxW="container.2xl" px={[0, 4]}>
-        <Flex
-          justify="space-between"
-          direction={["column", "column", "row"]}
-          align="center"
-          fontFamily="heading"
-          fontSize="2xl"
-          fontWeight="bold"
-          px={4}
-          py={2}
-        >
-          <NextLink href="/">
-            <a>
-              <Flex align="center">
-                <Logo size="40px" />
-                <Text fontSize={["sm", "sm", "lg", "xl"]} px="2">
-                  Carlos Azaustre
-                </Text>
-              </Flex>
-            </a>
-          </NextLink>
-          <SectionLinks />
-        </Flex>
+        <PageHeader />
 
         <Flex
           d="flex"

@@ -1,0 +1,25 @@
+name: Get Lastest Podcast Episodes
+
+on:
+  schedule:
+    - cron: "30 20 * * SUN" # At 10:30pm GMT+2, only on Sundays
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm install
+      - run: npm run generate:podcasts
+        env:
+          SPOTIFY_TOKEN: ${{ secrets.SPOTIFY_TOKEN }}
+      - run: |
+          git config user.name $GIT_USER_NAME
+          git config user.email $GIT_USER_EMAIL
+          git add data/latestPodcasts.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "[:robot: BOT] Update latestPodcasts.json"
+          git push origin main

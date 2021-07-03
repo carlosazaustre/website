@@ -11,7 +11,7 @@ export const BlogCardHome = ({ posts }) => {
           <a>
             <Box my={2}>
               <Text isTruncated>{post.title}</Text>
-              <Text fontSize="xs" color="gray.400">
+              <Text fontSize="xs" color="grayblue.900">
                 {post.date}
               </Text>
             </Box>

@@ -2,25 +2,28 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 
 const StyledBookLink = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  position: relative;
-  top: 10px;
-  cursor: pointer;
-  transition: top var(--chakra-transition-duration-slow)
-    var(--chakra-transition-easing-ease-in);
+  display: none;
 
-  &:hover {
-    top: 0;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    bottom: -20px;
+    cursor: pointer;
+    transition: bottom var(--chakra-transition-duration-slow)
+      var(--chakra-transition-easing-ease-in);
+
+    &:hover {
+      bottom: -11px;
+    }
   }
 `;
 
 export const Book = ({ imageSrc }) => {
   return (
     <StyledBookLink>
-      <Image width={480} height={570} layout="intrinsic" src={imageSrc} />
+      <Image width={480} height={620} layout="fixed" src={imageSrc} />
     </StyledBookLink>
   );
 };

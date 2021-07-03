@@ -7,7 +7,7 @@ export const PostListItem = ({ title, date, tags }) => {
       <Heading as="h3" size="md" my={2}>
         {title}
       </Heading>
-      <Flex align="center" fontSize="sm" color="gray.500">
+      <Flex align="center" fontSize="sm" color="grayblue.100">
         <IconCalendar />
         <Text ml={1}>
           {date}{" "}

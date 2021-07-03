@@ -5,7 +5,7 @@ import { SectionLinks } from "./SectionLinks";
 
 export const Header = () => {
   return (
-    <Box as="header" py="10" px={[0, 0, 0, 4]}>
+    <Box as="header" py="10" px={[0, 0, 0, 8]}>
       <Flex
         as="header"
         fontWeight="bold"
