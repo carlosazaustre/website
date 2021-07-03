@@ -139,7 +139,7 @@ export const Footer = () => {
             </Heading>
             <UnorderedList styleType="none">
               <ListItem>
-                <NextLink href="/libros/aprendiendojavascript">
+                <NextLink href="/libros/aprendiendo-javascript">
                   <Link>Aprende JavaScript desde cero</Link>
                 </NextLink>
               </ListItem>
