@@ -164,7 +164,7 @@ export default function BookJavaScriptPage() {
           p={[0, 0, 4, 8]}
           order={[0, 0, 0, 1]}
         >
-          <UI.Heading as="h3" my={2} fontSize={["lg", "xl", "2xl", "3xl"]}>
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
             Para quién es este libro
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
@@ -176,7 +176,7 @@ export default function BookJavaScriptPage() {
             utilizan JavaScript y quieren afianzar las bases del lenguaje.
           </UI.Text>
 
-          <UI.Heading as="h3" my={2} fontSize={["lg", "xl", "2xl", "3xl"]}>
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
             Contenido
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
