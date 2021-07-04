@@ -25,10 +25,6 @@ const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);
   position: relative;
-<<<<<<< HEAD
-  overflow: visible;
-=======
->>>>>>> main
   z-index: 2;
 `;
 
@@ -76,7 +72,7 @@ export const Footer = () => {
             <Flex
               justify="space-around"
               direction="row"
-              w={["100%", "80%", "60%", "100%"]}
+              w={["100%", "100%", "60%", "100%"]}
             >
               <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
                 <IconYoutube size="20px" />

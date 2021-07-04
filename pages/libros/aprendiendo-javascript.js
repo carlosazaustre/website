@@ -1,94 +1,12 @@
 import Image from "next/image";
-import styled from "@emotion/styled";
-import { LayoutLanding, elements as UI, icons as Icons } from "@/components";
-
-const StyledBoxCard = styled(UI.Box)`
-  background-color: white;
-  margin: var(--chakra-sizes-4);
-  border-radius: var(--chakra-radii-lg);
-  width: ${(props) => (props.type === "small" ? "190px" : "300px")};
-  text-align: center;
-  transition: background var(--chakra-transition-duration-slow),
-    margin var(--chakra-transition-duration-slow);
-
-  &:hover {
-    background-color: var(--chakra-colors-brand-900);
-    margin-top: var(--chakra-sizes-0);
-    margin-bottom: var(--chakra-sizes-1);
-    box-shadow: var(--chakra-shadows-md);
-  }
-`;
-
-export const Rating = ({ children, average }) => {
-  const starsFilled = average;
-  const starsEmpty = 5 - average;
-
-  return (
-    <UI.HStack my={4}>
-      {Array(starsFilled)
-        .fill(1)
-        .map((_, i) => (
-          <Icons.IconStar key={i} />
-        ))}
-      {Array(starsEmpty)
-        .fill(0)
-        .map((_, i) => (
-          <Icons.IconStarEmpty key={i} />
-        ))}
-      <UI.Text fontSize="sm" my={4} color="grayblue.200">
-        {children}
-      </UI.Text>
-    </UI.HStack>
-  );
-};
-
-export const SellItem = ({ children, url, logo, w, h, type }) => {
-  return (
-    <UI.Link href={url}>
-      <StyledBoxCard type={type} p={[2, 4]} w={["10%", "190px"]}>
-        <UI.Text
-          mb={2}
-          fontFamily="heading"
-          fontSize={["xs", "sm", "md"]}
-          fontWeight="bold"
-        >
-          {children}
-        </UI.Text>
-        <UI.Box display={["none", "block"]}>
-          <Image width={w} height={h} src={logo} />
-        </UI.Box>
-      </StyledBoxCard>
-    </UI.Link>
-  );
-};
-
-export const ReviewCard = ({ children, photo, name, role }) => {
-  return (
-    <UI.Box w={["100%, 100%, 90%"]}>
-      <UI.Flex m={[0, 0, 2, 4]}>
-        <UI.Image
-          borderRadius="full"
-          borderColor="white"
-          boxSize="75px"
-          src={photo}
-          alt={name}
-          mr={4}
-        />
-        <UI.Box>
-          <UI.Text fontSize="lg" fontWeight="bold">
-            {name}
-          </UI.Text>
-          <UI.Text fontSize="md" fontWeight="regular">
-            {role}
-          </UI.Text>
-        </UI.Box>
-      </UI.Flex>
-      <UI.Box bg="white" rounded="lg" mt={4} mb={16} p={6}>
-        <em>{children}</em>
-      </UI.Box>
-    </UI.Box>
-  );
-};
+import {
+  LayoutLanding,
+  SellItem,
+  ReviewCard,
+  Rating,
+  elements as UI,
+  icons as Icons,
+} from "@/components";
 
 export default function BookJavaScriptPage() {
   const metadata = {
@@ -100,21 +18,111 @@ export default function BookJavaScriptPage() {
 
   return (
     <LayoutLanding metadata={metadata}>
-      {/* Aside Section */}
-      <UI.Flex as="aside" direction={["column", "column", "column", "row"]}>
-        <UI.Box w={["100%", "100%", "100%", "35%"]} order={[1, 1, 1, 0]}>
+      {/* Hero Section */}
+      <UI.Flex
+        as="header"
+        direction={["column", "column", "column", "column", "row"]}
+        align="center"
+      >
+        <UI.Box w={["100%", "100%", "50%", "35%"]}>
           <Image
             width="723"
             height="700"
             src="/assets/aprendiendo-javascript-libro-3d.png"
           />
-          <UI.Heading
-            as="h3"
-            my={12}
-            fontSize={["md", "lg", "xl", "2xl", "3xl"]}
-          >
-            Esto dice la gente
+        </UI.Box>
+        <UI.Box w={["100%", "100%", "100%", "100%", "65%"]} p={[0, 0, 4, 8]}>
+          <UI.Heading as="h1" fontSize={["2xl", "4xl"]}>
+            Aprendiendo JavaScript
           </UI.Heading>
+          <UI.Text
+            my={2}
+            fontSize={["lg", "lg", "lg", "lg", "xl"]}
+            fontFamily="heading"
+          >
+            Aprende las bases del lenguaje web más demandado. Desde cero hasta
+            ECMAScript 6+. Partiendo de las bases y poco a poco ampliándose
+            hasta ver las nuevas características del lenguaje para hacer un uso
+            profesional de él.
+          </UI.Text>
+          <UI.Text fontSize="lg" fontFamily="heading" fontWeight="bold" mt={8}>
+            Disponible en tapa blanda:
+          </UI.Text>
+          <UI.Flex
+            direction={["column", "column", "row"]}
+            align="center"
+            justify="center"
+          >
+            <SellItem
+              logo="/assets/logo-amazon.png"
+              w="70px"
+              h="20px"
+              url="https://amzn.to/3yo8s0I"
+            >
+              Desde España 🇪🇸 | Europa 🇪🇺
+            </SellItem>
+            <SellItem
+              logo="/assets/logo-amazon.png"
+              w="70px"
+              h="20px"
+              url="https://www.amazon.com/gp/product/B08TZ3HSYZ"
+            >
+              Desde Latinoamérica 🌎 | USA 🇺🇸
+            </SellItem>
+          </UI.Flex>
+          <UI.Text fontSize="lg" fontFamily="heading" fontWeight="bold" mt={8}>
+            Disponible en versión digital:
+          </UI.Text>
+          <UI.Flex
+            direction={["column", "column", "row"]}
+            align="center"
+            justify="center"
+          >
+            <SellItem
+              logo="/assets/logo-kindle.png"
+              w="100px"
+              h="20px"
+              url="https://amzn.to/36cL7D4"
+            >
+              Formato Kindle
+            </SellItem>
+            <SellItem
+              logo="/assets/logo-leanpub.png"
+              w="100px"
+              h="20px"
+              url="https://leanpub.com/aprendiendo-javascript"
+            >
+              PDF | ePub | Mobi
+            </SellItem>
+          </UI.Flex>
+        </UI.Box>
+      </UI.Flex>
+
+      {/* Content Section */}
+      <UI.Flex as="section" direction={["column", "column", "column", "row"]}>
+        <UI.Box
+          as="aside"
+          width={["100%", "100%", "100%", "30%"]}
+          order={[1, 1, 1, 0]}
+        >
+          <UI.Flex
+            bg="white"
+            rounded="lg"
+            p={4}
+            my={10}
+            direction="column"
+            align="center"
+            justify="center"
+            textAlign="center"
+          >
+            <UI.Text>
+              <a href="https://www.amazon.es/Aprendiendo-JavaScript-Desde-hasta-ECMAScript/dp/B08TZ3HSYZ/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=aprendiendo+javascript&qid=1625415326&sr=8-1#customerReviews">
+                30 Valoraciones en Amazon
+              </a>
+            </UI.Text>
+            <Rating average={4} />
+          </UI.Flex>
+
           <ReviewCard
             name="Riley Sainz"
             role="UX Engineer"
@@ -150,90 +158,13 @@ export default function BookJavaScriptPage() {
           </ReviewCard>
         </UI.Box>
 
-        {/* Main Section */}
         <UI.Box
+          as="article"
           w={["100%", "100%", "100%", "65%"]}
           p={[0, 0, 4, 8]}
           order={[0, 0, 0, 1]}
         >
-          <UI.Heading as="h1" fontSize={["xl", "2xl", "2xl"]}>
-            Aprendiendo JavaScript
-          </UI.Heading>
-
-          <Rating average={4}>
-            <UI.Link href="https://www.amazon.com/product-reviews/B08TZ3HSYZ">
-              (30 Valoraciones en Amazon)
-            </UI.Link>
-          </Rating>
-
-          <UI.Text
-            my={2}
-            fontSize={["lg", "lg", "lg", "lg", "xl"]}
-            fontFamily="heading"
-          >
-            Aprende las bases del lenguaje web más demandado. Desde cero hasta
-            ECMAScript 6+. Partiendo de las bases y poco a poco ampliándose
-            hasta ver las nuevas características del lenguaje para hacer un uso
-            profesional de él.
-          </UI.Text>
-
-          {/* CTA Button */}
-          <UI.Box
-            bg="white"
-            mx="auto"
-            p={[2, 4, 4, 8]}
-            my={8}
-            fontSize={["lg", "lg", "lg", "2xl"]}
-            fontWeight="bold"
-            fontFamily="heading"
-            rounded="lg"
-            shadow="base"
-            width={["100%", "100%", "100%", "80%", "60%"]}
-            transition="background ease"
-            _hover={{ bg: "brand.900" }}
-          >
-            <UI.Link href="https://www.amazon.com/gp/product/B08TZ3HSYZ">
-              <UI.Flex align="center" justify="center">
-                <UI.Text mr={4}>Comprar en</UI.Text>
-                <Image
-                  src="/assets/logo-amazon.png"
-                  width="130px"
-                  height="40px"
-                />
-              </UI.Flex>
-            </UI.Link>
-          </UI.Box>
-
-          {/* Versions */}
-          <UI.Text my={4} fontSize="lg" fontFamily="heading" fontWeight="bold">
-            Otras Versiones disponibles:
-          </UI.Text>
-          <UI.Flex mx="auto" align="center" justify="center">
-            <SellItem
-              type="small"
-              url="https://amzn.to/3qHsEb4"
-              logo="/assets/logo-kindle.png"
-              w="100px"
-              h="20px"
-            >
-              Formato Kindle
-            </SellItem>
-            <SellItem
-              type="small"
-              url="https://leanpub.com/aprendiendo-javascript"
-              logo="/assets/logo-leanpub.png"
-              w="100px"
-              h="20px"
-            >
-              PDF | ePub | Mobi
-            </SellItem>
-          </UI.Flex>
-
-          <UI.Heading
-            as="h3"
-            my={8}
-            fontSize={["md", "lg", "xl", "2xl", "3xl"]}
-          >
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
             Para quién es este libro
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
@@ -244,25 +175,106 @@ export default function BookJavaScriptPage() {
             También útil para aquellas personas que llevan tiempo programando,
             utilizan JavaScript y quieren afianzar las bases del lenguaje.
           </UI.Text>
-          <UI.Heading
-            as="h3"
-            my={8}
-            fontSize={["md", "lg", "xl", "2xl", "3xl"]}
-          >
-            Sobre el Autor
+
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+            Contenido
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
-            <strong>Carlos Azaustre</strong>. Ingeniero en Telemática y Director
-            del Máster en Desarrollo Web FullStack de la Universidad Europea de
-            Madrid. Divulgador de tecnologías web en su canal de YouTube.
-            Reconocido por Google como Developer Expert (GDE) en Web. Ha
-            trabajado en empresas como Google, IBM y Eventbrite.
+            100 Páginas en español donde se cubren los principales elementos de
+            la programación, aplicados al lenguaje JavaScript, y poco a poco se
+            va incrementando la complejidad viendo las características más
+            importantes del lenguaje que lo hacen tan especial y popular.
           </UI.Text>
-          <UI.Heading
-            as="h3"
-            my={8}
-            fontSize={["md", "lg", "xl", "2xl", "3xl"]}
+          <UI.UnorderedList styleType="none" fontFamily="heading">
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Breve Historia de JavaScript
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Tipos de datos y Variables
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Operadores
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Condicionales
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Clases Core y Módulos de JavaScript
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Bucles
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Funciones
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              JSON
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              AJAX
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Eventos
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              Asincronía y Promesas
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              DOM - Document Object Model
+            </UI.ListItem>
+            <UI.ListItem>
+              <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
+              ECMAScript v6 y más
+            </UI.ListItem>
+          </UI.UnorderedList>
+
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+            Sobre el Autor
+          </UI.Heading>
+          <UI.Flex
+            align="center"
+            justify="space-between"
+            direction={["column", "column", "column", "column", "row"]}
           >
+            <UI.Box w={["100%", "100%", "30%"]} mx="auto" align="center">
+              <Image
+                src="/assets/carlos-azaustre-gde-web.png"
+                width="190px"
+                height="190px"
+              />
+            </UI.Box>
+
+            <UI.Text
+              my={4}
+              p={4}
+              fontSize="lg"
+              fontFamily="heading"
+              width={["100%", "100%", "100%", "100%", "65%"]}
+            >
+              <strong>Carlos Azaustre</strong> (Madrid, 1984). Ingeniero en
+              Telemática. 10 años como Desarrollador de Software y actualmente
+              Director del Máster en Desarrollo Web FullStack de la Universidad
+              Europea de Madrid.
+              <br />
+              <br />
+              Divulgador de tecnologías web a través de YouTube. Reconocido por
+              Google como Developer Expert (GDE) en Web. Ha trabajado en
+              empresas como Google, IBM y Eventbrite.
+            </UI.Text>
+          </UI.Flex>
+          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
             Sobre este libro
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
@@ -288,33 +300,6 @@ export default function BookJavaScriptPage() {
             únicamente JavaScript. ¿Aplicaciones Isomórficas? Hoy en día todo es
             posible con JavaScript.
           </UI.Text>
-
-          {/* CTA Button */}
-          <UI.Box
-            bg="white"
-            mx="auto"
-            p={[2, 4, 4, 8]}
-            my={8}
-            fontSize={["lg", "lg", "lg", "2xl"]}
-            fontWeight="bold"
-            fontFamily="heading"
-            rounded="lg"
-            shadow="base"
-            width={["100%", "100%", "100%", "80%", "60%"]}
-            transition="background ease"
-            _hover={{ bg: "brand.900" }}
-          >
-            <UI.Link href="https://www.amazon.com/gp/product/B08TZ3HSYZ">
-              <UI.Flex align="center" justify="center">
-                <UI.Text mr={4}>Comprar en</UI.Text>
-                <Image
-                  src="/assets/logo-amazon.png"
-                  width="130px"
-                  height="40px"
-                />
-              </UI.Flex>
-            </UI.Link>
-          </UI.Box>
         </UI.Box>
       </UI.Flex>
     </LayoutLanding>

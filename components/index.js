@@ -22,6 +22,9 @@ export { Tidycal } from "./Tidycal";
 export { OpenPR } from "./OpenPR";
 export { Disqus } from "./Disqus";
 export { ScrollToTop } from "./ScrollToTop";
+export { SellItem } from "./SellItem";
+export { Rating } from "./Rating";
+export { ReviewCard } from "./ReviewCard";
 
 export { Layout } from "./Layout";
 export { LayoutLanding } from "./LayoutLanding";
