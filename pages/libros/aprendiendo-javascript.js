@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
 import { LayoutLanding, elements as UI, icons as Icons } from "@/components";
@@ -97,6 +98,15 @@ export default function BookJavaScriptPage() {
       "Libro en español para comprender el lenguaje de programación web",
     image: "/assets/cards/book-javascript.png",
   };
+
+  useEffect(() => {
+    fetch("/api/checkCountry")
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <LayoutLanding metadata={metadata}>
