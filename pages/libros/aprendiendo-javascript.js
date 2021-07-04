@@ -1,105 +1,12 @@
 import Image from "next/image";
-import styled from "@emotion/styled";
-import { LayoutLanding, elements as UI, icons as Icons } from "@/components";
-
-const StyledBoxCard = styled(UI.Box)`
-  background-color: white;
-  margin: var(--chakra-sizes-4);
-  border-radius: var(--chakra-radii-lg);
-  width: ${(props) => (props.type === "small" ? "190px" : "300px")};
-  text-align: center;
-  transition: background var(--chakra-transition-duration-slow),
-    margin var(--chakra-transition-duration-slow);
-
-  &:hover {
-    background-color: var(--chakra-colors-brand-900);
-    margin-top: var(--chakra-sizes-0);
-    margin-bottom: var(--chakra-sizes-1);
-    box-shadow: var(--chakra-shadows-md);
-  }
-`;
-
-export const Rating = ({ children, average }) => {
-  const starsFilled = average;
-  const starsEmpty = 5 - average;
-
-  return (
-    <UI.HStack
-      my={4}
-      mx="auto"
-      justify="center"
-      color="brand.900"
-      fontSize="xl"
-    >
-      {Array(starsFilled)
-        .fill(1)
-        .map((_, i) => (
-          <Icons.IconStar key={i} />
-        ))}
-      {Array(starsEmpty)
-        .fill(0)
-        .map((_, i) => (
-          <Icons.IconStarEmpty key={i} />
-        ))}
-      <UI.Text fontSize="sm" my={4} color="grayblue.200">
-        {children}
-      </UI.Text>
-    </UI.HStack>
-  );
-};
-
-export const SellItem = ({ children, url, logo, w, h, type }) => {
-  return (
-    <UI.Link href={url}>
-      <StyledBoxCard type={type} p={[2, 4]}>
-        <UI.Text
-          mb={2}
-          fontFamily="heading"
-          fontSize={["xs", "sm", "md"]}
-          fontWeight="normal"
-        >
-          {children}
-        </UI.Text>
-        <UI.Box>
-          <Image width={w} height={h} src={logo} />
-        </UI.Box>
-      </StyledBoxCard>
-    </UI.Link>
-  );
-};
-
-export const ReviewCard = ({ children, photo, name, role }) => {
-  return (
-    <UI.Box
-      bg="white"
-      rounded="lg"
-      mt={4}
-      mb={16}
-      p={6}
-      w={["100%, 100%, 90%"]}
-    >
-      <UI.Flex m={[0, 0, 2, 4]}>
-        <UI.Image
-          borderRadius="full"
-          borderColor="white"
-          boxSize="75px"
-          src={photo}
-          alt={name}
-          mr={4}
-        />
-        <UI.Box>
-          <UI.Text fontSize="lg" fontWeight="bold">
-            {name}
-          </UI.Text>
-          <UI.Text fontSize="md" fontWeight="regular">
-            {role}
-          </UI.Text>
-        </UI.Box>
-      </UI.Flex>
-      <em>{children}</em>
-    </UI.Box>
-  );
-};
+import {
+  LayoutLanding,
+  SellItem,
+  ReviewCard,
+  Rating,
+  elements as UI,
+  icons as Icons,
+} from "@/components";
 
 export default function BookJavaScriptPage() {
   const metadata = {
