@@ -24,11 +24,15 @@ const SectionLinkItem = styled.a`
   }
 
   @media screen and (min-width: 700px) {
-    font-size: var(--chakra-fontSizes-lg);
+    font-size: var(--chakra-fontSizes-sm);
     margin: 0 var(--chakra-space-4);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023px) {
+    font-size: var(--chakra-fontSizes-xl);
+  }
+
+  @media screen and (min-width: 1439px) {
     font-size: var(--chakra-fontSizes-2xl);
   }
 `;

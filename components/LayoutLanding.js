@@ -53,6 +53,7 @@ const StyledContent = styled.div`
   z-index: 3;
   margin-left: var(--chakra-sizes-4);
   margin-right: var(--chakra-sizes-4);
+
   @media screen and (min-width: 1024px) {
     margin-left: var(--chakra-sizes-16);
     margin-right: var(--chakra-sizes-16);
