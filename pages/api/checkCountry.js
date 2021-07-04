@@ -4,8 +4,8 @@ export default async function handler(req, res) {
   let ip = "96.84.57.209"; // A random US IP address as a default
 
   // Get the second IP address obtained from the 'x-forwarded-for' header
-  if (typeof req.headers["x-forwarded-for"] !== "undefined") {
-    ip = req.headers["x-forwarded-for"].split(",")[1];
+  if (typeof req.connection.remoteAddress !== "undefined") {
+    ip = req.connection.remoteAddress;
   }
 
   // Return the IP translated to a country code
