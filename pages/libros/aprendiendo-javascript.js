@@ -5,7 +5,6 @@ import { LayoutLanding, elements as UI, icons as Icons } from "@/components";
 const StyledBoxCard = styled(UI.Box)`
   background-color: white;
   margin: var(--chakra-sizes-4);
-  padding: var(--chakra-sizes-4);
   border-radius: var(--chakra-radii-lg);
   width: ${(props) => (props.type === "small" ? "190px" : "300px")};
   text-align: center;
@@ -26,12 +25,16 @@ export const Rating = ({ children, average }) => {
 
   return (
     <UI.HStack my={4}>
-      {new Array(starsFilled).fill(1).map((item) => (
-        <Icons.IconStar />
-      ))}
-      {new Array(starsEmpty).fill(0).map((item) => (
-        <Icons.IconStarEmpty />
-      ))}
+      {Array(starsFilled)
+        .fill(1)
+        .map((_, i) => (
+          <Icons.IconStar key={i} />
+        ))}
+      {Array(starsEmpty)
+        .fill(0)
+        .map((_, i) => (
+          <Icons.IconStarEmpty key={i} />
+        ))}
       <UI.Text fontSize="sm" my={4} color="grayblue.200">
         {children}
       </UI.Text>
@@ -42,11 +45,18 @@ export const Rating = ({ children, average }) => {
 export const SellItem = ({ children, url, logo, w, h, type }) => {
   return (
     <UI.Link href={url}>
-      <StyledBoxCard type={type}>
-        <UI.Text mb={2} fontFamily="heading" fontSize="md" fontWeight="bold">
+      <StyledBoxCard type={type} p={[2, 4]} w={["10%", "190px"]}>
+        <UI.Text
+          mb={2}
+          fontFamily="heading"
+          fontSize={["xs", "sm", "md"]}
+          fontWeight="bold"
+        >
           {children}
         </UI.Text>
-        <Image width={w} height={h} src={logo} />
+        <UI.Box display={["none", "block"]}>
+          <Image width={w} height={h} src={logo} />
+        </UI.Box>
       </StyledBoxCard>
     </UI.Link>
   );

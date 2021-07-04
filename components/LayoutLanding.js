@@ -46,9 +46,17 @@ const StyledBox = styled(Container)`
   margin-right: auto;
   z-index: 0;
   overflow: hidden;
+`;
 
-  @media screen and (min-width: 1440px) {
-    overflow: visible;
+const StyledContent = styled.div`
+  position: relative;
+  z-index: 3;
+  margin-left: var(--chakra-sizes-4);
+  margin-right: var(--chakra-sizes-4);
+
+  @media screen and (min-width: 1024px) {
+    margin-left: var(--chakra-sizes-16);
+    margin-right: var(--chakra-sizes-16);
   }
 `;
 
@@ -61,7 +69,7 @@ export const LayoutLanding = ({ children, metadata = {} }) => {
         <Circle left />
         <Circle right />
         <PageHeader />
-        {children}
+        <StyledContent>{children}</StyledContent>
       </StyledBox>
 
       <Footer />
