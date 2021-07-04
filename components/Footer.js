@@ -25,6 +25,10 @@ const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);
   position: relative;
+<<<<<<< HEAD
+  overflow: visible;
+=======
+>>>>>>> main
   z-index: 2;
 `;
 
