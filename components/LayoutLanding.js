@@ -61,7 +61,7 @@ export const LayoutLanding = ({ children, metadata = {} }) => {
         <Circle left />
         <Circle right />
         <PageHeader />
-        <StyledContent>{children}</StyledContent>
+        {children}
       </StyledBox>
 
       <Footer />
