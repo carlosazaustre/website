@@ -8,6 +8,73 @@ import {
   icons as Icons,
 } from "@/components";
 
+const BuyOnAmazon = () => (
+  <UI.Accordion>
+    <UI.AccordionItem>
+      <UI.Box
+        as="h2"
+        bg="white"
+        p={4}
+        mt={8}
+        mb={2}
+        mx="auto"
+        width={["100%", "100%", "100%", "80%"]}
+        rounded="lg"
+        shadow="base"
+      >
+        <UI.AccordionButton>
+          <UI.Flex align="center" justify="center" textAlign="center" mx="auto">
+            <UI.Text
+              fontSize="2xl"
+              fontFamily="heading"
+              fontWeight="bold"
+              mr={4}
+            >
+              Comprar en
+            </UI.Text>
+            <Image src="/assets/logo-amazon.png" width="120px" height="40px" />
+          </UI.Flex>
+        </UI.AccordionButton>
+      </UI.Box>
+      <UI.AccordionPanel>
+        <UI.UnorderedList
+          styleType="none"
+          mx="auto"
+          width={["100%", "100%", "100%", "80%"]}
+          fontFamily="heading"
+        >
+          <UI.ListItem
+            bg="white"
+            p={4}
+            rounded="lg"
+            mb={2}
+            _hover={{ bg: "brand.900" }}
+          >
+            <a href="https://amzn.to/2UmJ8JQ">
+              <UI.Text fontSize="xl" fontWeight="bold">
+                🇪🇸 | Comprar desde Amazon España
+              </UI.Text>
+            </a>
+          </UI.ListItem>
+          <UI.ListItem
+            bg="white"
+            p={4}
+            rounded="lg"
+            mb={2}
+            _hover={{ bg: "brand.900" }}
+          >
+            <a href="https://www.amazon.com/dp/B08TZ3HSYZ">
+              <UI.Text fontSize="xl" fontWeight="bold">
+                🌎 | Comprar desde Amazon USA para Latinoamérica
+              </UI.Text>
+            </a>
+          </UI.ListItem>
+        </UI.UnorderedList>
+      </UI.AccordionPanel>
+    </UI.AccordionItem>
+  </UI.Accordion>
+);
+
 export default function BookJavaScriptPage() {
   const metadata = {
     title: "Aprendiendo JavaScript",
@@ -22,9 +89,9 @@ export default function BookJavaScriptPage() {
       <UI.Flex
         as="header"
         direction={["column", "column", "column", "column", "row"]}
-        align="center"
+        align={["center", "center", "center", "center", "flex-start"]}
       >
-        <UI.Box w={["100%", "100%", "50%", "35%"]}>
+        <UI.Box w={["100%", "100%", "50%", "30%"]}>
           <Image
             width="723"
             height="700"
@@ -32,12 +99,12 @@ export default function BookJavaScriptPage() {
           />
         </UI.Box>
         <UI.Box w={["100%", "100%", "100%", "100%", "65%"]} p={[0, 0, 4, 8]}>
-          <UI.Heading as="h1" fontSize={["2xl", "4xl"]}>
+          <UI.Heading as="h1" fontSize={["2xl", "4xl", "6xl"]}>
             Aprendiendo JavaScript
           </UI.Heading>
           <UI.Text
             my={2}
-            fontSize={["lg", "lg", "lg", "lg", "xl"]}
+            fontSize={["lg", "lg", "lg", "xl", "2xl"]}
             fontFamily="heading"
           >
             Aprende las bases del lenguaje web más demandado. Desde cero hasta
@@ -45,52 +112,25 @@ export default function BookJavaScriptPage() {
             hasta ver las nuevas características del lenguaje para hacer un uso
             profesional de él.
           </UI.Text>
-          <UI.Text fontSize="lg" fontFamily="heading" fontWeight="bold" mt={8}>
-            Disponible en tapa blanda:
-          </UI.Text>
+
+          <BuyOnAmazon />
+
           <UI.Flex
-            direction={["column", "column", "row"]}
+            w={["100%", "100%", "100%", "100%", "65%"]}
+            mx="auto"
+            direction="row"
             align="center"
-            justify="center"
+            justify="space-around"
           >
+            <UI.Text fontFamily="heading" mt={8}>
+              Disponible en versión digital
+            </UI.Text>
             <SellItem
-              logo="/assets/logo-amazon.png"
-              w="70px"
-              h="20px"
-              url="https://amzn.to/3yo8s0I"
-            >
-              Desde España 🇪🇸 | Europa 🇪🇺
-            </SellItem>
-            <SellItem
-              logo="/assets/logo-amazon.png"
-              w="70px"
-              h="20px"
-              url="https://www.amazon.com/gp/product/B08TZ3HSYZ"
-            >
-              Desde Latinoamérica 🌎 | USA 🇺🇸
-            </SellItem>
-          </UI.Flex>
-          <UI.Text fontSize="lg" fontFamily="heading" fontWeight="bold" mt={8}>
-            Disponible en versión digital:
-          </UI.Text>
-          <UI.Flex
-            direction={["column", "column", "row"]}
-            align="center"
-            justify="center"
-          >
-            <SellItem
-              logo="/assets/logo-kindle.png"
-              w="100px"
-              h="20px"
-              url="https://amzn.to/36cL7D4"
-            >
-              Formato Kindle
-            </SellItem>
-            <SellItem
+              type="small"
               logo="/assets/logo-leanpub.png"
-              w="100px"
+              url="//leanpub.com/aprendiendo-javascript"
+              w="110px"
               h="20px"
-              url="https://leanpub.com/aprendiendo-javascript"
             >
               PDF | ePub | Mobi
             </SellItem>
@@ -164,7 +204,12 @@ export default function BookJavaScriptPage() {
           p={[0, 0, 4, 8]}
           order={[0, 0, 0, 1]}
         >
-          <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+          <UI.Heading
+            as="h3"
+            my={8}
+            mt={2}
+            fontSize={["lg", "xl", "2xl", "3xl"]}
+          >
             Para quién es este libro
           </UI.Heading>
           <UI.Text my={4} fontSize="lg" fontFamily="heading">
@@ -300,6 +345,8 @@ export default function BookJavaScriptPage() {
             únicamente JavaScript. ¿Aplicaciones Isomórficas? Hoy en día todo es
             posible con JavaScript.
           </UI.Text>
+
+          <BuyOnAmazon />
         </UI.Box>
       </UI.Flex>
     </LayoutLanding>
