@@ -13,8 +13,6 @@ const StyledBoxCard = styled(Box)`
 
   &:hover {
     background-color: var(--chakra-colors-brand-900);
-    margin-top: var(--chakra-sizes-0);
-    margin-bottom: var(--chakra-sizes-1);
     box-shadow: var(--chakra-shadows-md);
   }
 `;
