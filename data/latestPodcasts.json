@@ -1,5 +1,49 @@
 [
   {
+    "audio_preview_url": "https://p.scdn.co/mp3-preview/28fa2b531d779257bd6cbc8fb5e5e57c5e4ae1e8",
+    "description": "Te doy la bienvenida al primer episodio \"oficial\" del podcast Hablando.js, sobre programación y desarrollo web pero no tanto del código, sino desde la parte humana, personal y la experiencia.  Hoy hablamos de cómo el avance de la tecnología está evolucionando los puestos de trabajo, en todos los sectores, pero principalmente el nuestro del desarrollo de software y la programación. Hablamos de GitHub Copilot y cómo este tipo de herramientas nos pueden afectar o no en nuestra profesión. Podcast creado por Carlos Azaustre. Creador de contenido sobre tecnologías web y divulgador en YouTube Música: \"Communication Disorder\" de Hola Beats  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "duration_ms": 2444132,
+    "explicit": false,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/episode/5Q4nsJMjFaqpQVJsR5rkOF"
+    },
+    "href": "https://api.spotify.com/v1/episodes/5Q4nsJMjFaqpQVJsR5rkOF",
+    "html_description": "<p>Te doy la bienvenida al primer episodio \"oficial\" del podcast <strong>Hablando.js, </strong>sobre programación y desarrollo web pero no tanto del código, sino desde la parte humana, personal y la experiencia.</p>\n<p><br>\nHoy hablamos de cómo el avance de la tecnología está evolucionando los puestos de trabajo, en todos los sectores, pero principalmente el nuestro del desarrollo de software y la programación.</p>\n<p>Hablamos de<strong> GitHub Copilot</strong> y cómo este tipo de herramientas nos pueden afectar o no en nuestra profesión.</p>\n<p>Podcast creado por <a href=\"https://carlosazaustre.es\">Carlos Azaustre</a>. Creador de contenido sobre tecnologías web y divulgador en <a href=\"https://youtube.com/carlosazaustre\">YouTube</a></p>\n<p>Música: \"Communication Disorder\" de <a href=\"https://open.spotify.com/artist/7CvWoscqVQJvqb0OcBRQO7?si=jqR4EUMGSRKgo2UgU3xNTQ&amp;dl_branch=1\">Hola Beats</a></p>\n\n--- \n\nSend in a voice message: https://anchor.fm/carlosazaustre/message",
+    "id": "5Q4nsJMjFaqpQVJsR5rkOF",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/ab6765630000ba8a8c74afd148e2e162c4fcf78a",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/ab67656300005f1f8c74afd148e2e162c4fcf78a",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/ab6765630000f68d8c74afd148e2e162c4fcf78a",
+        "width": 64
+      }
+    ],
+    "is_externally_hosted": false,
+    "is_playable": true,
+    "language": "es",
+    "languages": [
+      "es"
+    ],
+    "name": "Episodio 1: La Inteligencia Artificial, nuestra compañera de trabajo.",
+    "release_date": "2021-07-06",
+    "release_date_precision": "day",
+    "resume_point": {
+      "fully_played": false,
+      "resume_position_ms": 0
+    },
+    "type": "episode",
+    "uri": "spotify:episode:5Q4nsJMjFaqpQVJsR5rkOF"
+  },
+  {
     "audio_preview_url": "https://p.scdn.co/mp3-preview/aed7503cebfc28e437ee48339c2f27a093d928d6",
     "description": "Episodio piloto (como en las series de televisión) de este proyecto de podcast, donde hablaremos no sólo de programación y desarrollo web, sino también de la parte humana y personal, con experiencias, entrevistas y lo que vaya surgiendo. Mi nombre es Carlos Azaustre, y tras varios años trabajando como desarrollador web, ahora me dedico a crear y divulgar contenido relacionado con la programación. Gracias por escucharme ✌️ Además de en este podcast, me encuentras en todas las redes sociales como @carlosazaustre. Expecialmente en YouTube donde ya somos más de 60,000 amantes de JavaScript  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
     "duration_ms": 803665,
@@ -33,7 +77,7 @@
     "languages": [
       "es"
     ],
-    "name": "Episodio 00 - Piloto",
+    "name": "Episodio 0 - Piloto",
     "release_date": "2021-06-27",
     "release_date_precision": "day",
     "resume_point": {

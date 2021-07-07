@@ -9,8 +9,8 @@ const DATA_FILE = path.join(__dirname, "..", "data", "latestPodcasts.json");
 
 const getLatestPodcast = async () => {
   const url = `https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}/episodes?offset=0&limit=20&market=ES`;
-
   const response = await fetch(url, {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${SPOTIFY_TOKEN}`,
     },
