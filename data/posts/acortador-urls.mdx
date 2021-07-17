@@ -1,5 +1,5 @@
 ---
-title: "Como hacer un acotador de URLs con Next.js y Prisma"
+title: "Como hacer un acortador de URLs con Next.js y Prisma"
 date: "2021-07-16"
 tags: 
   - "💻 Desarrollo"
@@ -7,17 +7,21 @@ tags:
   - "Prisma"
 ---
 
-En este artículo vamos a ver como crear un acortador de urls desde cero. Un acortador es un servicio que posiblemente ya
-hayas utilizado, como por ejemplo bit.ly. Sirve para dada una URL, nos genera una URL más corta que podemos utilizar para
-ahorrarnos caracteres o si no tebnemos acceso a las analiticas de la web en cuestión, saber cuantos clicks se han hecho
+En este artículo aprenderás a crear un acortador de urls, desde cero y paso a paso. 
+
+Un acortador es un servicio que posiblemente ya
+hayas utilizado, como por ejemplo *bit.ly*. Sirve para, dada una URL, nos genera una URL más corta que podemos utilizar para
+ahorrarnos caracteres o si no tenemos acceso a las analíticas de la web en cuestión, saber cuantos clicks se han hecho
 desde determinado enlace.
 
 Para ello vamos a utilizar las siguientes tecnologias:
-- React / Next.js como Framework
-- PostgreSQL como base de datos
-- Prisma como ORM para modear la base de datos y realizar las consultas.
+- React / Next.js como Framework.
+- PostgreSQL como base de datos.
+- [Prisma](https://www.prisma.io/nextjs) como ORM para modear la base de datos y realizar las consultas.
 
 Let's go!
+
+### Generar el proyecto
 
 Lo primero será crear una aplicación Next.js, para ello utilizaremos el CLI de Next.js:
 
@@ -25,10 +29,11 @@ Lo primero será crear una aplicación Next.js, para ello utilizaremos el CLI de
 $ npx create-next-app url-shortener
 ```
 
-Esto nos instala las dependencias necesarias y nos crea una estructura de poryecto y carpwetas de nuestra aplicación.
+Esto nos instala las dependencias necesarias y nos crea una estructura de proyecto y carpetas de nuestra aplicación.
 
 Lo primero que vamos a hacer es crear el formulario de envio de URLs en la parte frontend de nuestra aplicación.
-Nos dirigimos al fichero `pages/index.js` y lo dejamos así:
+
+Nos dirigimos al fichero `pages/index.js`, borramos lo que viene por defecto y lo dejamos así:
 
 ```javascript
 import Head from 'next/head'
@@ -64,22 +69,29 @@ export default function Home() {
 }
 ```
 
+### Formulario de envío de URLs
+
 Vamos a hacer uso de algunos hooks de React para ayudarnos con el formulario de envío de URLs.
 
 ```javascript
 import { useRef, useState } from 'react';
 ```
 
-Con useRef guardamos la referencia del input, y  useState lo usaremos para almacenar la URL corta generada
+Con useRef guardamos la referencia del input, y  useState lo usaremos para almacenar la URL que se genera al presionar el botón.
 
 ```javascript
 const inputRef = useRef();
 const [shortURL, setShortURL] = useState('');
 ```
 
-Actualizamos el formualario aplicando estas variables:
+Actualizamos el formulario aplicando estas variables:
 ```javascript
-<input ref={inputRef} type="text" className={styles.input} placeholder="URL" />
+<input
+  ref={inputRef} 
+  className={styles.input} 
+  type="text" 
+  placeholder="URL"
+/>
 <button className={styles.button}>Acorta</button>
 <span className={styles.input}>{shortURL}</span>
 ```
@@ -103,9 +115,12 @@ const handleSubmit = (e) => {
   e.preventDefault();
   const url = inputRef.current.value;
   //TODO: Peticion al API 
+}
 ```
 
-Continuamos, y vamos a crear el servicio que nos crea la URL corta, la almacena en la base de datos y la envía al fronted.
+### Servicio REST para crear la URL corta
+
+Continuamos, y vamos a crear el servicio que nos crea la URL corta, lo almacena en la base de datos y la envía al frontend.
 Para ello vamos a la carpeta `pages/api` y creamos un nuevo fichero, llamado por ejemplo `shortUrl.js`
 
 Ahi creamos una *función serverless* que consumiremos via AJAX y tiene la siguiente pinta:
@@ -154,19 +169,22 @@ Podemos incluso hacer uso de useState y dejar ya la URL corta lista para usar:
 Y asi al generarse, la función `setShortUrl` la coloca en el elemento `span` que teniamos:
 ![setState colocando la respuesta recibida](/images/acortador-urls/url-shortener-2.png)
 
+### Almacenamiento en base de datos, con Prisma
+
 Todo esto está muy bien, pero si esto lo queremos llevar a producción y que las URLs cortas se queden almacenadas 
 y asi poderlas usar apropiadamente necesitamos persisitir todo esto.
 
-Vamos a utilizar PostgreSQL para almacenar las URLs cortas y Prisma como ORM para facilitarnos
+Vamos a utilizar PostgreSQL para almacenar las URLs cortas y [Prisma como ORM](https://www.prisma.io/nextjs) para facilitarnos
 la creación de las tablas y las consultas SQL. 
 
 Primero necesitamos la base de datos. Yo voy a usar PostgreSQL en local, pero puedes utilizar 
-servicios cloud como Digital Ocean, Amazon RBD, Google Cloud SQL, Supabase, etc... que ofrecen 
+servicios cloud como [Digital Ocean](czstr.link/zipuc3s), Amazon RBD, Google Cloud SQL, Supabase, etc... que ofrecen 
 "SQLs as a Service", lo unico que necesitas es una 'URL String' como la siguiente:
 
 ```shell
 postgresql://carlosazaustre:carlosazaustre@localhost:5432/links_test?schema=public"
 ```
+
 Donde: 
 - `carlosazaustre:carlosazaustre` es mi user y password en local para la base de datos.
 - `localhost` es el host de mi servidor local.
@@ -276,13 +294,15 @@ de una url y una shortUrl. ya que el Id y la fecha se autogeneran al momento de 
 ![URL corta enviada al frontend](/images/acortador-urls/url-shortener-3.png)
 ![Registro almacenado en la base de datos](/images/acortador-urls/url-shortener-4.png)
 
-Una vez creado, mandamos la respuesta al frontend y como ya tenemos la petición fetch implementada, todo debería funcionar y recibi
+Una vez creado, mandamos la respuesta al frontend y como ya tenemos la petición fetch implementada, todo debería funcionar y recibir
 la URL corta y esta quedarse almacenada en la base de datos
+
+### Redirección a la URL original
 
 Ahora nos queda la funcionalidad mas importante y es, que cuando pongamos una URL corta, esta redirija a la URL original. 
 ¿Cómo hacemos esto? Pues con dos propiedades de Next, es muy sencillo.
 
-Primero de todo vamos a crear una ruta dinámica, en Next se hace creando un fichero en la carpeta `pages` con el nombre entre
+Primero de todo vamos a crear una ruta dinámica. En Next se hace creando un fichero en la carpeta `pages` con el nombre entre
 corchetes. Tal que así:
 
 ```shell
@@ -322,7 +342,7 @@ export async function getServerSideProps({ params }) {
 
 Esta query a la base de datos la podemos colocar ahi, porque eso es código que no viaja al cliente, se hace en el lado del servidor. 
 Aunque veas código React ahi, es la peculiaridad que tiene Next, que es un framework que junta ambos mundos, el Frontend y el Backend y
-a veces es dificil de disitiguir.
+a veces es dificil de distinguir.
 
 Ahora necesitamos hacer que la página redirija. Para ello usaremos la propiedad `redirect` que nos proporciona Next para que ocurra:
 
@@ -377,17 +397,20 @@ export async function getServerSideProps({ params }) {
 }
 ```
 
-Aquí tienes el repositorio en GitHub con todo el código visto en el tutorial. Por si quieres revisarlo.
+### Código del proyecto
+
+[Aquí tienes el repositorio en **GitHub**](https://github.com/carlosazaustre/url-shortener) con todo el código visto en el tutorial. Por si quieres revisarlo.
 
 Y con esto ya tendrías tu propio acortador de URLs. Necesitas tener la Base de datos en producción. Puedes elegir como digo al principio
-cualquier servicio Cloud como Digital Ocean Databases, Amazon RDS, Google Cloud SQL, Supabase, PlanetScale, etc..., y subir el
+cualquier servicio Cloud como [Digital Ocean Databases](czstr.link/zipuc3s), Amazon RDS, Google Cloud SQL, Supabase, PlanetScale, etc..., y subir el
 código también a producción, puedes hacerlo en Vercel, Heroku, ... donde prefieras. 
 
-Yo mismo tengo un servicio de acortador de URLs en producción, siguiendo este mismo código pero añadiéndole autenticación con Auth0.
-El código es Open Source y lo puedes ver en este repositorio de GitHub, y el servicio en producción lo tienes en
+Yo mismo tengo un servicio de [acortador de URLs](https://czstr.link) en producción, siguiendo este mismo código, pero añadiéndole autenticación con Auth0 y mejor estructurado
+.
+El código es *Open Source* y lo puedes ver en este repositorio de GitHub, y el servicio en producción lo tienes en
  [czstr.link](https://czstr.link)
 
-¡Espero que te haya gustado y servido!
+¡Espero que te haya gustado y servido! Compártelo con tus amigos y siéntete libre de hacer pull requests para mejorar este tutorial.
 
 
 
