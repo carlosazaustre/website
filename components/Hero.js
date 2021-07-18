@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Text, Box } from "./elements";
 import { ButtonCTA } from "./ButtonCTA";
@@ -42,12 +43,9 @@ export const Hero = () => {
         Reconocido por Google como <strong>Developer Expert (GDE)</strong> en
         Web, y <strong>Auth0 Ambassador</strong>.
       </Text>
-      <a
-        href="https://youtube.com/c/CarlosAzaustre?sub_confirmation=1"
-        target="_blank"
-      >
-        <ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA>
-      </a>
+      <Link href="/cursos/programacion-javascript">
+        <a><ButtonCTA>¡Quiero aprender JavaScript!</ButtonCTA></a>
+      </Link>
       <Box mx={"auto"}>
         <Image
           layout="fixed"
