@@ -132,7 +132,7 @@ export default function Info() {
         <UI.Text fontSize="sm" fontFamily="heading">
           {titleVideo}
         </UI.Text>
-        <YouTube videoId={lastVideoId} size="minimal" />
+        <YouTube videoId="GQqT_qvW0Q4" size="minimal" />
 
         <SectionTitle>Recursos</SectionTitle>
         <Item href="/p/mentoria">Reserva una mentoría 1:1 personalizada</Item>
