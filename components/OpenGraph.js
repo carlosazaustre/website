@@ -7,9 +7,7 @@ export const OpenGraph = ({ metadata = {} }) => {
       metadata.description ||
       "Formación y Desarrollo Fullstack en JavaScript. Tutoriales y Cursos sobre Programación Web con React, Node, Firebase, etc...",
     slug: metadata.slug || "",
-    image:
-      `https://website-carlosazaustre.vercel.app${metadata.image}` ||
-      "https://website-carlosazaustre.vercel.app/assets/default-image.png",
+    image: `https://website-carlosazaustre.vercel.app${metadata.image || '/assets/default-image.png'}`,
     date: metadata.date || new Date().toISOString(),
   };
 
