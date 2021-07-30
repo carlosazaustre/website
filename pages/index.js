@@ -70,7 +70,7 @@ export default function Home({ posts }) {
         </UI.Container>
       </UI.Box>
 
-      <UI.Box bg="grayblue.900">
+      <UI.Box bg="grayblue.900" position="relative" zIndex="1">
         <UI.Container maxW="container.2xl" px={[0, 4]}>
           <UI.Flex
             direction={["column", "column", "column", "row"]}
