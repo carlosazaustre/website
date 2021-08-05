@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   height: 0.1rem;
   left: 1px;
   position: absolute;
-  top: 50rem;
+  top: 5px;
   width: 0.1rem;
 `;
 const StyledSVG = styled.svg`
