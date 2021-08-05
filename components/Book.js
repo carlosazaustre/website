@@ -9,13 +9,13 @@ const StyledBookLink = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
-    bottom: -20px;
+    bottom: -30px;
     cursor: pointer;
     transition: bottom var(--chakra-transition-duration-slow)
       var(--chakra-transition-easing-ease-in);
 
     &:hover {
-      bottom: -11px;
+      bottom: -18px;
     }
   }
 `;
