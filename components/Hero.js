@@ -48,7 +48,6 @@ export const Hero = () => {
       </Link>
       <Box mx={"auto"}>
         <Image
-          layout="fixed"
           width={400}
           height={150}
           src="/assets/company-logos.png"

@@ -39,7 +39,7 @@ export default function Home({ posts }) {
   return (
     <Fragment>
       <OpenGraph />
-      <UI.Box bg="brand.900" maxHeight="780px">
+      <UI.Box bg="brand.900" maxHeight={{md: "780px"}}>
         <UI.Container maxW="container.2xl">
           <Header />
 
