@@ -25,10 +25,7 @@ const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);
   color: var(--chakra-colors-white);
   position: relative;
-<<<<<<< HEAD
   overflow: visible;
-=======
->>>>>>> main
   z-index: 2;
 `;
 
@@ -37,7 +34,7 @@ export const Footer = () => {
     <StyledFooter>
       <Container maxW="container.2xl">
         <Flex
-          px={16}
+          px={{md: 16}}
           py={8}
           w="100%"
           direction={["column", "column", "column", "row"]}
@@ -51,6 +48,7 @@ export const Footer = () => {
             align={["center", "center", "center", "flex-start"]}
             direction="column"
             textAlign={["center", "center", "center", "left"]}
+            marginBottom={[6, 6,]}
           >
             <NextLink href="/">
               <a>
@@ -59,7 +57,6 @@ export const Footer = () => {
                   justify={["center", "center", "center", "flex-start"]}
                   my={4}
                   ml={8}
-                  minWidth="300px"
                 >
                   <Logo size="40px" />
                   <Text
@@ -108,7 +105,7 @@ export const Footer = () => {
             <Heading as="h4" size="sm" p="4">
               Páginas
             </Heading>
-            <UnorderedList styleType="none">
+            <UnorderedList styleType="none" ml={[0, 0, 0, 4]}>
               <ListItem>
                 <NextLink href="/rss.xml">
                   <Link>RSS</Link>
@@ -126,7 +123,7 @@ export const Footer = () => {
               </ListItem>
               <ListItem>
                 <NextLink href="/p/sobre-mi">
-                  <Link>Sobre mi</Link>
+                  <Link>Sobre mí</Link>
                 </NextLink>
               </ListItem>
               <ListItem>
@@ -141,7 +138,7 @@ export const Footer = () => {
             <Heading as="h4" size="sm" p="4">
               Recursos
             </Heading>
-            <UnorderedList styleType="none">
+            <UnorderedList styleType="none" ml={[0, 0, 0, 4]}>
               <ListItem>
                 <NextLink href="/libros/aprendiendo-javascript">
                   <Link>Aprende JavaScript desde cero</Link>
@@ -174,7 +171,7 @@ export const Footer = () => {
             <Heading as="h4" size="sm" p="4">
               Legal
             </Heading>
-            <UnorderedList styleType="none">
+            <UnorderedList styleType="none" ml={[0, 0, 0, 4]}>
               <ListItem>
                 <Link href="/privacidad">
                   <a>Política de Privacidad</a>
