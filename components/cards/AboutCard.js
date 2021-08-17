@@ -9,7 +9,7 @@ export const AboutCard = () => {
       type="aside"
       bgColor="secondary.900"
       headerColor="brand.900"
-      headerTitle="Sobre Mi"
+      headerTitle="Sobre Mí"
     >
       <Fragment>
         <Flex justify="center" py="4">

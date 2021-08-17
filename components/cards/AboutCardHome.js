@@ -20,7 +20,7 @@ export const AboutCardHome = () => {
       </Text>
       <NextLink href="/p/sobre-mi">
         <Link py={4} color="brand.900">
-          Más sobre mi →
+          Más sobre mí →
         </Link>
       </NextLink>
     </Card>
