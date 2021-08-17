@@ -40,7 +40,7 @@ const SectionLinkItem = styled.a`
 export const SectionLinks = () => {
   return (
     <nav>
-      <Flex direction="row">
+      <Flex direction="row" wrap="wrap">
         {sections.map(({ name, url }) => (
           <NextLink key={name} href={url} passHref>
             <SectionLinkItem>{name}</SectionLinkItem>
