@@ -11,7 +11,7 @@ const matter = require("gray-matter");
     site_url: "https://carlosazaustre.es",
     feed_url: "https://carlosazaustre.es/rss.xml",
     webMaster: "Carlos Azaustre",
-    copyright: `2011-${new Date().getFullYear} Carlos Azaustre`,
+    copyright: `2011-${new Date().getFullYear()} Carlos Azaustre`,
     language: "es",
   });
 
