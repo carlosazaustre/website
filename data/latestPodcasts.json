@@ -1,5 +1,93 @@
 [
   {
+    "audio_preview_url": "https://p.scdn.co/mp3-preview/401840e80369671479e42cf9d1eef342a6cfc8c4",
+    "description": "Soluciona tus dudas sobre cómo empezar a ser Freelance, cómo conseguir clientes y darte visibilidad en esta charla que tuvimos con Marta Pérez, una de las Community Builder de Malt, una plataforma para que Freelancers puedan encontrar ofertas de trabajo.  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "duration_ms": 3791377,
+    "explicit": false,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/episode/66ytmkgGU1SQ2Z7XicMnc2"
+    },
+    "href": "https://api.spotify.com/v1/episodes/66ytmkgGU1SQ2Z7XicMnc2",
+    "html_description": "<p>Soluciona tus dudas sobre cómo empezar a ser Freelance, cómo conseguir clientes y darte visibilidad en esta charla que tuvimos con Marta Pérez, una de las Community Builder de Malt, una plataforma para que Freelancers puedan encontrar ofertas de trabajo.</p><br/>--- <br/>Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "id": "66ytmkgGU1SQ2Z7XicMnc2",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/ab6765630000ba8a77ea99cc5a53a4e180b1d31a",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/ab67656300005f1f77ea99cc5a53a4e180b1d31a",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/ab6765630000f68d77ea99cc5a53a4e180b1d31a",
+        "width": 64
+      }
+    ],
+    "is_externally_hosted": false,
+    "is_playable": true,
+    "language": "es",
+    "languages": [
+      "es"
+    ],
+    "name": "Episodio 3 - Cómo Ser Freelance Developer | Hablamos con Marta Pérez de Malt",
+    "release_date": "2022-01-19",
+    "release_date_precision": "day",
+    "resume_point": {
+      "fully_played": false,
+      "resume_position_ms": 0
+    },
+    "type": "episode",
+    "uri": "spotify:episode:66ytmkgGU1SQ2Z7XicMnc2"
+  },
+  {
+    "audio_preview_url": "https://p.scdn.co/mp3-preview/b31fe6d0f60a68eb159c205eb8a655dcccefa2c2",
+    "description": "¿Qué es la Neurodiversidad? Un apasionante mundo dónde tienen cabida muchas áreas y que en el sector de la programación y el desarrollo de software se ven más de lo que creemos. En este episodio nos acompaña Paola García (La primera invitada!), Ingeniera y Postgraduada en Genómica que nos aportará su experiencia y conocimientos sobre este area para que lo comprendamos y mejor y entendamos como nos puede afectar en el día a día en nuestro sector. Puedes seguir a Paola en las siguientes redes: - Twitter: @ggarciapaola - Instagram: @paolagarcianeurodiversidad - YouTube: Paola García Música de fondo: \"Communication Disorder\" de Hola Beats  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "duration_ms": 4521216,
+    "explicit": false,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/episode/2W1DnjeSZbK0bNNQ3tK79i"
+    },
+    "href": "https://api.spotify.com/v1/episodes/2W1DnjeSZbK0bNNQ3tK79i",
+    "html_description": "¿Qué es la Neurodiversidad? Un apasionante mundo dónde tienen cabida muchas áreas y que en el sector de la programación y el desarrollo de software se ven más de lo que creemos.<br/>En este episodio nos acompaña Paola García (La primera invitada!), Ingeniera y Postgraduada en Genómica que nos aportará su experiencia y conocimientos sobre este area para que lo comprendamos y mejor y entendamos como nos puede afectar en el día a día en nuestro sector.<br/>Puedes seguir a Paola en las siguientes redes:<br/>- Twitter: &#64;ggarciapaola<br/>- Instagram: &#64;paolagarcianeurodiversidad<br/>- YouTube: Paola García<br/>Música de fondo: &#34;Communication Disorder&#34; de Hola Beats<br/>--- <br/>Send in a voice message: https://anchor.fm/carlosazaustre/message",
+    "id": "2W1DnjeSZbK0bNNQ3tK79i",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/ab6765630000ba8a5cbfe49a978d83a28a38589e",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/ab67656300005f1f5cbfe49a978d83a28a38589e",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/ab6765630000f68d5cbfe49a978d83a28a38589e",
+        "width": 64
+      }
+    ],
+    "is_externally_hosted": false,
+    "is_playable": true,
+    "language": "es",
+    "languages": [
+      "es"
+    ],
+    "name": "Episodio 2 - Hablamos de Neurodiversidad con Paola Garcia",
+    "release_date": "2021-08-07",
+    "release_date_precision": "day",
+    "resume_point": {
+      "fully_played": false,
+      "resume_position_ms": 0
+    },
+    "type": "episode",
+    "uri": "spotify:episode:2W1DnjeSZbK0bNNQ3tK79i"
+  },
+  {
     "audio_preview_url": "https://p.scdn.co/mp3-preview/28fa2b531d779257bd6cbc8fb5e5e57c5e4ae1e8",
     "description": "Te doy la bienvenida al primer episodio \"oficial\" del podcast Hablando.js, sobre programación y desarrollo web pero no tanto del código, sino desde la parte humana, personal y la experiencia.  Hoy hablamos de cómo el avance de la tecnología está evolucionando los puestos de trabajo, en todos los sectores, pero principalmente el nuestro del desarrollo de software y la programación. Hablamos de GitHub Copilot y cómo este tipo de herramientas nos pueden afectar o no en nuestra profesión. Podcast creado por Carlos Azaustre. Creador de contenido sobre tecnologías web y divulgador en YouTube Música: \"Communication Disorder\" de Hola Beats  ---   Send in a voice message: https://anchor.fm/carlosazaustre/message",
     "duration_ms": 2444132,
@@ -8,7 +96,7 @@
       "spotify": "https://open.spotify.com/episode/5Q4nsJMjFaqpQVJsR5rkOF"
     },
     "href": "https://api.spotify.com/v1/episodes/5Q4nsJMjFaqpQVJsR5rkOF",
-    "html_description": "<p>Te doy la bienvenida al primer episodio \"oficial\" del podcast <strong>Hablando.js, </strong>sobre programación y desarrollo web pero no tanto del código, sino desde la parte humana, personal y la experiencia.</p>\n<p><br>\nHoy hablamos de cómo el avance de la tecnología está evolucionando los puestos de trabajo, en todos los sectores, pero principalmente el nuestro del desarrollo de software y la programación.</p>\n<p>Hablamos de<strong> GitHub Copilot</strong> y cómo este tipo de herramientas nos pueden afectar o no en nuestra profesión.</p>\n<p>Podcast creado por <a href=\"https://carlosazaustre.es\">Carlos Azaustre</a>. Creador de contenido sobre tecnologías web y divulgador en <a href=\"https://youtube.com/carlosazaustre\">YouTube</a></p>\n<p>Música: \"Communication Disorder\" de <a href=\"https://open.spotify.com/artist/7CvWoscqVQJvqb0OcBRQO7?si=jqR4EUMGSRKgo2UgU3xNTQ&amp;dl_branch=1\">Hola Beats</a></p>\n\n--- \n\nSend in a voice message: https://anchor.fm/carlosazaustre/message",
+    "html_description": "<p>Te doy la bienvenida al primer episodio &#34;oficial&#34; del podcast Hablando.js, sobre programación y desarrollo web pero no tanto del código, sino desde la parte humana, personal y la experiencia.</p><br/><p><br /><br/>Hoy hablamos de cómo el avance de la tecnología está evolucionando los puestos de trabajo, en todos los sectores, pero principalmente el nuestro del desarrollo de software y la programación.</p><br/><p>Hablamos de GitHub Copilot y cómo este tipo de herramientas nos pueden afectar o no en nuestra profesión.</p><br/><p>Podcast creado por <a href=\"https://carlosazaustre.es\" rel=\"nofollow\">Carlos Azaustre</a>. Creador de contenido sobre tecnologías web y divulgador en <a href=\"https://youtube.com/carlosazaustre\" rel=\"nofollow\">YouTube</a></p><br/><p>Música: &#34;Communication Disorder&#34; de <a href=\"https://open.spotify.com/artist/7CvWoscqVQJvqb0OcBRQO7?si&#61;jqR4EUMGSRKgo2UgU3xNTQ&amp;dl_branch&#61;1\" rel=\"nofollow\">Hola Beats</a></p><br/>--- <br/>Send in a voice message: https://anchor.fm/carlosazaustre/message",
     "id": "5Q4nsJMjFaqpQVJsR5rkOF",
     "images": [
       {
@@ -52,7 +140,7 @@
       "spotify": "https://open.spotify.com/episode/52KMznI6l9x4MoZrO4uIy0"
     },
     "href": "https://api.spotify.com/v1/episodes/52KMznI6l9x4MoZrO4uIy0",
-    "html_description": "<p>Episodio piloto (como en las series de televisión) de este proyecto de podcast, donde hablaremos no sólo de programación y desarrollo web, sino también de la parte humana y personal, con experiencias, entrevistas y lo que vaya surgiendo.</p>\n<p>Mi nombre es <a href=\"https://carlosazaustre.es\">Carlos Azaustre</a>, y tras varios años trabajando como desarrollador web, ahora me dedico a crear y divulgar contenido relacionado con la programación.</p>\n<p>Gracias por escucharme ✌️</p>\n<p>Además de en este podcast, me encuentras en todas las redes sociales como @carlosazaustre. Expecialmente en <a href=\"http://carlosazaustre.es/youtube\">YouTube</a> donde ya somos <strong>más de 60,000 amantes de JavaScript</strong></p>\n\n--- \n\nSend in a voice message: https://anchor.fm/carlosazaustre/message",
+    "html_description": "<p>Episodio piloto (como en las series de televisión) de este proyecto de podcast, donde hablaremos no sólo de programación y desarrollo web, sino también de la parte humana y personal, con experiencias, entrevistas y lo que vaya surgiendo.</p><br/><p>Mi nombre es <a href=\"https://carlosazaustre.es\" rel=\"nofollow\">Carlos Azaustre</a>, y tras varios años trabajando como desarrollador web, ahora me dedico a crear y divulgar contenido relacionado con la programación.</p><br/><p>Gracias por escucharme ✌️</p><br/><p>Además de en este podcast, me encuentras en todas las redes sociales como &#64;carlosazaustre. Expecialmente en YouTube donde ya somos más de 60,000 amantes de JavaScript</p><br/>--- <br/>Send in a voice message: https://anchor.fm/carlosazaustre/message",
     "id": "52KMznI6l9x4MoZrO4uIy0",
     "images": [
       {
