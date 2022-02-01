@@ -1,4 +1,5 @@
 import NextImage from "next/image";
+import {Flex, Img } from "../components/elements";
 
 import {
   YouTube,
@@ -75,19 +76,21 @@ const Header = ({ avatar, username, description }) => {
       d="column"
       align="center"
       px={2}
-      pt={8}
-      pb={4}
+      pt={2}
+      pb={2}
     >
-      <NextImage
-        width="100px"
-        height="100px"
-        src={avatar}
-        alt="Carlos Azaustre - Google Developer Expert en Tecnologías Web"
-      />
+      <Flex justify="center" py="4">
+        <Img
+          boxSize="96px"
+          borderRadius="full"
+          src={avatar}
+          alt="Carlos Azaustre - Google Developer Expert en Tecnologías Web"
+        />
+      </Flex>
       <UI.Heading as="h1" size="xl">
         {username}
       </UI.Heading>
-      <UI.Text fontSize="lg" mt={2}>
+      <UI.Text fontSize="lg" mt={0}>
         {description}
       </UI.Text>
     </UI.Box>
@@ -117,33 +120,39 @@ export default function Info() {
   return (
     <Container>
       <Header
-        avatar="/assets/carlos-azaustre-gde-web.png"
+        avatar="/assets/carlos-azaustre-gde-web.jpeg"
         title="Carlos Azaustre"
-        description="Aprende Programación y domina JavaScript."
+        description="Carlos Azaustre"
       />
       <InnerContainer>
-        <SectionTitle>Escucha el podcast</SectionTitle>
+        <SectionTitle>📺 Último video en YouTube</SectionTitle>
+        <YouTube videoId={lastVideoId} size="minimal" />
+        <SectionTitle>🎧 Escucha el podcast</SectionTitle>
         <SpotifyPodcast
           size="compact"
           theme="dark"
           episode={latestPodcasts[0].id}
         />
-        <SectionTitle>Mira el último video</SectionTitle>
-        <UI.Text fontSize="sm" fontFamily="heading">
-          {titleVideo}
-        </UI.Text>
-        <YouTube videoId={lastVideoId} size="minimal" />
 
         <SectionTitle>Recursos</SectionTitle>
+        <UI.Flex align="center" justify="center" wrap="wrap">
+          <Social.Youtube href="//youtube.com/carlosazaustre?sub_confirmation=1" />
+          <Social.Twitch href="//twitch.tv/carlosazaustre" />
+          <Social.Twitter href="//twitter.com/carlosazaustre" />
+          <Social.Instagram href="//instagram.com/carlosazaustre" />
+          <Social.Tiktok href="//tiktok.com/@carlosazaustre" />
+          <Social.Linkedin href="//linkedin.com/in/carlosazaustre" />
+        </UI.Flex>
+
+        <Item href="https://discord.gg/w5GG5gZQNe">Únete a la comunidad en Discord (+1.4K)</Item>
         <Item href="/p/mentoria">Reserva una mentoría 1:1 personalizada</Item>
-        <Item href="/discord">Únete a la comunidad en Discord (+1.4K)</Item>
-        <Item href="/newsletter">
+        <Item href="https://www.getrevue.co/profile/carlosazaustre">
           Mantente al día apuntándote a la Newsletter
         </Item>
 
         <MediaItem
           title="Aprende JavaScript desde cero con mi libro. Consíguelo desde Amazon"
-          href="//www.amazon.com/gp/product/B08TZ3HSYZ"
+          href="/libros/aprendiendo-javascript"
           imageSrc="/assets/foto-libro-javascript.jpeg"
           size="230px"
         />
@@ -167,15 +176,6 @@ export default function Info() {
           size="230px"
         />
 
-        <SectionTitle>También estoy en</SectionTitle>
-        <UI.Flex align="center" justify="center" wrap="wrap">
-          <Social.Youtube href="//youtube.com/carlosazaustre?sub_confirmation=1" />
-          <Social.Twitch href="//twitch.tv/carlosazaustre" />
-          <Social.Twitter href="//twitter.com/carlosazaustre" />
-          <Social.Instagram href="//instagram.com/carlosazaustre" />
-          <Social.Tiktok href="//tiktok.com/@carlosazaustre" />
-          <Social.Linkedin href="//linkedin.com/in/carlosazaustre" />
-        </UI.Flex>
         <UI.Link href="/">carlosazaustre.es</UI.Link>
       </InnerContainer>
     </Container>

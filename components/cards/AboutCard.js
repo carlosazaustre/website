@@ -16,7 +16,7 @@ export const AboutCard = () => {
           <Img
             boxSize="96px"
             borderRadius="full"
-            src="/assets/carlos-azaustre-gde-web.png"
+            src="/assets/carlos-azaustre-gde-web.jpeg"
             alt="Carlos Azaustre"
           />
         </Flex>
