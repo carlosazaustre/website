@@ -295,7 +295,7 @@ export default function BookJavaScriptPage() {
           >
             <UI.Box w={["100%", "100%", "30%"]} mx="auto" align="center">
               <Image
-                src="/assets/carlos-azaustre-gde-web.png"
+                src="/assets/carlos-azaustre-gde-web.jpeg"
                 width="190px"
                 height="190px"
               />
