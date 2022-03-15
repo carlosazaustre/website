@@ -34,7 +34,7 @@ export const Footer = () => {
     <StyledFooter>
       <Container maxW="container.2xl">
         <Flex
-          px={{md: 16}}
+          px={{ md: 16 }}
           py={8}
           w="100%"
           direction={["column", "column", "column", "row"]}
@@ -48,7 +48,7 @@ export const Footer = () => {
             align={["center", "center", "center", "flex-start"]}
             direction="column"
             textAlign={["center", "center", "center", "left"]}
-            marginBottom={[6, 6,]}
+            marginBottom={[6, 6]}
           >
             <NextLink href="/">
               <a>
