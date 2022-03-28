@@ -117,6 +117,10 @@
     {
       "source": "/rss",
       "destination": "/rss.xml"
-    }
+    },
+    {
+      "source":"/ticjob",
+      "destination":"https://ticjob.es/?utm_source=tiktok",
+    },
   ]
 }
