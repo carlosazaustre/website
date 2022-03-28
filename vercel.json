@@ -120,7 +120,7 @@
     },
     {
       "source":"/ticjob",
-      "destination":"https://ticjob.es/?utm_source=tiktok",
-    },
+      "destination":"https://ticjob.es/?utm_source=tiktok"
+    }
   ]
 }
