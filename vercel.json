@@ -121,6 +121,10 @@
     {
       "source":"/ticjob",
       "destination":"https://ticjob.es/?utm_source=tiktok"
+    },
+    {
+      "source":"/arc",
+      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=social-Twitch&utm_campaign=paid2022&utm_term=202204&utm_content=Carlos-Azaustre"
     }
   ]
 }
