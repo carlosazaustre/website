@@ -181,6 +181,7 @@ export const Footer = () => {
                 <Link href="/cookies">
                   <a>Política de Cookies</a>
                 </Link>
+                <a rel="me" href="https://mstdn.social/@carlosazaustre">Mastodon</a>
               </ListItem>
             </UnorderedList>
           </section>
