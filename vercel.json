@@ -124,7 +124,19 @@
     },
     {
       "source":"/arc",
-      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=social-Twitch&utm_campaign=paid2022&utm_term=202204&utm_content=Carlos-Azaustre"
+      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=social-Twitch&utm_campaign=paid2022&utm_term=202205&utm_content=Carlos-Azaustre"
+    },
+      {
+      "source":"/arc/youtube",
+      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=video&utm_campaign=paid2022&utm_term=202205&utm_content=Carlos-Azaustre"
+    },
+    {
+     "source": "/turing",
+      "destination": "https://www.turing.com/?utm_source=Carlos&utm_medium=Twitch&utm_campaign=Turing+Ambassador"
+    },
+    {
+     "source": "/turing/youtube",
+      "destination": "https://www.turing.com/?utm_source=Carlos&utm_medium=Youtube&utm_campaign=Turing+Ambassador"
     }
   ]
 }
