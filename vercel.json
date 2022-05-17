@@ -142,6 +142,18 @@
       "source": "/turing/twitter",
       "destination": "https://www.turing.com/jobs?utm_source=twitter-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=social&n=dev-mktg-kielo-carlos"
     },
+        {
+      "source": "/turing/linkedin",
+      "destination": "https://www.turing.com/jobs?utm_source=linkedin-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=social&n=dev-mktg-kielo-carlos"
+    },
+    {
+      "source": "/turing/tiktok",
+      "destination": "https://www.turing.com/jobs?utm_source=tiktok-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=social&n=dev-mktg-kielo-carlos"
+    },
+    {
+      "source": "/turing/ig",
+      "destination": "https://www.turing.com/jobs?utm_source=instagram-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=social&n=dev-mktg-kielo-carlos"
+    },
     {
      "source": "/tkww",
       "destination": "https://www.theknotww.com/careers-view-all-jobs?utm_source=twitch&utm_medium=social&utm_campaign=carlos-azaustre-influencer&utm_content=people"
