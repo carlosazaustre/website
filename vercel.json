@@ -165,6 +165,10 @@
     {
      "source": "/tkww/linkedin",
       "destination": "https://www.theknotww.com/careers-view-all-jobs?utm_source=linkedin&utm_medium=social&utm_campaign=carlos-azaustre-influencer&utm_content=people"
+    },
+    {
+     "source": "/tkww/discord",
+      "destination": "https://www.theknotww.com/careers-view-all-jobs/?utm_medium=social&utm_source=discord&utm_content=people&utm_campaign=carlos-azaustre-influencer"
     }
   ]
 }
