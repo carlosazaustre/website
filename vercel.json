@@ -136,19 +136,19 @@
     },
     {
       "source": "/turing/twitter",
-      "destination": "https://www.turing.com/es/jobs?utm_source=twitter-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-twitter&n=social
+      "destination": "https://www.turing.com/es/jobs?utm_source=twitter-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-twitter&n=social"
     },
         {
       "source": "/turing/linkedin",
-      "destination": "https://www.turing.com/es/jobs?utm_source=linkedin-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-linkedin&n=social
+      "destination": "https://www.turing.com/es/jobs?utm_source=linkedin-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-linkedin&n=social"
     },
     {
       "source": "/turing/tiktok",
-      "destination": "https://www.turing.com/es/jobs?utm_source=tiktok-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-tiktok&n=social
+      "destination": "https://www.turing.com/es/jobs?utm_source=tiktok-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-tiktok&n=social"
     },
     {
       "source": "/turing/ig",
-      "destination": "https://www.turing.com/es/jobs?utm_source=instagram-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-instagram&n=social
+      "destination": "https://www.turing.com/es/jobs?utm_source=instagram-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-instagram&n=social"
     },
   ]
 }
