@@ -153,6 +153,10 @@
     {
       "source": "/lemon",
       "destination": "https://lemon.io/for-developers/?utm_campaign=carlosazaustre_supply_es_1_aug_2022&utm_id=im&utm_medium=social&utm_source=youtube"
+    },
+    {
+      "source": "/malt",
+      "destination": "https://www.malt.es/create-profile?utm_medium=organic&utm_source=external&utm_campaign=es_acquis_azaustre_libros_newuser_madrid_marketing"
     }
   ]
 }
