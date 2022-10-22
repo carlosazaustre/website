@@ -14,7 +14,7 @@ const getLatestYoutubeVideos = async () => {
 
   const response = await fetch(
     `${YOUTUBE_API_URL}${queryEndpoint}&key=${YOUTUBE_API_KEY}`
-  )
+  );
 
   const data = await response.json();
   return data.items;

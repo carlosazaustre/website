@@ -11,7 +11,7 @@ const getLatestPodcast = async () => {
   try {
     const url = `https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}/episodes?offset=0&limit=20&market=ES`;
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
         Authorization: `Bearer ${SPOTIFY_TOKEN}`,
       },
@@ -19,15 +19,14 @@ const getLatestPodcast = async () => {
     const json = await response.json();
     console.log(json);
     return json.items;
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
   }
 };
 
 (async () => {
-    const episodes = await getLatestPodcast();
-    const data = JSON.stringify(episodes, null, 2);
-    await fs.writeFile(DATA_FILE, data);
-    console.log("💾 Latest podcasts data stored");
+  const episodes = await getLatestPodcast();
+  const data = JSON.stringify(episodes, null, 2);
+  await fs.writeFile(DATA_FILE, data);
+  console.log("💾 Latest podcasts data stored");
 })();

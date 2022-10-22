@@ -13,9 +13,7 @@ export const Header = () => {
         justify="space-between"
         align="center"
       >
-        <h1 title="Desarrollo JavaScript Fullstack - Carlos Azaustre">
-          <Logo />
-        </h1>
+        <h1 title="Desarrollo JavaScript Fullstack - Carlos Azaustre" />
         <SectionLinks />
         <HStack spacing="40px">
           <Link

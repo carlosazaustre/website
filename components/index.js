@@ -15,6 +15,7 @@ export { Hero } from "./Hero";
 export { Footer } from "./Footer";
 export { ButtonCTA } from "./ButtonCTA";
 export { SectionLinks } from "./SectionLinks";
+export { SocialNetworks } from "./SocialNetworks";
 export { PostMetadata } from "./PostMetadata";
 export { PostListItem } from "./PostListItem";
 export { CourseListItem } from "./CourseListItem";

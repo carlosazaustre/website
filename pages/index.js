@@ -1,86 +1,50 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import styled from "@emotion/styled";
-
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
+import { formatDate } from "@/lib/format-date";
 import {
   elements as UI,
-  Header,
-  Hero,
-  Book,
   Footer,
-  AboutCardHome,
-  BlogCardHome,
-  ContactCardHome,
   OpenGraph,
+  SocialNetworks,
 } from "@/components";
-
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  @media screen and (min-width: 1025px) {
-    height: 82vh;
-    max-height: 700px;
-    flex-direction: row;
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/assets/carlosazaustre-profile-image-large.png");
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: contain;
-  }
-`;
 
 export default function Home({ posts }) {
   return (
     <Fragment>
       <OpenGraph />
-      <UI.Box bg="brand.900" maxHeight={{md: "780px"}}>
+
+      <UI.Box bg="secondary.900" color="white" maxHeight={{ md: "780px" }}>
         <UI.Container maxW="container.2xl">
-          <Header />
+          <UI.Text as="h1" fontSize="4xl">
+            Carlos Azaustre
+          </UI.Text>
+          <UI.Text as="h2" fontSize="md">
+            Ingeniero de software y creador de contenido sobre programación web
+            y JavaScript - Google Developer Expert en Tecnologías Web -
+            Microsoft MVP 2022.
+          </UI.Text>
+          <SocialNetworks />
 
-          <StyledMain role="main">
-            <UI.Flex
-              direction="column"
-              justify="flex-start"
-              w={["100%", "100%", "100%", "59%", "35%"]}
-              pt="0"
-              pr="0"
-              pb="2"
-              pl={[0, 0, 0, 8]}
-            >
-              <Hero />
-            </UI.Flex>
-            <UI.Flex
-              direction="row"
-              w={["100%", "100%", "100%", "39%", "60%"]}
-              justify={["center", "center", "center", "center", "flex-start"]}
-            >
-              <Link href="/libros/aprendiendo-javascript">
-                <a>
-                  <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
-                </a>
-              </Link>
-            </UI.Flex>
-          </StyledMain>
+          <UI.Text as="h3" fontSize="xl">
+            Últimas publicaciones
+          </UI.Text>
+          {posts.map((post) => (
+            <Link href={`/${post.slug}`} key={post.slug}>
+              <UI.Flex direction="column">
+                <UI.Box w="140px">
+                  <UI.Text color="brand.900">{formatDate(post.date)}</UI.Text>
+                </UI.Box>
+                <UI.Spacer />
+                <UI.Box>
+                  <UI.Text as="u">{post.title}</UI.Text>
+                </UI.Box>
+              </UI.Flex>
+            </Link>
+          ))}
         </UI.Container>
-      </UI.Box>
-
-      <UI.Box bg="grayblue.900" position="relative" zIndex="1">
-        <UI.Container maxW="container.2xl" px={[0, 4]}>
-          <UI.Flex
-            direction={["column", "column", "column", "row"]}
-            justify="space-between"
-          >
-            <AboutCardHome />
-            <BlogCardHome posts={posts} />
-            <ContactCardHome />
-          </UI.Flex>
-        </UI.Container>
+        <Link href="/blog">Ver todos</Link>
       </UI.Box>
 
       <Footer />
@@ -90,7 +54,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = await getAllFilesFrontMatter("posts");
-  const posts = allPosts.sort(orderByDate).slice(0, 5);
+  const posts = allPosts.sort(orderByDate).slice(0, 10);
 
   return {
     props: { posts },
