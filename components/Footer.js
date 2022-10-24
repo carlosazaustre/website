@@ -33,8 +33,10 @@ export const Footer = () => {
           justify="space-between"
           textAlign="center"
           align="center"
+          fontFamily="heading"
+          fontSize="sm"
         >
-          &copy; {new Date().getFullYear()} | Made with 💻 in 🇪🇸
+          &copy; {new Date().getFullYear()} Carlos Azaustre | Made with 💻 in 🇪🇸
         </Flex>
       </Container>
     </StyledFooter>

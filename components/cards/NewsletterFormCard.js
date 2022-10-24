@@ -22,14 +22,10 @@ export const NewsletterFormCard = ({ size }) => {
   return (
     <Card
       type={size}
-      bgColor="brand.900"
-      headerTitle="Únete y ponte al día en desarrollo web"
+      bgColor="secondary.900"
+      headerTitle="¡Únete y ponte al día en desarrollo web!"
+      headerColor="white"
     >
-      <Text py={2}>
-        Recibe puntualmente información sobre las últimas novedades en
-        tecnologías web y desarrollo web moderno para que estés siempre estés a
-        la última
-      </Text>
       <form
         action="https://www.getrevue.co/profile/carlosazaustre/add_subscriber"
         method="post"
@@ -42,25 +38,10 @@ export const NewsletterFormCard = ({ size }) => {
             <InputLeftElement
               pointerEvents="none"
               color="grayblue.900"
-              children={<IconUser />}
-            />
-            <Input
-              bg="white"
-              placeholder="Tu nombre"
-              type="text"
-              name="member[first_name]"
-              id="member_first_name"
-            />
-          </InputGroup>
-
-          <InputGroup size="lg">
-            <InputLeftElement
-              pointerEvents="none"
-              color="grayblue.900"
               children={<IconMail />}
             />
             <Input
-              bg="white"
+              bg="secondary.500"
               placeholder="Tu email"
               type="email"
               name="member[email]"
@@ -69,7 +50,8 @@ export const NewsletterFormCard = ({ size }) => {
           </InputGroup>
 
           <Button
-            colorScheme="secondary"
+            bg="brand.900"
+            color="black"
             fontFamily="heading"
             w="100%"
             type="submit"
@@ -81,17 +63,9 @@ export const NewsletterFormCard = ({ size }) => {
             Suscríbirme
           </Button>
 
-          <Text px={2}>
-            Subscribiéndote, estás de acuerdo con los{" "}
-            <Link href="https://www.getrevue.co/terms">Términos de uso</Link> de
-            Revue y su{" "}
-            <Link href="https://www.getrevue.co/privacy">
-              Política de Privacidad
-            </Link>
-            .
+          <Text px={2} fontSize="sm" fontFamily="heading">
+            🔒 Libre de Spam. Sólo contenido que te interesa.
           </Text>
-
-          <Text px={2}>🔒 Libre de Spam. Sólo contenido que te interesa.</Text>
         </Stack>
       </form>
     </Card>

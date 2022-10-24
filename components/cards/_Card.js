@@ -10,7 +10,7 @@ export const Card = ({
 }) => {
   const CardContent = () => (
     <Fragment>
-      <Heading as="h4" color={headerColor}>
+      <Heading as="h4" color={headerColor} size="md">
         {headerTitle}
       </Heading>
       <section>{children}</section>

@@ -30,15 +30,9 @@ export default function Home({ posts }) {
       <UI.Box bg="secondary.900" color="white">
         <UI.Container maxW="container.md" pt="8">
           <SectionLinks />
-          <UI.Text
-            fontFamily="heading"
-            fontWeight="500"
-            as="h1"
-            fontSize="4xl"
-            my="4"
-          >
+          <UI.Heading fontFamily="heading" as="h1" size="xl" my="4">
             Carlos Azaustre
-          </UI.Text>
+          </UI.Heading>
           <UI.Text fontFamily="heading" as="h2" fontSize="md" my="4">
             Ingeniero de software y creador de contenido sobre programación web
             y JavaScript. Google Developer Expert en Tecnologías Web y Microsoft
@@ -48,7 +42,7 @@ export default function Home({ posts }) {
 
           <UI.Text
             fontFamily="heading"
-            fontWeight="400"
+            fontWeight="600"
             as="h3"
             fontSize="xl"
             my="4"
