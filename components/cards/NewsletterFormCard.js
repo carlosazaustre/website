@@ -8,7 +8,7 @@ import {
   Input,
   Button,
   Stack,
-  Link,
+  Heading,
 } from "../elements";
 
 export const NewsletterFormCard = ({ size }) => {
@@ -20,54 +20,51 @@ export const NewsletterFormCard = ({ size }) => {
   };
 
   return (
-    <Card
-      type={size}
-      bgColor="secondary.900"
-      headerTitle="¡Únete y ponte al día en desarrollo web!"
-      headerColor="white"
+    <form
+      action="https://www.getrevue.co/profile/carlosazaustre/add_subscriber"
+      method="post"
+      id="revue-form"
+      name="revue-form"
+      target="_blank"
     >
-      <form
-        action="https://www.getrevue.co/profile/carlosazaustre/add_subscriber"
-        method="post"
-        id="revue-form"
-        name="revue-form"
-        target="_blank"
-      >
-        <Stack spacing="24px" py={2}>
-          <InputGroup size="lg">
-            <InputLeftElement
-              pointerEvents="none"
-              color="grayblue.900"
-              children={<IconMail />}
-            />
-            <Input
-              bg="secondary.500"
-              placeholder="Tu email"
-              type="email"
-              name="member[email]"
-              id="member_email"
-            />
-          </InputGroup>
+      <Stack spacing="20px" py={2}>
+        <Heading as="h4" size="md">
+          ¡Únete y ponte al día en desarrollo web!
+        </Heading>
+        <InputGroup size="md">
+          <InputLeftElement
+            pointerEvents="none"
+            color="grayblue.900"
+            children={<IconMail />}
+          />
+          <Input
+            bg="secondary.500"
+            placeholder="Tu email"
+            type="email"
+            name="member[email]"
+            id="member_email"
+            fontSize="xs"
+          />
+        </InputGroup>
 
-          <Button
-            bg="brand.900"
-            color="black"
-            fontFamily="heading"
-            w="100%"
-            type="submit"
-            name="member[subscribe]"
-            id="member_submit"
-            size="lg"
-            onClick={() => generateLead()}
-          >
-            Suscríbirme
-          </Button>
+        <Button
+          bg="brand.900"
+          color="black"
+          fontFamily="heading"
+          w="100%"
+          type="submit"
+          name="member[subscribe]"
+          id="member_submit"
+          size="sm"
+          onClick={() => generateLead()}
+        >
+          Suscríbirme
+        </Button>
 
-          <Text px={2} fontSize="sm" fontFamily="heading">
-            🔒 Libre de Spam. Sólo contenido que te interesa.
-          </Text>
-        </Stack>
-      </form>
-    </Card>
+        <Text px={2} fontSize="xs" fontFamily="heading">
+          🔒 Libre de Spam.
+        </Text>
+      </Stack>
+    </form>
   );
 };

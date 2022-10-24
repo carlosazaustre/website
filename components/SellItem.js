@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import { Link, Box, Text } from "./elements";
 
 const StyledBoxCard = styled(Box)`
-  background-color: white;
+  background-color: var(--chakra-colors-brand-900);
+  color: var(--chakra-colors-black);
   margin: var(--chakra-sizes-4);
   border-radius: var(--chakra-radii-lg);
   width: ${(props) => (props.type === "small" ? "190px" : "300px")};

@@ -16,7 +16,7 @@ pre[class*="language-"] {
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
-  font-size: 1em;
+  font-size: 0.9em;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -33,7 +33,7 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
   text-shadow: none;
-  background: rgba(29, 59, 83, 0.99);
+  background: rgba(20, 31, 40, 0.99);
 }
 
 pre[class*="language-"]::selection,
@@ -41,7 +41,7 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   text-shadow: none;
-  background: rgba(29, 59, 83, 0.99);
+  background: rgba(20, 31, 40, 0.99);
 }
 
 @media print {
@@ -61,7 +61,8 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   color: white;
-  background: #011627;
+  background: #111416;
+  border-radius: .3em;
 }
 
 :not(pre) > code[class*="language-"] {

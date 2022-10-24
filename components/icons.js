@@ -10,6 +10,7 @@ export {
   FaLinkedinIn as IconLinkedin,
   FaStar as IconStar,
   FaRegStar as IconStarEmpty,
+  FaStarHalfAlt as IconStarHalf,
 } from "react-icons/fa";
 
 export {

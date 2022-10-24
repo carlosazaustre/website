@@ -20,7 +20,7 @@ const theme = extendTheme({
   },
   fonts: {
     heading: "Poppins",
-    body: "Lato",
+    body: "Poppins",
   },
   sizes: {
     container: {

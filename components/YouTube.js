@@ -40,8 +40,7 @@ export const YouTube = ({
     <Box
       maxW="1080px"
       boxShadow="lg"
-      rounded="lg"
-      borderWidth="1px"
+      rounded="xl"
       bg={description ? "white" : "secondary.100"}
       mx="auto"
       my={[2, 8]}

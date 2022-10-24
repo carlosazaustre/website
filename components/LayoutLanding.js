@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import { Box, Container } from "./elements";
 import { OpenGraph } from "./OpenGraph";
-import { PageHeader } from "./PageHeader";
+import { SectionLinks } from "./SectionLinks";
 import { Footer } from "./Footer";
 
 const Circle = styled.div`
@@ -62,17 +62,21 @@ const StyledContent = styled.div`
 
 export const LayoutLanding = ({ children, metadata = {} }) => {
   return (
-    <Box bg="grayblue.900" mx="auto">
+    <Box
+      bg="secondary.900"
+      borderTop="8px solid"
+      borderColor="brand.900"
+      color="white"
+    >
       <OpenGraph metadata={metadata} />
+      <Container maxW="container.md" pt="8">
+        <SectionLinks />
+        {/* <StyledBox maxW="container.2xl" px={[0, 4]}> */}
+        {children}
+        {/* </StyledBox> */}
 
-      <StyledBox maxW="container.2xl" px={[0, 4]}>
-        <Circle left />
-        <Circle right />
-        <PageHeader />
-        <StyledContent>{children}</StyledContent>
-      </StyledBox>
-
-      <Footer />
+        <Footer />
+      </Container>
     </Box>
   );
 };
