@@ -10,7 +10,7 @@ import {
 
 export const SocialNetworks = () => {
   return (
-    <HStack spacing="24px">
+    <HStack spacing="24px" my="8">
       <Link href="https://youtube.com/carlosazaustre?sub_confirmation=1">
         <IconYoutube size="24px" />
       </Link>

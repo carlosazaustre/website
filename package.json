@@ -17,6 +17,7 @@
     "@chakra-ui/react": "^1.6.3",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "@fontsource/lato": "^4.5.10",
     "@fontsource/poppins": "^4.4.5",
     "@fontsource/roboto": "^4.4.5",
     "@sentry/nextjs": "^6.7.2",
