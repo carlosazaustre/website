@@ -2,7 +2,7 @@ import { TwitterShareButton, TwitterIcon } from "react-share";
 import styled from "@emotion/styled";
 import { Flex, Spacer } from "./elements";
 
-const StyledShare = styled.p`
+const StyledShare = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

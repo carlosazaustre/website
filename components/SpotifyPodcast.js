@@ -1,5 +1,3 @@
-import latestPodcasts from "@/data/latestPodcasts.json";
-
 const SIZES = {
   normal: "232",
   compact: "152",

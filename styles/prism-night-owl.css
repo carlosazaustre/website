@@ -6,6 +6,8 @@
  * Added by Souvik Mandal [@SimpleIndian]
  */
 
+@import "@fontsource/ibm-plex-mono/500.css";
+
 code[class*="language-"],
 pre[class*="language-"] {
   color: #d6deeb;
