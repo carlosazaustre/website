@@ -119,12 +119,44 @@
       "destination": "/rss.xml"
     },
     {
-      "source":"/ticjob",
-      "destination":"https://ticjob.es/?utm_source=tiktok"
+      "source":"/arc",
+      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=social-Twitch&utm_campaign=paid2022&utm_term=202206&utm_content=Carlos-Azaustre"
+    },
+      {
+      "source":"/arc/youtube",
+      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=video&utm_campaign=paid2022&utm_term=202206&utm_content=Carlos-Azaustre"
     },
     {
-      "source":"/arc",
-      "destination": "https://arc.dev/?utm_source=influencer&utm_medium=social-Twitch&utm_campaign=paid2022&utm_term=202204&utm_content=Carlos-Azaustre"
+     "source": "/turing",
+      "destination": "https://www.turing.com/es/jobs?utm_source=twitch-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-twitch&n=social"
+    },
+    {
+     "source": "/turing/youtube",
+      "destination": "https://www.turing.com/es/jobs?utm_source=youtube-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-youtube&n=social"
+    },
+    {
+      "source": "/turing/twitter",
+      "destination": "https://www.turing.com/es/jobs?utm_source=twitter-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-twitter&n=social"
+    },
+        {
+      "source": "/turing/linkedin",
+      "destination": "https://www.turing.com/es/jobs?utm_source=linkedin-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-linkedin&n=social"
+    },
+    {
+      "source": "/turing/tiktok",
+      "destination": "https://www.turing.com/es/jobs?utm_source=tiktok-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-tiktok&n=social"
+    },
+    {
+      "source": "/turing/ig",
+      "destination": "https://www.turing.com/es/jobs?utm_source=instagram-ad&utm_medium=social&utm_campaign=kielo-carlos-multi&s=dev-mktg-kielo-carlos-instagram&n=social"
+    },
+    {
+      "source": "/lemon",
+      "destination": "https://lemon.io/for-developers/?utm_campaign=carlosazaustre_supply_es_1_aug_2022&utm_id=im&utm_medium=social&utm_source=youtube"
+    },
+    {
+      "source": "/malt",
+      "destination": "https://www.malt.es/create-profile?utm_medium=organic&utm_source=external&utm_campaign=es_acquis_azaustre_libros_newuser_madrid_marketing"
     }
   ]
 }
