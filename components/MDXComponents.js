@@ -10,7 +10,7 @@ import { Summary } from "./Summary";
 import { CustomLink } from "./CustomLink";
 import { CustomImage } from "./CustomImage";
 import { AboutCard } from "./cards/AboutCard";
-import { NewsletterFormCard } from "./cards/NewsletterFormCard";
+import { NewsletterFormCard } from "./NewsletterFormCard";
 import {
   Divider,
   Heading,

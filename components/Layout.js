@@ -5,7 +5,7 @@ import { SectionLinks } from "./SectionLinks";
 import { Footer } from "./Footer";
 import { PostMetadata } from "./PostMetadata";
 import { Disqus } from "./Disqus";
-import { NewsletterFormCard } from "./cards/NewsletterFormCard";
+import { NewsletterFormCard } from "./NewsletterFormCard";
 import { OpenGraph } from "./OpenGraph";
 
 export const Layout = ({ children, metadata = {}, type = "post" }) => {

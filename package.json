@@ -6,7 +6,6 @@
     "dev": "next dev",
     "generate:rss": "node ./scripts/generate-rss.js",
     "generate:videos": "node ./scripts/generate-video-data.js",
-    "generate:podcasts": "node ./scripts/generate-podcast-data.js",
     "prebuild": "npm run generate:rss",
     "build": "next build",
     "postbuild": "next-sitemap",

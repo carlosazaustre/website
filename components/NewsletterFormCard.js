@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import * as ga from "@/lib/ga";
-import { IconMail } from "../icons";
+import { IconMail } from "./icons";
 import {
   Text,
   InputGroup,
@@ -8,7 +8,7 @@ import {
   Input,
   Button,
   Stack,
-} from "../elements";
+} from "./elements";
 
 const StyledForm = styled.form`
   width: 100%;
@@ -33,6 +33,15 @@ export const NewsletterFormCard = ({ size }) => {
       target="_blank"
     >
       <Stack spacing="20px" py={2}>
+        <Text
+          fontFamily="heading"
+          fontWeight="600"
+          as="h3"
+          fontSize="xl"
+          my="2"
+        >
+          ¡Únete y ponte al día en desarrollo web!
+        </Text>
         <InputGroup size="md">
           <InputLeftElement
             pointerEvents="none"
@@ -60,7 +69,7 @@ export const NewsletterFormCard = ({ size }) => {
           size="md"
           onClick={() => generateLead()}
         >
-          Suscríbirme
+          Suscribirme
         </Button>
 
         <Text px={2} fontSize="xs" fontFamily="heading">

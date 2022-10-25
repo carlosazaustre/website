@@ -14,7 +14,6 @@ import {
   NewsletterFormCard,
 } from "@/components";
 import latestVideos from "@/data/latestVideos.json";
-// import latestPodcasts from "@/data/latestPodcasts.json";
 
 export default function Home({ posts }) {
   return (
@@ -145,15 +144,7 @@ export default function Home({ posts }) {
                 Último podcast
               </UI.Text>
               <SpotifyPodcast episode="66ytmkgGU1SQ2Z7XicMnc2?si=Do8Ggb7xQBK5piEEEF4U8Q" />
-              <UI.Text
-                fontFamily="heading"
-                fontWeight="600"
-                as="h3"
-                fontSize="xl"
-                my="4"
-              >
-                ¡Únete y ponte al día en desarrollo web!
-              </UI.Text>
+
               <NewsletterFormCard />
             </UI.Box>
           </UI.Flex>

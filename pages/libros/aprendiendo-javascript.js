@@ -3,7 +3,6 @@ import {
   LayoutLanding,
   SellItem,
   ReviewCard,
-  Rating,
   elements as UI,
   icons as Icons,
 } from "@/components";
