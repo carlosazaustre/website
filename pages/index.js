@@ -38,7 +38,7 @@ export default function Home({ posts }) {
               <UI.Heading
                 fontFamily="heading"
                 as="h1"
-                size="2xl"
+                size="xl"
                 mt={8}
                 mb={4}
                 textAlign="left"
