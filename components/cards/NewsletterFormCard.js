@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import * as ga from "@/lib/ga";
-import { Card } from "./_Card";
-import { IconMail, IconUser } from "../icons";
+import { IconMail } from "../icons";
 import {
   Text,
   InputGroup,
@@ -8,8 +8,13 @@ import {
   Input,
   Button,
   Stack,
-  Heading,
 } from "../elements";
+
+const StyledForm = styled.form`
+  width: 100%;
+  max-width: 370px;
+  margin: 0 auto;
+`;
 
 export const NewsletterFormCard = ({ size }) => {
   const generateLead = () => {
@@ -20,7 +25,7 @@ export const NewsletterFormCard = ({ size }) => {
   };
 
   return (
-    <form
+    <StyledForm
       action="https://www.getrevue.co/profile/carlosazaustre/add_subscriber"
       method="post"
       id="revue-form"
@@ -52,7 +57,7 @@ export const NewsletterFormCard = ({ size }) => {
           type="submit"
           name="member[subscribe]"
           id="member_submit"
-          size="sm"
+          size="md"
           onClick={() => generateLead()}
         >
           Suscríbirme
@@ -62,6 +67,6 @@ export const NewsletterFormCard = ({ size }) => {
           🔒 Libre de Spam.
         </Text>
       </Stack>
-    </form>
+    </StyledForm>
   );
 };

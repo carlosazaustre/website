@@ -55,7 +55,7 @@ export default function Blog({ posts }) {
   };
 
   return (
-    <Layout type="post" metadata={metadata}>
+    <Layout type="page" metadata={metadata}>
       <ScrollToTop />
       {currentPosts &&
         currentPosts.map((post) => (
