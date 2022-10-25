@@ -10,6 +10,8 @@ export {
   FaLinkedinIn as IconLinkedin,
   FaStar as IconStar,
   FaRegStar as IconStarEmpty,
+  FaStarHalfAlt as IconStarHalf,
+  FaBaby as IconBaby,
 } from "react-icons/fa";
 
 export {
@@ -27,4 +29,7 @@ export {
   MdLabel as IconLabel,
   MdVideoLibrary as IconVideo,
   MdSchool as IconStudy,
+  MdVideogameAsset as IconConsole,
 } from "react-icons/md";
+
+export { IoIosSave as IconSave } from "react-icons/io";

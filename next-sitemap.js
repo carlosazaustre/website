@@ -7,6 +7,6 @@ module.exports = {
     "/clase-gratis",
     "/clase-gratis-video",
     "/clase-gratis-registro",
-    "clase-gratis-formulario",
+    "/clase-gratis-formulario",
   ],
 };

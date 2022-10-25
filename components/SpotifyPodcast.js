@@ -9,7 +9,7 @@ const THEMES = {
 };
 
 export const SpotifyPodcast = ({
-  episode = "52KMznI6l9x4MoZrO4uIy0",
+  episode,
   theme = "light",
   size = "compact",
 }) => {

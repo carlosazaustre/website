@@ -6,17 +6,19 @@
  * Added by Souvik Mandal [@SimpleIndian]
  */
 
+@import "@fontsource/ibm-plex-mono/300.css";
+
 code[class*="language-"],
 pre[class*="language-"] {
   color: #d6deeb;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: "IBM Plex Mono", Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
-  font-size: 1em;
+  font-size: 0.9em;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -33,7 +35,7 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
   text-shadow: none;
-  background: rgba(29, 59, 83, 0.99);
+  background: rgba(20, 31, 40, 0.99);
 }
 
 pre[class*="language-"]::selection,
@@ -41,7 +43,7 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   text-shadow: none;
-  background: rgba(29, 59, 83, 0.99);
+  background: rgba(20, 31, 40, 0.99);
 }
 
 @media print {
@@ -56,12 +58,14 @@ pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
+  box-shadow: 0 0 0.5em rgba(52, 52, 52, 0.5);
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   color: white;
-  background: #011627;
+  background: #111416;
+  border-radius: .3em;
 }
 
 :not(pre) > code[class*="language-"] {

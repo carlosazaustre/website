@@ -3,16 +3,22 @@ import { IconCalendar } from "./icons";
 
 export const PostListItem = ({ title, date, tags }) => {
   return (
-    <Box borderBottom="1px" borderColor="brand.900" p="6">
-      <Heading as="h3" size="md" my={2}>
+    <Box py="2">
+      <Text as="h4" size="sm" fontWeight="400" my={2}>
         {title}
-      </Heading>
+      </Text>
       <Flex align="center" fontSize="sm" color="grayblue.100">
-        <IconCalendar />
-        <Text ml={1}>
+        <IconCalendar fill="white" />
+        <Text color="brand.900" ml={1}>
           {date}{" "}
           {tags.map((tag) => (
-            <Tag key={tag} size="sm" mx={2} colorScheme="brand">
+            <Tag
+              key={tag}
+              size="sm"
+              mx={2}
+              colorScheme="secondary"
+              color="white"
+            >
               {tag}
             </Tag>
           ))}

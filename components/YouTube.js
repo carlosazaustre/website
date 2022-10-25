@@ -40,20 +40,14 @@ export const YouTube = ({
     <Box
       maxW="1080px"
       boxShadow="lg"
-      rounded="lg"
-      borderWidth="1px"
-      bg={description ? "white" : "secondary.100"}
+      rounded="xl"
+      bg="secondary.100"
       mx="auto"
       my={[2, 8]}
       color="white"
     >
       {title && !description && (
-        <Heading
-          as="h3"
-          p={6}
-          fontSize={["md", "lg", "xl"]}
-          color={description ? "black" : "white"}
-        >
+        <Heading as="h3" p={6} fontSize={["md", "lg", "xl"]} color="white">
           <Flex align="center">
             <IconVideo />
             <Text ml={2}>{title}</Text>
@@ -63,13 +57,8 @@ export const YouTube = ({
       {description ? (
         <Flex direction={["column", "column", "column", "row"]}>
           <YouTubeVideo videoId={videoId} />
-          <Box p={[2, 4]} width={["100%", "100%", "100%", "95%"]} color="black">
-            <Heading
-              as="h3"
-              p={4}
-              fontSize={["md", "lg", "xl"]}
-              color={description ? "black" : "white"}
-            >
+          <Box p={[2, 4]} width={["100%", "100%", "100%", "95%"]} color="white">
+            <Heading as="h3" p={4} fontSize={["md", "lg", "xl"]} color="white">
               <Flex align="center">
                 <IconVideo />
                 <Text ml={2}>{title}</Text>
