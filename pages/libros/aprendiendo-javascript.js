@@ -7,6 +7,7 @@ import {
   elements as UI,
   icons as Icons,
 } from "@/components";
+import { Icon } from "@chakra-ui/react";
 
 const BuyOnAmazon = () => (
   <UI.Accordion>
@@ -92,25 +93,50 @@ export default function BookJavaScriptPage() {
       <UI.Heading as="h1" size="xl" my={8}>
         Aprendiendo JavaScript
       </UI.Heading>
-      <UI.Flex
-        as="header"
-        direction={["column", "column", "column", "row"]}
-        align="flex-start"
-      >
-        <UI.Box w={["100%", "100%", "100%", "30%"]}>
+      <UI.Flex as="header" direction={["column", "row"]} align="flex-start">
+        <UI.Box w={["100%", "30%"]}>
           <Image
             width="723"
             height="700"
             src="/assets/aprendiendo-javascript-libro-3d.png"
           />
         </UI.Box>
-        <UI.Box w={["100%", "100%", "100%", "100%", "65%"]} pt={2} pl={4}>
-          <UI.Text my={2} fontSize="lg" fontFamily="heading">
+        <UI.Box w={["100%", "70%"]} pt={2} pl={4}>
+          <UI.Text my={2} fontSize="lg">
             Aprende las bases del lenguaje web más demandado. Desde cero hasta
             ECMAScript 6+. Partiendo de las bases y poco a poco ampliándose
             hasta ver las nuevas características del lenguaje para hacer un uso
             profesional de él.
           </UI.Text>
+          <UI.Box
+            bg="secondary.500"
+            rounded="lg"
+            p={2}
+            my={2}
+            direction="row"
+            align="center"
+            justify="center"
+            textAlign="center"
+          >
+            <UI.Text>
+              <a href="https://www.amazon.es/Aprendiendo-JavaScript-Desde-hasta-ECMAScript/dp/B08TZ3HSYZ/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=aprendiendo+javascript&qid=1625415326&sr=8-1#customerReviews">
+                74 Valoraciones en Amazon
+              </a>
+            </UI.Text>
+            <UI.HStack
+              my={2}
+              mx="auto"
+              justify="center"
+              color="brand.900"
+              fontSize="xl"
+            >
+              <Icons.IconStar />
+              <Icons.IconStar />
+              <Icons.IconStar />
+              <Icons.IconStar />
+              <Icons.IconStarHalf />
+            </UI.HStack>
+          </UI.Box>
         </UI.Box>
       </UI.Flex>
 
@@ -138,23 +164,9 @@ export default function BookJavaScriptPage() {
         </UI.Flex>
       </UI.Box>
 
-      <UI.Box
-        bg="secondary.500"
-        rounded="lg"
-        p={4}
-        my={10}
-        direction="row"
-        align="center"
-        justify="center"
-        textAlign="center"
-      >
-        <UI.Text>
-          <a href="https://www.amazon.es/Aprendiendo-JavaScript-Desde-hasta-ECMAScript/dp/B08TZ3HSYZ/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=aprendiendo+javascript&qid=1625415326&sr=8-1#customerReviews">
-            74 Valoraciones en Amazon
-          </a>
-        </UI.Text>
-        <Rating average={4} />
-      </UI.Box>
+      <UI.Heading as="h3" my={8} mt={2} fontSize="2xl">
+        Lo que dicen los lectores
+      </UI.Heading>
 
       <UI.Flex
         direction={["column", "column", "row"]}
@@ -199,17 +211,11 @@ export default function BookJavaScriptPage() {
       </UI.Flex>
 
       {/* Content Section */}
-      <UI.Box
-        as="aside"
-        width={["100%", "100%", "100%", "30%"]}
-        order={[1, 1, 1, 0]}
-      ></UI.Box>
-
-      <UI.Box as="article" w={["100%"]} p={[0, 0, 4, 8]} order={[0, 0, 0, 1]}>
-        <UI.Heading as="h3" my={8} mt={2} fontSize={["lg", "xl", "2xl", "3xl"]}>
+      <UI.Box as="article" w="100%">
+        <UI.Heading as="h3" my={8} mt={2} fontSize="2xl">
           Para quién es este libro
         </UI.Heading>
-        <UI.Text my={4} fontSize="lg" fontFamily="heading">
+        <UI.Text my={4} fontSize="lg">
           Para todas aquellas personas que quieran aprender JavaScript desde
           cero y tengan pequeñas nociones de programación.
           <br />
@@ -218,18 +224,18 @@ export default function BookJavaScriptPage() {
           utilizan JavaScript y quieren afianzar las bases del lenguaje.
         </UI.Text>
 
-        <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+        <UI.Heading as="h3" my={8} fontSize="2xl">
           Contenido
         </UI.Heading>
 
-        <UI.Text my={4} fontSize="lg" fontFamily="heading">
+        <UI.Text my={4} fontSize="lg">
           100 Páginas en español donde se cubren los principales elementos de la
           programación, aplicados al lenguaje JavaScript, y poco a poco se va
           incrementando la complejidad viendo las características más
           importantes del lenguaje que lo hacen tan especial y popular.
         </UI.Text>
 
-        <UI.UnorderedList styleType="none" fontFamily="heading">
+        <UI.UnorderedList styleType="none">
           <UI.ListItem>
             <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
             Breve Historia de JavaScript
@@ -284,11 +290,11 @@ export default function BookJavaScriptPage() {
           </UI.ListItem>
         </UI.UnorderedList>
 
-        <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+        <UI.Heading as="h3" my={8} fontSize="2xl">
           Sobre el Autor
         </UI.Heading>
         <UI.Flex align="center" justify="space-between" direction={"column"}>
-          <UI.Box w={"100%"} mx="auto" align="center">
+          <UI.Box w="100%" mx="auto" align="center">
             <UI.Image
               borderRadius="full"
               src="/assets/carlos_azaustre.png"
@@ -297,28 +303,24 @@ export default function BookJavaScriptPage() {
             />
           </UI.Box>
 
-          <UI.Text
-            my={4}
-            p={4}
-            fontSize="lg"
-            fontFamily="heading"
-            width={"100%"}
-          >
-            <strong>Carlos Azaustre</strong> (Madrid, 1984). Ingeniero en
-            Telemática. 10 años como Desarrollador de Software y actualmente
-            Director del Máster en Desarrollo Web FullStack de la Universidad
-            Europea de Madrid.
+          <UI.Text my={4} fontSize="lg" width="100%">
+            <strong>Carlos Azaustre</strong> (Madrid, España. 1984) Ingeniero en
+            Telemática. Más de 10 años como desarrollador de software. Ha
+            trabajado en empresas como Google, IBM y Eventbrite. Divulgador y
+            creador de contenido sobre programación a través de YouTube, canal
+            el cuál tiene más de 100.000 suscriptores y más de 5 millones de
+            visitas.
             <br />
             <br />
-            Divulgador de tecnologías web a través de YouTube. Reconocido por
-            Google como Developer Expert (GDE) en Web. Ha trabajado en empresas
-            como Google, IBM y Eventbrite.
+            Reconocido por Google como Developer Expert (GDE) en tecnologías
+            Web. Premiado por Microsoft en 2022 comoo MVP (Most Valuable
+            Professional).
           </UI.Text>
         </UI.Flex>
-        <UI.Heading as="h3" my={8} fontSize={["lg", "xl", "2xl", "3xl"]}>
+        <UI.Heading as="h3" my={8} fontSize="2xl">
           Sobre este libro
         </UI.Heading>
-        <UI.Text my={4} fontSize="lg" fontFamily="heading">
+        <UI.Text my={4} fontSize="lg">
           JavaScript es el lenguaje de la web. Si necesitas programar en un
           navegador web, necesitas JavaScript.
           <br />

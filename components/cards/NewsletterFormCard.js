@@ -28,9 +28,6 @@ export const NewsletterFormCard = ({ size }) => {
       target="_blank"
     >
       <Stack spacing="20px" py={2}>
-        <Heading as="h4" size="md">
-          ¡Únete y ponte al día en desarrollo web!
-        </Heading>
         <InputGroup size="md">
           <InputLeftElement
             pointerEvents="none"

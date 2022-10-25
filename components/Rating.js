@@ -1,9 +1,10 @@
 import { HStack, Text } from "./elements";
-import { IconStar, IconStarEmpty } from "./icons";
+import { IconStar, IconStarEmpty, IconStarHalf } from "./icons";
 
 export const Rating = ({ children, average }) => {
   const starsFilled = average;
   const starsEmpty = 5 - average;
+  const starsHalf = 0;
 
   return (
     <HStack my={4} mx="auto" justify="center" color="brand.900" fontSize="xl">
