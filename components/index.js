@@ -1,8 +1,4 @@
 export { NewsletterFormCard } from "./NewsletterFormCard";
-export { AboutCard } from "./cards/AboutCard";
-export { AboutCardHome } from "./cards/AboutCardHome";
-export { BlogCardHome } from "./cards/BlogCardHome";
-export { ContactCardHome } from "./cards/ContactCardHome";
 
 export { Logo } from "./Logo";
 export { CustomImage } from "./CustomImage";
