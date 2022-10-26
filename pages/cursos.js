@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 
-import { Layout, CourseListItem } from "@/components";
+import { Layout, CourseListItem, elements as UI } from "@/components";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Courses({ courses }) {
@@ -9,14 +9,18 @@ export default function Courses({ courses }) {
   };
 
   return (
-    <Layout type="post" metadata={metadata}>
-      {courses.map((course) => (
-        <NextLink href={`/cursos/${course.slug}`} key={course.slug}>
-          <a>
+    <Layout type="page" metadata={metadata}>
+      <UI.Text as="p" mb={8}>
+        Aprende las últimas tecnologías web siguiendo los siguientes cursos en
+        vídeo gratuitos.
+      </UI.Text>
+      {courses
+        .map((course) => (
+          <NextLink href={`/cursos/${course.slug}`} key={course.slug}>
             <CourseListItem title={course.title} />
-          </a>
-        </NextLink>
-      ))}
+          </NextLink>
+        ))
+        .reverse()}
     </Layout>
   );
 }

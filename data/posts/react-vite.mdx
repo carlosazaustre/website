@@ -1,7 +1,7 @@
 ---
 title: "Cómo iniciar un proyecto React con Vite"
-date: "2021-07-22"
-tags: 
+date: "2022-10-26"
+tags:
   - "🧑🏻‍💻 Desarrollo"
   - "React"
 ---
@@ -9,22 +9,29 @@ tags:
 ![Vite](/images/react-vite/logo-vite.png)
 
 [Vite](https://vitejs.dev/) es una herramienta de tooling para el Frontend. Lo puedes agrupar
-en la categoría donde se encuentrar otros como Webpack, Parcel y Snowpack.
+en la categoría donde se encuentran otros como Webpack, Parcel y Snowpack.
 Es muy útil para crear una estructura de proyecto que se pueda utilizar con React y de
 una forma muy rápida, ya que no necesitas tener que configurar nada. Aprovecha el
 sistema de módulos de ES6 (ESModules) por lo que puede ser servido dinámicamente según
 lo necesite el navegador.
 
-
 ### Crear un proyecto React con Vite.
 
-<YouTube videoId="GQqT_qvW0Q4" />
+<YouTube videoId="niTHb7pwfRI">
 
-Asegúrate de tener instalado [Node.js](https://nodejs.org) en tu equipo. Una vez
+Asegúrate de tener instalado [Node.js](https://nodejs.org) en tu equipo. 
+
+Puedes comprobarlo ejecutando en la terminal:
+
+```shell
+$ node -v
+```
+
+Una vez
 lo tengas, ejecuta los siguientes comandos:
 
 ```shell
-$ npm init vite@latest <nombre-de-mi-proyecto>
+$ npm create vite@latest <nombre-de-mi-proyecto>
 ```
 
 Entre los diferentes frameworks que te sugiere, elige el que necesites, en nuestro caso `react`.
@@ -33,22 +40,22 @@ Después te pregunta si quieres utilizar TypeScript o no. Elige lo que prefieras
 ```shell
 ✔ Project name: … vite-project
 ? Select a framework: › - Use arrow-keys. Return to submit.
-    vanilla
-    vue
-❯   react
-    preact
-    lit-element
-    svelte
+    Vanilla
+    Vue
+❯   React
+    Preact
+    Lit
+    Svelte
 
 ```
 
 ```shell
 ? Select a variant: › - Use arrow-keys. Return to submit.
-❯   react
-    react-ts
+❯   JavaScript
+    TypeScript
 ```
 
-```shell 
+```shell
 Scaffolding project in /Users/carlosazaustre/dev/vite-project...
 
 Done. Now run:
@@ -72,13 +79,10 @@ empezar a trabajar.
 ```shell
 $ npm run dev
 
-  vite v2.4.3 dev server running at:
+  VITE v3.1.8 ready in 396 ms
 
-  > Local: http://localhost:3001/
+  > Local: http://localhost:5173/
   > Network: use `--host` to expose
-
-  ready in 590ms.
-
 
 ```
 

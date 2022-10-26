@@ -2,8 +2,14 @@ import { Box, Flex, Image, Text } from "./elements";
 
 export const ReviewCard = ({ children, photo, name, role }) => {
   return (
-    <Box bg="white" rounded="lg" mt={4} mb={16} p={6} w={["100%, 100%, 90%"]}>
-      <Flex m={[0, 0, 2, 4]}>
+    <Box
+      bg="secondary.500"
+      rounded="lg"
+      mb={16}
+      p={6}
+      w={["100%", "100%", "33%"]}
+    >
+      <Flex align="center" direction="column" m={[0, 0, 2, 4]}>
         <Image
           borderRadius="full"
           borderColor="white"
@@ -13,15 +19,17 @@ export const ReviewCard = ({ children, photo, name, role }) => {
           mr={4}
         />
         <Box>
-          <Text fontSize="lg" fontWeight="bold">
+          <Text fontSize="md" fontWeight="bold">
             {name}
           </Text>
-          <Text fontSize="md" fontWeight="regular">
+          <Text fontSize="sm" fontWeight="regular">
             {role}
           </Text>
         </Box>
       </Flex>
-      <em>{children}</em>
+      <Text fontSize="sm" as="i">
+        {children}
+      </Text>
     </Box>
   );
 };

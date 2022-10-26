@@ -22,9 +22,7 @@ export default function NotFound() {
         <br />
         <br />
         Pero tienes aquí tienes el blog 👉
-        <NextLink href="/blog">
-          <UI.Link>Leer artículos y tutoriales</UI.Link>
-        </NextLink>
+        <NextLink href="/blog">Leer artículos y tutoriales</NextLink>
       </UI.Heading>
     </Layout>
   );

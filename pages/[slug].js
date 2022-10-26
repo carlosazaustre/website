@@ -1,12 +1,13 @@
 import { MDXRemote } from "next-mdx-remote";
 
-import { MDXComponents, Layout, ScrollToTop } from "@/components";
+import { MDXComponents, Layout, ScrollToTop, TwitterShare } from "@/components";
 import { getFiles, getFileBySlug } from "@/lib/mdx";
 
 export default function Post({ source, frontmatter }) {
   return (
     <Layout type="post" metadata={frontmatter}>
       <MDXRemote {...source} components={MDXComponents} />
+      <TwitterShare url={frontmatter?.slug} title={frontmatter.title} />
       <ScrollToTop />
     </Layout>
   );
@@ -19,7 +20,6 @@ export async function getStaticPaths() {
       slug: post.replace(/\.mdx/, ""),
     },
   }));
-  console.log("PATHS: ", JSON.stringify(paths));
 
   return {
     paths,

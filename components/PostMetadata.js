@@ -6,17 +6,21 @@ import { Disqus } from "./Disqus";
 
 export const PostMetadata = ({ metadata }) => {
   return (
-    <Flex direction="column" px={[0, 2, 4]} py={2}>
+    <Flex direction="column" py={2}>
       <Flex
         direction={["column", "column", "row"]}
         align={["left", "left", "center"]}
         justify="flex-start"
-        color="grayblue.100"
+        color="white"
         fontSize={["xs", "sm"]}
+        fontWeight="500"
+        fontFamily="heading"
       >
         <Flex align="center">
           <IconCalendar />
-          <Text mx={2}>{formatDate(metadata.date)}</Text>
+          <Text color="brand.900" mx={2}>
+            {formatDate(metadata.date)}
+          </Text>
         </Flex>
         <Flex align="center">
           <IconComment />
@@ -32,7 +36,7 @@ export const PostMetadata = ({ metadata }) => {
         </Flex>
         <Flex direction="row">
           {metadata.tags.map((tag) => (
-            <Tag key={tag} size="sm" mx={2} colorScheme="brand">
+            <Tag key={tag} size="sm" mx={2}>
               {tag}
             </Tag>
           ))}

@@ -1,84 +1,150 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import styled from "@emotion/styled";
-
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
+import { formatDate } from "@/lib/format-date";
 import {
   elements as UI,
-  Header,
-  Hero,
-  Book,
+  PostListItem,
   Footer,
-  AboutCardHome,
-  BlogCardHome,
-  ContactCardHome,
   OpenGraph,
+  SocialNetworks,
+  SectionLinks,
+  SpotifyPodcast,
+  NewsletterFormCard,
 } from "@/components";
-
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  @media screen and (min-width: 1025px) {
-    height: 82vh;
-    max-height: 700px;
-    flex-direction: row;
-  }
-
-  @media screen and (min-width: 1280px) {
-    background-image: url("/assets/carlosazaustre-profile-image-large.png");
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: contain;
-  }
-`;
+import latestVideos from "@/data/latestVideos.json";
 
 export default function Home({ posts }) {
   return (
     <Fragment>
       <OpenGraph />
-      <UI.Box bg="brand.900" maxHeight={{md: "780px"}}>
-        <UI.Container maxW="container.2xl">
-          <Header />
+      <UI.Box
+        w="100%"
+        bg="secondary.900"
+        borderTop="8px solid"
+        borderColor="brand.900"
+        color="white"
+      >
+        <UI.Container maxW="container.md" pt="8">
+          <SectionLinks />
 
-          <StyledMain role="main">
-            <UI.Flex
-              direction="column"
-              justify="flex-start"
-              w={["100%", "100%", "100%", "59%", "35%"]}
-              pt="0"
-              pr="0"
-              pb="2"
-              pl={[0, 0, 0, 8]}
-            >
-              <Hero />
-            </UI.Flex>
-            <UI.Flex
-              direction="row"
-              w={["100%", "100%", "100%", "39%", "60%"]}
-              justify={["center", "center", "center", "center", "flex-start"]}
-            >
-              <Link href="/libros/aprendiendo-javascript">
-                <a>
-                  <Book imageSrc="/assets/aprendiendo-javascript-libro.png" />
-                </a>
-              </Link>
-            </UI.Flex>
-          </StyledMain>
-        </UI.Container>
-      </UI.Box>
-
-      <UI.Box bg="grayblue.900" position="relative" zIndex="1">
-        <UI.Container maxW="container.2xl" px={[0, 4]}>
           <UI.Flex
-            direction={["column", "column", "column", "row"]}
+            direction={["column", "row"]}
             justify="space-between"
+            align="left"
           >
-            <AboutCardHome />
-            <BlogCardHome posts={posts} />
-            <ContactCardHome />
+            <UI.Box width={["100%", "75%"]} order={[2, 1]}>
+              <UI.Heading
+                fontFamily="heading"
+                as="h1"
+                size="xl"
+                mt={8}
+                mb={4}
+                textAlign="left"
+              >
+                Carlos Azaustre
+              </UI.Heading>
+              <UI.Heading
+                fontFamily="body"
+                as="h2"
+                size="md"
+                my={2}
+                fontWeight="500"
+              >
+                Desarrollador y Formador en JavaScript.
+              </UI.Heading>
+
+              <UI.Text fontSize="md" lineHeight={1.75} mt={[4, 0]} mb={4}>
+                Ingeniero en Telemática, con 10+ años de experiencia, trabajando
+                en empresas como Google, IBM y Eventbrite. Divulgador y creador
+                de contenido sobre programación y desarrollo web a través de
+                YouTube. Google Developer Expert (GDE) en Web. Premiado como
+                Microsoft MVP en 2022.
+              </UI.Text>
+            </UI.Box>
+
+            <UI.Box
+              width={["25%", "18%"]}
+              order={[1, 2]}
+              alignSelf={["start", "center"]}
+            >
+              <UI.Image
+                width="100%"
+                borderRadius="full"
+                src="/assets/carlos_azaustre.png"
+                alt="Carlos Azaustre"
+              />
+            </UI.Box>
+          </UI.Flex>
+          <SocialNetworks />
+
+          <UI.Flex direction={["column", "column", "row"]}>
+            <UI.Box w={["100%", "100%", "75%"]}>
+              <UI.Text
+                fontFamily="heading"
+                fontWeight="600"
+                as="h3"
+                fontSize="xl"
+                my="4"
+              >
+                Últimas publicaciones
+              </UI.Text>
+              {posts.map((post) => (
+                <Link href={post.slug} key={post.slug}>
+                  <PostListItem
+                    title={post.title}
+                    date={formatDate(post.date)}
+                    tags={post.tags}
+                  />
+                </Link>
+              ))}
+              <Link pt={8} href="/blog" color="brand.900">
+                Ver todas →
+              </Link>
+            </UI.Box>
+
+            <UI.Box w={["100%", "100%", "25%"]}>
+              <UI.Text
+                fontFamily="heading"
+                fontWeight="600"
+                as="h3"
+                fontSize="xl"
+                my="4"
+              >
+                Último vídeo en YouTube
+              </UI.Text>
+
+              <UI.Box
+                as="a"
+                display="block"
+                p={4}
+                mb={4}
+                borderRadius={8}
+                backgroundColor="secondary.500"
+                href={`https://youtube.com/watch?v=${latestVideos[0]?.snippet?.resourceId?.videoId}`}
+                rel="noopener noreferrer nofollow"
+              >
+                <UI.Image
+                  borderRadius="md"
+                  src={latestVideos[0]?.snippet?.thumbnails?.standard?.url}
+                />
+                <UI.Text py={4}>{latestVideos[0]?.snippet?.title}</UI.Text>
+              </UI.Box>
+
+              <UI.Text
+                fontFamily="heading"
+                fontWeight="600"
+                as="h3"
+                fontSize="xl"
+                my="4"
+              >
+                Último podcast
+              </UI.Text>
+              <SpotifyPodcast episode="66ytmkgGU1SQ2Z7XicMnc2?si=Do8Ggb7xQBK5piEEEF4U8Q" />
+
+              <NewsletterFormCard />
+            </UI.Box>
           </UI.Flex>
         </UI.Container>
       </UI.Box>
@@ -90,7 +156,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = await getAllFilesFrontMatter("posts");
-  const posts = allPosts.sort(orderByDate).slice(0, 5);
+  const posts = allPosts.sort(orderByDate).slice(0, 10);
 
   return {
     props: { posts },
