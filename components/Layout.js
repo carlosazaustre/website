@@ -40,9 +40,9 @@ export const Layout = ({ children, metadata = {}, type = "post" }) => {
               {children}
             </Box>
             {isBlogTemplate && (
-              <section id="comments">
+              <aside id="comments">
                 <Disqus title={metadata.title} slug={metadata.slug} />
-              </section>
+              </aside>
             )}
           </Box>
           {type === "post" && (

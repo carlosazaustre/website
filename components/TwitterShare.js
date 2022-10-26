@@ -12,6 +12,12 @@ const StyledShare = styled.div`
   left: 0;
   width: 100%;
   z-index: 1;
+  transition: bottom 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    bottom: 2.5rem;  
+  ;
 `;
 
 export const TwitterShare = ({ url, title }) => {
