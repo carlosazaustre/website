@@ -1,18 +1,19 @@
 import NextLink from "next/link";
+import styled from "@emotion/styled";
 
 import { Link } from "./elements";
 import { ExternalLinkIcon } from "./icons";
+
+const StyledLink = styled(NextLink)`
+  color: var(--chakra-colors-brand-900);
+`;
 
 export const CustomLink = (props) => {
   const href = props.href;
   const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
   if (isInternalLink) {
-    return (
-      <NextLink href={href}>
-        <Link {...props} color="brand.900" />
-      </NextLink>
-    );
+    return <StyledLink href={href} {...props} />;
   }
 
   return (
@@ -23,7 +24,8 @@ export const CustomLink = (props) => {
       rel="noopener noreferrer"
       {...props}
     >
-      {props.children} {typeof props.children !== "object" && <ExternalLinkIcon mx="2px" />}
+      {props.children}{" "}
+      {typeof props.children !== "object" && <ExternalLinkIcon mx="2px" />}
     </Link>
   );
 };

@@ -2,12 +2,16 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import * as ga from "@/lib/ga";
-import theme, { ThemeProvider } from "@/styles/theme";
+import theme, {
+  ThemeProvider,
+  createLocalStorageManager,
+} from "@/styles/theme";
 import "@/styles/prism-night-owl.css";
 import "@/styles/fonts";
 
 function MyApp({ Component, pageProps, err }) {
   const router = useRouter();
+  const manager = createLocalStorageManager("color-mode-manager");
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -28,8 +32,8 @@ function MyApp({ Component, pageProps, err }) {
   }, [router.events]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} err={err} />
+    <ThemeProvider theme={theme} colorModeManager={manager}>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

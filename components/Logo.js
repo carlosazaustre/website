@@ -7,7 +7,7 @@ export const Logo = ({ type = "minimal" }) => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>Desarrollo JavaScript y Formación - Carlos Azaustre</title>
+      <title>Aprende JavaScript y Programación Web - Carlos Azaustre</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           id="Logos"

@@ -2,12 +2,16 @@ import Head from "next/head";
 
 export const OpenGraph = ({ metadata = {} }) => {
   const SEO = {
-    title: metadata.title || "Aprende JavaScript - Carlos Azaustre",
+    title:
+      metadata.title ||
+      "Aprende JavaScript y Programación Web - Carlos Azaustre",
     description:
       metadata.description ||
-      "Formación y Desarrollo Fullstack en JavaScript. Tutoriales y Cursos sobre Programación Web con React, Node, Firebase, etc...",
+      "Tutoriales y Cursos sobre Programación Web y JavaScript con React, Node, Firebase, y mucho más...",
     slug: metadata.slug || "",
-    image: `https://website-carlosazaustre.vercel.app${metadata.image || '/assets/default-image.png'}`,
+    image: `https://carlosazaustre.es/${
+      metadata.image || "/assets/default-image.png"
+    }`,
     date: metadata.date || new Date().toISOString(),
   };
 

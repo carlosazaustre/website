@@ -18,6 +18,7 @@ const StyledSVG = styled.svg`
   right: 2rem;
   transition: all 0.6s ease;
   visibility: hidden;
+  z-index: 10;
 
   &:hover {
     border-color: var(--chakra-colors-gray-200);

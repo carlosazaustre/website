@@ -1,13 +1,13 @@
-import { Box, Heading, Flex, Text, Tag } from "./elements";
+import { Box, Flex, Text, Tag } from "./elements";
 import { IconCalendar } from "./icons";
 
 export const PostListItem = ({ title, date, tags }) => {
   return (
-    <Box py="2">
+    <Box as="span" display="block" py="2">
       <Text as="h4" size="sm" fontWeight="400" my={2}>
         {title}
       </Text>
-      <Flex align="center" fontSize="sm" color="grayblue.100">
+      <Flex as="span" align="center" fontSize="sm" color="grayblue.100">
         <IconCalendar fill="white" />
         <Text color="brand.900" ml={1}>
           {date}{" "}

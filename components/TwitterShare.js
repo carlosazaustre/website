@@ -11,7 +11,7 @@ const StyledShare = styled.div`
   bottom: 2rem;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
 `;
 
 export const TwitterShare = ({ url, title }) => {
@@ -35,6 +35,7 @@ export const TwitterShare = ({ url, title }) => {
           p={2}
           m={2}
           rounded="2xl"
+          boxShadow="dark-lg"
         >
           <span>Comparte el artículo</span>
           <TwitterIcon size={32} round={true} />

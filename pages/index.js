@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Link from "next/link";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
@@ -17,7 +16,7 @@ import latestVideos from "@/data/latestVideos.json";
 
 export default function Home({ posts }) {
   return (
-    <Fragment>
+    <>
       <OpenGraph />
       <UI.Box
         w="100%"
@@ -150,7 +149,7 @@ export default function Home({ posts }) {
       </UI.Box>
 
       <Footer />
-    </Fragment>
+    </>
   );
 }
 

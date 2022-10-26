@@ -1,4 +1,4 @@
-import { HStack, Link, Spacer } from "./elements";
+import { HStack, Link } from "./elements";
 import {
   IconTwitch,
   IconYoutube,
