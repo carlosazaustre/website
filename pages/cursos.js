@@ -17,9 +17,7 @@ export default function Courses({ courses }) {
       {courses
         .map((course) => (
           <NextLink href={`/cursos/${course.slug}`} key={course.slug}>
-            <a>
-              <CourseListItem title={course.title} />
-            </a>
+            <CourseListItem title={course.title} />
           </NextLink>
         ))
         .reverse()}

@@ -92,18 +92,16 @@ export default function Home({ posts }) {
               </UI.Text>
               {posts.map((post) => (
                 <Link href={post.slug} key={post.slug}>
-                  <a>
-                    <PostListItem
-                      title={post.title}
-                      date={formatDate(post.date)}
-                      tags={post.tags}
-                    />
-                  </a>
+                  <PostListItem
+                    title={post.title}
+                    date={formatDate(post.date)}
+                    tags={post.tags}
+                  />
                 </Link>
               ))}
-              <UI.Link pt={8} href="/blog" color="brand.900">
-                <a>Ver todas →</a>
-              </UI.Link>
+              <Link pt={8} href="/blog" color="brand.900">
+                Ver todas →
+              </Link>
             </UI.Box>
 
             <UI.Box w={["100%", "100%", "25%"]}>

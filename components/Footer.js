@@ -1,18 +1,6 @@
-import NextLink from "next/link";
 import styled from "@emotion/styled";
-import { SocialNetworks } from "./SocialNetworks";
-import { Logo } from "./Logo";
 
-import {
-  Container,
-  Flex,
-  Text,
-  Spacer,
-  Link,
-  UnorderedList,
-  ListItem,
-  Heading,
-} from "./elements";
+import { Container, Flex } from "./elements";
 
 const StyledFooter = styled.footer`
   background-color: var(--chakra-colors-secondary-900);

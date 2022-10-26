@@ -12,6 +12,7 @@ export {
   AspectRatio,
   Heading,
   Text,
+  TableContainer,
   Table,
   Thead,
   Tbody,
