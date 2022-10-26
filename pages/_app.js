@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import * as ga from "@/lib/ga";
+import theme, { ThemeProvider } from "@/styles/theme";
 import "@/styles/prism-night-owl.css";
 import "@/styles/fonts";
-import theme, { ThemeProvider } from "@/styles/theme";
 
 function MyApp({ Component, pageProps, err }) {
   const router = useRouter();

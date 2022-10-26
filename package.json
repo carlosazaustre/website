@@ -12,8 +12,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.13",
-    "@chakra-ui/react": "^1.8.9",
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "^2.0.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/ibm-plex-mono": "^4.5.12",
@@ -22,12 +22,12 @@
     "date-fns": "^2.22.1",
     "disqus-react": "^1.1.0",
     "eslint-config-next": "^13.0.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^6.5.1",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.3",
     "next": "^13.0.0",
-    "next-mdx-remote": "^3.0.2",
+    "next-mdx-remote": "^4.1.0",
     "next-sitemap": "^1.6.116",
     "node-fetch": "^2.6.1",
     "react": "^18.2.0",
@@ -39,7 +39,7 @@
     "reading-time": "^1.3.0",
     "rehype": "^11.0.0",
     "remark-code-titles": "^0.1.2",
-    "remark-parse": "^8.0.3",
+    "remark-parse": "^10.0.1",
     "rss": "^1.2.2"
   }
 }
