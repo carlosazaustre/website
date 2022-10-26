@@ -14,16 +14,17 @@ import {
   Divider,
   Heading,
   Text,
-  Table,
-  Thead,
-  Tbody,
   UnorderedList,
   OrderedList,
   ListItem,
   ListIcon,
+  Table,
+  Thead,
+  Tbody,
   Th,
   Tr,
   Td,
+  TableContainer,
 } from "./elements";
 
 export const MDXComponents = {
@@ -37,7 +38,9 @@ export const MDXComponents = {
   h6: (props) => <Heading as="h6" my={2} size="sm" {...props} />,
   p: (props) => <Text fontSize="md" lineHeight={6} my={8} {...props} />,
   table: (props) => (
-    <Table variant="striped" colorScheme="secondary" {...props} />
+    <TableContainer>
+      <Table variant="striped" colorScheme="secondary" {...props} />
+    </TableContainer>
   ),
   thead: (props) => <Thead {...props} />,
   tbody: (props) => <Tbody {...props} />,
