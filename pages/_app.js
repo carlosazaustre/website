@@ -7,15 +7,15 @@ import "@/styles/fonts";
 import theme, { ThemeProvider } from "@/styles/theme";
 
 function MyApp({ Component, pageProps, err }) {
-  if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-    window.navigator.serviceWorker.getRegistrations().then((registrations) => {
-      registrations.forEach((r) => r.unregister());
-    });
-  }
-
   const router = useRouter();
 
   useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((r) => r.unregister());
+      });
+    }
+
     const handleRouteChange = (url) => {
       ga.pageView(url);
     };

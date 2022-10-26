@@ -60,13 +60,11 @@ export default function Blog({ posts }) {
       {currentPosts &&
         currentPosts.map((post) => (
           <NextLink href={post.slug} key={post.slug}>
-            <a>
-              <PostListItem
-                title={post.title}
-                date={formatDate(post.date)}
-                tags={post.tags}
-              />
-            </a>
+            <PostListItem
+              title={post.title}
+              date={formatDate(post.date)}
+              tags={post.tags}
+            />
           </NextLink>
         ))}
       {currentPage !== maxPage && (

@@ -19,7 +19,6 @@
     "@fontsource/ibm-plex-mono": "^4.5.12",
     "@fontsource/ibm-plex-sans": "^4.5.13",
     "@fontsource/poppins": "^4.4.5",
-    "@sentry/nextjs": "^6.7.2",
     "date-fns": "^2.22.1",
     "disqus-react": "^1.1.0",
     "eslint-config-next": "^13.0.0",
