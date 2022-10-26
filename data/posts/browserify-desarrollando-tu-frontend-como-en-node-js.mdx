@@ -5,19 +5,24 @@ tags:
   - "💻 Desarrollo"
 ---
 
-[Browserify](http://browserify.org/) es una librería de Node.js, escrita por [substack](https://www.npmjs.com/~substack), uno de los mayores contribuidores al core de Node.js y con mayor número de módulos publicados en NPM.
+[Browserify](http://browserify.org/) es una librería de Node.js, escrita por [substack](https://www.npmjs.com/~substack),
+uno de los mayores contribuidores al core de Node.js y con mayor número de módulos publicados en NPM.
 
-{<1>}![browserify](/images/browserify-desarrollando-tu-frontend-como-en-node-js/687474703a2f2f737562737461636b2e6e65742f696d616765732f62726f777365726966795f6c6f676f2e706e67.png)
+![browserify](/images/browserify-desarrollando-tu-frontend-como-en-node-js/687474703a2f2f737562737461636b2e6e65742f696d616765732f62726f777365726966795f6c6f676f2e706e67.png)
+Nos permite escribir código JavaScript del cliente, como si estuviésemos programando en Node.js,
+es decir, como por ahora no tenemos módulos de forma nativa en JavaScript (hasta que [se implante el estándar ECMAScript6](/ecmascript6/)
+que si los trae) hay librerías que se encargan de imitar ese comportamiento (Caso de Require.js hace un tiempo).
 
-Nos permite escribir código JavaScript del cliente, como si estuviésemos programando en Node.js, es decir, como por ahora no tenemos módulos de forma nativa en JavaScript (hasta que [se implante el estándar ECMAScript6](/ecmascript6/) que si los trae) hay librerías que se encargan de imitar ese comportamiento (Caso de Require.js hace un tiempo).
+Con esta librería, podemos instalar módulos para el cliente, con NPM, al igual que hacíamos con bower, pero ahora, podemos
+llamarlos desde nuestro código con la palabra reservada `require`, al igual que en Node.js
 
-Con esta librería, podemos instalar módulos para el cliente, con NPM, al igual que hacíamos con bower, pero ahora, podemos llamarlos desde nuestro código con la palabra reservada `require`, al igual que en Node.js
-
-Y también nos permite tener un sólo archivo `.js` en el cliente, ya de inicio, olvidándonos de tener que importar todas las librerías y scripts utilizados en el HTML con `<script src="..."></script` y luego tener que concatenar etc...
+Y también nos permite tener un sólo archivo `.js` en el cliente, ya de inicio, olvidándonos de tener que importar todas las librerías
+y scripts utilizados en el HTML con `<script src="..."></script>` y luego tener que concatenar etc...
 
 También nos permite crear nuestros propios módulos con `module.exports` y llamarlos de nuevo desde nuestro código con `require`.
 
-En este artículo vamos a ver como sería un ejemplo sencillo utilizando una libreria externa como `jQuery` instalada a través de NPM, y como crear nuestro propio módulo y utilizarlo dentro de nuestra aplicación. Para todo ello emplearemos Node.js como servidor y Gulp con algunos plugins para automatizar el proceso.
+En este artículo vamos a ver como sería un ejemplo sencillo utilizando una libreria externa como `jQuery` instalada a través de NPM,
+y como crear nuestro propio módulo y utilizarlo dentro de nuestra aplicación. Para todo ello emplearemos Node.js como servidor y Gulp con algunos plugins para automatizar el proceso.
 
 ### Configuración de Gulp
 
@@ -31,7 +36,8 @@ $ npm install --save-dev vinyl-source-stream
 $ npm install --save-dev vinyl-buffer
 ```
 
-Esta será la tarea que crea el fichero `bundle.js` donde está el codigo fuente completo de la parte cliente, ya traducido para que funcione en el navegador, ya que los navegadores no entienden los `require` ni los `module.exports`.
+Esta será la tarea que crea el fichero `bundle.js` donde está el codigo fuente completo de la parte cliente, ya traducido para que
+funcione en el navegador, ya que los navegadores no entienden los `require` ni los `module.exports`.
 
 ```js
 gulp.task("browserify", function () {
@@ -44,9 +50,12 @@ gulp.task("browserify", function () {
 });
 ```
 
-El fichero principal dentro de nuestros fuentes es `app.main.js`, desde ahí se llama al resto de modulos y librerías externas utilizadas y el metodo `bundle()` lo compila.
+El fichero principal dentro de nuestros fuentes es `app.main.js`, desde ahí se llama al resto de modulos y librerías externas utilizadas
+y el metodo `bundle()` lo compila.
 
-Con `buffer()` del plugin `vinyl-buffer` y `source()` del plugin `vinyl-source-stream` conseguimos poder utilizar el fichero `bundle.js` generado para aplicarle un `uglify` o lo que se nos ocurra. Si le aplicacamos `uglify` despues del `bundle()` dará error porque por asincronía, aún no ha sido generado el fichero cuando queremos acceder a el.
+Con `buffer()` del plugin `vinyl-buffer` y `source()` del plugin `vinyl-source-stream` conseguimos poder utilizar el fichero
+`bundle.js` generado para aplicarle un `uglify` o lo que se nos ocurra. Si le aplicacamos `uglify` despues del `bundle()` dará error
+porque por asincronía, aún no ha sido generado el fichero cuando queremos acceder a el.
 
 ### Instalando librerías para el Frontend con NPM
 
@@ -86,7 +95,7 @@ $("h1").html("Hola Browserify");
 ```
 
 El resultado que veremos en el navegador será el siguiente:
-{<2>}![hola browserify](/images/browserify-desarrollando-tu-frontend-como-en-node-js/Screen-Shot-2015-03-11-at-20-45-18.png)
+![hola browserify](/images/browserify-desarrollando-tu-frontend-como-en-node-js/Screen-Shot-2015-03-11-at-20-45-18.png)
 
 Para conseguir este resultado, hay que correr las tareas que hemos configurado en el `Gulpfile.js`
 
@@ -121,7 +130,8 @@ var Persona = function (nombre, edad) {
 module.exports = Persona;
 ```
 
-Exportamos la variable `Persona` como módulo, y que devuelve 2 funciones, `saludar` y `presentar`, que son las únicas que podremos utilizar cuando las llamemos desde `app.main.js`
+Exportamos la variable `Persona` como módulo, y que devuelve 2 funciones, `saludar` y `presentar`,
+que son las únicas que podremos utilizar cuando las llamemos desde `app.main.js`
 
 ```js
 var $ = require("jquery");
@@ -136,13 +146,15 @@ carlos.presentar();
 
 Importamos el módulo recien creado con `require('./app.persona')` indicándole la ruta donde está el archivo.
 
-Creamos un objeto `persona` en la variable `carlos`, le pasamos los parámetros `Carlos` y `30` como nombre y edad. y llamamos a las funciones `saludar()` y `presentar()` que mostrarán una alerta JavaScript como las siguientes:
+Creamos un objeto `persona` en la variable `carlos`, le pasamos los parámetros `Carlos` y `30` como nombre y edad.
+Llamamos a las funciones `saludar()` y `presentar()` que mostrarán una alerta JavaScript como las siguientes:
 
 ![saludar](/images/browserify-desarrollando-tu-frontend-como-en-node-js/Screen-Shot-2015-03-11-at-23-35-04.png)
 
 ![presentar](/images/browserify-desarrollando-tu-frontend-como-en-node-js/Screen-Shot-2015-03-11-at-23-35-09.png)
 
-De esta manera, con `Browserify`, podemos programar el JavaScript del Frontend como en el backend con Node.js, pudiendo incluso utilizar librerías no disponibles para el navegador. Y además compilar todo en un único fichero y no tener que enlazar los scripts en el HTML, salvo el `bundle.js`
+De esta manera, con `Browserify`, podemos programar el JavaScript del Frontend como en el backend con Node.js, pudiendo incluso
+utilizar librerías no disponibles para el navegador. Y además compilar todo en un único fichero y no tener que enlazar los scripts en el HTML, salvo el `bundle.js`
 
 ![chuck-norris-aproved](http://www.gifbin.com/bin/1237811519_chuck-norris-approves.gif)
 
