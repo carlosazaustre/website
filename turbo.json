@@ -10,13 +10,18 @@
       },
       "dev": {
         "cache": false
+      },
+      "generate:videos": {
+        "dependsOn": ["^build"],
+        "outputs": ["latestVideos.json"]
       }
     },
     "globalDependencies": [
-        ".env",
-        "$GITHUB_TOKEN",
-        "$NODE_ENV",
-        "$NEXT_PUBLIC_GOOGLE_ANALYTICS"
+        ".env"
+    ],
+    "globalEnv": [
+        "GITHUB_TOKEN",
+        "NODE_ENV",
+        "NEXT_PUBLIC_GOOGLE_ANALYTICS"
     ]
 }
-  
