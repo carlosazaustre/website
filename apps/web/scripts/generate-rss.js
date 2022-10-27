@@ -40,5 +40,5 @@ const matter = require("gray-matter");
   );
 
   await fs.writeFile("./public/rss.xml", feed.xml({ indent: true }));
-  console.log(`🚀 RSS Genearated for ${posts.length} posts`);
+  console.log(`🚀 RSS Generated for ${posts.length} posts`);
 })();
