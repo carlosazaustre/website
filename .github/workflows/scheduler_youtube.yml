@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: npm install
+      - run: npm install --legacy-peer-deps
       - run: npm run generate:videos
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
