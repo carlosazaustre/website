@@ -14,8 +14,6 @@ export function useIntersectionObserver({
   const hasIOSupport = isClient && !!window.IntersectionObserver;
   const noUpdate = entry?.isIntersecting && freezeOnceVisible;
 
-  const IOOptions = { threshold, root, rootMargin };
-
   const updateEntry = ([entry]) => {
     setEntry(entry);
   };
@@ -24,6 +22,7 @@ export function useIntersectionObserver({
     function initIntersectionObserver() {
       // DOM Ref
       const node = elementRef?.current;
+      const IOOptions = { threshold, root, rootMargin };
 
       if (!hasIOSupport || noUpdate || !node) {
         return;
@@ -42,7 +41,7 @@ export function useIntersectionObserver({
         currentObserver.disconnect();
       };
     },
-    [elementRef, threshold, root, rootMargin, noUpdate]
+    [elementRef, threshold, root, rootMargin, noUpdate, hasIOSupport]
   );
 
   return [!!entry?.isIntersecting, entry];

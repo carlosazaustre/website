@@ -33,7 +33,7 @@ export default function Blog({ posts }) {
       },
       { threshold: 0.5 }
     );
-  }, []);
+  }, [next]);
 
   useEffect(() => {
     const currentElement = element;

@@ -10,10 +10,12 @@
     "build": "turbo run build",
     "dev": "NODE_ENV=development turbo run dev --parallel",
     "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "generate:videos": "turbo run generate:videos"
   },
-  "dependencies": {},
   "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "^2.7.1",
     "turbo": "^1.6.1"
   },
   "engines": {

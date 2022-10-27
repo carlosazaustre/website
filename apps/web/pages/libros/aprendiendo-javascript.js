@@ -6,7 +6,6 @@ import {
   elements as UI,
   icons as Icons,
 } from "@/components";
-import { Icon } from "@chakra-ui/react";
 
 const BuyOnAmazon = () => (
   <UI.Accordion>
@@ -33,7 +32,12 @@ const BuyOnAmazon = () => (
             >
               Comprar en
             </UI.Text>
-            <Image src="/assets/logo-amazon.png" width="120px" height="40px" />
+            <Image
+              src="/assets/logo-amazon.png"
+              width="120px"
+              height="40px"
+              alt="Amazon"
+            />
           </UI.Flex>
         </UI.AccordionButton>
       </UI.Box>
@@ -98,6 +102,7 @@ export default function BookJavaScriptPage() {
             width="723"
             height="700"
             src="/assets/aprendiendo-javascript-libro-3d.png"
+            alt="libro Aprendiendo JavaScript"
           />
         </UI.Box>
         <UI.Box w={["100%", "70%"]} pt={2} pl={4}>
@@ -177,6 +182,7 @@ export default function BookJavaScriptPage() {
           role="UX Engineer"
           photo="/assets/review-avatar-riley.jpeg"
         >
+          {`
           No solamente es una guía de referencia, es un libro muy visual, que
           además, te enseña buenas prácticas y consejos a tomar en
           consideración. Carlos ha logrado simplificar la complejidad de muchos
@@ -184,7 +190,7 @@ export default function BookJavaScriptPage() {
           una manera muy sencilla y divertida. Aprendiendo JavaScript rompe con
           el estereotipo: "No hay libros buenos en español sobre
           JavaScript/Programación". Si quieres aprender, mejorar o sólo
-          consultar, este es el libro indicado.
+          consultar, este es el libro indicado.`}
         </ReviewCard>
         <UI.Spacer />
         <ReviewCard
@@ -201,11 +207,11 @@ export default function BookJavaScriptPage() {
           role="Ingeniero de Software"
           photo="/assets/review-avatar-nelson.jpeg"
         >
-          Soy ingeniero desde hace años y siempre he usado Javascript a "la
+          {`Soy ingeniero desde hace años y siempre he usado Javascript a "la
           rápida". Copio de aquí, corrijo de allá, pero nunca me senté
           tranquilamente a leer sobre él. Aprendiendo JavaScript me ha parecido
           genial. Gracias a este libro he logrado comprender mejor el lenguaje y
-          he encontrado nuevos trucos que aplicar.
+          he encontrado nuevos trucos que aplicar.`}
         </ReviewCard>
       </UI.Flex>
 

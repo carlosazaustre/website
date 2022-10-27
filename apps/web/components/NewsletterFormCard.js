@@ -43,11 +43,9 @@ export const NewsletterFormCard = ({ size }) => {
           ¡Únete y ponte al día en desarrollo web!
         </Text>
         <InputGroup size="md">
-          <InputLeftElement
-            pointerEvents="none"
-            color="grayblue.900"
-            children={<IconMail />}
-          />
+          <InputLeftElement pointerEvents="none" color="grayblue.900">
+            <IconMail />
+          </InputLeftElement>
           <Input
             bg="secondary.500"
             placeholder="Tu email"

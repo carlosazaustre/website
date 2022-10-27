@@ -31,7 +31,7 @@ export const SellItem = ({ children, url, logo, w, h, type }) => {
           {children}
         </Text>
         <Box>
-          <Image width={w} height={h} src={logo} />
+          <Image width={w} height={h} src={logo} alt={logo} />
         </Box>
       </StyledBoxCard>
     </Link>
