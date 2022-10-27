@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "ui": "*",
     "@nextui-org/react": "^1.0.8-beta.5",
     "next": "^13.0.0",
     "node-fetch": "^2.6.1",
