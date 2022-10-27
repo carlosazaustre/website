@@ -10,7 +10,7 @@ export const OpenGraph = ({ metadata = {} }) => {
       "Tutoriales y Cursos sobre Programación Web y JavaScript con React, Node, Firebase, y mucho más...",
     slug: metadata.slug || "",
     image: `https://carlosazaustre.es/${
-      metadata.image || "/assets/default-image.png"
+      metadata.image || "assets/default-image.png"
     }`,
     date: metadata.date || new Date().toISOString(),
   };

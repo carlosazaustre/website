@@ -1,0 +1,14 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/webdev",
+            "destination": "https://learn.microsoft.com/es-es/training/paths/web-development-101/"
+        },
+        {
+            "source": "/js",
+            "destination": "https://www.youtube.com/watch?v=S9ojNaeC1RI"
+        }
+    ]
+}
