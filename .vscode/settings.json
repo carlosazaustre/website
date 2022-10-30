@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "linksweb",
-        "eslint-config-custom"
+        "eslint-config-custom",
+        "ui"
     ]
 }

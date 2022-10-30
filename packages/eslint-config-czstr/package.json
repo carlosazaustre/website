@@ -1,5 +1,5 @@
 {
-    "name": "eslint-config-custom",
+    "name": "eslint-config-czstr",
     "version": "0.0.0",
     "main": "index.js",
     "license": "MIT",
@@ -9,6 +9,9 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-turbo": "^0.0.4",
         "eslint-plugin-react": "^7.31.10"
+    },
+    "devDependencies": {
+        "typescript": "^4.7.4"
     },
     "publishConfig": {
         "access": "public"
