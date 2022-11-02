@@ -1,5 +1,5 @@
 import { MDXRemote } from "next-mdx-remote";
-import { TwitterShare } from "ui";
+import { TwitterShare } from "@czstr/ui";
 
 import { MDXComponents, Layout, ScrollToTop } from "@/components";
 import { getFiles, getFileBySlug } from "@/lib/mdx";

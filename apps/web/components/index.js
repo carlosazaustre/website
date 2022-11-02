@@ -16,13 +16,11 @@ export { Disqus } from "./Disqus";
 export { ScrollToTop } from "./ScrollToTop";
 export { SellItem } from "./SellItem";
 export { ReviewCard } from "./ReviewCard";
-export { TwitterShare } from "./TwitterShare";
 
 export { Layout } from "./Layout";
 export { LayoutLanding } from "./LayoutLanding";
 export { MDXComponents } from "./MDXComponents";
 export { OpenGraph } from "./OpenGraph";
-export { YouTube } from "./YouTube";
 export { SpotifyPodcast } from "./SpotifyPodcast";
 export * as elements from "./elements";
 export * as icons from "./icons";

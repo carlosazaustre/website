@@ -1,5 +1,5 @@
 import React from "react";
-import { YouTubeBtn, ThemeProvider, theme } from "ui/src";
+import { YouTubeBtn, ThemeProvider, theme } from "@czstr/ui";
 
 export default {
   title: "YouTubeBtn",

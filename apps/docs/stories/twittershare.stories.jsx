@@ -1,5 +1,5 @@
 import React from "react";
-import { TwitterShare, ThemeProvider, theme } from "ui";
+import { TwitterShare, ThemeProvider, theme } from "@czstr/ui";
 
 export default {
   title: "TwitterShare",

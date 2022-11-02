@@ -43,7 +43,7 @@
         "remark-gfm": "^3.0.1",
         "remark-parse": "^10.0.1",
         "rss": "^1.2.2",
-        "ui": "*"
+        "@czstr/ui": "*"
     },
     "devDependencies": {
         "eslint": "8.22.0",

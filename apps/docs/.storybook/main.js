@@ -18,8 +18,8 @@ module.exports = {
       resolve: {
         alias: [
           {
-            find: "ui",
-            replacement: path.resolve(__dirname, "../../../packages/ui"),
+            find: "@czstr/ui",
+            replacement: path.resolve(__dirname, "../../../packages/czstr-ui"),
           },
         ],
       },

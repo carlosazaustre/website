@@ -1,5 +1,5 @@
 import React from "react";
-import { YouTube, ThemeProvider, theme } from "ui/src";
+import { YouTube, ThemeProvider, theme } from "@czstr/ui";
 
 export default {
   title: "YouTube",

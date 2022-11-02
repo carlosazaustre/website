@@ -5,7 +5,7 @@ import { Dropdown, DropdownItem } from "./Dropdown";
 import { SpotifyPodcast } from "./SpotifyPodcast";
 // import { YouTube,  } from "./YouTube";
 // import { YouTubeBtn } from "./YouTubeBtn";
-import { YouTube, YouTubeBtn } from "ui";
+import { YouTube, YouTubeBtn } from "@czstr/ui";
 import { Tidycal } from "./Tidycal";
 import { Summary } from "./Summary";
 import { CustomLink } from "./CustomLink";

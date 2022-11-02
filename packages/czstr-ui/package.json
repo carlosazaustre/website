@@ -1,5 +1,5 @@
 {
-    "name": "ui",
+    "name": "@czstr/ui",
     "version": "0.0.0",
     "main": "./index.tsx", 
     "license": "MIT",

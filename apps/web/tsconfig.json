@@ -25,7 +25,7 @@
       "@/data/*": ["data/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
-      "ui": ["../../packages/ui/"]
+      "@czstr/ui": ["../../packages/czstr-ui/"]
     }
   },
   "include": [
