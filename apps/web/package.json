@@ -13,7 +13,6 @@
         "postbuild": "next-sitemap"
     },
     "dependencies": {
-        "@czstr/ui": "*",
         "@chakra-ui/icons": "^2.0.0",
         "@chakra-ui/react": "^2.3.6",
         "@emotion/react": "^11.10.4",
@@ -43,10 +42,12 @@
         "remark-code-titles": "^0.1.2",
         "remark-gfm": "^3.0.1",
         "remark-parse": "^10.0.1",
-        "rss": "^1.2.2"
+        "rss": "^1.2.2",
+        "ui": "*"
     },
     "devDependencies": {
         "eslint": "8.22.0",
-        "eslint-config-czstr": "*"
+        "eslint-config-czstr": "*",
+        "next-transpile-modules": "^10.0.0"
     }
 }
