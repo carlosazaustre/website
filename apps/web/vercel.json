@@ -157,6 +157,10 @@
     {
       "source": "/malt",
       "destination": "https://www.malt.es/create-profile?utm_medium=organic&utm_source=external&utm_campaign=es_acquis_azaustre_libros_newuser_madrid_marketing"
+    },
+    {
+      "source": "/mediakit",
+      "destination": "https://carlosazaustre.notion.site/carlosazaustre-Media-Kit-89e04a8046b74b0e8c33451d8cf6e633"
     }
   ]
 }
