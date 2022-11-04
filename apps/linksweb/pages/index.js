@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { UI } from "@czstr/ui";
 import { Container, Spacer, Text, Link as UILink } from "@nextui-org/react";
 
 import { SocialLinks } from "../components/SocialLinks";

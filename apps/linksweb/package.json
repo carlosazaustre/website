@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "ui": "*",
+    "@czstr/ui": "*",
     "@nextui-org/react": "^1.0.8-beta.5",
     "next": "^13.0.0",
     "node-fetch": "^2.6.1",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "eslint": "8.22.0",
-    "eslint-config-czstr": "*"
+    "eslint-config-czstr": "*",
+    "next-transpile-modules": "^10.0.0"
   }
 }
