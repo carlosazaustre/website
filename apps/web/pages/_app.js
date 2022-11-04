@@ -1,15 +1,10 @@
-import theme, {
-  ThemeProvider,
-  createLocalStorageManager,
-} from "@/styles/theme";
+import { ThemeProvider, theme } from "@czstr/ui";
+import "@czstr/ui/fonts";
 import "@/styles/prism-night-owl.css";
-import "@/styles/fonts";
 
 function MyApp({ Component, pageProps }) {
-  const manager = createLocalStorageManager("color-mode-manager");
-
   return (
-    <ThemeProvider theme={theme} colorModeManager={manager}>
+    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
     </ThemeProvider>
   );

@@ -1,13 +1,10 @@
 import Head from "next/head";
-import { UI } from "@czstr/ui";
-import { Container, Spacer, Text, Link as UILink } from "@nextui-org/react";
+import { UI, Icons, YouTube, SocialNetworks } from "@czstr/ui";
+import { Spacer, Text, Link as UILink } from "@nextui-org/react";
 
-import { SocialLinks } from "../components/SocialLinks";
-import { YouTubePlayer } from "../components/YouTubePlayer";
 import { CardInfo } from "../components/CardInfo";
 import { ImageProfile } from "../components/ImageProfile";
 import { Courses } from "../components/Courses";
-import { LinkButton } from "../components/LinkButton";
 
 import latestVideos from "../data/latestVideos.json";
 
@@ -60,68 +57,108 @@ export default function Home() {
         <title>Carlos Azaustre | Programación Web y JavaScript</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container justify="center" align="center">
-        <ImageProfile
-          fullName="Carlos Azaustre"
-          username="@carlosazaustre"
-          bio={`Google Developer Expert (GDE) en Tecnologías Web.
+      <UI.Box
+        w="100%"
+        bg="secondary.900"
+        borderTop="8px solid"
+        borderColor="brand.900"
+        color="white"
+      >
+        <UI.Container justify="center" align="center">
+          <ImageProfile
+            fullName="Carlos Azaustre"
+            username="@carlosazaustre"
+            bio={`Google Developer Expert (GDE) en Tecnologías Web.
           <br />
           Microsoft MVP 2022.
           <br />
           Ingeniero de Software y creador de contenido sobre Programación Web y
           JavaScript`}
-          image="/assets/carlos-azaustre.png"
-          alt="Carlos Azaustre - Aprende Programación Web y JavaScript"
-        />
+            image="/assets/carlos-azaustre.png"
+            alt="Carlos Azaustre - Aprende Programación Web y JavaScript"
+          />
 
-        <LinkButton
-          link="//discord.gg/carlosazaustre"
-          network="discord"
-          text="Únete a la Comunidad en Discord"
-        />
+          <UI.Button
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="360px"
+            border="2px"
+            borderColor="brand.900"
+            leftIcon={<Icons.IconDiscord />}
+            variant="outline"
+            my={2}
+          >
+            <UI.Link href="https://discord.gg/carlosazaustre">
+              Únete a la Comunidad en Discord
+            </UI.Link>
+          </UI.Button>
 
-        <LinkButton
-          link="//youtube.com/carlosazaustre?sub_confirmation=1"
-          network="youtube"
-          text="Tutoriales y Cursos Gratis"
-        />
+          <UI.Button
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="360px"
+            border="2px"
+            borderColor="brand.900"
+            leftIcon={<Icons.IconYoutube />}
+            variant="outline"
+            my={2}
+          >
+            <UI.Link href="https://youtube.com/@carlosazaustre">
+              Tutoriales y Cursos Gratis
+            </UI.Link>
+          </UI.Button>
 
-        <LinkButton
-          link="//twitch.tv/carlosazaustre"
-          network="twitch"
-          text="Livecoding en Directo"
-        />
+          <UI.Button
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="360px"
+            border="2px"
+            borderColor="brand.900"
+            leftIcon={<Icons.IconTwitch />}
+            variant="outline"
+            my={2}
+          >
+            <UI.Link href="https://m.twitch.tv/carlosazaustre">
+              Livecoding en Directo
+            </UI.Link>
+          </UI.Button>
 
-        <SocialLinks links={links} />
+          <UI.Flex justify="center" align="center" my={2}>
+            <SocialNetworks />
+          </UI.Flex>
 
-        <YouTubePlayer videoID={lastVideoId} title={titleVideo} />
+          <YouTube videoID={lastVideoId} title={titleVideo} />
 
-        <Courses courses={courseList} />
+          <Courses courses={courseList} />
 
-        <CardInfo
-          title="Consigue mi libro"
-          subtitle="Aprendiendo JavaScript"
-          image="/assets/libro-aprendiendo-javascript.jpg"
-          url="//carlosazaustre.es/libros/aprendiendo-javascript"
-          bottomText="A la venta en Amazon (Versiones Digital y en Papel)"
-          bottomCTA="Comprar libro"
-        />
+          <CardInfo
+            title="Consigue mi libro"
+            subtitle="Aprendiendo JavaScript"
+            image="/assets/libro-aprendiendo-javascript.jpg"
+            url="//carlosazaustre.es/libros/aprendiendo-javascript"
+            bottomText="A la venta en Amazon (Versiones Digital y en Papel)"
+            bottomCTA="Comprar libro"
+          />
 
-        <CardInfo
-          title="Mi Setup"
-          subtitle="Mi espacio de trabajo"
-          image="/assets/setup_2022.jpg"
-          url="//carlosazaustre.es/workspace"
-        />
+          <CardInfo
+            title="Mi Setup"
+            subtitle="Mi espacio de trabajo"
+            image="/assets/setup_2022.jpg"
+            url="//carlosazaustre.es/workspace"
+          />
 
+          <Spacer y={1} />
+          <Text size="xs" color="white">
+            <UILink color="primary" href="//carlosazaustre.es">
+              carlosazaustre.es
+            </UILink>
+          </Text>
+        </UI.Container>
         <Spacer y={1} />
-        <Text size="xs" color="white">
-          <UILink color="primary" href="//carlosazaustre.es">
-            carlosazaustre.es
-          </UILink>
-        </Text>
-      </Container>
-      <Spacer y={1} />
+      </UI.Box>
     </div>
   );
 }

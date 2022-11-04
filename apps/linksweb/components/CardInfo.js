@@ -19,7 +19,6 @@ export function CardInfo({
 }) {
   return (
     <>
-      <Spacer y={1} />
       <a href={url} target="_blank" rel="noreferrer">
         <Card
           bordered

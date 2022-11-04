@@ -9,6 +9,7 @@ export {
     HStack,
     Link,
     Divider,
+    Avatar,
     AspectRatio,
     Heading,
     Text,

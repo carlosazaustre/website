@@ -1,23 +1,11 @@
-import { createTheme, NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider, theme } from "@czstr/ui";
+import "@czstr/ui/fonts";
 
 function MyApp({ Component, pageProps }) {
-  const theme = createTheme({
-    type: "light",
-    theme: {
-      colors: {
-        primary: "#ffc400",
-        secondary: "#222222",
-      },
-      fonts: {
-        sans: "Poppins",
-      },
-    },
-  });
-
   return (
-    <NextUIProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
-    </NextUIProvider>
+    </ThemeProvider>
   );
 }
 

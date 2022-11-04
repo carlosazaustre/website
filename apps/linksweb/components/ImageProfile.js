@@ -1,26 +1,26 @@
-import { Avatar, Text } from "@nextui-org/react";
+import { UI } from "@czstr/ui";
 
 export function ImageProfile({ image, alt, bio, fullName, username }) {
   return (
     <>
-      <Avatar
-        bordered
+      <UI.Avatar
+        size="2xl"
+        name="Carlos Azaustre"
         src={image}
-        css={{ my: 15, size: 120 }}
-        color="primary"
         alt={alt}
+        my={4}
       />
-      <Text h6 size={16} color="primary">
+      <UI.Text as="h6" size={16} color="primary">
         {username}
-      </Text>
+      </UI.Text>
 
-      <Text h1 size={35}>
+      <UI.Heading as="h1" size="2xl" my={2}>
         {fullName}
-      </Text>
+      </UI.Heading>
 
-      <Text size={16}>
+      <UI.Text as="h2" size="sm" fontWeight="300" my={2}>
         <span dangerouslySetInnerHTML={{ __html: bio }} />
-      </Text>
+      </UI.Text>
     </>
   );
 }
