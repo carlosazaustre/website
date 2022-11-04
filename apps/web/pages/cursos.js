@@ -1,6 +1,7 @@
 import NextLink from "next/link";
+import { UI } from "@czstr/ui";
 
-import { Layout, CourseListItem, elements as UI } from "@/components";
+import { Layout, CourseListItem } from "@/components";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 
 export default function Courses({ courses }) {

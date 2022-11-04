@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import * as ga from "@/lib/ga";
 import { IconMail } from "./icons";
 import {
   Text,
@@ -16,14 +15,7 @@ const StyledForm = styled.form`
   margin: 0 auto;
 `;
 
-export const NewsletterFormCard = ({ size }) => {
-  const generateLead = () => {
-    ga.event({
-      action: "generate_lead",
-      params: { event_label: "Newsletter Sign up", value: 1 },
-    });
-  };
-
+export const NewsletterForm = ({ size }: { size: string }) => {
   return (
     <StyledForm
       action="https://www.getrevue.co/profile/carlosazaustre/add_subscriber"
@@ -65,7 +57,6 @@ export const NewsletterFormCard = ({ size }) => {
           name="member[subscribe]"
           id="member_submit"
           size="md"
-          onClick={() => generateLead()}
         >
           Suscribirme
         </Button>

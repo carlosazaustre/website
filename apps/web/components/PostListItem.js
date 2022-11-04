@@ -1,18 +1,17 @@
-import { Box, Flex, Text, Tag } from "./elements";
-import { IconCalendar } from "./icons";
+import { UI, Icons } from "@czstr/ui";
 
 export const PostListItem = ({ title, date, tags }) => {
   return (
-    <Box as="span" display="block" py="2">
-      <Text as="h4" size="sm" fontWeight="400" my={2}>
+    <UI.Box as="span" display="block" py="2">
+      <UI.Text as="h4" size="sm" fontWeight="400" my={2}>
         {title}
-      </Text>
-      <Flex as="span" align="center" fontSize="sm" color="grayblue.100">
-        <IconCalendar fill="white" />
-        <Text color="brand.900" ml={1}>
+      </UI.Text>
+      <UI.Flex as="span" align="center" fontSize="sm" color="grayblue.100">
+        <Icons.IconCalendar fill="white" />
+        <UI.Text color="brand.900" ml={1}>
           {date}{" "}
           {tags.map((tag) => (
-            <Tag
+            <UI.Tag
               key={tag}
               size="sm"
               mx={2}
@@ -20,10 +19,10 @@ export const PostListItem = ({ title, date, tags }) => {
               color="white"
             >
               {tag}
-            </Tag>
+            </UI.Tag>
           ))}
-        </Text>
-      </Flex>
-    </Box>
+        </UI.Text>
+      </UI.Flex>
+    </UI.Box>
   );
 };

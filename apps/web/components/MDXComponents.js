@@ -1,70 +1,56 @@
 import Image from "next/image";
-
-import { IconLabel } from "./icons";
-import { Dropdown, DropdownItem } from "./Dropdown";
-import { SpotifyPodcast } from "./SpotifyPodcast";
-// import { YouTube,  } from "./YouTube";
-// import { YouTubeBtn } from "./YouTubeBtn";
-import { YouTube, YouTubeBtn } from "@czstr/ui";
-import { Tidycal } from "./Tidycal";
-import { Summary } from "./Summary";
-import { CustomLink } from "./CustomLink";
-import { CustomImage } from "./CustomImage";
-import { NewsletterFormCard } from "./NewsletterFormCard";
 import {
-  Divider,
-  Heading,
-  Text,
-  UnorderedList,
-  OrderedList,
-  ListItem,
-  ListIcon,
-  Table,
-  Thead,
-  Tbody,
-  Th,
-  Tr,
-  Td,
-  TableContainer,
-} from "./elements";
+  YouTube,
+  YouTubeBtn,
+  Dropdown,
+  DropdownItem,
+  NewsletterForm,
+  SpotifyPodcast,
+  CustomImage,
+  UI,
+  Summary,
+  Icons,
+} from "@czstr/ui";
+
+import { Tidycal } from "./Tidycal";
+import { CustomLink } from "./CustomLink";
 
 export const MDXComponents = {
   a: CustomLink,
-  hr: Divider,
-  h1: (props) => <Heading as="h1" my={8} size="lg" {...props} />,
-  h2: (props) => <Heading as="h2" my={4} size="lg" {...props} />,
-  h3: (props) => <Heading as="h3" my={4} size="md" {...props} />,
-  h4: (props) => <Heading as="h4" my={2} size="md" {...props} />,
-  h5: (props) => <Heading as="h5" my={2} size="sm" {...props} />,
-  h6: (props) => <Heading as="h6" my={2} size="sm" {...props} />,
-  p: (props) => <Text fontSize="md" lineHeight={6} my={8} {...props} />,
+  hr: UI.Divider,
+  h1: (props) => <UI.Heading as="h1" my={8} size="lg" {...props} />,
+  h2: (props) => <UI.Heading as="h2" my={4} size="lg" {...props} />,
+  h3: (props) => <UI.Heading as="h3" my={4} size="md" {...props} />,
+  h4: (props) => <UI.Heading as="h4" my={2} size="md" {...props} />,
+  h5: (props) => <UI.Heading as="h5" my={2} size="sm" {...props} />,
+  h6: (props) => <UI.Heading as="h6" my={2} size="sm" {...props} />,
+  p: (props) => <UI.Text fontSize="md" lineHeight={6} my={8} {...props} />,
   table: (props) => (
-    <TableContainer>
-      <Table variant="striped" colorScheme="secondary" {...props} />
-    </TableContainer>
+    <UI.TableContainer>
+      <UI.Table variant="striped" colorScheme="secondary" {...props} />
+    </UI.TableContainer>
   ),
-  thead: (props) => <Thead {...props} />,
-  tbody: (props) => <Tbody {...props} />,
-  th: (props) => <Th {...props} />,
-  tr: (props) => <Tr {...props} />,
-  td: (props) => <Td {...props} />,
+  thead: (props) => <UI.Thead {...props} />,
+  tbody: (props) => <UI.Tbody {...props} />,
+  th: (props) => <UI.Th {...props} />,
+  tr: (props) => <UI.Tr {...props} />,
+  td: (props) => <UI.Td {...props} />,
   img: (props) => <CustomImage {...props} />,
-  ul: (props) => <UnorderedList styleType="none" {...props} />,
-  ol: (props) => <OrderedList styleType="none" {...props} />,
+  ul: (props) => <UI.UnorderedList styleType="none" {...props} />,
+  ol: (props) => <UI.OrderedList styleType="none" {...props} />,
   li: (props) => (
-    <ListItem>
-      <ListIcon as={IconLabel} color="brand.900" />
+    <UI.ListItem>
+      <UI.ListIcon as={Icons.IconLabel} color="brand.900" />
       {props.children}
-    </ListItem>
+    </UI.ListItem>
   ),
   Image,
   Summary,
-  Heading,
   SpotifyPodcast,
   YouTube,
   YouTubeBtn,
   Tidycal,
-  NewsletterFormCard,
+  NewsletterForm,
   Dropdown,
   DropdownItem,
 };

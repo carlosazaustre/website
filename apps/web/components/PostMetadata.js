@@ -1,13 +1,11 @@
+import { OpenPR, UI, Icons } from "@czstr/ui";
 import { formatDate } from "@/lib/format-date";
-import { Flex, Text, Tag, Link } from "./elements";
-import { IconCalendar, IconComment, IconClock } from "./icons";
-import { OpenPR } from "./OpenPR";
 import { Disqus } from "./Disqus";
 
 export const PostMetadata = ({ metadata }) => {
   return (
-    <Flex direction="column" py={2}>
-      <Flex
+    <UI.Flex direction="column" py={2}>
+      <UI.Flex
         direction={["column", "column", "row"]}
         align={["left", "left", "center"]}
         justify="flex-start"
@@ -16,33 +14,33 @@ export const PostMetadata = ({ metadata }) => {
         fontWeight="500"
         fontFamily="heading"
       >
-        <Flex align="center">
-          <IconCalendar />
-          <Text color="brand.900" mx={2}>
+        <UI.Flex align="center">
+          <Icons.IconCalendar />
+          <UI.Text color="brand.900" mx={2}>
             {formatDate(metadata.date)}
-          </Text>
-        </Flex>
-        <Flex align="center">
-          <IconComment />
-          <Link mx={2} href="#comments">
+          </UI.Text>
+        </UI.Flex>
+        <UI.Flex align="center">
+          <Icons.IconComment />
+          <UI.Link mx={2} href="#comments">
             <Disqus type="count" title={metadata.title} slug={metadata.slug} />
-          </Link>
-        </Flex>
-        <Flex align="center">
-          <IconClock />
-          <Text mx={2}>
+          </UI.Link>
+        </UI.Flex>
+        <UI.Flex align="center">
+          <Icons.IconClock />
+          <UI.Text mx={2}>
             {Math.round(metadata.readingTime.minutes)} minutos de lectura
-          </Text>
-        </Flex>
-        <Flex direction="row">
+          </UI.Text>
+        </UI.Flex>
+        <UI.Flex direction="row">
           {metadata.tags.map((tag) => (
-            <Tag key={tag} size="sm" mx={2}>
+            <UI.Tag key={tag} size="sm" mx={2}>
               {tag}
-            </Tag>
+            </UI.Tag>
           ))}
-        </Flex>
-      </Flex>
+        </UI.Flex>
+      </UI.Flex>
       <OpenPR slug={metadata.slug} />
-    </Flex>
+    </UI.Flex>
   );
 };

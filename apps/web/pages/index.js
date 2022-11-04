@@ -1,17 +1,15 @@
 import Link from "next/link";
+import {
+  Footer,
+  NewsletterForm,
+  SpotifyPodcast,
+  SocialNetworks,
+  UI,
+} from "@czstr/ui";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import { orderByDate } from "@/lib/order-by-date";
 import { formatDate } from "@/lib/format-date";
-import {
-  elements as UI,
-  PostListItem,
-  Footer,
-  OpenGraph,
-  SocialNetworks,
-  SectionLinks,
-  SpotifyPodcast,
-  NewsletterFormCard,
-} from "@/components";
+import { PostListItem, OpenGraph, SectionLinks } from "@/components";
 import latestVideos from "@/data/latestVideos.json";
 
 export default function Home({ posts }) {
@@ -142,7 +140,7 @@ export default function Home({ posts }) {
               </UI.Text>
               <SpotifyPodcast episode="66ytmkgGU1SQ2Z7XicMnc2?si=Do8Ggb7xQBK5piEEEF4U8Q" />
 
-              <NewsletterFormCard />
+              <NewsletterForm />
             </UI.Box>
           </UI.Flex>
         </UI.Container>

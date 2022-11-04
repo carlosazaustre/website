@@ -1,6 +1,12 @@
+import { ReactChild } from 'react';
 import { Box, Flex, Image, Text } from "./elements";
 
-export const ReviewCard = ({ children, photo, name, role }) => {
+export const ReviewCard = ({ children, photo, name, role }: {
+    children: ReactChild;
+    photo: string;
+    name: string;
+    role: string;
+}) => {
   return (
     <Box
       bg="secondary.500"

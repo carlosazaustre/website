@@ -1,11 +1,6 @@
 import Image from "next/image";
-import {
-  LayoutLanding,
-  SellItem,
-  ReviewCard,
-  elements as UI,
-  icons as Icons,
-} from "@/components";
+import { UI, ReviewCard, Icons } from "@czstr/ui";
+import { LayoutLanding, SellItem } from "@/components";
 
 const BuyOnAmazon = () => (
   <UI.Accordion>

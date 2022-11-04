@@ -1,58 +1,62 @@
 import { Fragment } from "react";
+import { Footer, NewsletterForm, UI } from "@czstr/ui";
 
-import { Heading, Container, Flex, Box, Text, Stack } from "./elements";
+import { OpenGraph } from "./OpenGraph";
 import { SectionLinks } from "./SectionLinks";
-import { Footer } from "./Footer";
 import { PostMetadata } from "./PostMetadata";
 import { Disqus } from "./Disqus";
-import { NewsletterFormCard } from "./NewsletterFormCard";
-import { OpenGraph } from "./OpenGraph";
 
 export const Layout = ({ children, metadata = {}, type = "post" }) => {
   const isBlogTemplate = type === "post" && metadata.date;
 
   return (
-    <Box
+    <UI.Box
       bg="secondary.900"
       borderTop="8px solid"
       borderColor="brand.900"
       color="white"
     >
       <OpenGraph metadata={metadata} />
-      <Container maxW="container.md" pt="8">
+      <UI.Container maxW="container.md" pt="8">
         <SectionLinks />
 
-        <Flex direction="column">
-          <Box as="article" my={4} width="100%">
+        <UI.Flex direction="column">
+          <UI.Box as="article" my={4} width="100%">
             {isBlogTemplate ? (
               <Fragment>
-                <Heading as="h1" size="xl" mt={8} mb={4} fontFamily="heading">
+                <UI.Heading
+                  as="h1"
+                  size="xl"
+                  mt={8}
+                  mb={4}
+                  fontFamily="heading"
+                >
                   {metadata.title}
-                </Heading>
+                </UI.Heading>
                 <PostMetadata metadata={metadata} />
               </Fragment>
             ) : (
-              <Heading as="h2" my={8} size="xl">
+              <UI.Heading as="h2" my={8} size="xl">
                 {metadata.title}
-              </Heading>
+              </UI.Heading>
             )}
-            <Box m="0" as="section">
+            <UI.Box m="0" as="section">
               {children}
-            </Box>
+            </UI.Box>
             {isBlogTemplate && (
               <aside id="comments">
                 <Disqus title={metadata.title} slug={metadata.slug} />
               </aside>
             )}
-          </Box>
+          </UI.Box>
           {type === "post" && (
-            <Stack as="aside" spacing="24px" my="4" width="100%">
-              <NewsletterFormCard />
-            </Stack>
+            <UI.Stack as="aside" spacing="24px" my="4" width="100%">
+              <NewsletterForm />
+            </UI.Stack>
           )}
-        </Flex>
-      </Container>
+        </UI.Flex>
+      </UI.Container>
       <Footer />
-    </Box>
+    </UI.Box>
   );
 };

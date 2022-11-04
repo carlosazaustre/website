@@ -1,7 +1,8 @@
 import NextLink from "next/link";
 import NextImage from "next/image";
+import { UI } from "@czstr/ui";
 
-import { Layout, elements as UI } from "@/components";
+import { Layout } from "@/components";
 
 export default function NotFound() {
   const metadata = {

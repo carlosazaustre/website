@@ -1,8 +1,6 @@
 import NextLink from "next/link";
 import styled from "@emotion/styled";
-
-import { Link } from "./elements";
-import { ExternalLinkIcon } from "./icons";
+import { UI, Icons } from "@czstr/ui";
 
 const StyledLink = styled(NextLink)`
   color: var(--chakra-colors-brand-900);
@@ -17,7 +15,7 @@ export const CustomLink = (props) => {
   }
 
   return (
-    <Link
+    <UI.Link
       isExternal
       color="brand.900"
       target="_blank"
@@ -25,7 +23,9 @@ export const CustomLink = (props) => {
       {...props}
     >
       {props.children}{" "}
-      {typeof props.children !== "object" && <ExternalLinkIcon mx="2px" />}
-    </Link>
+      {typeof props.children !== "object" && (
+        <Icons.ExternalLinkIcon mx="2px" />
+      )}
+    </UI.Link>
   );
 };

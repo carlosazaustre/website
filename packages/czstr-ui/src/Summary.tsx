@@ -1,3 +1,4 @@
+import { ReactChild } from "react";
 import styled from "@emotion/styled";
 import { Text } from "./elements";
 
@@ -7,7 +8,7 @@ const StyledBox = styled.div`
   margin: 0 var(--chakra-space-4);
 `;
 
-export const Summary = ({ children }) => {
+export const Summary = ({ children }: { children: ReactChild }) => {
   return (
     <StyledBox>
       <Text fontSize="2xl" fontWeight="light" color="secondary.100">
