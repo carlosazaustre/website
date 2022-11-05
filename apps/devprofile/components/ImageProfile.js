@@ -4,22 +4,22 @@ export function ImageProfile({ image, alt, bio, fullName, username }) {
   return (
     <>
       <UI.Avatar
-        size="2xl"
+        size="xl"
         name="Carlos Azaustre"
         src={image}
         alt={alt}
         my={4}
       />
-      <UI.Text as="h6" size={16} color="primary">
+      <UI.Text fontSize="sm" color="primary">
         {username}
       </UI.Text>
 
-      <UI.Heading as="h1" size="2xl" my={2}>
+      <UI.Heading as="h1" size="lg" my={2}>
         {fullName}
       </UI.Heading>
 
-      <UI.Text as="h2" size="sm" fontWeight="300" my={2}>
-        <span dangerouslySetInnerHTML={{ __html: bio }} />
+      <UI.Text fontSize="xs" fontWeight="300" my={2}>
+        {bio}
       </UI.Text>
     </>
   );

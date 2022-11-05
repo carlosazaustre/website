@@ -32,4 +32,8 @@ export {
   MdVideogameAsset as IconConsole,
 } from "react-icons/md";
 
+export {
+  HiComputerDesktop as IconComputerDesktop
+} from "react-icons/hi2"
+
 export { IoIosSave as IconSave } from "react-icons/io";
