@@ -1,6 +1,14 @@
 {
-    "extends": "@czstr/tsconfig/react-library.json",
-    "include": ["."],
-    "exclude": ["dist", "build", "node_modules"]
-  }
+    "compilerOptions": {
+      "baseUrl": ".",
+    "paths": {
+      "@/layouts": ["layouts/"],
+      "@/components": ["components/"],
+      "@/data/*": ["data/*"],
+      "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"],
+      "@czstr/ui": ["../../packages/czstr-ui/"]
+    }
+  },
+}
   
