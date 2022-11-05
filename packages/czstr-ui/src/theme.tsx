@@ -21,6 +21,11 @@ import {
         500: "#A1A6AB",
         100: "#797C81",
       },
+      discord: {
+        900: "#5865F2",
+        500: "#7289DA",
+        100: "#99AAB5",
+      }
     },
     fonts: {
       heading: "Poppins",

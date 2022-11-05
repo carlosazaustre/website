@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { UI, Icons, YouTube, Footer } from "@czstr/ui";
+import { UI, Icons, YouTube, Footer, NewsletterForm } from "@czstr/ui";
 
 import { ImageProfile } from "../components/ImageProfile";
 import latestVideos from "../data/latestVideos.json";
@@ -34,7 +34,7 @@ export default function Home() {
           />
 
           <UI.Button
-            colorScheme="brand"
+            colorScheme="discord"
             variant="solid"
             color="black"
             size="md"
@@ -51,7 +51,7 @@ export default function Home() {
           </UI.Button>
 
           <UI.Button
-            colorScheme="brand"
+            colorScheme="red"
             variant="solid"
             color="black"
             size="md"
@@ -67,7 +67,7 @@ export default function Home() {
           </UI.Button>
 
           <UI.Button
-            colorScheme="brand"
+            colorScheme="purple"
             variant="solid"
             color="black"
             size="md"
@@ -118,12 +118,61 @@ export default function Home() {
             leftIcon={<Icons.IconStudy />}
             my={2}
           >
-            <UI.Link href="https://carlosazaustre.es/workspace">
+            <UI.Link href="https://carlosazaustre.es/cursos">
               Cursos de Programación GRATIS
             </UI.Link>
           </UI.Button>
 
+          <UI.Button
+            colorScheme="linkedin"
+            variant="solid"
+            color="black"
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="545px"
+            leftIcon={<Icons.IconLinkedin />}
+            my={2}
+          >
+            <UI.Link href="https://linkedin.com/in/carlosazaustre">
+              Conectemos en LinkedIn
+            </UI.Link>
+          </UI.Button>
+
+          <UI.Button
+            colorScheme="twitter"
+            variant="solid"
+            color="black"
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="545px"
+            leftIcon={<Icons.IconTwitter />}
+            my={2}
+          >
+            <UI.Link href="https://twitter.com/carlosazaustre">
+              Sígueme en Twitter
+            </UI.Link>
+          </UI.Button>
+
+          <UI.Button
+            colorScheme="black"
+            variant="outline"
+            size="md"
+            height="48px"
+            width="100%"
+            maxWidth="545px"
+            leftIcon={<Icons.IconGithub />}
+            my={2}
+          >
+            <UI.Link href="https://github.com/carlosazaustre">
+              Sígueme en Github
+            </UI.Link>
+          </UI.Button>
+
           <YouTube videoID={lastVideoId} title={titleVideo} />
+
+          <NewsletterForm />
         </UI.Container>
         <Footer />
       </UI.Box>
