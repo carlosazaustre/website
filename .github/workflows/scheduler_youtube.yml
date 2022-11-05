@@ -2,7 +2,7 @@ name: Get Lastest Youtube Videos
 
 on:
   schedule:
-    - cron: "30 17 * * *" # every day at 7:30pm GMT+2
+    - cron: "30 19 * * *" # every day at 7:30pm GMT+2
 
 jobs:
   build:

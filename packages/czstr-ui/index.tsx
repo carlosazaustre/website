@@ -15,4 +15,4 @@ export { SocialNetworks } from "./src/SocialNetworks";
 export { Summary } from "./src/Summary";
 export * as UI from "./src/elements";
 export * as Icons from "./src/icons";
-export * as fonts from './fonts'
+export * as fonts from './fonts';
