@@ -15,11 +15,13 @@
     "dependencies": {
         "@chakra-ui/icons": "^2.0.0",
         "@chakra-ui/react": "^2.3.6",
+        "@czstr/ui": "*",
         "@emotion/react": "^11.10.4",
         "@emotion/styled": "^11.10.4",
         "@fontsource/ibm-plex-mono": "^4.5.12",
         "@fontsource/ibm-plex-sans": "^4.5.13",
         "@fontsource/poppins": "^4.4.5",
+        "@types/node": "^18.11.9",
         "date-fns": "^2.22.1",
         "disqus-react": "^1.1.5",
         "eslint-config-next": "^13.0.0",
@@ -42,8 +44,7 @@
         "remark-code-titles": "^0.1.2",
         "remark-gfm": "^3.0.1",
         "remark-parse": "^10.0.1",
-        "rss": "^1.2.2",
-        "@czstr/ui": "*"
+        "rss": "^1.2.2"
     },
     "devDependencies": {
         "eslint": "8.22.0",
