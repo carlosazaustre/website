@@ -1,12 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import NextLink from "next/link";
+import { UI } from "@czstr/ui";
 
-import {
-  Layout,
-  PostListItem,
-  ScrollToTop,
-  elements as UI,
-} from "@/components";
+import { Layout, PostListItem, ScrollToTop } from "@/components";
 import { formatDate } from "@/lib/format-date";
 import { orderByDate } from "@/lib/order-by-date";
 import { getAllFilesFrontMatter } from "@/lib/mdx";

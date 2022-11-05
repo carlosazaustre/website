@@ -1,8 +1,8 @@
 import NextLink from "next/link";
 import styled from "@emotion/styled";
+import { UI } from "@czstr/ui";
 
 import sections from "@/data/sections";
-import { Flex } from "./elements";
 
 const SectionLinkItem = styled(NextLink)`
   font-family: var(--chakra-fonts-heading);
@@ -23,13 +23,13 @@ const SectionLinkItem = styled(NextLink)`
 export const SectionLinks = () => {
   return (
     <nav>
-      <Flex direction="row" wrap="wrap" py="4">
+      <UI.Flex direction="row" wrap="wrap" py="4">
         {sections.map(({ name, url }) => (
           <SectionLinkItem key={name} href={url} passHref>
             {name}
           </SectionLinkItem>
         ))}
-      </Flex>
+      </UI.Flex>
     </nav>
   );
 };

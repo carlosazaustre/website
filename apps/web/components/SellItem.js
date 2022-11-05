@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { Link, Box, Text } from "./elements";
+import { UI } from "@czstr/ui";
 
-const StyledBoxCard = styled(Box)`
+const StyledBoxCard = styled(UI.Box)`
   background-color: var(--chakra-colors-brand-900);
   color: var(--chakra-colors-black);
   margin: var(--chakra-sizes-4);
@@ -20,20 +20,20 @@ const StyledBoxCard = styled(Box)`
 
 export const SellItem = ({ children, url, logo, w, h, type }) => {
   return (
-    <Link href={url}>
+    <UI.Link href={url}>
       <StyledBoxCard type={type} p={[2, 4]}>
-        <Text
+        <UI.Text
           mb={2}
           fontFamily="heading"
           fontSize={["xs", "sm", "md"]}
           fontWeight="normal"
         >
           {children}
-        </Text>
-        <Box>
+        </UI.Text>
+        <UI.Box>
           <Image width={w} height={h} src={logo} alt={logo} />
-        </Box>
+        </UI.Box>
       </StyledBoxCard>
-    </Link>
+    </UI.Link>
   );
 };
