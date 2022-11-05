@@ -24,6 +24,7 @@
         "@fontsource/ibm-plex-sans": "^4.5.13",
         "@fontsource/poppins": "^4.5.10",
         "framer-motion": "^7.6.4",
-        "react-icons": "^4.6.0"
+        "react-icons": "^4.6.0",
+        "react-share": "^4.4.1"
     }
 }
