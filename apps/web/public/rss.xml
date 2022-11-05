@@ -4,7 +4,7 @@
         <description><![CDATA[Tutoriales de Programación y desarrollo web con JavaScript, React, Node.js y más]]></description>
         <link>https://carlosazaustre.es</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 02 Nov 2022 12:07:38 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 04 Nov 2022 21:35:17 GMT</lastBuildDate>
         <atom:link href="https://carlosazaustre.es/rss.xml" rel="self" type="application/rss+xml"/>
         <copyright><![CDATA[2011-2022 Carlos Azaustre]]></copyright>
         <language><![CDATA[es]]></language>
@@ -40,18 +40,18 @@
             <pubDate>Fri, 16 Jul 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Cómo programar orientado a Componentes con Directivas de Angular 1.x]]></title>
+            <link>https://carlosazaustre.es/angular-js-directivas-como-componentes</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/angular-js-directivas-como-componentes</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Angular 2. Primeros pasos empleando Browserify y Babel]]></title>
             <link>https://carlosazaustre.es/angular-2-primeros-pasos</link>
             <guid isPermaLink="true">https://carlosazaustre.es/angular-2-primeros-pasos</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Mon, 09 Nov 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Angular 2: Rutas y Componentes]]></title>
-            <link>https://carlosazaustre.es/angular-2-rutas-y-componentes</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/angular-2-rutas-y-componentes</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Wed, 11 Nov 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Ejecuta tu App NodeJS como un Servicio en Linux]]></title>
@@ -68,18 +68,18 @@
             <pubDate>Fri, 17 Jun 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cómo hacer autenticación basada en token con AngularJS]]></title>
-            <link>https://carlosazaustre.es/autenticacion-con-token-en-angularjs</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/autenticacion-con-token-en-angularjs</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 26 Feb 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Cómo implementar autenticación basada en token con Node.js]]></title>
             <link>https://carlosazaustre.es/autenticacion-con-token-en-node-js</link>
             <guid isPermaLink="true">https://carlosazaustre.es/autenticacion-con-token-en-node-js</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Mon, 23 Feb 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Cómo hacer autenticación basada en token con AngularJS]]></title>
+            <link>https://carlosazaustre.es/autenticacion-con-token-en-angularjs</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/autenticacion-con-token-en-angularjs</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 26 Feb 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Automatizando tu flujo de trabajo en el Frontend con GulpJS]]></title>
@@ -94,6 +94,13 @@
             <guid isPermaLink="true">https://carlosazaustre.es/automatizar-tareas-en-javascript-con-grunt-js</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Thu, 01 Aug 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Angular 2: Rutas y Componentes]]></title>
+            <link>https://carlosazaustre.es/angular-2-rutas-y-componentes</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/angular-2-rutas-y-componentes</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Wed, 11 Nov 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Eligiendo un banco online sin comisiones. Mi experiencia con N26]]></title>
@@ -117,20 +124,6 @@
             <pubDate>Wed, 08 Jul 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cómo conectarte remótamente a tu base de datos MongoDB]]></title>
-            <link>https://carlosazaustre.es/como-conectarte-remotamente-a-tu-base-de-datos-mongodb</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/como-conectarte-remotamente-a-tu-base-de-datos-mongodb</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Cómo programar orientado a Componentes con Directivas de Angular 1.x]]></title>
-            <link>https://carlosazaustre.es/angular-js-directivas-como-componentes</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/angular-js-directivas-como-componentes</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Cómo configurar Nginx con Node.js en Producción]]></title>
             <link>https://carlosazaustre.es/como-configurar-nginx-con-node-js-en-produccion</link>
             <guid isPermaLink="true">https://carlosazaustre.es/como-configurar-nginx-con-node-js-en-produccion</guid>
@@ -138,11 +131,11 @@
             <pubDate>Wed, 26 Feb 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cómo configurar tu servidor cloud en DigitalOcean]]></title>
-            <link>https://carlosazaustre.es/como-configurar-tu-servidor-cloud-en-digitalocean</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/como-configurar-tu-servidor-cloud-en-digitalocean</guid>
+            <title><![CDATA[Cómo conectarte remótamente a tu base de datos MongoDB]]></title>
+            <link>https://carlosazaustre.es/como-conectarte-remotamente-a-tu-base-de-datos-mongodb</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/como-conectarte-remotamente-a-tu-base-de-datos-mongodb</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 31 Jul 2014 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Cómo configurar un servidor web con Amazon Web Services]]></title>
@@ -150,6 +143,13 @@
             <guid isPermaLink="true">https://carlosazaustre.es/como-crear-un-servidor-web-con-amazon-web-services</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Tue, 23 Jul 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Cómo configurar tu servidor cloud en DigitalOcean]]></title>
+            <link>https://carlosazaustre.es/como-configurar-tu-servidor-cloud-en-digitalocean</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/como-configurar-tu-servidor-cloud-en-digitalocean</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 31 Jul 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Cómo crear un API REST usando Node.js, Express y MongoDB]]></title>
@@ -180,6 +180,13 @@
             <pubDate>Mon, 16 Jun 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Cómo pasar variables como atributos en directivas de AngularJS]]></title>
+            <link>https://carlosazaustre.es/como-pasar-variables-como-atributos-en-directivas-de-angularjs</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/como-pasar-variables-como-atributos-en-directivas-de-angularjs</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Mon, 15 Jun 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Cómo relacionar tus modelos en MongoDB]]></title>
             <link>https://carlosazaustre.es/como-relacionar-tus-modelos-en-mongodb</link>
             <guid isPermaLink="true">https://carlosazaustre.es/como-relacionar-tus-modelos-en-mongodb</guid>
@@ -194,25 +201,18 @@
             <pubDate>Thu, 09 Mar 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cómo ser autónomo en Irlanda - Registro en Hacienda]]></title>
-            <link>https://carlosazaustre.es/como-ser-autonomo-en-irlanda-registro-en-hacienda</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/como-ser-autonomo-en-irlanda-registro-en-hacienda</guid>
-            <category><![CDATA[💰 Negocios]]></category>
-            <pubDate>Mon, 01 Jul 2013 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Cómo pasar variables como atributos en directivas de AngularJS]]></title>
-            <link>https://carlosazaustre.es/como-pasar-variables-como-atributos-en-directivas-de-angularjs</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/como-pasar-variables-como-atributos-en-directivas-de-angularjs</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 15 Jun 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Cómo ser autónomo en Irlanda]]></title>
             <link>https://carlosazaustre.es/como-ser-autonomo-en-irlanda</link>
             <guid isPermaLink="true">https://carlosazaustre.es/como-ser-autonomo-en-irlanda</guid>
             <category><![CDATA[💰 Negocios]]></category>
             <pubDate>Thu, 27 Jun 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Cómo ser autónomo en Irlanda - Registro en Hacienda]]></title>
+            <link>https://carlosazaustre.es/como-ser-autonomo-en-irlanda-registro-en-hacienda</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/como-ser-autonomo-en-irlanda-registro-en-hacienda</guid>
+            <category><![CDATA[💰 Negocios]]></category>
+            <pubDate>Mon, 01 Jul 2013 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Cómo servir tu API REST en Node.js a través de Nginx]]></title>
@@ -222,25 +222,25 @@
             <pubDate>Tue, 10 Mar 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Configura tu terminal de Mac como un desarrollador profesional]]></title>
-            <link>https://carlosazaustre.es/configura-tu-mac-como-un-desarrollador-profesionalque-2</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/configura-tu-mac-como-un-desarrollador-profesionalque-2</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Sat, 10 Jan 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[El futuro de CSS Grid Layout]]></title>
-            <link>https://carlosazaustre.es/css-grid-layout-css</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/css-grid-layout-css</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 28 Dec 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Cómo conectar Firebase a una aplicación React]]></title>
             <link>https://carlosazaustre.es/conectando-firebase-a-react</link>
             <guid isPermaLink="true">https://carlosazaustre.es/conectando-firebase-a-react</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Tue, 04 Oct 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Consumiendo un API REST desde React.js con ECMAScript6]]></title>
+            <link>https://carlosazaustre.es/consumiendo-un-api-rest-desde-react-js-con-ecmascript6</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/consumiendo-un-api-rest-desde-react-js-con-ecmascript6</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 25 Jun 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Configura tu terminal de Mac como un desarrollador profesional]]></title>
+            <link>https://carlosazaustre.es/configura-tu-mac-como-un-desarrollador-profesionalque-2</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/configura-tu-mac-como-un-desarrollador-profesionalque-2</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Sat, 10 Jan 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Desarrollo basado en Componentes con Vue.js]]></title>
@@ -250,11 +250,11 @@
             <pubDate>Wed, 17 Oct 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Consumiendo un API REST desde React.js con ECMAScript6]]></title>
-            <link>https://carlosazaustre.es/consumiendo-un-api-rest-desde-react-js-con-ecmascript6</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/consumiendo-un-api-rest-desde-react-js-con-ecmascript6</guid>
+            <title><![CDATA[El futuro de CSS Grid Layout]]></title>
+            <link>https://carlosazaustre.es/css-grid-layout-css</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/css-grid-layout-css</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 25 Jun 2015 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 28 Dec 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Desarrollo Full Stack JavaScript. El conocido como Stack MEAN]]></title>
@@ -271,13 +271,6 @@
             <pubDate>Thu, 02 Jul 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Desarrollo por componentes con Angular 1.5 y ES6/ES2015]]></title>
-            <link>https://carlosazaustre.es/desarrollo-por-componentes-con-angular-1-5-con-es6-es2015</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/desarrollo-por-componentes-con-angular-1-5-con-es6-es2015</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 04 Jul 2016 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Desplegando nuestro API REST Node/IO.js en la nube con Digital Ocean]]></title>
             <link>https://carlosazaustre.es/desplegando-nuestro-api-rest-en-la-nube-con-digital-ocean</link>
             <guid isPermaLink="true">https://carlosazaustre.es/desplegando-nuestro-api-rest-en-la-nube-con-digital-ocean</guid>
@@ -292,18 +285,11 @@
             <pubDate>Sat, 01 Sep 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Qué es la e-residency de Estonia y como conseguirla]]></title>
-            <link>https://carlosazaustre.es/e-residency</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/e-residency</guid>
-            <category><![CDATA[💰 Negocios]]></category>
-            <pubDate>Wed, 12 Sep 2018 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Aprende ECMAScript 6 (ES6 o ES2015), el nuevo estándar de JavaScript]]></title>
-            <link>https://carlosazaustre.es/ecmascript6</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/ecmascript6</guid>
+            <title><![CDATA[Desarrollo por componentes con Angular 1.5 y ES6/ES2015]]></title>
+            <link>https://carlosazaustre.es/desarrollo-por-componentes-con-angular-1-5-con-es6-es2015</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/desarrollo-por-componentes-con-angular-1-5-con-es6-es2015</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Wed, 24 Oct 2018 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 04 Jul 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Ejemplo de aplicación con React.js en ECMAScript 6]]></title>
@@ -313,11 +299,25 @@
             <pubDate>Tue, 23 Jun 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Aprende ECMAScript 6 (ES6 o ES2015), el nuevo estándar de JavaScript]]></title>
+            <link>https://carlosazaustre.es/ecmascript6</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/ecmascript6</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Wed, 24 Oct 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[7 Pasos para ser un profesional en JavaScript]]></title>
             <link>https://carlosazaustre.es/el-camino-para-ser-un-pro-en-javascript</link>
             <guid isPermaLink="true">https://carlosazaustre.es/el-camino-para-ser-un-pro-en-javascript</guid>
             <category><![CDATA[🙋🏻‍♂️ Personal]]></category>
             <pubDate>Tue, 17 Feb 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[11 dispositivos para el espacio de trabajo de un desarrollador web]]></title>
+            <link>https://carlosazaustre.es/el-escritorio-de-un-desarrollador-web</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/el-escritorio-de-un-desarrollador-web</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 12 Mar 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Empezando con ReactJS y ECMAScript 6]]></title>
@@ -341,25 +341,11 @@
             <pubDate>Mon, 24 Sep 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[11 dispositivos para el espacio de trabajo de un desarrollador web]]></title>
-            <link>https://carlosazaustre.es/el-escritorio-de-un-desarrollador-web</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/el-escritorio-de-un-desarrollador-web</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 12 Mar 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[¿Es tu web realmente Mobile First?]]></title>
             <link>https://carlosazaustre.es/es-tu-web-realmente-mobile-first</link>
             <guid isPermaLink="true">https://carlosazaustre.es/es-tu-web-realmente-mobile-first</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Wed, 14 Oct 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[ES6 Tagged Template Literals]]></title>
-            <link>https://carlosazaustre.es/es6-tagged-template-literals</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/es6-tagged-template-literals</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Sat, 01 Sep 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Estructura y funcionamiento de un componente en React]]></title>
@@ -376,18 +362,11 @@
             <pubDate>Wed, 27 Jan 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Cómo desplegar tu sitio en Gatsby a Firebase Hosting]]></title>
-            <link>https://carlosazaustre.es/gatsby-deploy-firebase</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/gatsby-deploy-firebase</guid>
+            <title><![CDATA[ES6 Tagged Template Literals]]></title>
+            <link>https://carlosazaustre.es/es6-tagged-template-literals</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/es6-tagged-template-literals</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 13 Feb 2020 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[¿Qué framework o librería de JavaScript elegir para mis desarrollos?]]></title>
-            <link>https://carlosazaustre.es/frameworks-de-javascript</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/frameworks-de-javascript</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 19 Oct 2015 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 01 Sep 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[4 Formas de crear un Componente en React]]></title>
@@ -397,18 +376,32 @@
             <pubDate>Tue, 24 Jan 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Google Launchpad Week Madrid. Día 1: Producto]]></title>
-            <link>https://carlosazaustre.es/google-launchpad-madrid-dia-1-producto</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/google-launchpad-madrid-dia-1-producto</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 06 Jul 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Cómo lanzar una aplicación web en Google Cloud Run con Cloud Build]]></title>
             <link>https://carlosazaustre.es/google-cloud-run</link>
             <guid isPermaLink="true">https://carlosazaustre.es/google-cloud-run</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Mon, 08 Jul 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[¿Qué framework o librería de JavaScript elegir para mis desarrollos?]]></title>
+            <link>https://carlosazaustre.es/frameworks-de-javascript</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/frameworks-de-javascript</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Mon, 19 Oct 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Cómo desplegar tu sitio en Gatsby a Firebase Hosting]]></title>
+            <link>https://carlosazaustre.es/gatsby-deploy-firebase</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/gatsby-deploy-firebase</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 13 Feb 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Qué es la e-residency de Estonia y como conseguirla]]></title>
+            <link>https://carlosazaustre.es/e-residency</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/e-residency</guid>
+            <category><![CDATA[💰 Negocios]]></category>
+            <pubDate>Wed, 12 Sep 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[15 Herramientas útiles que todo desarrollador web debería conocer]]></title>
@@ -418,11 +411,11 @@
             <pubDate>Thu, 13 Jun 2013 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Google Launchpad Madrid, Día 4: Tecnología]]></title>
-            <link>https://carlosazaustre.es/google-launchpad-madrid-dia-4-tecnologia</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/google-launchpad-madrid-dia-4-tecnologia</guid>
+            <title><![CDATA[JavaScript. Un lenguaje para dominarlos a todos]]></title>
+            <link>https://carlosazaustre.es/javascript</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/javascript</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 09 Jul 2015 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 17 Jun 2013 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Cómo hacer que tus imágenes sean Responsive]]></title>
@@ -432,25 +425,25 @@
             <pubDate>Wed, 21 Oct 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Google Launchpad Week Madrid. Día 1: Producto]]></title>
+            <link>https://carlosazaustre.es/google-launchpad-madrid-dia-1-producto</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/google-launchpad-madrid-dia-1-producto</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Mon, 06 Jul 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Google Launchpad Madrid, Día 4: Tecnología]]></title>
+            <link>https://carlosazaustre.es/google-launchpad-madrid-dia-4-tecnologia</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/google-launchpad-madrid-dia-4-tecnologia</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 09 Jul 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Impuestos de una empresa en Estonia]]></title>
             <link>https://carlosazaustre.es/impuestos-estonia</link>
             <guid isPermaLink="true">https://carlosazaustre.es/impuestos-estonia</guid>
             <category><![CDATA[💰 Negocios]]></category>
             <pubDate>Tue, 18 Sep 2018 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[JavaScript. Un lenguaje para dominarlos a todos]]></title>
-            <link>https://carlosazaustre.es/javascript</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/javascript</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 17 Jun 2013 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[JSX para novatos]]></title>
-            <link>https://carlosazaustre.es/jsx-para-novatos</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/jsx-para-novatos</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 19 Sep 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Launchpad Week Madrid. Día 2: UX]]></title>
@@ -460,11 +453,11 @@
             <pubDate>Tue, 07 Jul 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Lazy loading de imágenes ya forma parte del estándar HTML]]></title>
-            <link>https://carlosazaustre.es/lazy-loading-image</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/lazy-loading-image</guid>
+            <title><![CDATA[JSX para novatos]]></title>
+            <link>https://carlosazaustre.es/jsx-para-novatos</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/jsx-para-novatos</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 19 Sep 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Los mejores libros recomendados sobre JavaScript y Node.js]]></title>
@@ -472,6 +465,27 @@
             <guid isPermaLink="true">https://carlosazaustre.es/libros-javascript</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Thu, 04 Jul 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Lazy loading de imágenes ya forma parte del estándar HTML]]></title>
+            <link>https://carlosazaustre.es/lazy-loading-image</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/lazy-loading-image</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Formas de manejar la asincronía en JavaScript]]></title>
+            <link>https://carlosazaustre.es/manejando-la-asincronia-en-javascript</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/manejando-la-asincronia-en-javascript</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Thu, 23 Jun 2016 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Mi experiencia cambiando de AngularJS a ReactJS]]></title>
+            <link>https://carlosazaustre.es/mi-experiencia-cambiando-de-angularjs-a-reactjs</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/mi-experiencia-cambiando-de-angularjs-a-reactjs</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Fri, 17 Mar 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Los 5 patrones del Responsive Design con Flexbox]]></title>
@@ -488,18 +502,11 @@
             <pubDate>Mon, 04 May 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Mi experiencia cambiando de AngularJS a ReactJS]]></title>
-            <link>https://carlosazaustre.es/mi-experiencia-cambiando-de-angularjs-a-reactjs</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/mi-experiencia-cambiando-de-angularjs-a-reactjs</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Fri, 17 Mar 2017 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Formas de manejar la asincronía en JavaScript]]></title>
-            <link>https://carlosazaustre.es/manejando-la-asincronia-en-javascript</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/manejando-la-asincronia-en-javascript</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 23 Jun 2016 00:00:00 GMT</pubDate>
+            <title><![CDATA[Mi experiencia como profesor en los cursos de Platzi]]></title>
+            <link>https://carlosazaustre.es/mi-experiencia-como-profesor-en-los-cursos-de-platzi</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/mi-experiencia-como-profesor-en-los-cursos-de-platzi</guid>
+            <category><![CDATA[🙋🏻‍♂️ Personal]]></category>
+            <pubDate>Sun, 15 Feb 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Mi experiencia cómo mentor en Google Launchpad Week]]></title>
@@ -507,13 +514,6 @@
             <guid isPermaLink="true">https://carlosazaustre.es/mi-experiencia-como-mentor-en-google-launchpad-week</guid>
             <category><![CDATA[🙋🏻‍♂️ Personal]]></category>
             <pubDate>Wed, 26 Oct 2016 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Mi experiencia como profesor en los cursos de Platzi]]></title>
-            <link>https://carlosazaustre.es/mi-experiencia-como-profesor-en-los-cursos-de-platzi</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/mi-experiencia-como-profesor-en-los-cursos-de-platzi</guid>
-            <category><![CDATA[🙋🏻‍♂️ Personal]]></category>
-            <pubDate>Sun, 15 Feb 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Mi inmersión en React]]></title>
@@ -538,11 +538,11 @@
             <pubDate>Fri, 05 Oct 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Primeros pasos con Webpack]]></title>
-            <link>https://carlosazaustre.es/primeros-pasos-con-webpack</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/primeros-pasos-con-webpack</guid>
+            <title><![CDATA[Primera aplicación web en RaspberryPi con NodeJS + CylonJS. Controlando LEDs desde el móvil]]></title>
+            <link>https://carlosazaustre.es/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 22 Sep 2016 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 16 Jul 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Primeros pasos en Vue]]></title>
@@ -552,18 +552,11 @@
             <pubDate>Mon, 01 Oct 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Primera aplicación web en RaspberryPi con NodeJS + CylonJS. Controlando LEDs desde el móvil]]></title>
-            <link>https://carlosazaustre.es/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/primera-aplicacion-web-en-raspberrypi-con-nodejs-cylonjs-controlando-leds-desde-el-movil</guid>
+            <title><![CDATA[Primeros pasos con Webpack]]></title>
+            <link>https://carlosazaustre.es/primeros-pasos-con-webpack</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/primeros-pasos-con-webpack</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Wed, 16 Jul 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[¿Qué es la autenticación basada en Token?]]></title>
-            <link>https://carlosazaustre.es/que-es-la-autenticacion-con-token</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/que-es-la-autenticacion-con-token</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 19 Feb 2015 00:00:00 GMT</pubDate>
+            <pubDate>Thu, 22 Sep 2016 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Programando en Node.js con RaspberryPi. Primeros pasos]]></title>
@@ -573,11 +566,11 @@
             <pubDate>Tue, 15 Jul 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Qué es lo que me gusta de Vue.js]]></title>
-            <link>https://carlosazaustre.es/que-es-lo-que-me-gusta-de-vue-js</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/que-es-lo-que-me-gusta-de-vue-js</guid>
+            <title><![CDATA[¿Qué es la autenticación basada en Token?]]></title>
+            <link>https://carlosazaustre.es/que-es-la-autenticacion-con-token</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/que-es-la-autenticacion-con-token</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Wed, 16 Aug 2017 00:00:00 GMT</pubDate>
+            <pubDate>Thu, 19 Feb 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[¿Qué son las Firebase Cloud Functions?]]></title>
@@ -585,6 +578,13 @@
             <guid isPermaLink="true">https://carlosazaustre.es/que-son-las-firebase-cloud-functions</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Mon, 19 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Qué es lo que me gusta de Vue.js]]></title>
+            <link>https://carlosazaustre.es/que-es-lo-que-me-gusta-de-vue-js</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/que-es-lo-que-me-gusta-de-vue-js</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Wed, 16 Aug 2017 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Cómo iniciar un proyecto React con Vite]]></title>
@@ -630,13 +630,6 @@
             <pubDate>Fri, 06 Sep 2013 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Tutorial de AngularJS. Ejemplo de Aplicación web con AngularJS y Routing]]></title>
-            <link>https://carlosazaustre.es/tutorial-aplicacion-web-con-angularjs-y-routing</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/tutorial-aplicacion-web-con-angularjs-y-routing</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 20 Jan 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Tutorial de AngularJS. Ejemplo de aplicación web conectada a una API REST con Node]]></title>
             <link>https://carlosazaustre.es/tutorial-ejemplo-de-aplicacion-web-con-angular-js-y-api-rest-con-node</link>
             <guid isPermaLink="true">https://carlosazaustre.es/tutorial-ejemplo-de-aplicacion-web-con-angular-js-y-api-rest-con-node</guid>
@@ -644,11 +637,11 @@
             <pubDate>Mon, 13 Jan 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[JavaScript Promises. Uso de promesas en AngularJS]]></title>
-            <link>https://carlosazaustre.es/uso-de-promesas-en-angularjs</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/uso-de-promesas-en-angularjs</guid>
+            <title><![CDATA[Tutorial de AngularJS. Ejemplo de Aplicación web con AngularJS y Routing]]></title>
+            <link>https://carlosazaustre.es/tutorial-aplicacion-web-con-angularjs-y-routing</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/tutorial-aplicacion-web-con-angularjs-y-routing</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Mon, 27 Apr 2015 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 20 Jan 2014 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Usando Firebase Storage con React.js]]></title>
@@ -665,6 +658,20 @@
             <pubDate>Sat, 18 Aug 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Vue: Single File Components]]></title>
+            <link>https://carlosazaustre.es/vue-single-file-components</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/vue-single-file-components</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Wed, 10 Oct 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript Promises. Uso de promesas en AngularJS]]></title>
+            <link>https://carlosazaustre.es/uso-de-promesas-en-angularjs</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/uso-de-promesas-en-angularjs</guid>
+            <category><![CDATA[💻 Desarrollo]]></category>
+            <pubDate>Mon, 27 Apr 2015 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[WebComponents Nativos: Cómo pasar propiedades]]></title>
             <link>https://carlosazaustre.es/webcomponents-nativos-como-pasar-propiedades</link>
             <guid isPermaLink="true">https://carlosazaustre.es/webcomponents-nativos-como-pasar-propiedades</guid>
@@ -672,11 +679,11 @@
             <pubDate>Fri, 31 Aug 2018 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Vue: Single File Components]]></title>
-            <link>https://carlosazaustre.es/vue-single-file-components</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/vue-single-file-components</guid>
+            <title><![CDATA[WebSockets: Cómo utilizar Socket.io en tus aplicaciones web]]></title>
+            <link>https://carlosazaustre.es/websockets-como-utilizar-socket-io-en-tu-aplicacion-web</link>
+            <guid isPermaLink="true">https://carlosazaustre.es/websockets-como-utilizar-socket-io-en-tu-aplicacion-web</guid>
             <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Wed, 10 Oct 2018 00:00:00 GMT</pubDate>
+            <pubDate>Thu, 24 Sep 2015 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Mi Setup 2022 - Trabajo en Remoto y desde casa]]></title>
@@ -685,13 +692,6 @@
             <category><![CDATA[🙋🏻‍♂️ Personal]]></category>
             <category><![CDATA[💻 Desarrollo]]></category>
             <pubDate>Thu, 27 Jan 2022 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[WebSockets: Cómo utilizar Socket.io en tus aplicaciones web]]></title>
-            <link>https://carlosazaustre.es/websockets-como-utilizar-socket-io-en-tu-aplicacion-web</link>
-            <guid isPermaLink="true">https://carlosazaustre.es/websockets-como-utilizar-socket-io-en-tu-aplicacion-web</guid>
-            <category><![CDATA[💻 Desarrollo]]></category>
-            <pubDate>Thu, 24 Sep 2015 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
