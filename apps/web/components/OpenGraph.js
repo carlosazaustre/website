@@ -9,9 +9,9 @@ export const OpenGraph = ({ metadata = {} }) => {
       metadata.description ||
       "Tutoriales y Cursos sobre Programación Web y JavaScript con React, Node, Firebase, y mucho más...",
     slug: metadata.slug || "",
-    image: `https://carlosazaustre.es/${
-      metadata.image || "assets/default-image.png"
-    }`,
+    image:
+      metadata.image || "https://carlosazaustre.es/assets/default-image.png",
+    // image: `https://carlosazaustre.es/api/og?title=${metadata.title}`, TODO: uncomment after deploy
     date: metadata.date || new Date().toISOString(),
   };
 
