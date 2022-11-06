@@ -6,6 +6,7 @@ export { Tidycal } from "./Tidycal";
 export { Disqus } from "./Disqus";
 export { ScrollToTop } from "./ScrollToTop";
 export { SellItem } from "./SellItem";
+export { MediaPlayer } from "./MediaPlayer";
 
 export { Layout } from "./Layout";
 export { LayoutLanding } from "./LayoutLanding";

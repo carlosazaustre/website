@@ -170,7 +170,7 @@ export default function Home() {
             </UI.Link>
           </UI.Button>
 
-          <YouTube videoID={lastVideoId} title={titleVideo} />
+          <YouTube videoId={lastVideoId} title={titleVideo} />
 
           <NewsletterForm />
         </UI.Container>

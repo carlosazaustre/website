@@ -14,6 +14,7 @@ import {
 
 import { Tidycal } from "./Tidycal";
 import { CustomLink } from "./CustomLink";
+import { MediaPlayer } from "./MediaPlayer";
 
 export const MDXComponents = {
   a: CustomLink,
@@ -53,4 +54,5 @@ export const MDXComponents = {
   NewsletterForm,
   Dropdown,
   DropdownItem,
+  MediaPlayer,
 };
