@@ -14,7 +14,7 @@ export default async function handler(req) {
     const { searchParams } = new URL(req.url);
     const hasTitle = searchParams.has("title");
     const title = hasTitle
-      ? searchParams.get("title")
+      ? searchParams.get("title").slice(0, 75)
       : "Aprende JavaScript y Programación Web";
 
     return new ImageResponse(
@@ -36,9 +36,9 @@ export default async function handler(req) {
         >
           <div
             style={{
-              marginTop: 170,
+              marginTop: 130,
               marginLeft: 525,
-              fontSize: 70,
+              fontSize: 65,
               fontFamily: "Poppins",
               color: "white",
             }}
