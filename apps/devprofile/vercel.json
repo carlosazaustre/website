@@ -9,6 +9,10 @@
         {
             "source": "/js",
             "destination": "https://www.youtube.com/watch?v=S9ojNaeC1RI"
+        },
+        {
+            "source": "/arc",
+            "destination": "https://rli.to/HT9Oz"
         }
     ]
 }
