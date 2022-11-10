@@ -9,15 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
-      - run: npm install --legacy-peer-deps
-      - run: npm run generate:videos
+          node-version: "16"
+      - name: Install dependencies
+        run: npm install
+      - name: Run script to generate video list data
+        run: npm run generate:videos
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-      - run: |
+      - name: Commit changes
+        run: |
           git config user.name ${{ secrets.GIT_USER_NAME }}
           git config user.email ${{ secrets.GIT_USER_EMAIL }}
           git add data/latestVideos.json
