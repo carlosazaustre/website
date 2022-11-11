@@ -22,7 +22,7 @@
     "globalEnv": [
         "GITHUB_TOKEN",
         "NODE_ENV",
-        "NEXT_PUBLIC_GOOGLE_ANALYTICS"
+        "NEXT_PUBLIC_GOOGLE_ANALYTICS",
         "YOUTUBE_API_KEY"
     ]
 }
