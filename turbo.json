@@ -13,7 +13,7 @@
       },
       "generate:videos": {
         "dependsOn": ["^build"],
-        "outputs": ["latestVideos.json"]
+        "outputs": ["apps/web/latestVideos.json", "apps/devprofile/latestVideos.json"]
       }
     },
     "globalDependencies": [
