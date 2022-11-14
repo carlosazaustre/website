@@ -29,8 +29,8 @@ const BuyOnAmazon = () => (
             </UI.Text>
             <Image
               src="/assets/logo-amazon.png"
-              width="120px"
-              height="40px"
+              width={120}
+              height={40}
               alt="Amazon"
             />
           </UI.Flex>
@@ -94,8 +94,8 @@ export default function BookJavaScriptPage() {
       <UI.Flex as="header" direction={["column", "row"]} align="flex-start">
         <UI.Box w={["100%", "30%"]}>
           <Image
-            width="723"
-            height="700"
+            width={723}
+            height={700}
             src="/assets/aprendiendo-javascript-libro-3d.png"
             alt="libro Aprendiendo JavaScript"
           />
@@ -117,10 +117,14 @@ export default function BookJavaScriptPage() {
             justify="center"
             textAlign="center"
           >
-            <UI.Text>
+            <UI.Text fontWeight="bold">
               <a href="https://www.amazon.es/Aprendiendo-JavaScript-Desde-hasta-ECMAScript/dp/B08TZ3HSYZ/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=aprendiendo+javascript&qid=1625415326&sr=8-1#customerReviews">
-                74 Valoraciones en Amazon
+                75 Valoraciones en Amazon
               </a>
+            </UI.Text>
+            <UI.Text fontSize="sm">Más de 1000 lectores en LeanPub</UI.Text>
+            <UI.Text fontSize="sm">
+              Más de 1000 libros vendidos en Amazon
             </UI.Text>
             <UI.HStack
               my={2}
@@ -133,7 +137,8 @@ export default function BookJavaScriptPage() {
               <Icons.IconStar />
               <Icons.IconStar />
               <Icons.IconStar />
-              <Icons.IconStarHalf />
+              {/* <Icons.IconStarHalf /> */}
+              <Icons.IconStarEmpty />
             </UI.HStack>
           </UI.Box>
         </UI.Box>
@@ -155,8 +160,8 @@ export default function BookJavaScriptPage() {
             type="small"
             logo="/assets/logo-leanpub.png"
             url="//leanpub.com/aprendiendo-javascript"
-            w="110px"
-            h="20px"
+            w={110}
+            h={20}
           >
             PDF | ePub | Mobi
           </SellItem>

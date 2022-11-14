@@ -1,0 +1,331 @@
+---
+title: "Cómo desplegar una app Server-Side Rendering con Next.js en el nuevo Firebase Hosting"
+date: "2022-11-14"
+tags:
+  - "🧑🏻‍💻 Desarrollo"
+  - "🔥 Firebase"
+---
+
+![Firebase Hosting](/images/firebase-hosting-ssr/firebase-hosting.png)
+
+En la [Firebase Summit 2022](https://firebase.google.com/summit/2022), Google anunció que el nuevo
+_Firebase Hosting_ ya estaba disponible en `preview`. La gran novedad es que permite desplegar
+aplicaciones _Server-Side Rendering_ (SSR) como podemos hacer con Next.js o Angular Universal.
+
+Anteriormente, Firebase Hosting solo permitía desplegar aplicaciones estáticas, se podían subir
+ficheros estáticos como HTML, CSS, JS, imágenes, etc.
+Pero no se podía desplegar una aplicación que renderizara en el servidor. Había una forma,
+utilizando _Cloud Functions_, pero era un poco engorrosa.
+
+El equipo de Firebase ha trabajado para que ahora sea mucho más sencillo desplegar de esta
+forma y con menos comandos.
+
+En el momento de escribir este tutorial, el nuevo _Firebase Hosting_ está en `preview` y es posible
+que cambie el proceso. De hecho, por estar en **beta** aún no hay mucha documentación y todavía
+hay algunas cosas que no funcionan como deberían y hay que hacer algo más de configuración que
+a día de hoy no se encuentra en la [documentación](https://firebase.google.com/docs/hosting).
+
+Por eso he creado este post, para tenerlo como referencia y si quieres probar esta nueva
+funcionalidad, espero que te sirva.
+
+## ¿Qué es Server-Side Rendering?
+
+O SSR, es cuando el servidor renderiza la página y la envía al cliente. Hasta hace no mucho, la
+gran mayoría de las aplicaciones web se renderizaban en el cliente, es decir, el navegador
+descargaba el HTML, CSS y JS y lo renderizaba. Esto tiene algunas desventajas, como que el
+tiempo de carga de la página es mayor, ya que el navegador tiene que descargar todos los
+ficheros y renderizarlos.
+
+![Server Side Rendering - SSR](/images/firebase-hosting-ssr/ssr.png)
+
+![Client Side Rendering - CSR](/images/firebase-hosting-ssr/csr.png)
+
+> **Fuente**: [_The Benefits of Server Side Rendering Over Client Side Rendering_](https://medium.com/walmartglobaltech/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8) por [Alex Grigoryan](https://medium.com/@lexgrigoryan)
+
+Las librerías como React, Vue o Angular se "han hecho mayores" con los frameworks Next, Nuxt y Angular Universal
+respectivamente, y permiten renderizar en el servidor. Esto hace que el tiempo de carga de la
+página sea menor, ya que el servidor renderiza la página y la envía al cliente.
+
+El despliegue de este tipo de aplicaciones no era sencillo. Servicios como [Vercel](https://vercel.com/) o [Netlify](netlify.com)
+lo hacen muy fácil, pero Firebase Hosting no. Ahora, con el nuevo Firebase Hosting, es mucho más
+sencillo.
+
+## ¿Qué necesitamos?
+
+Para este tutorial voy a utilizar Next.js, mi framework favorito para crear aplicaciones web.
+Para ello vamos a crear una aplicación de ejemplo con el comando `create-next-app`:
+
+```bash
+npx create-next-app nextjs-firebase-hosting
+```
+
+## Configuración del proyecto
+
+Para poder probar esta nueva funcionalidad, vamos a generar unas páginas de ejemplo que
+utilicen SSR.
+
+Para ello, en el proyecto recién creado, dirígete a la carpeta `pages` y crea una carpeta `product`
+y dentro de ella, un fichero con el nombre `[id].js` con el siguiente código:
+
+```js
+// pages/product/[id].js
+import Image from "next/image";
+
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const product = await res.json();
+
+  return {
+    props: {
+      product,
+    },
+  };
+}
+
+export default function Product({ product }) {
+  return (
+    <div>
+      <h1>{product.title}</h1>
+      <Image src={product.image} width={300} height={400} />
+      <p>{product.description}</p>
+    </div>
+  );
+}
+```
+
+¿Qué estamos haciendo aquí?
+
+Una página generada dinámicamente en el servidor, para ello
+utilizamos el método `getServerSideProps` de `Next.js` que nos permite incluir código que únicamente
+se ejecutará en el servidor (puedes poner llamadas a una base de datos directamente aquí, por ejemplo,
+aunque es mejor que para eso uses un servicio).
+
+Lo que hacemos aquí es obtener el `id` dinámico del producto que nos llega por parámetros
+(cuando la URL sea por ejemplo `miweb.com/products/1` será el `1`) y hacer una llamada a
+un API como [fakestoreapi](https://fakestoreapi.com/) para obtener los datos de un producto aleatorio.
+
+En el componente `Product` simplemente pintamos los datos del producto.
+
+## Configuración de Firebase
+
+Ahora que ya tenemos nuestra aplicación de ejemplo, vamos a configurar Firebase para poder
+desplegarla en el hosting.
+
+Primero de todo, debes tener instalado el CLI de Firebase. Si no lo tienes, puedes instalarlo
+con el siguiente comando:
+
+```bash
+npm install -g firebase-tools
+```
+
+Con esto, podemos autenticarnos en los servicios de Firebase desde la consola con el comando:
+
+```bash
+firebase login
+```
+
+Una vez autenticados, vamos a crear un nuevo proyecto en Firebase. Para ello, en la [consola de
+Firebase](https://console.firebase.google.com), haz click en el botón `Add project` y crea un nuevo proyecto.
+Llámalo como quieras.
+
+**Importante**: Para poder usar funcionalidades como las _Cloud Functions_ tienes que activar el plan _Blaze (Pay as you go)_
+No te preocupes, porque para el ejemplo no te cobrarán nada, e incluso puedes poner un límite de
+gasto para que te avise por si te lo olvidas activado.
+
+![Firebase Blaze Plan](/images/firebase-hosting-ssr/firebase-blaze-plan.png)
+
+Aunque no vamos a configurar Cloud Functions manualmente, esta nueva funcionalidad las utiliza por debajo, por
+eso debemos activarlo.
+
+Volviendo a la terminal, vamos a inicializar el proyecto de Firebase en nuestro proyecto de Next.js, como
+lo que vamos a utilizar está en fase experimental, debemos ejecutar antes:
+
+```bash
+firebase experiments:enable webframeworks
+```
+
+Y ya si, inicializar el proyecto de Firebase:
+
+```bash
+firebase init hosting
+```
+
+El script detectará que estamos usando Next.js y configurará Firebase para ello.
+
+## Probando en local
+
+Antes de desplegar nada en producción, vamos a probar que todo funciona correctamente en local.
+Para ello, Firebase desde hace un tiempo nos proporciona un set de emuladores de sus servicios
+(Firestore, Storage, Cloud Functions, etc...) para probar el entorno en nuestro equipo local.
+
+Esto ha mejorado y ahora con un único comando, es capaz de detectar que servicios estamos utilizando y
+lanzar los emuladores correspondientes.
+
+```bash
+firebase emulators:start
+```
+
+Si todo ha ido bien, verás algo como esto:
+
+```bash
+i  emulators: Starting emulators: hosting
+⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead.
+Detected a Next.js codebase. This is an experimental integration, proceed with caution.
+
+event - compiled client and server successfully in 232 ms (154 modules)
+i  hosting[next-demo-firebase]: Serving hosting files from: public
+✔  hosting[next-demo-firebase]: Local server: http://127.0.0.1:5002
+⚠  emulators: The Emulator UI is not starting, either because none of the emulated products
+have an interaction layer in Emulator UI or it cannot determine the Project ID.
+Pass the --project flag to specify a project.
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5002 │
+└──────────┴────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+```
+
+Si vas a `http://localhost:5002` (o con el puerto que te haya asignado el emulador) verás la aplicación
+funcionando correctamente. La página principal es estática asi que ahi no podemos probar el SSR,
+para ello dirígite a la URL por ejemplo `http://localhost:5002/products/1` y verás que se renderiza correctamente.
+
+![Aplicación corriendo en el emulador de Firebase Hosting local](/images/firebase-hosting-ssr/firebase-hosting-emulator.png)
+
+## Desplegando en producción
+
+Ahora ya podemos desplegarlo al Hosting de firebase. Según la [documentación](https://firebase.google.com/docs/hosting), con el comando:
+
+```bash
+firebase deploy
+```
+
+Bastaría, pero si lo ejecutas (al menos al momento de escribir este tutorial) tendrás varios errores.
+
+¿A qué se deben?
+
+Firebase es un servicio por encima de **Google Cloud**. Cada vez que creas un proyecto en Firebase, se crea
+en [Google Cloud](https://console.cloud.google.com/).
+
+La nueva funcionalidad de Firebase Hosting de servir contenido SSR, ejecuta por debajo Cloud Functions (Una Cloud Function de Firebase es
+una Cloud Function de Google Cloud) y ésta, además, dentro de Google Cloud, crea un entorno en Cloud Run
+(Basicamente un Docker con Node.js y las funciones que ejecutan el SSR).
+
+Lo primero que tienes que hacer es ir a la consola de Google Cloud, y dentro del servicio de [Cloud Functions de tu proyecto](https://console.cloud.google.com/functions/),
+Clickar en el botón que dice _Powered by Cloud Run_ y activarlo.
+
+![Activar Cloud Run](/images/firebase-hosting-ssr/enable-cloud-run.png)
+
+Una vez en esta pantalla, ve a la opción **Trigger** y en las opciones de **Authentication** seleccionar **Allow unauthenticated invocations**.
+De esta manera, Firebase podrá ejecutar las funciones sin necesidad de autenticación, ya qye cualquier usuario puede
+visitar la URL `miweb.com/products/1` que es la que lanza la Cloud Function. Sino te dará error.
+
+![Selecciona la pestaña Trigger](/images/firebase-hosting-ssr/cloud-run-trigger-1.png)
+
+![Selecciona Allow unauthenticated invocations](/images/firebase-hosting-ssr/cloud-run-trigger-2.png)
+
+Si sigues teniendo problemas, dirígete al servicio de [Artifacts Registry](https://console.cloud.google.com/artifacts) de
+tu proyecto y actívalos.
+
+![Activar Artifacts Registry](/images/firebase-hosting-ssr/artifact-registry.png)
+
+Con estas dos configuraciones, ya debería funcionar correctamente. Otra opción que puedes probar si te
+da fallos, es aumentar la memoria RAM que ejecuta tu Cloud Function. Para ello, en la consola de Google Cloud,
+ve a la opción de [Cloud Functions](https://console.cloud.google.com/functions/) y en la opción de **Configuration**
+aumenta el valor de **Memory** a 512 MB.
+
+Ahora si, adelante con el despliegue:
+
+```bash
+firebase deploy
+```
+
+Y si todo va bien, en la terminal te saldrá algo como esto:
+
+```bash
+Detected a Next.js codebase. This is an experimental integration, proceed with caution.
+
+info  - Linting and checking validity of types
+info  - Creating an optimized production build
+info  - Compiled successfully
+info  - Collecting page data
+info  - Generating static pages (3/3)
+info  - Finalizing page optimization
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      1.26 kB        83.9 kB
+├   └ css/ae0e3e027412e072.css             707 B
+├   /_app                                  0 B            78.9 kB
+├ ○ /404                                   212 B          79.1 kB
+└ λ /products/[id]                         484 B          83.1 kB
++ First Load JS shared by all              79.2 kB
+  ├ chunks/framework-0f397528c01bc177.js   45.7 kB
+  ├ chunks/main-5cebf592faf0463a.js        31.8 kB
+  ├ chunks/pages/_app-aba2de2b7ae6fcb3.js  390 B
+  ├ chunks/webpack-2369ea09e775031e.js     1.02 kB
+  └ css/ab44ce7add5c3d11.css               247 B
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
+changed 1 package in 24s
+
+24 packages are looking for funding
+  run `npm fund` for details
+
+=== Deploying to 'next-demo-firebase'...
+
+i  deploying functions, hosting
+i  functions: ensuring required API cloudfunctions.googleapis.com is enabled...
+i  functions: ensuring required API cloudbuild.googleapis.com is enabled...
+i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled...
+✔  artifactregistry: required API artifactregistry.googleapis.com is enabled
+✔  functions: required API cloudbuild.googleapis.com is enabled
+✔  functions: required API cloudfunctions.googleapis.com is enabled
+i  functions: preparing codebase firebase-frameworks-next-demo-firebase for deployment
+⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+⚠  functions: Please note that there will be breaking changes when you upgrade.
+i  functions: Loaded environment variables from .env.
+i  functions: preparing .firebase/next-demo-firebase/functions directory for uploading...
+i  functions: packaged /Users/carlosazaustre/Code/next-demo-firebase/.firebase/next-demo-firebase/functions (15.28 MB) for uploading
+i  functions: ensuring required API run.googleapis.com is enabled...
+i  functions: ensuring required API eventarc.googleapis.com is enabled...
+i  functions: ensuring required API pubsub.googleapis.com is enabled...
+i  functions: ensuring required API storage.googleapis.com is enabled...
+✔  functions: required API eventarc.googleapis.com is enabled
+✔  functions: required API pubsub.googleapis.com is enabled
+✔  functions: required API storage.googleapis.com is enabled
+✔  functions: required API run.googleapis.com is enabled
+i  functions: generating the service identity for pubsub.googleapis.com...
+i  functions: generating the service identity for eventarc.googleapis.com...
+✔  functions: .firebase/next-demo-firebase/functions folder uploaded successfully
+i  hosting[next-demo-firebase]: beginning deploy...
+i  hosting[next-demo-firebase]: found 18 files in .firebase/next-demo-firebase/hosting
+✔  hosting[next-demo-firebase]: file upload complete
+i  functions: updating Node.js 16 function firebase-frameworks-next-demo-firebase:ssrnextdemofirebase(us-central1)...
+✔  functions[firebase-frameworks-next-demo-firebase:ssrnextdemofirebase(us-central1)] Successful update operation.
+Function URL (firebase-frameworks-next-demo-firebase:ssrnextdemofirebase(us-central1)): https://ssrnextdemofirebase-vz7izpvioa-uc.a.run.app
+i  functions: cleaning up build files...
+i  hosting[next-demo-firebase]: finalizing version...
+✔  hosting[next-demo-firebase]: version finalized
+i  hosting[next-demo-firebase]: releasing new version...
+✔  hosting[next-demo-firebase]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/next-demo-firebase/overview
+Hosting URL: https://next-demo-firebase.web.app
+```
+
+En mi caso, en la URL `https://next-demo-firebase.web.app/products/1` ya tengo mi aplicación desplegada y
+el contenido es generado desde el servidor.
+
+¿Qué te ha parecido? Dime si lo has probado y cuéntame qué tal.

@@ -101,7 +101,19 @@ export default function Home({ posts }) {
               </Link>
             </UI.Box>
 
+            {/* Sidebar */}
             <UI.Box w={["100%", "100%", "25%"]}>
+              <UI.Box
+                as="a"
+                display="block"
+                borderRadius={8}
+                href="https://amzn.to/3DGJZaX"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                <UI.Image borderRadius="md" src="/assets/panel-book.png" />
+              </UI.Box>
+
               <UI.Text
                 fontFamily="heading"
                 fontWeight="600"
