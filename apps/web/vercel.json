@@ -165,6 +165,10 @@
     {
       "source": "/n26",
       "destination": "https://n26-eu.c2nwa3.net/c/2009622/1035590/10375"
-    }
+    },
+    {
+      "source": "/companio",
+      "destination": "https://app.companio.co/register.html?referrer=NjM0ODJmNjg3N2RmNjg3MDRmYjhjZjA0"
+    } 
   ]
 }
