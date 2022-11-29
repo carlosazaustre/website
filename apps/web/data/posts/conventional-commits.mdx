@@ -1,6 +1,6 @@
 ---
 title: "Conventional Commits - Especificación para tus mensajes de commit"
-date: "2022-11-24"
+date: "2022-11-29"
 tags:
   - "🧑🏻‍💻 Desarrollo"
   - "📦 Git"
@@ -9,18 +9,24 @@ tags:
 ## ¿Qué son los mensajes de commit?
 
 Los mensajes de commit son una forma de documentar los cambios que se realizan en un repositorio de código.
-Estos mensajes son muy útiles para entender qué cambios se realizaron en un proyecto, y por qué se realizaron.
+Estos mensajes son muy útiles para entender qué cambios se realizaron en un proyecto, y por qué se hicieron.
 
 Cuando se trabaja en un equipo de desarrollo, es muy importante que todos los miembros del equipo
 puedan entender qué cambios se realizaron en el código, y por qué se realizaron.
 
 ## Conventional Commits
 
+<YouTube />
+
 Como dice su [página oficial](https://www.conventionalcommits.org/es/v1.0.0/): Es una especificación
-para dar significado a los mensajes de los commits haciéndolos legibles tanto para las máquinas como
+para dar significado a los mensajes de commits haciéndolos legibles tanto para las máquinas como
 para las personas. Proporciona un conjunto sencillo de reglas para crear un historial de commits explícito;
 lo que hace más fácil poder escribir herramientas automatizadas. Esta convención encaja con [SemVer](http://semver.org/),
 ya que podemos describir en los mensajes de commits, si es una _feature_, _bugfix_, incluso si hay "Breaking Changes\*.
+
+Si no conocías el térnmino de **Semantic Versioning**, en este vídeo corto te lo cuento:
+
+<YouTube videoId="k_nV7ExQdw4" />
 
 La estructura de un mensaje de commit siguiendo la especificación sería la siguiente:
 
@@ -37,10 +43,10 @@ La estructura de un mensaje de commit siguiendo la especificación sería la sig
 
 Los tipos de commits son los siguientes:
 
-- **feat**: Una nueva característica o funcionalidad. Tendría correlación con una versión MINOR siguiendo SemVer.
-- **fix**: Un error corregido. Tendría correlación con una versión PATCH siguiendo SemVer.
-- **BREAKING CHANGE**: Un cambio que contenga esta palabra en el `footer` del mensajem o un signo `!` despues del tipo o scope,
-  rompe la compatibilidad con versiones anteriores. Tendría correlación con una versión MAJOR siguiendo SemVer.
+- **feat**: Una nueva característica o funcionalidad. Tendría correlación con una versión MINOR siguiendo _SemVer_.
+- **fix**: Un error corregido. Tendría correlación con una versión PATCH siguiendo _SemVer_.
+- **BREAKING CHANGE**: Un cambio que contenga esta palabra en el `footer` del mensaje o un signo `!` despues del tipo o scope,
+  rompe la compatibilidad con versiones anteriores. Tendría correlación con una versión MAJOR siguiendo _SemVer_.
 
 Se permiten también los siguientes tipos:
 
@@ -65,13 +71,13 @@ Veamos algunos ejemplos de mensajes de commit siguiento la especificación:
 **Commit que añade una nueva característica, sin un scope en concreto**.
 
 ```shell
-feat: Agregar soporte para TypeScript
+feat: add support for TypeScript
 ```
 
 **Commit que arregla un bug, dentro del paquete `ui` de nuestro proyecto**.
 
 ```shell
-fix(ui): Corregir error en el componente Button
+fix(ui): bugfix on Button component
 ```
 
 **Commit que rompe la compatibilidad con versiones anteriores, aunque no añade características nuevas ni corrige bugs**.
