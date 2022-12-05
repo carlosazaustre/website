@@ -169,6 +169,10 @@
     {
       "source": "/companio",
       "destination": "https://app.companio.co/register.html?referrer=NjM0ODJmNjg3N2RmNjg3MDRmYjhjZjA0"
-    } 
+    },
+    {
+      "source": "/coderhouse",
+      "destination": "https://www.coderhouse.com/?utm_source=youtube&utm_medium=partnerships&utm_campaign=carloscoder"
+    }
   ]
 }
