@@ -13,6 +13,10 @@
         {
             "source": "/arc",
             "destination": "https://rli.to/HT9Oz"
+        },
+        {
+          "source": "/bootcamp",
+          "destination": "https://open-bootcamp.com//?campanya=1&grupo=instagram&palabraClave=carlosazaustre&source=reel&medium=referer&campaign=instagram"
         }
     ]
 }
