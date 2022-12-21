@@ -20,7 +20,7 @@
         },
         {
             "source": "/vivatranslate",
-            "destination": "https://beta.vivatranslate.com/extension"
+            "destination": "https://beta.vivatranslate.com"
         }
     ]
 }
