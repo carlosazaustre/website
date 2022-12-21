@@ -17,6 +17,10 @@
         {
             "source": "/bootcamp",
             "destination": "https://open-bootcamp.com/?campanya=1&grupo=instagram&palabraClave=carlosazaustre&source=reel&medium=referer&campaign=instagram"
+        },
+        {
+            "source": "/vivatranslate",
+            "destination": "https://beta.vivatranslate.com/extension"
         }
     ]
 }
