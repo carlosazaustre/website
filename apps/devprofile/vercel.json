@@ -21,6 +21,10 @@
         {
             "source": "/vivatranslate",
             "destination": "https://beta.vivatranslate.com"
+        },
+        {
+            "source": "/bcas",
+            "destination": "https://bcasapp.com/becas-full-stack/?utm_source=Instagram&utm_medium=video-influ&utm_campaign=fullstack-rrss-influencers&utm_content=stories"
         }
     ]
 }
