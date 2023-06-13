@@ -4,14 +4,16 @@ import { Text } from "./elements";
 
 const StyledBox = styled.div`
   border-left: var(--chakra-borders-8px) var(--chakra-colors-brand-900);
-  padding: var(--chakra-space-8);
-  margin: 0 var(--chakra-space-4);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: var(--chakra-space-4);
+  margin: 1rem;
 `;
 
 export const Summary = ({ children }: { children: ReactChild }) => {
   return (
     <StyledBox>
-      <Text fontSize="2xl" fontWeight="light" color="secondary.100">
+      <Text fontSize="md" fontWeight="light" fontStyle="italic" color="secondary.300" my={1}>
         {children}
       </Text>
     </StyledBox>

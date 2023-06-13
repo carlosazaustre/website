@@ -1,0 +1,174 @@
+---
+title: "Volviendo a los Orígenes: El Arte de Armar tu Propio PC"
+date: "2023-06-13"
+tags:
+  - "💻 Desarrollo"
+---
+
+Después de más de 18 años, he vuelto a experimentar el placer de armar un PC componente por componente.
+
+Mi última experiencia de este tipo remonta a los tiempos cuando los primeros microprocesadores de 64 bits de AMD
+(el K6, si no recuerdo mal) acababan de ser lanzados.
+
+![Estrenando mi nuevo PC](/images/pc-2023/pc-custom.png)
+
+En aquellos días, los diskettes de 3,5 pulgadas eran el principal medio para iniciar el PC y poder
+instalar el Sistema Operativo desde un CD-ROM 😢.
+
+Desde entonces, he tenido varios portátiles (un Toshiba Satellite y un Sony Vaio) hasta que finalmente me
+sumergí en el mundo Apple con la adquisición de mi primer iMac (alrededor de 2010-11).
+
+Aunque seguiré usando mi MacBook Pro (con M1 Max 64GB), me apetecía explorar el universo del hardware _no-Apple_
+por varias razones:
+
+- Quería familiarizarme con los actuales chipsets, CPUs, GPUs y seleccionar personalmente los componentes;
+- Me apetecía armar un PC por mi cuenta.
+- Probar Windows para desarrollo, especialmente con las recientes actualizaciones que Microsoft
+  ha implementado para IA y para desarrolladores.
+- Y, por supuesto, no descarto la posibilidad de 🎮 "quemar" la gráfica en alguna ocasión. 😂
+
+Si también te interesa aventurarte en este camino, te cuento que componentes he seleccionado para mi nueva máquina.
+
+![Montando el PC](/images/pc-2023/montaje-pc.png)
+
+## Componentes seleccionados para mi PC
+
+### TL;DR
+
+| Tipo de Producto             | Marca y Modelo                                | Precio       | Link de Compra                                                                                                                                            |
+| ---------------------------- | --------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Placa Base                   | ASUS TUF B650M-PLUS WIFI                      | 209,90€      | [Comprado en Amazon](https://amzn.to/42SjtGx)                                                                                                             |
+| Procesador                   | AMD Ryzen 7 7700X 4.5 GHz                     | 333,16€      | [Comprado en Amazon](https://amzn.to/43X9AYR)                                                                                                             |
+| Memoria RAM                  | Corsair Vengeance DDR5 32 GB (2x16GB) 5200MHZ | 129,90€      | [Comprado en PCComponentes](https://www.pccomponentes.com/corsair-vengeance-rgb-ddr5-5200mhz-32gb-2x16gb-cl40)                                            |
+| Tarjeta Gráfica (GPU)        | Nvidia Geforce RTX 4070 12 GB GDDR6X          | 669€         | [Comprado en nVidia Store](https://store.nvidia.com/es-es/geforce/store/?page=1&limit=9&locale=es-es&gpu=RTX%204070%20Ti,RTX%204070&category=GPU,DESKTOP) |
+| Chasis                       | Corsair 4000D Airflow RGB                     | 154,99€      | [Comprado en PCComponentes](https://www.pccomponentes.com/corsair-icue-4000d-rgb-airflow-cristal-templado-usb-32-blanca)                                  |
+| Fuente de Alimentación       | Corsair RM750X                                | 145,30€      | [Comprado en PCComponentes](https://www.pccomponentes.com/corsair-rm-white-series-rm750-750w-80-plus-gold-full-modular)                                   |
+| Sistema de Refrigeración     | Corsair H100X Elite RGB                       | 138,90€      | [Comprado en PCComponentes](https://www.pccomponentes.com/corsair-icue-h100x-rgb-elite-kit-de-refrigeracion-liquida-240mm-negro)                          |
+| Disco de Estado Sólido (SSD) | Corsair MP600 M.2 NVMe 1TB                    | 94,28€       | [Comprado en Amazon](https://amzn.to/3qHNhIx)                                                                                                             |
+|                              |                                               | **1875,43€** |                                                                                                                                                           |
+
+<Summary>
+	Todos los componentes fueron compradosy elegidos por mi. No se trata de
+	ninguna promoción pagada por ninguna marca, ni tienda. <br />
+	(Los enlaces de Amazon son de afiliación, si compras desde el enlace me llevo una
+	pequeña comisión, pero no te cuesta nada más).
+</Summary>
+### CPU
+
+Esto es lo primero que hay que decidir, porque muchos componentes dependen de la elección del procesador. A día de hoy
+tienes 2 opciones principales: Intel o AMD.
+Intel siempre ha estado a la vanguardia en el mercado de los procesadores, pero AMD ha estado ganando terreno
+en los últimos años. A día de hoy (2023) AMD ofrece un mejor rendimiento y un precio más competitivo.
+
+En Intel tenemos 4 familias de procesadores:
+
+- i3 para uso básico
+- i5 para uso general
+- i7 para uso intensivo
+- i9 para uso profesional
+
+Dentro de estas cuatro familias, hay diferentes modelos con diferentes velocidades de reloj y número de núcleos. las últimas generaciones de Intel son la 12ª y la 13ª.
+
+En AMD también tenemos 4 familias de procesadores:
+
+- Ryzen 3 para uso básico
+- Ryzen 5 para uso general
+- Ryzen 7 para uso intensivo
+- Ryzen 9 para uso profesional
+
+Por rendimiento y consumo de energía, por ejemplo un Ryzen 5 sería equivalente a un Intel i7, en lugar de a un i5 como se podría pensar.
+Al igual que intel, estas familias tienen diferentes modelos con diferentes velocidades de reloj y número de núcleos. Las últimas generaciones de AMD son la 5ª y la 7ª.
+
+![Procesador AMD Ryzen 7 7700X](/images/pc-2023/amd-ryzen7-7700x.png)
+
+El procesador que elegí finalmente es el **AMD Ryzen 7 7700X** con una frecuencia de reloj de **4.5 GHz**. Con **8 núcleos** y **16 hilos**,
+este CPU ofrece un alto rendimiento, sería mejor el modelo 7800X3D que es lo más _últimito_,
+pero el precio se dispara y quería no gastarme más de 1800-2000€ en el PC completo.
+
+### Placa Base / Placa Madre.
+
+Una vez elegida la CPU, hay que elegir la placa base. La placa base es el componente que conecta todos los demás componentes del PC. La serie 7000 de AMD utiliza una nueva arquitectua,
+la _Zen4_ y también un nuevo socket, el _AM5_. Por lo tanto, hay que elegir una placa base que sea compatible con este socket.
+
+Para el Socket AM5 de AMD, existen 3 tipos de chipsets:
+
+- B650: para uso general
+- X670: para uso intensivo
+
+La principal diferencia en los chipsets es el numero y tipo de conexiones que permiten, así como la memoria RAM que soportan. He optado por el B650 que me permite
+tener hasta 128 GB de memoria, varias conexiones USB 3.2 y 2.0, conexiones para discos SSD M.2 y SATA, asi como ranuras PCI Express para conectar tarjetas gráficas.
+
+![Placa Base ASUS TUF B650M-PLUS Wifi](/images/pc-2023/asus-tuf-b650m-plus-wifi.png)
+
+Tras mirar varias, me decanté por la ASUS TUF B650M-PLUS Wifi. Es una placa base de tamaño medio, con un precio razonable y que ofrece todo lo que necesito.
+Podía haber elegido la versión ATX en lugar de la microATX, pero no necesito tantas ranuras PCI Express y me ahorraba unos euros.
+
+![Placa Base ASUS TUF B650M-PLUS Wifi](/images/pc-2023/asus-tuf-b650m-plus-wifi_2.png)
+
+### Memoria RAM
+
+Con la placa y CPUs elegidas, puedo utilizar memoria DDR5, la última generación. La memoria DDR5 es más rápida y consume menos energía que la DDR4.
+Al ser un PC totalmente _custom_, puedo ampliarlo cuando quiera, por eso en la memoria no he ido a por todos los módulos. He empezado con dos módulos de 16GB para tener un total
+de 32GB. En el futuro, si lo necesito, puedo añadir otros dos módulos de 16GB para tener un total de 64GB, o incluso cambiar los módulos de 16GB por otros de 32GB para tener un total de 128GB.
+pero en este momento, con 32GB de RAM tengo suficiente y así el presupuesto no se me dispara.
+
+Para la RAM he elegido 2 módulos DIMM del modelo Corsair Vengeance DDR5 a 5200 MHz. Y lleva RGB para que se vea bonito. 😂
+
+### Almacenamiento.
+
+A día de hoy resulta imprescindible tener un disco SSD para el sistema operativo y las aplicaciones. Los discos SSD son mucho más rápidos que los discos duros tradicionales.
+y los precios han bajado mucho en los últimos años. Para el sistema operativo y las aplicaciones, he elegido un disco **SSD M.2 de 1TB de la marca Corsair** Iba a elegir uno de Samsung,
+pero parece que ultimamente están teniendo problemas y no quería arriesgarme. Además Corsair es una marca que me da confianza y además de la RAM he elegido varios productos para completar
+mi PC.
+
+### GPU / Tarjeta Gráfica.
+
+Las gráficas hoy en día son una auténtica locura... Si no vas a utilizar la GPU a fondo, ya sea para jugar o para entrenar modelos de IA, no merece la pena tener una dedicada ya
+que la propia CPU incorporta una gráfica que sirve para el uso habitual.
+En mi caso, ya que me pongo he decidido invertir en una. Y he elegido la marca Nvidia por todo el software que ofrece para IA y desarrollo, y por que no, por su sistema de Ray-Tracing
+para videojuegos que es tremendo.
+
+Los chipset de nVidia más actuales son los RTX 30xx. Dentro de esta familias, tenemos varias opciones:
+
+- RTX 3090 y 4090 son las más potentes, soportan más memoria gráfica, pero también su consumo y su precio es muy elevado.
+- RTX 3080 y 4080 son la gama media-alta, con un precio más razonable y un consumo más moderado.
+- RTX 3070 y 4070 son la gama media, con un precio más asequible y un consumo más moderado.
+- RTX 3060 es la gama baja, con un precio de entrada menos duro y menor consumo. De la serie 40xx no hay versión 4060 por ahora.
+
+Nvidia siempre saca el modelo xx90 el primero de la generación, y con el paso de los meses van llegando las versiones más asequibles para mortales.
+despues de la xx90, llega la xx80, unos meses más tarde la xx70 y casi un año despues del lanzamiento de la xx90 llega la xx60 y posteriores.
+
+Mi intención era invertir en una RTX 40xx, la 90 no por supuesto ya que se me iba todo el presupuesto del PC solo en la tarjeta y el resto de componentes tendría que
+volverlos a elegir para no tener un cuello de botella y desaprovechar la máquuba.
+La 4080 costaba el doble que la 4070, y aunque ofrece más memoria y un mejor rendimiento, me parecía mucho dinero.
+
+![RTX 4070](/images/pc-2023/rtx4070.png)
+
+Finalmente opté por la 4070. Miré los fabricantes de Asus y Gigabyte y su precio rondaba los 900-1000€. Era mucho dinero.
+De casualidad, entré en la web de nVidia para ver las especificaciones de la RTX 4070 y asegurarme que habia elegido una placa base y CPU adecuadas, cuando descubro que la propia web de nVidia
+tiene tienda online y vendía la RTX 4070 oficial de nVidia (la Founders Edition) de 12 GB de memoria GDDR6X, por 670€ 😳, 300€ menos de lo que pensaba gastarme. Así que la compré de inmediato..
+
+### Fuente de Alimentación.
+
+Para elegir la fuente, hay que tener en cuenta el consumo que va a tener todo el equipo y añadir un margen de seguridad de unos 100W. Finalmente elegí la **Corsair RM750X** de 750W,
+modular y con certificacion Gold 80 Plus y es muy silenciosa.
+
+![Set de productos Corsair](/images/pc-2023/corsair-devices.png)
+
+### Caja / Torre / Chasis
+
+El chasis es una parte vital, ya que no solo protege los componentes, sino que también puede afectar el flujo de aire y, por lo tanto, el enfriamiento de tu PC.
+Elegí el **Corsair 4000D Airflow RGB** por su diseño orientado a un excelente flujo de aire, manejo de cables y su aspecto, por que no decirlo. Incluye 3 ventilados RGB de 120mm en la parte delantera
+y un controlador para los LEDs. Además, tiene un panel lateral de vidrio templado para que se vea todo el interior.
+
+### Refrigeración
+
+Me he decantado por Refrigeración líquida para la CPU. No por ninguna razón especial, simplemente porque me apetecía probarla. He elegido el sistema **Corsair H100X Elite RGB**. Viene con dos ventiladores
+de 120mm y un radiador de 240mm. Es compatible con el software iCUE de Corsair para controlar la iluminación RGB y la velocidad de los ventiladores.
+
+![Corsair H100X Elite RGB](/images/pc-2023/corsair-h100x-elite.png)
+
+Armar un PC desde cero es una experiencia gratificante y educativa. No solo te permite entender más sobre cómo funciona tu computadora, sino que también te permite personalizarla
+a tu gusto y a tus necesidades específicas y ampliarlo cuando puedas y/o quieras.
+
+¿Qué componentes elegirías para tu PC?

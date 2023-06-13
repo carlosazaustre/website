@@ -2,81 +2,81 @@ import { useRef, useEffect, useState } from "react";
 import NextLink from "next/link";
 import { UI } from "@czstr/ui";
 
-import { Layout, PostListItem, ScrollToTop } from "@/components";
-import { formatDate } from "@/lib/format-date";
-import { orderByDate } from "@/lib/order-by-date";
-import { getAllFilesFrontMatter } from "@/lib/mdx";
-import { usePagination } from "@/lib/use-pagination";
+import { Layout, PostListItem, ScrollToTop } from "../components";
+import { formatDate } from "../lib/format-date";
+import { orderByDate } from "../lib/order-by-date";
+import { getAllFilesFrontMatter } from "../lib/mdx";
+import { usePagination } from "../lib/use-pagination";
 
 export default function Blog({ posts }) {
-  const { next, currentPage, currentData, maxPage } = usePagination(posts, 10);
-  const [element, setElement] = useState(null);
-  const observer = useRef();
-  const prevY = useRef(0);
+	const { next, currentPage, currentData, maxPage } = usePagination(posts, 10);
+	const [element, setElement] = useState(null);
+	const observer = useRef();
+	const prevY = useRef(0);
 
-  const currentPosts = currentData();
+	const currentPosts = currentData();
 
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        const firstEntry = entries[0];
-        const y = firstEntry.boundingClientRect.y;
+	useEffect(() => {
+		observer.current = new IntersectionObserver(
+			(entries) => {
+				const firstEntry = entries[0];
+				const y = firstEntry.boundingClientRect.y;
 
-        if (prevY.current > y) {
-          next();
-        }
-        prevY.current = y;
-      },
-      { threshold: 0.5 }
-    );
-  }, [next]);
+				if (prevY.current > y) {
+					next();
+				}
+				prevY.current = y;
+			},
+			{ threshold: 0.5 }
+		);
+	}, [next]);
 
-  useEffect(() => {
-    const currentElement = element;
-    const currentObserver = observer.current;
+	useEffect(() => {
+		const currentElement = element;
+		const currentObserver = observer.current;
 
-    if (currentElement) {
-      currentObserver.observe(currentElement);
-    }
+		if (currentElement) {
+			currentObserver.observe(currentElement);
+		}
 
-    return () => {
-      if (currentElement) {
-        currentObserver.unobserve(currentElement);
-      }
-    };
-  }, [element]);
+		return () => {
+			if (currentElement) {
+				currentObserver.unobserve(currentElement);
+			}
+		};
+	}, [element]);
 
-  const metadata = {
-    title: "Últimos Artículos",
-  };
+	const metadata = {
+		title: "Últimos Artículos",
+	};
 
-  return (
-    <Layout type="page" metadata={metadata}>
-      <ScrollToTop />
-      {currentPosts &&
-        currentPosts.map((post) => (
-          <NextLink href={post.slug} key={post.slug}>
-            <PostListItem
-              title={post.title}
-              date={formatDate(post.date)}
-              tags={post.tags}
-            />
-          </NextLink>
-        ))}
-      {currentPage !== maxPage && (
-        <UI.Text fontSize="xl" fontWeight="bold" p={6} ref={setElement}>
-          Cargando...
-        </UI.Text>
-      )}
-    </Layout>
-  );
+	return (
+		<Layout type="page" metadata={metadata}>
+			<ScrollToTop />
+			{currentPosts &&
+				currentPosts.map((post) => (
+					<NextLink href={post.slug} key={post.slug}>
+						<PostListItem
+							title={post.title}
+							date={formatDate(post.date)}
+							tags={post.tags}
+						/>
+					</NextLink>
+				))}
+			{currentPage !== maxPage && (
+				<UI.Text fontSize="xl" fontWeight="bold" p={6} ref={setElement}>
+					Cargando...
+				</UI.Text>
+			)}
+		</Layout>
+	);
 }
 
 export async function getStaticProps() {
-  const unorderedPosts = await getAllFilesFrontMatter("posts");
-  const posts = unorderedPosts.sort(orderByDate);
+	const unorderedPosts = await getAllFilesFrontMatter("posts");
+	const posts = unorderedPosts.sort(orderByDate);
 
-  return {
-    props: { posts },
-  };
+	return {
+		props: { posts },
+	};
 }
