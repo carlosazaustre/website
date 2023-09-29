@@ -53,12 +53,13 @@ export default function Home({ posts }) {
 							</UI.Heading>
 
 							<UI.Text fontSize="md" lineHeight={1.75} mt={[4, 0]} mb={4}>
-								Ingeniero en Telemática, 10+ años de experiencia trabajando como
-								Software Engineer y Developer Relations en empresas como Google,
-								IBM Research y Eventbrite. Divulgador y creador de contenido
-								sobre programación y desarrollo web a través de YouTube. Google
+								Ingeniero en Telemática, Profesor Asociado en Universidad
+								Europea. 10+ años de experiencia trabajando como Software
+								Engineer y Developer Relations en empresas como Google, IBM
+								Research y Eventbrite. Divulgador y creador de contenido sobre
+								programación y desarrollo web a través de YouTube. Google
 								Developer Expert (GDE) en Web. Premiado como Microsoft MVP en
-								2022.
+								2022 y 2023
 							</UI.Text>
 						</UI.Box>
 
@@ -108,6 +109,19 @@ export default function Home({ posts }) {
 								as="a"
 								display="block"
 								borderRadius={8}
+								href="https://amzn.to/3ZHIELW"
+								target="_blank"
+								rel="noopener noreferrer nofollow"
+							>
+								<UI.Image
+									borderRadius="md"
+									src="/assets/libro-react-blog.png"
+								/>
+							</UI.Box>
+							<UI.Box
+								as="a"
+								display="block"
+								borderRadius={8}
 								href="https://amzn.to/3DGJZaX"
 								target="_blank"
 								rel="noopener noreferrer nofollow"
@@ -142,7 +156,7 @@ export default function Home({ posts }) {
 								<UI.Text py={4}>{latestVideos[0]?.snippet?.title}</UI.Text>
 							</UI.Box>
 
-							<UI.Text
+							{/* <UI.Text
 								fontFamily="heading"
 								fontWeight="600"
 								as="h3"
@@ -152,8 +166,7 @@ export default function Home({ posts }) {
 								Último podcast
 							</UI.Text>
 							<SpotifyPodcast episode="4gpRhkHybRndxjYV8jsRzm?si=b6UE7Kw_TGOnw5Soi5STeQ" />
-
-							<NewsletterForm />
+							*/}
 						</UI.Box>
 					</UI.Flex>
 				</UI.Container>
