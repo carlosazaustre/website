@@ -74,12 +74,32 @@ export default function Home({ posts }) {
 								src="/assets/carlos_azaustre.png"
 								alt="Carlos Azaustre"
 							/>
+							<UI.Image
+								width="100%"
+								src="/assets/gde-logo.png"
+								alt="Google Developer Expert"
+								my="4"
+							/>
+							<UI.Image
+								width="100%"
+								src="/assets/mvp-logo.png"
+								alt="Microsoft Most Valuable Professional"
+								my="4"
+							/>
+							<UI.Link href="https://www.linkedin.com/in/carlosazaustre/overlay/top-voice-detail/?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAOvD_gBTUDx7F2OLMxVJp7Gef_h8PzoqBU">
+								<UI.Image
+									width="100%"
+									src="/assets/topvoice.png"
+									alt="LinkedIn Community Top Voice: Programming, Software Development & Frontend Development"
+									my="4"
+								/>
+							</UI.Link>
 						</UI.Box>
 					</UI.Flex>
 					<SocialNetworks />
 
 					<UI.Flex direction={["column", "column", "row"]}>
-						<UI.Box w={["100%", "100%", "75%"]}>
+						<UI.Box w={["100%", "100%", "70%"]}>
 							<UI.Text
 								fontFamily="heading"
 								fontWeight="600"
@@ -104,7 +124,56 @@ export default function Home({ posts }) {
 						</UI.Box>
 
 						{/* Sidebar */}
-						<UI.Box w={["100%", "100%", "25%"]}>
+						<UI.Box w={["100%", "100%", "30%"]}>
+							<UI.Text
+								fontFamily="heading"
+								fontWeight="600"
+								as="h3"
+								fontSize="xl"
+								my="4"
+							>
+								Libros Publicados
+							</UI.Text>
+
+							<UI.Text
+								fontFamily="heading"
+								fontWeight="400"
+								as="h4"
+								fontSize="md"
+								my="1"
+							>
+								Aprendiendo React
+							</UI.Text>
+							<UI.Text fontFamily="body" fontSize="xs">
+								ISBN 979-8852737427
+							</UI.Text>
+							<UI.Box
+								as="a"
+								display="block"
+								borderRadius={8}
+								href="https://amzn.to/3ZHIELW"
+								target="_blank"
+								rel="noopener noreferrer nofollow"
+							>
+								<UI.Image
+									borderRadius="md"
+									src="/assets/libro-react-blog.png"
+									title="Aprendiendo React"
+								/>
+							</UI.Box>
+
+							<UI.Text
+								fontFamily="heading"
+								fontWeight="400"
+								as="h4"
+								fontSize="md"
+								my="1"
+							>
+								Aprendiendo JavaScript
+							</UI.Text>
+							<UI.Text fontFamily="body" fontSize="xs">
+								ISBN 979-8700179263
+							</UI.Text>
 							<UI.Box
 								as="a"
 								display="block"
@@ -126,7 +195,11 @@ export default function Home({ posts }) {
 								target="_blank"
 								rel="noopener noreferrer nofollow"
 							>
-								<UI.Image borderRadius="md" src="/assets/panel-book.png" />
+								<UI.Image
+									borderRadius="md"
+									src="/assets/panel-book.png"
+									title="Aprendiendo JavaScript"
+								/>
 							</UI.Box>
 
 							<UI.Text

@@ -21,6 +21,7 @@
         "@vercel/og": "^0.0.20",
         "date-fns": "^2.22.1",
         "disqus-react": "^1.1.5",
+        "dotenv": "^16.3.1",
         "eslint-config-next": "^13.0.0",
         "framer-motion": "^6.5.1",
         "fs": "^0.0.1-security",
