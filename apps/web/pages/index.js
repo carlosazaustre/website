@@ -132,6 +132,16 @@ export default function Home({ posts }) {
 								fontSize="xl"
 								my="4"
 							>
+								Último podcast
+							</UI.Text>
+							<SpotifyPodcast episode="2y3MGMC2WmbnMNiW3Vi3J5?si=ce97e30bdb4f4773" />
+							<UI.Text
+								fontFamily="heading"
+								fontWeight="600"
+								as="h3"
+								fontSize="xl"
+								my="4"
+							>
 								Libros Publicados
 							</UI.Text>
 
@@ -215,18 +225,6 @@ export default function Home({ posts }) {
 								/>
 								<UI.Text py={4}>{latestVideos[0]?.snippet?.title}</UI.Text>
 							</UI.Box>
-
-							{/* <UI.Text
-								fontFamily="heading"
-								fontWeight="600"
-								as="h3"
-								fontSize="xl"
-								my="4"
-							>
-								Último podcast
-							</UI.Text>
-							<SpotifyPodcast episode="4gpRhkHybRndxjYV8jsRzm?si=b6UE7Kw_TGOnw5Soi5STeQ" />
-							*/}
 						</UI.Box>
 					</UI.Flex>
 				</UI.Container>
