@@ -3,16 +3,16 @@ import {
     extendTheme,
     createLocalStorageManager,
   } from "@chakra-ui/react";
-  
+
   const theme = extendTheme({
     colors: {
       brand: {
-        900: "#FBD065",
+        900: "#FFCC00",
         500: "#FBDA89",
         100: "#FBE5B0",
       },
       secondary: {
-        900: "#202225",
+        900: "#151515",
         500: "#2A2D31",
         100: "#3B3F45",
       },
@@ -37,6 +37,5 @@ import {
       },
     },
   });
-  
+
   export { ChakraProvider as ThemeProvider, createLocalStorageManager, theme };
-  
