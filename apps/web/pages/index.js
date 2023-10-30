@@ -178,19 +178,6 @@ export default function Home({ posts }) {
 								as="a"
 								display="block"
 								borderRadius={8}
-								href="https://amzn.to/3ZHIELW"
-								target="_blank"
-								rel="noopener noreferrer nofollow"
-							>
-								<UI.Image
-									borderRadius="md"
-									src="/assets/libro-react-blog.png"
-								/>
-							</UI.Box>
-							<UI.Box
-								as="a"
-								display="block"
-								borderRadius={8}
 								href="https://amzn.to/3DGJZaX"
 								target="_blank"
 								rel="noopener noreferrer nofollow"
