@@ -134,7 +134,7 @@ export default function Home({ posts }) {
 							>
 								Último podcast
 							</UI.Text>
-							<SpotifyPodcast episode="2y3MGMC2WmbnMNiW3Vi3J5?si=ce97e30bdb4f4773" />
+							<SpotifyPodcast episode="53oLNOeYHAq6fn9gGIdrmE?si=52f12fbed8b341e5" />
 							<UI.Text
 								fontFamily="heading"
 								fontWeight="600"
@@ -216,14 +216,16 @@ export default function Home({ posts }) {
 								mb={4}
 								borderRadius={8}
 								backgroundColor="secondary.500"
-								href={`https://youtube.com/watch?v=${latestVideos[0]?.snippet?.resourceId?.videoId}`}
+								href="https://www.youtube.com/watch?v=cb-dvaUdMxY"
 								rel="noopener noreferrer nofollow"
 							>
 								<UI.Image
 									borderRadius="md"
-									src={latestVideos[0]?.snippet?.thumbnails?.standard?.url}
+									src="https://i.ytimg.com/vi/cb-dvaUdMxY/maxresdefault.jpg"
 								/>
-								<UI.Text py={4}>{latestVideos[0]?.snippet?.title}</UI.Text>
+								<UI.Text py={4}>
+									Descubre 10 técnicas para mejorar tu código en REACT
+								</UI.Text>
 							</UI.Box>
 						</UI.Box>
 					</UI.Flex>
